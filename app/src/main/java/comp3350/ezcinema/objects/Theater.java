@@ -34,7 +34,7 @@ public class Theater
 
     public String toString()
     {
-        return "theater: "  + theaterName +"\n " +theaterAddress;
+        return theaterName +"\nAddress: " +theaterAddress;
     }
 
     public boolean equals(Object object)

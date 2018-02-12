@@ -40,7 +40,7 @@ public class Movie
 
     public String toString()
     {
-        return "Movie: " + movieName + "\n" + description +"\n" + rating;
+        return movieName + "\nDescription:\n" + description +"\nRating:  " + rating;
     }
 
     public boolean equals(Object object)
