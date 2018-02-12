@@ -1,6 +1,7 @@
 package comp3350.ezcinema.business;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.application.Services;
@@ -15,23 +16,24 @@ public class AccessMovie {
 
 
     private DataAccessStub dataAccess;
-    private ArrayList<Movie> movies;
+    private List<Movie> movies;
     private Movie movie;
 
 
     public AccessMovie()
     {
-        dataAccess = Services.getDataAccess(Main.dbName);
+        dataAccess =(DataAccessStub) Services.getDataAccess(Main.dbName);
         movies = null;
         movie = null;
     }
 
     //returns the list of movies from the database
-    public void getMovies(ArrayList<Movie> movies)
+    public String getMovies(List<Movie> movies)
     {
         movies.clear();
-        dataAccess.getMoviesSequential(movies);
+       return dataAccess.getMoviesSequential(movies);
     }
+
 
 
 

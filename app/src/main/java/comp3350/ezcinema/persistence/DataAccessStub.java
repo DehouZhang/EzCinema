@@ -58,118 +58,16 @@ public class DataAccessStub
 		System.out.println("Closed " +dbType +" database " +dbName);
 	}
 
-	public void getMoviesSequential(ArrayList<Movie> movieResult)
+	public String getMoviesSequential(List<Movie> movieResult)
 	{
         movieResult.addAll(movies);
+        return null;
 	}
 
-
-
-	public ArrayList<Movie> getStudentRandom(Movie currentMovie)
+	public String getTheatersSequential(List<Theater> theaterResult)
 	{
-		ArrayList<Movie> newMovies;
-		int index;
-		
-		newMovies = new ArrayList<Movie>();
-		index = movies.indexOf(currentMovie);
-		if (index >= 0)
-		{
-			newMovies.add(movies.get(index));
-		}
-		return newMovies;
-	}
-
-
-
-	public String insertStudent(Movie currentMovie)
-	{
-		// don't bother checking for duplicates
-		movies.add(currentMovie);
+		theaterResult.addAll(theaters);
 		return null;
 	}
-
-
-
-
-	public String updateStudent(Movie currentMovie)
-	{
-		int index;
-		
-		index = movies.indexOf(currentMovie);
-		if (index >= 0)
-		{
-			movies.set(index, currentMovie);
-		}
-		return null;
-	}
-
-
-
-	public String deleteStudent(Movie currentMovie)
-	{
-		int index;
-		
-		index = movies.indexOf(currentMovie);
-		if (index >= 0)
-		{
-			movies.remove(index);
-		}
-		return null;
-	}
-
-
-	public String getTheaterSequential(List<Theater> theaterResult)
-	{
-        theaterResult.addAll(theaters);
-		return null;
-	}
-
-
-
-	public ArrayList<Theater> getCourseRandom(Theater currentTheater)
-	{
-		ArrayList<Theater> newCours;
-		int index;
-		
-		newCours = new ArrayList<Theater>();
-		index = theaters.indexOf(currentTheater);
-		if (index >= 0)
-		{
-			newCours.add(theaters.get(index));
-		}
-		return newCours;
-	}
-
-	public String insertCourse(Theater currentTheater)
-	{
-		// don't bother checking for duplicates
-		theaters.add(currentTheater);
-		return null;
-	}
-
-	public String updateCourse(Theater currentTheater)
-	{
-		int index;
-		
-		index = theaters.indexOf(currentTheater);
-		if (index >= 0)
-		{
-			theaters.set(index, currentTheater);
-		}
-		return null;
-	}
-
-	public String deleteCourse(Theater currentTheater)
-	{
-		int index;
-		
-		index = theaters.indexOf(currentTheater);
-		if (index >= 0)
-		{
-			theaters.remove(index);
-		}
-		return null;
-	}
-
 
 }

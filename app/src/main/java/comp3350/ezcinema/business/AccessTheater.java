@@ -1,6 +1,7 @@
 package comp3350.ezcinema.business;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.application.Services;
@@ -27,10 +28,10 @@ public class AccessTheater {
         }
 
         //returns the list of movies from the database
-        public String getTheaters(ArrayList<Theater> theaters)
+        public String getTheaters(List<Theater> theaters)
         {
             theaters.clear();
-            return dataAccess.getTheaterSequential(theaters);
+            return dataAccess.getTheatersSequential(theaters);
         }
 
 }

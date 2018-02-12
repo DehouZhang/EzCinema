@@ -10,7 +10,7 @@ import comp3350.ezcinema.objects.Movie;
  * Created by RandallUser on 2018-02-10.
  */
 
-public class SortMovies {
+public class SortMovie {
 
 
 

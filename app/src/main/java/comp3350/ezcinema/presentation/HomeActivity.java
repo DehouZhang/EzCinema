@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import comp3350.ezcinema.R;
+import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.objects.Theater;
 
 public class HomeActivity extends AppCompatActivity {
@@ -13,7 +14,15 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Main.startUp();
         setContentView(R.layout.activity_home);
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Main.shutDown();
     }
 
     public void buttonMovieOnClick(View v)

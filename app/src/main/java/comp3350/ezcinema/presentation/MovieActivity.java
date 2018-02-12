@@ -11,7 +11,7 @@ import android.widget.ListView;
 import comp3350.ezcinema.R;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.business.AccessMovie;
-import comp3350.ezcinema.business.SortMovies;
+import comp3350.ezcinema.business.SortMovie;
 import java.util.ArrayList;
 
 public class MovieActivity extends AppCompatActivity
@@ -20,7 +20,7 @@ public class MovieActivity extends AppCompatActivity
     private ArrayList<Movie> movieList;
     private ArrayList<Movie> sortedList;
     private AccessMovie accessMovie;
-    private SortMovies sortedMovie;
+    private SortMovie sortedMovie;
     private ArrayAdapter<Movie> movieArrayAdapter;
 
     //views
@@ -43,25 +43,10 @@ public class MovieActivity extends AppCompatActivity
     {
         //initialize data
         movieList = new ArrayList<Movie>();
-        //accessMovie = new AccessMovie();
-        //accessMovie.getMovies(movieList);      //transfer items in the db into movieList
-        sortedMovie = new SortMovies();
+        accessMovie = new AccessMovie();
 
-        //sample data --------------------------------------------------------- todo <movieList> only contains sample data, delete this block after database is implemented
-        Movie movie1 = new Movie("1","Batman","the batman movie", "2",1.00);
-        Movie movie2 = new Movie("2","X-men","the X-men movie", "2",2.00);
-        Movie movie3 = new Movie("3","SuperMan","the SuperMan movie", "2",3.00);
-        Movie movie4 = new Movie("4","SpiderMan","the SpiderMan movie", "2",4.00);
-        Movie movie5 = new Movie("5","IronMan","the IronMan movie", "2",5.00);
-        Movie movie6 = new Movie("6","DragonBall","the DragonBall movie", "2",6.00);
-
-        movieList.add(movie2);
-        movieList.add(movie3);
-        movieList.add(movie6);
-        movieList.add(movie5);
-        movieList.add(movie1);
-        movieList.add(movie4);
-        //------------------------------------------------------------------------
+        accessMovie.getMovies(movieList);      //transfer items in the db into movieList
+        sortedMovie = new SortMovie();
 
 
         //initialize views
