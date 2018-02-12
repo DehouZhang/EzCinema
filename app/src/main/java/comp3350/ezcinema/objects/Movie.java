@@ -13,12 +13,6 @@ public class Movie
     private double rating;
     private String genre;
 
-    public Movie(String newID)
-    {
-        movieID = newID;
-        movieName = null;
-    }
-
     public Movie(String newID, String newMovieName, String newDescription, String newGenre, double newRating)
     {
         movieID = newID;
@@ -67,10 +61,7 @@ public class Movie
         return result;
     }
 
-
     //used to compare the attributes of the Movie ArrayList items
-
-
     public static Comparator<Movie> MovieNameComparator = new Comparator<Movie>() {
 
         public int compare(Movie m1, Movie m2) {

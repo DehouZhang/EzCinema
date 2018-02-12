@@ -27,7 +27,7 @@ public class Theater
         return (theaterName);
     }
 
-    public String getThearerAddress()
+    public String getTheaterAddress()
     {
         return (theaterAddress);
     }
@@ -71,8 +71,8 @@ public class Theater
         public int compare(Theater m1, Theater m2) {
 
             //For ascending order
-            String TheaterName1 = m1.getThearerAddress().toUpperCase();
-            String TheaterName2 = m2.getThearerAddress().toUpperCase();
+            String TheaterName1 = m1.getTheaterAddress().toUpperCase();
+            String TheaterName2 = m2.getTheaterAddress().toUpperCase();
 
             return TheaterName1.compareTo(TheaterName2);
 
