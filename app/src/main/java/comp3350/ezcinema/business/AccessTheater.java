@@ -11,7 +11,7 @@ import comp3350.ezcinema.persistence.DataAccessStub;
  * Created by RandallUser on 2018-02-11.
  */
 
-public class AccessTheaters {
+public class AccessTheater {
 
 
         private DataAccessStub dataAccess;
@@ -19,7 +19,7 @@ public class AccessTheaters {
         private Theater theater;
 
 
-        public AccessTheaters()
+        public AccessTheater()
         {
             dataAccess = Services.getDataAccess(Main.dbName);
             theaters = null;

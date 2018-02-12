@@ -11,6 +11,7 @@ public class Movie
     private String movieName;
     private String description;
     private double rating;
+    private String genre;
 
     public Movie(String newID)
     {
@@ -18,12 +19,13 @@ public class Movie
         movieName = null;
     }
 
-    public Movie(String newID, String newMovieName, String newDescription, double newRating)
+    public Movie(String newID, String newMovieName, String newDescription, String newGenre, double newRating)
     {
         movieID = newID;
         movieName = newMovieName;
         description = newDescription;
         rating = newRating;
+        genre = newGenre;
     }
 
     public String getMovieID()
@@ -39,6 +41,8 @@ public class Movie
     public String getMovieDescription() { return (description);}
 
     public double getMovieRating() { return (rating); }
+
+    public String getGenre() { return (genre); }
 
     public String toString()
     {

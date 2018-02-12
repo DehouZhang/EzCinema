@@ -11,7 +11,7 @@ import comp3350.ezcinema.persistence.DataAccessStub;
  * Created by RandallUser on 2018-02-11.
  */
 
-public class AccessMovies {
+public class AccessMovie {
 
 
     private DataAccessStub dataAccess;
@@ -19,7 +19,7 @@ public class AccessMovies {
     private Movie movie;
 
 
-    public AccessMovies()
+    public AccessMovie()
     {
         dataAccess = Services.getDataAccess(Main.dbName);
         movies = null;
@@ -27,10 +27,10 @@ public class AccessMovies {
     }
 
     //returns the list of movies from the database
-    public String getMovies(ArrayList<Movie> movies)
+    public void getMovies(ArrayList<Movie> movies)
     {
         movies.clear();
-        return dataAccess.getMoviesSequential(movies);
+        dataAccess.getMoviesSequential(movies);
     }
 
 

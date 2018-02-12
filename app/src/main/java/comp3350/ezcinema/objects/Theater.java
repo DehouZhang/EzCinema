@@ -4,18 +4,18 @@ import java.util.Comparator;
 
 public class Theater
 {
-    private int theaterID;
+    private String theaterID;
     private String theaterName;
     private String theaterAddress;
 
-    public Theater(int newID)
+    public Theater(String newID)
     {
         theaterID = newID;
         theaterName = null;
         theaterAddress = null;
     }
 
-    public Theater(int newID, String newTheaterName, String newTheaterAddress)
+    public Theater(String newID, String newTheaterName, String newTheaterAddress)
     {
         theaterID = newID;
         theaterName = newTheaterName;

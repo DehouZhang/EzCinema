@@ -58,10 +58,9 @@ public class DataAccessStub
 		System.out.println("Closed " +dbType +" database " +dbName);
 	}
 
-	public String getMoviesSequential(ArrayList<Movie> movieResult)
+	public void getMoviesSequential(ArrayList<Movie> movieResult)
 	{
         movieResult.addAll(movies);
-		return null;
 	}
 
 

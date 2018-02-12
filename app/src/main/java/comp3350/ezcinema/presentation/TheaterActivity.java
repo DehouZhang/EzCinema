@@ -42,17 +42,17 @@ public class TheaterActivity extends AppCompatActivity
     {
         //initialize data
         theaterList = new ArrayList<Theater>();
-        accessTheater = new AccessTheater();
+        //accessTheater = new AccessTheater();
         //accessTheater.getTheaterSequential(theaterList);      //transfer items in the db into theaterList
         sortedTheater = new SortTheater();
 
         //sample data --------------------------------------------------------- todo <theaterList> only contains sample data, delete this block after database is implemented
-        Theater theater1 = new Theater(1,"Eglinton Theatre","C Road");
-        Theater theater2 = new Theater(2,"Corona Theatre","M Road");
-        Theater theater3 = new Theater(3,"Royal Cinema","H Road");
-        Theater theater4 = new Theater(4,"Rex Theatre","A Road");
-        Theater theater5 = new Theater(5,"Mobile Cinema","V Road");
-        Theater theater6 = new Theater(6,"Astor Theater","W Road");
+        Theater theater1 = new Theater("1","Eglinton Theatre","C Road");
+        Theater theater2 = new Theater("2","Corona Theatre","M Road");
+        Theater theater3 = new Theater("3","Royal Cinema","H Road");
+        Theater theater4 = new Theater("4","Rex Theatre","A Road");
+        Theater theater5 = new Theater("5","Mobile Cinema","V Road");
+        Theater theater6 = new Theater("6","Astor Theater","W Road");
 
         theaterList.add(theater2);
         theaterList.add(theater3);
