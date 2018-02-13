@@ -1,12 +1,18 @@
 package comp3350.ezcinema.presentation;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import comp3350.ezcinema.R;
 import comp3350.ezcinema.objects.Movie;
@@ -37,6 +43,7 @@ public class MovieActivity extends AppCompatActivity
 
         initializeView();
         updateList();
+        listItemClicked();
     }
 
     private void initializeView()
@@ -88,6 +95,22 @@ public class MovieActivity extends AppCompatActivity
         });
     }
 
+    private void listItemClicked()
+    {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent movieDescIntent = new Intent(MovieActivity.this, MovieDescActivity.class);
+
+                Movie displayMovie = movieList.get(i);
+                movieDescIntent.putExtra("DisplayMovie",displayMovie);    //pass displayMovie into MovieDescActivity
+
+                startActivity(movieDescIntent);
+
+            }
+        });
+    }
+
     private void sortByGenre()
     {
         //todo <sortByGenre()> currently works as reset to launch view
@@ -98,15 +121,15 @@ public class MovieActivity extends AppCompatActivity
 
     private void sortByRating()
     {
-        sortedList = (ArrayList<Movie>) sortedMovie.sortByRating(movieList);
-        movieArrayAdapter = new ArrayAdapter<Movie>(this,android.R.layout.simple_list_item_1,android.R.id.text1, sortedList);
+        movieList = (ArrayList<Movie>) sortedMovie.sortByRating(movieList);
+        movieArrayAdapter = new ArrayAdapter<Movie>(this,android.R.layout.simple_list_item_1,android.R.id.text1, movieList);
         listView.setAdapter(movieArrayAdapter);
     }
 
     private void sortByName()
     {
-        sortedList = (ArrayList<Movie>)sortedMovie.sortByName(movieList);
-        movieArrayAdapter = new ArrayAdapter<Movie>(this,android.R.layout.simple_list_item_1,android.R.id.text1, sortedList);
+        movieList = (ArrayList<Movie>)sortedMovie.sortByName(movieList);
+        movieArrayAdapter = new ArrayAdapter<Movie>(this,android.R.layout.simple_list_item_1,android.R.id.text1, movieList);
         listView.setAdapter(movieArrayAdapter);
     }
 

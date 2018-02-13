@@ -3,9 +3,10 @@ package comp3350.ezcinema.objects;
 /**
  * Created by 杨 on 2018/2/11.
  */
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class Movie
+public class Movie implements Serializable
 {
     private String movieID;
     private String movieName;
