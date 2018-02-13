@@ -1,8 +1,9 @@
 package comp3350.ezcinema.objects;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class Theater
+public class Theater implements Serializable
 {
     private String theaterID;
     private String theaterName;
