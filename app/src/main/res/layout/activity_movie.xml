@@ -7,6 +7,31 @@
     android:orientation="vertical"
     tools:context="comp3350.ezcinema.presentation.MovieActivity">
 
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Genre Filter:"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/genreSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dropDownWidth="match_parent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:id="@+id/separator2"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -29,19 +54,10 @@
         android:layout_marginTop="10dp">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Genre"
-            android:id="@+id/sortGenreBtn"
-            android:layout_alignParentRight="true"
-            android:enabled="true" />
-
-        <Button
             android:id="@+id/sortNameBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:enabled="true"
             android:text="Name" />
@@ -49,6 +65,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
             android:text="Rating"
             android:id="@+id/sortRatingBtn"
             android:layout_centerHorizontal="true"

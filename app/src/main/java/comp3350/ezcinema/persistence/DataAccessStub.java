@@ -31,7 +31,7 @@ public class DataAccessStub
 		Theater theater;
 
 		movies = new ArrayList<Movie>();
-		movie = new Movie("1", "Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship..", "Romantic", 3.4);//TODO change genre before handin
+		movie = new Movie("1", "Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship..", "Family", 6.4);
 		movies.add(movie);
 		movie = new Movie("2", "Peter Rabbit", "Feature adaptation of Beatrix Potter's classic tale of a rebellious rabbit trying to sneak into a farmer's vegetable garden.", "Family", 5.6);
 		movies.add(movie);
