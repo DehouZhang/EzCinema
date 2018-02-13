@@ -55,23 +55,4 @@ public class SortMovie {
     return filteredList;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
