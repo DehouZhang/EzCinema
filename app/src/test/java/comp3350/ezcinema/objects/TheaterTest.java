@@ -1,5 +1,6 @@
 package comp3350.ezcinema.objects;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,7 +10,12 @@ import static org.junit.Assert.*;
  */
 public class TheaterTest {
 
-    private Theater theater = new Theater("1", "cineplex", "a road");
+    private Theater theater;
+
+    @Before
+    public void setUp() throws Exception{
+        theater = new Theater("1", "cineplex", "a road");
+    }
     @Test
     public void getTheaterName() throws Exception {
         assertEquals("cineplex", theater.getTheaterName());
