@@ -53,7 +53,6 @@ public class MovieActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     private void initializeGenreList() {
-        //todo just hard coded genres, may improve logic
         genreList = new ArrayList<>();
 
         genreList.add("All");   //default selection
