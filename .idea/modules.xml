@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EzCinema.iml" filepath="$PROJECT_DIR$/EzCinema.iml" />
-      <module fileurl="file://E:\3350project\EzCinema\EzCinema.iml" filepath="E:\3350project\EzCinema\EzCinema.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://E:\3350project\EzCinema\app\app.iml" filepath="E:\3350project\EzCinema\app\app.iml" />
     </modules>
   </component>
 </project>

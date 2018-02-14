@@ -1,8 +1,5 @@
 package comp3350.ezcinema.objects;
 
-/**
- * Created by 杨 on 2018/2/11.
- */
 import java.io.Serializable;
 import java.util.Comparator;
 
@@ -72,9 +69,7 @@ public class Movie implements Serializable
             //ascending order
             return MovieName1.compareTo(MovieName2);
 
-            //descending order
-            //return StudentName2.compareTo(StudentName1);
-        }};
+         }};
 
 
     public static Comparator<Movie> MovieRatingComparator = new Comparator<Movie>() {

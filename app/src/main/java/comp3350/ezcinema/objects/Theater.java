@@ -9,13 +9,6 @@ public class Theater implements Serializable
     private String theaterName;
     private String theaterAddress;
 
-    public Theater(String newID)
-    {
-        theaterID = newID;
-        theaterName = null;
-        theaterAddress = null;
-    }
-
     public Theater(String newID, String newTheaterName, String newTheaterAddress)
     {
         theaterID = newID;
