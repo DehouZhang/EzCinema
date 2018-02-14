@@ -19,22 +19,22 @@ Feb 10:
 
     implement business Sorting Methods (Randall Romanow)
 
-    implement GUI (Dehou Zhang & Qin Yang)
+    implement GUI (Dehou Zhang & Qin Yang, 7 hours)
 
-    home page created (Qin Yang)
+    home page created (Qin Yang, 0.5 hours)
         HomeActivity.java and activity_home.xml created
         two buttons created - buttonMovie, buttonTheater
 
-    movie page created (Qin Yang)
+    movie page created (Qin Yang, 0.5 hours)
         MovieActivity.java and activity_movie.xml created
         listview created: list_view
         three buttons created: sortNameBtn, sortRatingBtn, sortGenreBtn
 
-    home page implemented (Qin Yang)
+    home page implemented (Qin Yang, 1 hour)
         implemented buttononMovieClick() - when buttonMoive is clicked, start MovieActivity
         implemented buttononTheaterClick() - when buttonTheater is clicked, start TheaterActivity
 
-    movie page implemented (Qin Yang)
+    movie page implemented (Qin Yang, 4 hours)
         Set up private datas for accessing database
         Implemented initializeView() - initialize GUI objects to create the launch view of this page, display movies in the database
         that is going to be sorted
@@ -44,14 +44,16 @@ Feb 11:
     modified SRSYS access methods for Movie and theater (Randall Romanow)
 
     implement GUI about Theater (Dehou Zhang)
-        changes on toString() methods in Movie object and Theater object(Qin Yang)
+    implement GUI about Movie (Qin Yang, 6 hours)
+
+    changes on toString() methods in Movie object and Theater object(Qin Yang, 0.5 hours)
         gives better display of Movie list and theater list
 
-    movie info page created (Qin Yang)
+    movie info page created (Qin Yang, 0.5 hours)
         MovieDescAcitivy.java and activity_movie_desc.xml created
         three TextViews created: textViewTitle, textViewContent, textViewRating
 
-    movie info page implemented and changes on MovieActivity and Movie objects (Qin Yang)
+    movie info page implemented and changes on MovieActivity and Movie objects (Qin Yang, 5 hours)
         In Movie:
         movie class implements Serializable for passing this type of object between activities
 
@@ -64,18 +66,18 @@ Feb 11:
         rating on textViewRating
 
 Feb 12:
-    group meeting to connect GUI with the database and debugging (All members)
+    group meeting to connect GUI with the database and debugging (All members, 4 hours)
 
-    GUI changes
+    Changes for Movie GUI(Qin Yang, 5 hours)
         movie page change (Qin Yang)
             sort by genre is no longer needed, a filter for genre will be implemented
 
-        Change on activity_movie_xml (Qin Yang)
+        Change on activity_movie_xml (Qin Yang, 1 hour)
             sortGenreBtn is deleted
             textView added: textView
             spinner added: genreSpinner
 
-        Change on MovieActivity.java (Qin Yang)
+        Change on MovieActivity.java (Qin Yang, 4 hours)
             the class implements AdapterView.OnItemSelectedListener for spinner selections
             implemented initializeGenreList() for the spinner subitems as filter options
             implemented onItemSelected() to filter movies by genre from list
