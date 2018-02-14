@@ -1,47 +1,42 @@
 Project log
-Feb 2: set up repository (Dow Griffith, 1 hour)
+Feb 2: set up project (Dow Griffith, 1.5 hour)
+	Set up sample project to get started on(1 hour)
+	Set up a repository(.5 hour)
 Feb 5: group meeting to divide the work (All members, 1.5 hours)
 Feb 7: implemented movie and theater domain objects (Dow Griffith, 2.5)
-Feb 8: draw out two potential GUI designs (Shawn Cooper, .5 hours)
-Feb 9: group meeting to choose the name of applicaiton and choose GUI (All members)
+	Refactored names and made new variables with a appropriate accessor methods
+Feb 9: group meeting to choose the name of applicaiton (All members)
 Feb 10: Modified SRSYS database stub for Movie and Theater objects (Dow Griffith .5 hours)
-Feb 10: implement GUI (Dehou Zhang & Qin Yang, 7 hours)
-  home page created (Qin Yang, 0.5 hours)
+	Mostly data entry
+Feb 10: implement GUI (Dehou Zhang & Qin Yang)
+  home page created (Qin Yang)
     HomeActivity.java and activity_home.xml created 
     two buttons created - buttonMovie, buttonTheater
 
-  movie page created (Qin Yang, 0.5 hours)
+  movie page created (Qin Yang)
     MovieActivity.java and activity_movie.xml created
     listview created: list_view
     three buttons created: sortNameBtn, sortRatingBtn, sortGenreBtn
 
-  home page implemented (Qin Yang, 1 hour)
+  home page implemented (Qin Yang)
     implemented buttononMovieClick() - when buttonMoive is clicked, start MovieActivity
     implemented buttononTheaterClick() - when buttonTheater is clicked, start TheaterActivity
 
-  movie page implemented (Qin Yang, 4 hours)
+  movie page implemented (Qin Yang)
     Set up private datas for accessing database
     Implemented initializeView() - initialize GUI objects to create the launch view of this page, display movies in the database 
     that is going to be sorted
     Implemented updateList() - update the movie list when buttons are clicked. Sort the movies by name, rating or genre.
   
-Feb 11: implement GUI about Theater (Dehou Zhang, 3 hours)
-    theater page implemented
-    TheaterActivity.java and activity_theater.xml created
-    listview created: list_view
-    two button created: sortNameBtn, sortAddressBtn
-    Set up private datas for accessing database
-    Implemented initializeView() - initialize GUI objects to create the launch view of this page, display theaters in the database that     is going to be sorted
-    Implemented updateList() - update the theater list when buttons are clicked. Sort the movies by name or address
-    
-Feb 11: implement GUI about Movie (Qin Yang, 6 hours)
-  changes on toString() methods in Movie object and Theater object(Qin Yang, 0.5 hours)
+Feb 11: implement GUI about Theater (Dehou Zhang)
+Feb 11: implement GUI about Movie (Qin Yang)
+  changes on toString() methods in Movie object and Theater object(Qin Yang)
     gives better display of Movie list and theater list
-  movie info page created (Qin Yang, 0.5 hours)
+  movie info page created (Qin Yang)
     MovieDescAcitivy.java and activity_movie_desc.xml created
     three TextViews created: textViewTitle, textViewContent, textViewRating
     
-  movie info page implemented and changes on MovieActivity and Movie objects (Qin Yang, 5 hours)
+  movie info page implemented and changes on MovieActivity and Movie objects (Qin Yang)
     In Movie:
       movie class implements Serializable for passing this type of object between activities
     In MovieActivity:
@@ -52,26 +47,20 @@ Feb 11: implement GUI about Movie (Qin Yang, 6 hours)
       rating on textViewRating
       
 Feb 12: group meeting to connect GUI with the database and debugging (All members, 4 hours)
-Feb 12: Changes for Movie GUI(Qin Yang, 5 hours)
+Feb 12: GUI changes
   movie page change (Qin Yang)
     sort by genre is no longer needed, a filter for genre will be implemented
 
-  Change on activity_movie_xml (Qin Yang, 1 hour)
+  Change on activity_movie_xml (Qin Yang)
     sortGenreBtn is deleted
     textView added: textView
     spinner added: genreSpinner
 
-  Change on MovieActivity.java (Qin Yang, 4 hours)
+  Change on MovieActivity.java (Qin Yang)
     the class implements AdapterView.OnItemSelectedListener for spinner selections
     implemented initializeGenreList() for the spinner subitems as filter options
     implemented onItemSelected() to filter movies by genre from list
     
-Feb 12: fix bugs about the database (Dehou Zhang & Randall Romanow, 2.5 hours)
-    the database cannot be loaded.
-    fixed by adding Main.startUp() in onCreate method in homeActivity
-Feb 12: Wrote tests for SortMovie and SortTheater(Shawn Cooper, 3 hours)
+Feb 12: fix bugs about the database (Dehou Zhang)
 Feb 12: Wrote tests for Movie, Theater, AccessMovie and AccessTheater classes (Dow Griffith, 4 hours)
-Feb 13: add Alltests.java file and modify some testing method(Dehou Zhang, 2 hours)
-    move the original tests file in to tests folder and creat Alltests.java 
-    test the Alltests.java
-
+Feb 13: add Alltests.java file and modify some testing method(Dehou Zhang)
