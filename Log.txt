@@ -43,7 +43,15 @@ Feb 10:
 Feb 11:
     modified SRSYS access methods for Movie and theater (Randall Romanow)
 
-    implement GUI about Theater (Dehou Zhang)
+    implement GUI about Theater (Dehou Zhang, 3 hours)
+        theater page implemented
+        TheaterActivity.java and activity_theater.xml created
+        listview created: list_view
+        two button created: sortNameBtn, sortAddressBtn
+        Set up private datas for accessing database
+        Implemented initializeView() - initialize GUI objects to create the launch view of this page, display theaters in the database that     is going to be sorted
+        Implemented updateList() - update the theater list when buttons are clicked. Sort the movies by name or address
+
     implement GUI about Movie (Qin Yang, 6 hours)
 
     changes on toString() methods in Movie object and Theater object(Qin Yang, 0.5 hours)
