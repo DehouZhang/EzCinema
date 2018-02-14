@@ -1,2 +1,6 @@
 Project log
 Feb 2: set up repository (Dow Griffith)
+Feb 10: implement GUI (Dehou Zhang & Qin Yang)
+Feb 11: implement GUI about Theater (Dehou Zhang)
+Feb 12: fix bugs about the database (Dehou Zhang)
+Feb 13: add Alltests.java file and modify some testing method(Dehou Zhang)
