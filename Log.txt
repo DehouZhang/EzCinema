@@ -24,7 +24,7 @@ Feb 10: implement GUI (Dehou Zhang & Qin Yang, 7 hours)
     Implemented initializeView() - initialize GUI objects to create the launch view of this page, display movies in the database 
     that is going to be sorted
     Implemented updateList() - update the movie list when buttons are clicked. Sort the movies by name, rating or genre.
-  
+    modify the layout of activity_home.xml and activity_movie.xml(Dehou Zhang, 1 hours)
 Feb 11: implement GUI about Theater (Dehou Zhang, 3 hours)
     theater page implemented
     TheaterActivity.java and activity_theater.xml created
