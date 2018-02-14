@@ -7,6 +7,6 @@ Feb 10: Modified SRSYS database stub for Movie and Theater objects (Dow Griffith
 Feb 10: implement GUI (Dehou Zhang & Qin Yang)
 Feb 11: implement GUI about Theater (Dehou Zhang)
 Feb 12: group meeting to connect GUI with the database and debugging (All members)
-Feb 12: fix bugs about the database (Dehou Zhang)
+Feb 12: fix bugs about the database (Dehou Zhang & Randall Romanow)
 Feb 12: Wrote tests for Movie, Theater, AccessMovie and AccessTheater classes (Dow Griffith)
 Feb 13: add Alltests.java file and modify some testing method(Dehou Zhang)
