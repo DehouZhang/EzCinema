@@ -17,7 +17,7 @@ Feb 9:
 Feb 10:
     Modified SRSYS database stub for Movie and Theater objects (Dow Griffith .5 hours)
 
-    implement business Sorting Methods (Randall Romanow, 2 hours)
+    implement business Sorting Methods (Randall Romanow, Shawn Cooper 2 hours)
 
     implement GUI (Dehou Zhang & Qin Yang, 7 hours)
 
