@@ -24,6 +24,7 @@ Feb 10:
 
     implement business Sorting Methods (Randall Romanow, Shawn Cooper 2 hours)
 >>>>>>> 8aafdb51da00276c941d700dd8806aa743033d3f
+    implement business Sorting Methods (Randall Romanow, Shawn Cooper 2 hours)
 
     implement GUI (Dehou Zhang & Qin Yang, 7 hours)
 
