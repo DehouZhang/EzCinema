@@ -42,6 +42,10 @@ Features
 	-Found by "clicking" a movie in the list
 -List of Theaters available
 	-Found under the theater button on the main screen
+	-Sorting methods for the theaters that are active
+		-Can be used by click the corresponding button
+		-Name
+		-Address 
  
 
 Log is in the repository
