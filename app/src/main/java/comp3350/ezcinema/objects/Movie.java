@@ -71,9 +71,6 @@ public class Movie implements Serializable
 
             //ascending order
             return MovieName1.compareTo(MovieName2);
-
-            //descending order
-            //return StudentName2.compareTo(StudentName1);
         }};
 
 
