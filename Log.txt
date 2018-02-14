@@ -1,13 +1,14 @@
-Project log
+﻿Project log
 Feb 2:
-    set up repository (Dow Griffith, 1 hour)
-
+    set up project (Dow Griffith, 1.5 hour)
+	Set up Sample Project to get started.(1 hour)
+	Set up repository(1 hour)
 Feb 5:
     group meeting to divide the work (All members, 1.5 hours)
 
 Feb 7:
     implemented movie and theater domain objects (Dow Griffith, 2.5)
-
+	Modified SRSYS objects to objects for our project. Wrote new variable and accessor methods
 Feb 8:
     draw out two potential GUI designs (Shawn Cooper, .5 hours)
 
@@ -16,8 +17,13 @@ Feb 9:
 
 Feb 10:
     Modified SRSYS database stub for Movie and Theater objects (Dow Griffith .5 hours)
-
+<<<<<<< HEAD
+	Data Entry and mild method modifications
     implement business Sorting Methods (Randall Romanow, 2 hours)
+=======
+
+    implement business Sorting Methods (Randall Romanow, Shawn Cooper 2 hours)
+>>>>>>> 8aafdb51da00276c941d700dd8806aa743033d3f
 
     implement GUI (Dehou Zhang & Qin Yang, 7 hours)
 
@@ -66,11 +72,11 @@ Feb 11:
         movie class implements Serializable for passing this type of object between activities
 
     In MovieActivity:
-        implemented listItemClicked() - when a list item is clicked, pass the clicked Movie object to MovieDescActivity and start
+        implemented listItemClicked() - when a list item is clicked, pass the clicked Movie object to MovieDescActivity and 	start
         MovieDescActivity
 
     In MovieDescActivity:
-        implemented showMovieDesc() - get the passed Movie object and show the title on textViewTile, description on textViewContent,
+        implemented showMovieDesc() - get the passed Movie object and show the title on textViewTile, description on 	textViewContent,
         rating on textViewRating
 
 Feb 12:
@@ -107,6 +113,8 @@ Feb 13:
     add Alltests.java file and modify some testing method(Dehou Zhang, 2 hours)
         move the original tests file in to tests folder and create Alltests.java
         test the Alltests.java
+<<<<<<< HEAD
     General clean up (All members)
-
->>>>>>> 74d22721302ad743614dcad1d4b8e7e61daae19c
+=======
+    General clean up (All members)
+>>>>>>> 8aafdb51da00276c941d700dd8806aa743033d3f
