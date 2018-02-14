@@ -38,6 +38,7 @@ public class SortTheaterTest extends TestCase{
 
         sorted = (ArrayList<Theater>) sortedTheater.sortByName(theater);
 
+        assertNotNull(sorted);
         assertEquals("A Theater", (sorted.get(0)).getTheaterName());
     }
 

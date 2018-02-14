@@ -39,6 +39,7 @@ public class SortMovieTest extends TestCase{
 
         sorted = (ArrayList<Movie>) sortedMovie.sortByName(movies);
 
+        assertNotNull(sorted);
         assertEquals("A Movie", (sorted.get(0)).getMovieName());
 
     }
