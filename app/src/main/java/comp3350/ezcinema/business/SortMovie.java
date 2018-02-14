@@ -2,23 +2,13 @@ package comp3350.ezcinema.business;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.function.Predicate;
+
 
 import comp3350.ezcinema.objects.Movie;
 
-/**
- * Created by RandallUser on 2018-02-10.
- */
 
 public class SortMovie {
 
-
-
-    //Pass lists you want sorted
-
-
-
-    //sort by name
     public static ArrayList<Movie> sortByName(ArrayList<Movie> databaseList){
 
         ArrayList<Movie> sortedList;
@@ -30,7 +20,6 @@ public class SortMovie {
     }
 
 
-    //sort by rating
     public static ArrayList<Movie> sortByRating (ArrayList<Movie> databaseList){
 
         ArrayList<Movie> sortedList;

@@ -3,7 +3,7 @@ package comp3350.ezcinema.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
-import comp3350.ezcinema.application.Main;
+
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
 
@@ -20,10 +20,6 @@ public class DataAccessStub
 		this.dbName = dbName;
 	}
 
-	public DataAccessStub()
-	{
-		this(Main.dbName);
-	}
 
 	public void open(String dbName)
 	{
