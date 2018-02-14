@@ -1,4 +1,65 @@
 Project log
+Feb 2: set up repository (Dow Griffith)
+Feb 5: group meeting to divide the work (All members)
+Feb 7: implemented movie and theater domain objects (Dow Griffith)
+Feb 9: group meeting to choose the name of applicaiton (All members)
+Feb 10: Modified SRSYS database stub for Movie and Theater objects (Dow Griffith)
+Feb 10: implement GUI (Dehou Zhang & Qin Yang)
+  home page created (Qin Yang)
+    HomeActivity.java and activity_home.xml created
+    two buttons created - buttonMovie, buttonTheater
+
+  movie page created (Qin Yang)
+    MovieActivity.java and activity_movie.xml created
+    listview created: list_view
+    three buttons created: sortNameBtn, sortRatingBtn, sortGenreBtn
+
+  home page implemented (Qin Yang)
+    implemented buttononMovieClick() - when buttonMoive is clicked, start MovieActivity
+    implemented buttononTheaterClick() - when buttonTheater is clicked, start TheaterActivity
+
+  movie page implemented (Qin Yang)
+    Set up private datas for accessing database
+    Implemented initializeView() - initialize GUI objects to create the launch view of this page, display movies in the database
+    that is going to be sorted
+    Implemented updateList() - update the movie list when buttons are clicked. Sort the movies by name, rating or genre.
+
+Feb 11: implement GUI about Theater (Dehou Zhang)
+  changes on toString() methods in Movie object and Theater object(Qin Yang)
+    gives better display of Movie list and theater list
+
+  movie info page created (Qin Yang)
+    MovieDescAcitivy.java and activity_movie_desc.xml created
+    three TextViews created: textViewTitle, textViewContent, textViewRating
+
+  movie info page implemented and changes on MovieActivity and Movie objects (Qin Yang)
+    In Movie:
+      movie class implements Serializable for passing this type of object between activities
+    In MovieActivity:
+      implemented listItemClicked() - when a list item is clicked, pass the clicked Movie object to MovieDescActivity and start
+      MovieDescActivity
+    In MovieDescActivity:
+      implemented showMovieDesc() - get the passed Movie object and show the title on textViewTile, description on textViewContent,
+      rating on textViewRating
+
+Feb 12: group meeting to connect GUI with the database and debugging (All members)
+Feb 12: GUI changes
+  movie page change (Qin Yang)
+    sort by genre is no longer needed, a filter for genre will be implemented
+
+  Change on activity_movie_xml (Qin Yang)
+    sortGenreBtn is deleted
+    textView added: textView
+    spinner added: genreSpinner
+
+  Change on MovieActivity.java (Qin Yang)
+    the class implements AdapterView.OnItemSelectedListener for spinner selections
+    implemented initializeGenreList() for the spinner subitems as filter options
+    implemented onItemSelected() to filter movies by genre from list
+
+Feb 12: fix bugs about the database (Dehou Zhang)
+Feb 12: Wrote tests for Movie, Theater, AccessMovie and AccessTheater classes (Dow Griffith)
+Feb 13: add Alltests.java file and modify some testing method(Dehou Zhang)
 
 Feb 2:
     set up repository (Dow Griffith)
