@@ -25,9 +25,9 @@ Feb 10: implement GUI (Dehou Zhang & Qin Yang)
     Implemented updateList() - update the movie list when buttons are clicked. Sort the movies by name, rating or genre.
   
 Feb 11: implement GUI about Theater (Dehou Zhang)
+Feb 11: implement GUI about Movie (Qin Yang)
   changes on toString() methods in Movie object and Theater object(Qin Yang)
     gives better display of Movie list and theater list
-
   movie info page created (Qin Yang)
     MovieDescAcitivy.java and activity_movie_desc.xml created
     three TextViews created: textViewTitle, textViewContent, textViewRating
