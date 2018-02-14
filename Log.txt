@@ -67,5 +67,6 @@ Feb 12: Changes for Movie GUI(Qin Yang, 5 hours)
     implemented onItemSelected() to filter movies by genre from list
     
 Feb 12: fix bugs about the database (Dehou Zhang)
+Feb 12: Wrote tests for SortMovie and SortTheater(Shawn Cooper, 3 hours)
 Feb 12: Wrote tests for Movie, Theater, AccessMovie and AccessTheater classes (Dow Griffith, 4 hours)
 Feb 13: add Alltests.java file and modify some testing method(Dehou Zhang)
