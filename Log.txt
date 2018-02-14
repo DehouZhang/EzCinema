@@ -39,7 +39,7 @@ Feb 10:
         Implemented initializeView() - initialize GUI objects to create the launch view of this page, display movies in the database
         that is going to be sorted
         Implemented updateList() - update the movie list when buttons are clicked. Sort the movies by name, rating or genre.
-
+        modify the layout of activity_home.xml and activity_movie.xml(Dehou Zhang, 1 hours)
 Feb 11:
     modified SRSYS access methods for Movie and theater (Randall Romanow)
 
@@ -49,7 +49,7 @@ Feb 11:
         listview created: list_view
         two button created: sortNameBtn, sortAddressBtn
         Set up private datas for accessing database
-        Implemented initializeView() - initialize GUI objects to create the launch view of this page, display theaters in the database that     is going to be sorted
+        Implemented initializeView() - initialize GUI objects to create the launch view of this page, display theaters in the database that is going to be sorted
         Implemented updateList() - update the theater list when buttons are clicked. Sort the movies by name or address
 
     implement GUI about Movie (Qin Yang, 6 hours)
