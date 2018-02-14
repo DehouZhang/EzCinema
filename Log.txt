@@ -80,10 +80,11 @@ Feb 12:
             implemented initializeGenreList() for the spinner subitems as filter options
             implemented onItemSelected() to filter movies by genre from list
 
-    repository switched (Dehou Zhang)
+    Wrote tests for SortMovie and SortTheater (Shawn Cooper, 3 hours)
+    repository switched to under Dehou Zhang (Dehou Zhang)
     General clean up (All members)
     fix bugs about the database (Dehou Zhang)
-    Wrote tests for Movie, Theater, AccessMovie and AccessTheater classes (Dow Griffith)
+    Wrote tests for Movie, Theater, AccessMovie and AccessTheater classes (Dow Griffith, 4 hours)
 
 
 Feb 13:
