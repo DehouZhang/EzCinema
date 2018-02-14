@@ -31,7 +31,7 @@ Feb 11: implement GUI about Theater (Dehou Zhang, 3 hours)
     listview created: list_view
     two button created: sortNameBtn, sortAddressBtn
     Set up private datas for accessing database
-    Implemented initializeView() - initialize GUI objects to create the launch view of this page, display theaters in the database that     is going to be sorted
+    Implemented initializeView() - initialize GUI objects to create the launch view of this page, display theaters in the database that is going to be sorted
     Implemented updateList() - update the theater list when buttons are clicked. Sort the movies by name or address
     
 Feb 11: implement GUI about Movie (Qin Yang, 6 hours)
