@@ -53,6 +53,13 @@
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
+        <Button
+            android:id="@+id/buttonCheckout"
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:onClick="buttonCheckoutOnClick"
+            android:text="Checkout" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

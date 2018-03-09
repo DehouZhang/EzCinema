@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".presentation.MovieActivity" />
         <activity android:name=".presentation.TheaterActivity" />
-        <activity android:name=".presentation.MovieDescActivity"></activity>
+        <activity android:name=".presentation.MovieDescActivity"/>
+        <activity android:name=".presentation.CheckoutActivity" >
+        </activity>
     </application>
 
 </manifest>

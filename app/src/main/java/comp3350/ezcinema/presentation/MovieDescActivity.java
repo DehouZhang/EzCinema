@@ -1,7 +1,9 @@
 package comp3350.ezcinema.presentation;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -20,6 +22,7 @@ public class MovieDescActivity extends AppCompatActivity {
     TextView textViewTitle;
     TextView textViewContent;
     TextView textViewRating;
+    TextView buttonCheckout;
 
 
     @Override
@@ -38,6 +41,7 @@ public class MovieDescActivity extends AppCompatActivity {
         textViewTitle = (TextView)findViewById(R.id.textViewTitle);
         textViewContent = (TextView)findViewById(R.id.textViewContent);
         textViewRating = (TextView)findViewById(R.id.textViewRating);
+        buttonCheckout = (TextView)findViewById(R.id.buttonCheckout);
 
         //setup textViews
         setTextView();
@@ -48,5 +52,13 @@ public class MovieDescActivity extends AppCompatActivity {
         textViewTitle.setText(movie.getMovieName()+"\n");
         textViewContent.setText("Genere: "+movie.getGenre()+"\n\n\t"+movie.getMovieDescription());
         textViewRating.setText("Rating: "+movie.getMovieRating());
+        buttonCheckout.setText("Checkout");
+    }
+
+    public void buttonCheckoutOnClick(View v)
+    {
+        Intent checkoutIntent = new Intent(MovieDescActivity.this, CheckoutActivity.class);
+        checkoutIntent.putExtra("DisplayMovie", movie);
+        MovieDescActivity.this.startActivity(checkoutIntent);
     }
 }
