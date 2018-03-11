@@ -5,24 +5,18 @@ import java.util.Comparator;
 
 public class Movie implements Serializable
 {
-    private String movieID;
     private String movieName;
     private String description;
     private double rating;
     private String genre;
 
-    public Movie(String newID, String newMovieName, String newDescription, String newGenre, double newRating)
+
+    public Movie(String newMovieName, String newDescription, String newGenre, double newRating)
     {
-        movieID = newID;
         movieName = newMovieName;
         description = newDescription;
         rating = newRating;
         genre = newGenre;
-    }
-
-    public String getMovieID()
-    {
-        return (movieID);
     }
 
     public String getMovieName()
@@ -51,7 +45,7 @@ public class Movie implements Serializable
         if (object instanceof Movie)
         {
             c = (Movie) object;
-            if (((c.movieID == null) && (movieID == null)) || (c.movieID.equals(movieID)))
+            if (((c.movieName == null) && (movieName == null)) || (c.movieName.equals(movieName)))
             {
                 result = true;
             }

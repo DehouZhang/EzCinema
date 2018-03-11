@@ -10,13 +10,13 @@ import java.util.Comparator;
 public class MT implements Serializable{
     private String movieName;
     private String theaterName;
-    private ArrayList<String> showtimes;
+    private String showtime;
 
-    public MT(String movieName, String theaterName, ArrayList<String> showtimes)
+    public MT(String movieName, String theaterName, String showtime)
     {
         this.movieName=movieName;
         this.theaterName=theaterName;
-        this.showtimes=showtimes;
+        this.showtime=showtime;
     }
 
     public String getMovieName() {
@@ -27,8 +27,8 @@ public class MT implements Serializable{
         return theaterName;
     }
 
-    public ArrayList<String> getShowtimes() {
-        return showtimes;
+    public String getShowtime() {
+        return showtime;
     }
 
     public boolean equals(Object object)
@@ -42,7 +42,8 @@ public class MT implements Serializable{
         {
             mt =(MT)object;
             if ((((mt.movieName == null) && (movieName == null)) || ((mt.movieName != null) && (mt.movieName.equals(movieName))))
-                    && (((mt.theaterName == null)  && (theaterName == null))  || ((mt.theaterName != null)  && (mt.theaterName.equals(theaterName)))))
+                    && (((mt.theaterName == null)  && (theaterName == null))  || ((mt.theaterName != null)  && (mt.theaterName.equals(theaterName))))
+                    &&(((mt.showtime == null)  && (showtime == null))  || ((mt.showtime != null)  && (mt.showtime.equals(showtime)))))
             {
                 result = true;
             }
