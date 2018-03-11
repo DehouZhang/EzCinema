@@ -74,14 +74,11 @@ public class MovieActivity extends AppCompatActivity implements AdapterView.OnIt
         //initialize data
         movieList = new ArrayList<Movie>();
         accessMovie = new AccessMovie();
-
         accessMovie.getMovies(movieList);      //transfer items in the db into movieList
 
-        //todo import theaterlist will be changed
         theaterList = new ArrayList<Theater>();
         accessTheater = new AccessTheater();
         accessTheater.getTheaters(theaterList);      //transfer items in the db into theaterList
-
 
         sortedMovie = new SortMovie();
 
@@ -127,12 +124,11 @@ public class MovieActivity extends AppCompatActivity implements AdapterView.OnIt
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //todo will be changed for this whole method, should pass a movie-theater realtion object to another activity
                 Intent intent = new Intent(MovieActivity.this, MovieSelectTheaterActivity.class);
                 Bundle extras = new Bundle();
 
                 Movie displayMovie = sortedList.get(i);
-                extras.putSerializable("DisplayMovie",displayMovie);
+                extras.putSerializable("MoviePassed",displayMovie);
                 extras.putSerializable("TheaterList",theaterList);
                 intent.putExtras(extras);
                 startActivity(intent);

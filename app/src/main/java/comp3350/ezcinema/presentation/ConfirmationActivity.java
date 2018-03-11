@@ -12,18 +12,21 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import comp3350.ezcinema.R;
+import comp3350.ezcinema.business.AccessTheater;
+import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
 
 public class ConfirmationActivity extends AppCompatActivity {
 
     //data
-    //todo should be one movie-theater relation object
-    private Movie movie;
-    private Theater theater;
-    private String[] showtimes;
+    private MT passedMT;
+    private ArrayList<String> showtimes;
     private ArrayAdapter<String> showtimeAdapter;
+    private AccessTheater accessTheater;
     private int amount;
 
     //views
@@ -44,10 +47,10 @@ public class ConfirmationActivity extends AppCompatActivity {
 
 
     private void initializeData() {
-        movie  = (Movie)getIntent().getExtras().getSerializable("MoviePassed");
-        theater = (Theater)getIntent().getExtras().getSerializable("TheaterSelected");
-        showtimes = new String[]{"8:30","9:30","10:30","22:00"};
-        amount = -1;
+        passedMT  = (MT)getIntent().getExtras().getSerializable("MTSelected");
+        showtimes = passedMT.getShowtime();
+
+        accessTheater = new AccessTheater();
     }
 
     private void initializeViews() {
@@ -61,7 +64,7 @@ public class ConfirmationActivity extends AppCompatActivity {
     }
 
     private void setTextInfo() {
-        textViewInfo.setText("\n\n"+movie.getMovieName()+"\n\nAt: \n"+theater.getTheaterName()+"\n"+theater.getTheaterAddress());
+        textViewInfo.setText("\n\n"+passedMT.getMovieName()+"\n\nAt: \n"+passedMT.getTheaterName()+"\n"+accessTheater.getTheaterAddr(passedMT.getTheaterName()));
     }
 
     private void setSpinner() {

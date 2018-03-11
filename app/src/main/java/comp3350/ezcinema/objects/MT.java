@@ -1,8 +1,14 @@
 package comp3350.ezcinema.objects;
 
+import android.app.Activity;
+
 import java.util.ArrayList;
 import java.io.Serializable;
 import java.util.Comparator;
+
+import comp3350.ezcinema.presentation.MovieSelectTheaterActivity;
+import comp3350.ezcinema.presentation.TheaterSelectMovieActivity;
+
 /**
  * Created by Dehou on 3/10/2018.
  */
@@ -10,9 +16,9 @@ import java.util.Comparator;
 public class MT implements Serializable{
     private String movieName;
     private String theaterName;
-    private String showtime;
+    private ArrayList<String> showtime;
 
-    public MT(String movieName, String theaterName, String showtime)
+    public MT(String movieName, String theaterName, ArrayList<String> showtime)
     {
         this.movieName=movieName;
         this.theaterName=theaterName;
@@ -27,7 +33,7 @@ public class MT implements Serializable{
         return theaterName;
     }
 
-    public String getShowtime() {
+    public ArrayList<String> getShowtime() {
         return showtime;
     }
 
@@ -47,6 +53,19 @@ public class MT implements Serializable{
             {
                 result = true;
             }
+        }
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return movieName + " in " + theaterName + "\nShow Times:\t" + showtimeToString();
+    }
+
+    public String showtimeToString(){
+        String result = "";
+        for (int i =0; i<showtime.size(); i++){
+            result += showtime.get(i)+"\t";
         }
         return result;
     }

@@ -12,6 +12,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import comp3350.ezcinema.R;
+import comp3350.ezcinema.business.AccessMT;
+import comp3350.ezcinema.business.AccessMovie;
+import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
 
@@ -20,7 +23,9 @@ public class MovieSelectTheaterActivity extends AppCompatActivity {
     //Data
     private Movie movie;
     private ArrayList<Theater> theaterList;
-    private ArrayAdapter<Theater> TheaterArrayAdapter;
+    private AccessMT accessMT;
+    private ArrayList<MT> MTList;
+    private ArrayAdapter<MT> MTListArrayAdapter;
 
     //Views
     TextView textViewMovieInfo;
@@ -40,11 +45,31 @@ public class MovieSelectTheaterActivity extends AppCompatActivity {
     }
 
     private void initializeData() {
-        //initialize Data
-        movie = (Movie)getIntent().getExtras().getSerializable("DisplayMovie");
-        //todo change after implement DB
+        //get passed movie and theaterList
+        movie = (Movie)getIntent().getExtras().getSerializable("MoviePassed");
         theaterList = (ArrayList<Theater>)getIntent().getExtras().getSerializable("TheaterList");
-        //todo---------------
+
+        //initialize access to MT
+        accessMT = new AccessMT();
+
+        //initilize MTList
+        MTList = getMTList(movie,theaterList);
+    }
+
+    private ArrayList<MT> getMTList(Movie movie, ArrayList<Theater> theaterList) {
+        ArrayList<MT> list = new ArrayList<>();
+        MT newMT;
+        Theater theater;
+
+        for (int i =0; i< theaterList.size(); i++){
+            theater = theaterList.get(i);
+            newMT = accessMT.getMT(movie,theater);
+
+            if(newMT != null) {
+                list.add(newMT);
+            }
+        }
+        return list;
     }
 
     private void initializeViews() {
@@ -63,20 +88,20 @@ public class MovieSelectTheaterActivity extends AppCompatActivity {
     }
 
     private void showTheaterOptions() {
-        TheaterArrayAdapter = new ArrayAdapter<Theater>(this,android.R.layout.simple_list_item_1,android.R.id.text1, theaterList);
-        listViewTheaterList.setAdapter(TheaterArrayAdapter);
+        MTListArrayAdapter = new MovieSelectTheaterAdapter(this,MTList);
+        listViewTheaterList.setAdapter(MTListArrayAdapter);
     }
 
     private void clickOnTheaters() {
+
         listViewTheaterList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //todo will be changed for this whole method, should pass a movie-theater realtion object to another activity
+                //pass selected MT to ConfirmationActivity
                 Intent intent = new Intent(MovieSelectTheaterActivity.this, ConfirmationActivity.class);
                 Bundle extras = new Bundle();
 
-                extras.putSerializable("MoviePassed",movie);
-                extras.putSerializable("TheaterSelected",theaterList.get(i));
+                extras.putSerializable("MTSelected",MTList.get(i));
                 intent.putExtras(extras);
                 startActivity(intent);
             }

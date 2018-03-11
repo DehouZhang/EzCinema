@@ -18,7 +18,7 @@ import comp3350.ezcinema.objects.MT;
 
 public class DataAccessObject implements DataAccess
 {
-    private Statement st1,st2,st3;
+    private Statement st1,st2,st3,st4;
     private Connection c1;
     private ResultSet rs2,rs3,rs4,rs5;
 
@@ -52,6 +52,7 @@ public class DataAccessObject implements DataAccess
             st1 = c1.createStatement();
             st2 = c1.createStatement();
             st3 = c1.createStatement();
+            st4 = c1.createStatement();
         }
         catch (Exception e)
         {
@@ -152,7 +153,7 @@ public class DataAccessObject implements DataAccess
         showtimes=new ArrayList<String>();
         try
         {
-            cmdString="Select Showtime from MovieTheaters where MovieName="+movie.getMovieName()+" and TheaterName="+theater.getTheaterName();
+            cmdString="Select Showtime from MovieTheaters where MovieName='"+movie.getMovieName()+"' and TheaterName='"+theater.getTheaterName()+"'";
             rs4=st3.executeQuery(cmdString);
             while (rs4.next())
             {
@@ -168,6 +169,29 @@ public class DataAccessObject implements DataAccess
         return showtimes;
     }
 
+    public String getTheaterAddress(String theaterName) {
+        //todo implement this
+
+        String addr = "";
+        try
+        {
+            cmdString="Select Address from Theaters where TheaterName='"+theaterName+"'";
+            rs5=st4.executeQuery(cmdString);
+
+            while (rs5.next())
+            {
+                addr=rs5.getString("Address");
+            }
+
+            rs5.close();
+        }
+        catch (Exception e)
+        {
+            processSQLError(e);
+        }
+        return addr;
+    }
+
     public String processSQLError(Exception e)
     {
         String result = "*** SQL Error: " + e.getMessage();
@@ -177,4 +201,6 @@ public class DataAccessObject implements DataAccess
 
         return result;
     }
+
+
 }

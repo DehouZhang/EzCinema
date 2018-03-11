@@ -20,4 +20,6 @@ public interface DataAccess {
     String getTheaterSequential(List<Theater> theaterResult);
 
     ArrayList<String>getShowtimeList(Movie movie, Theater theater);
+
+    String getTheaterAddress(String theaterName);
 }

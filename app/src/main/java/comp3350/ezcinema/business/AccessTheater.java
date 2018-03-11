@@ -24,4 +24,9 @@ public class AccessTheater {
             return dataAccess.getTheaterSequential(theaters);
         }
 
+        public String getTheaterAddr(String theaterName)
+        {
+            return dataAccess.getTheaterAddress(theaterName);
+        }
+
 }
