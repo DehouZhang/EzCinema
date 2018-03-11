@@ -1,15 +1,13 @@
 package comp3350.ezcinema.application;
 
-
 public class Main
 {
-	public static final String dbName="SC";
-	private static String dbPathName = "database/SC";
+	public static final String dbName="MT";
+	private static String dbPathName = "database/MT";
 
 	public static void main(String[] args)
 	{
 		startUp();
-
 
 		shutDown();
 		System.out.println("All done");

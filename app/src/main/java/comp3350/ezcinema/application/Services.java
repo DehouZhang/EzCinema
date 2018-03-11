@@ -1,4 +1,5 @@
 package comp3350.ezcinema.application;
+
 import comp3350.ezcinema.persistence.DataAccess;
 import comp3350.ezcinema.persistence.DataAccessObject;
 

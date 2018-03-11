@@ -21,7 +21,7 @@ public class AccessMovie {
     public String getMovies(List<Movie> movies)
     {
         movies.clear();
-       return dataAccess.getMovieSequential(movies);
+        return dataAccess.getMovieSequential(movies);
     }
 
 
