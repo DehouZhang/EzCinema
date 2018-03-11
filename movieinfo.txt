@@ -1,0 +1,61 @@
+Theatre admissions
+
+Scotiabank Theatre Winnipeg
+general: 10.00
+senior: 8.00 
+youth: 6.00
+
+Famous Players Kildonan Place Cinemas
+general: 9.00
+senior: 7.00 
+youth: 5.00
+
+Cinema City Northgate
+general: 10.50
+senior: 8.00 
+youth: 6.75
+
+SilverCity St. Vital Cinemas
+general: 10.00
+senior: 8.00 
+youth: 6.00
+
+Cineplex Odeon McGillivray Cinemas
+general: 15.00
+senior: 12.00 
+youth: 10.00
+
+
+ShowTimes
+
+Fifty Shades Freed
+
+Scotiabank Theatre Winnipeg: 14:40, 18:00, 21:20
+Famous Players Kildonan Place Cinemas: 13:30, 17:40, 20:25
+Cinema City Northgate: 13:20, 16:50, 19:10, 22:00
+SilverCity St. Vital Cinemas: 14:00, 17:40, 20:30, 23:40
+Cineplex Odeon McGillivray Cinemas: 12:00, 15:20, 19:40
+
+Peter Rabbit
+
+Scotiabank Theatre Winnipeg: 13:20, 16:50, 19:10, 22:00
+Famous Players Kildonan Place Cinemas: 12:00, 15:20, 19:40
+Cinema City Northgate: 14:40, 18:00, 21:20
+SilverCity St. Vital Cinemas: 13:30, 17:40, 20:25
+Cineplex Odeon McGillivray Cinemas: 14:00, 17:40, 20:30, 23:40
+
+Jumangi: Welcome to the Jungle
+
+Scotiabank Theatre Winnipeg: 14:40, 18:00, 21:20
+Famous Players Kildonan Place Cinemas: 14:00, 17:40, 20:30, 23:40
+Cinema City Northgate: 13:20, 16:50, 19:10, 22:00
+SilverCity St. Vital Cinemas: 12:00, 15:20, 19:40
+Cineplex Odeon McGillivray Cinemas: 13:30, 17:40, 20:25
+
+Winchester
+
+Scotiabank Theatre Winnipeg: 13:30, 17:40, 20:25
+Famous Players Kildonan Place Cinemas: 13:20, 16:50, 19:10, 22:00
+Cinema City Northgate: 14:00, 17:40, 20:30, 23:40
+SilverCity St. Vital Cinemas: 12:00, 15:20, 19:40
+Cineplex Odeon McGillivray Cinemas: 14:40, 18:00, 21:20
