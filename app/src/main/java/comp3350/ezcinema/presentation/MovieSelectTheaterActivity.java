@@ -32,14 +32,14 @@ public class MovieSelectTheaterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_select_theater);
 
-        initilizeData();
+        initializeData();
         initializeViews();
         showMovieDesc();
         showTheaterOptions();
         clickOnTheaters();
     }
 
-    private void initilizeData() {
+    private void initializeData() {
         //initialize Data
         movie = (Movie)getIntent().getExtras().getSerializable("DisplayMovie");
         //todo change after implement DB
