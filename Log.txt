@@ -111,3 +111,12 @@ Feb 13:
         test the Alltests.java
 
     General clean up (All members)
+    
+Mar 7
+	Group Meeting design and task creation (Group, 1h)
+	
+Mar 7
+	Group Meeting design and task creation (Group, 1h)
+	
+March 12
+	updated database to contain real data(Dow Griffith, 0.5 hours)
