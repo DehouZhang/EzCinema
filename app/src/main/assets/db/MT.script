@@ -10,15 +10,15 @@ SET WRITE_DELAY 20
 SET SCHEMA PUBLIC
 
 INSERT INTO MOVIES VALUES('Fifty Shades Freed','Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship',6.4,'Family')
-INSERT INTO MOVIES VALUES('Peter Rabbit','Feature adaptation of Beatrix Potter's classic tale of a rebellious rabbit trying to sneak into a farmer's vegetable garden.',5.6,'Family')
+INSERT INTO MOVIES VALUES('Peter Rabbit','Feature adaptation of Beatrix Potter\'s classic tale of a rebellious rabbit trying to sneak into a farmer\'s vegetable garden.',5.6,'Family')
 INSERT INTO MOVIES VALUES('Jumangi: Welcome to the Jungle','Four teenagers are sucked into a magical video game, and the only way they can escape is to work together to finish the game.',5.8,'Thriller')
 INSERT INTO MOVIES VALUES('Winchester','Ensconced in her sprawling California mansion, eccentric firearm heiress Sarah Winchester believes she is haunted by the souls of people killed by the Winchester repeating rifle.',2.6,'Horror')
 
-INSERT INTO THEATER VALUES('Scotiabank Theatre Winnipeg','817 St. James Street')
-INSERT INTO THEATER VALUES('Famous Players Kildonan Place Cinemas','1555 Regent Avenue West')
-INSERT INTO THEATER VALUES('Cinema City Northgate','1399 McPhillips Street')
-INSERT INTO THEATER VALUES('SilverCity St.Vital Cinemas','160-1225 St. Mary's Road, Winnipeg')
-INSERT INTO THEATER VALUES('Cineplex Odeon McGillivray Cinemas','2190 McGillivray Blvd')
+INSERT INTO THEATERS VALUES('Scotiabank Theatre Winnipeg','817 St. James Street')
+INSERT INTO THEATERS VALUES('Famous Players Kildonan Place Cinemas','1555 Regent Avenue West')
+INSERT INTO THEATERS VALUES('Cinema City Northgate','1399 McPhillips Street')
+INSERT INTO THEATERS VALUES('SilverCity St.Vital Cinemas','160-1225 St. Mary\'s Road, Winnipeg')
+INSERT INTO THEATERS VALUES('Cineplex Odeon McGillivray Cinemas','2190 McGillivray Blvd')
 
 INSERT INTO MOVIETHEATERS VALUES('Fifty Shades Freed', 'Scotiabank Theatre Winnpeg', '14:40')
 INSERT INTO MOVIETHEATERS VALUES('Fifty Shades Freed', 'Scotiabank Theatre Winnpeg', '18:00')
@@ -36,7 +36,6 @@ INSERT INTO MOVIETHEATERS VALUES('Fifty Shades Freed', 'SilverCity St.Vital Cine
 INSERT INTO MOVIETHEATERS VALUES('Fifty Shades Freed', 'SilverCity St.Vital Cinemas', '23:40')
 INSERT INTO MOVIETHEATERS VALUES('Fifty Shades Freed', 'Cineplex Odeon McGillivray Cinemas', '12:00')
 INSERT INTO MOVIETHEATERS VALUES('Fifty Shades Freed', 'Cineplex Odeon McGillivray Cinemas', '15:20')
-INSERT INTO MOVIETHEATERS VALUES('Fifty Shades Freed', 'Cineplex Odeon McGillivray Cinemas', '12:00')
 INSERT INTO MOVIETHEATERS VALUES('Fifty Shades Freed', 'Cineplex Odeon McGillivray Cinemas', '19:40')
 
 INSERT INTO MOVIETHEATERS VALUES('Peter Rabbit', 'Scotiabank Theatre Winnpeg', '13:20')
