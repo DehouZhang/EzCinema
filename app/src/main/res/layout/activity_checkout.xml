@@ -35,10 +35,16 @@
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/textViewSubtotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Subtotal:" />
+
+        <TextView
+            android:id="@+id/textViewTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total:" />
 
         <View
             android:id="@+id/separator3"
@@ -87,9 +93,17 @@
         <RelativeLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="202dp">
+            android:layout_height="164dp">
 
         </RelativeLayout>
+
+        <View
+            android:id="@+id/separator7"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#000000" />
 
         <TextView
             android:id="@+id/textView12"

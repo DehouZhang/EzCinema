@@ -24,6 +24,8 @@ public class CheckoutActivity extends AppCompatActivity {
     private Movie movie;
     //views
     TextView textViewTitle;
+    TextView textViewSubtotal;
+    TextView textViewTotal;
 
 
     @Override
@@ -40,6 +42,8 @@ public class CheckoutActivity extends AppCompatActivity {
         movie = (Movie)getIntent().getSerializableExtra("DisplayMovie");
 
         textViewTitle = (TextView)findViewById(R.id.textViewTitle);
+        textViewSubtotal = (TextView)findViewById(R.id.textViewSubtotal);
+        textViewTotal = (TextView)findViewById(R.id.textViewTotal);
 
         setTextView();
 
@@ -48,6 +52,8 @@ public class CheckoutActivity extends AppCompatActivity {
     private void setTextView()
     {
         textViewTitle.setText(movie.getMovieName()+" # of Tickets\n");
+        textViewSubtotal.setText("Subtotal: ");//add subtotal
+        textViewTotal.setText("Total: ");//add total
     }
 
     public void onRadioButtonClicked(View view) {
