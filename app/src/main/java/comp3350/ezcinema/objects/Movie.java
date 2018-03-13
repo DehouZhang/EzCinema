@@ -10,6 +10,13 @@ public class Movie implements Serializable
     private double rating;
     private String genre;
 
+    public Movie(String newMovieName)
+    {
+        movieName=newMovieName;
+        description="";
+        rating=0;
+        genre="";
+    }
 
     public Movie(String newMovieName, String newDescription, String newGenre, double newRating)
     {
