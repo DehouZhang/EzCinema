@@ -10,20 +10,23 @@ public class Movie implements Serializable
     private double rating;
     private String genre;
 
-    public Movie(String newMovieName)
-    {
-        movieName=newMovieName;
-        description="";
-        rating=0;
-        genre="";
-    }
 
     public Movie(String newMovieName, String newDescription, String newGenre, double newRating)
     {
-        movieName = newMovieName;
-        description = newDescription;
-        rating = newRating;
-        genre = newGenre;
+        if (newMovieName.equals("") || newDescription.equals("") || newGenre.equals("") || newRating <0.0 || newRating>10.0)
+        {
+            movieName = null;
+            description = null;
+            rating = -1.0;
+            genre = null;
+        }
+        else
+        {
+            movieName = newMovieName;
+            description = newDescription;
+            rating = newRating;
+            genre = newGenre;
+        }
     }
 
     public String getMovieName()
@@ -39,7 +42,14 @@ public class Movie implements Serializable
 
     public String toString()
     {
-        return movieName + "\nDescription:\n" + description +"\nRating:  " + rating;
+        if (movieName == null || description == null || genre == null || rating == -1.0)
+        {
+            return null;
+        }
+        else
+        {
+            return movieName + "\nDescription:\n" + description + "\nRating:  " + rating;
+        }
     }
 
     public boolean equals(Object object)
@@ -64,19 +74,30 @@ public class Movie implements Serializable
     public static Comparator<Movie> MovieNameComparator = new Comparator<Movie>() {
 
         public int compare(Movie m1, Movie m2) {
-            String MovieName1 = m1.getMovieName().toUpperCase();
-            String MovieName2 = m2.getMovieName().toUpperCase();
+            String MovieName1 = m1.getMovieName();
+            String MovieName2 = m2.getMovieName();
 
-            //ascending order
-            return MovieName1.compareTo(MovieName2);
-         }};
+            if (MovieName1 == null && MovieName2 != null) {
+                return -1;
+            }
+            else if (MovieName2 == null && MovieName1 != null) {
+                return 1;
+            }
+            else if (MovieName1 == null && MovieName2 == null) {
+                return 0;
+            }
+            else {
+                //ascending order
+                return MovieName1.compareTo(MovieName2);
+            }
+        }};
 
 
     public static Comparator<Movie> MovieRatingComparator = new Comparator<Movie>() {
 
         public int compare(Movie m1, Movie m2) {
 
-            //For ascending order
+            //For descending order
             if (m1.getMovieRating() > m2.getMovieRating()) return -1;
             if (m1.getMovieRating() < m2.getMovieRating()) return 1;
             return 0;
