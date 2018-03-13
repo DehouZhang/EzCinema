@@ -37,25 +37,6 @@ public class MT implements Serializable{
         return showtime;
     }
 
-    public boolean equals(Object object)
-    {
-        boolean result;
-        MT mt;
-
-        result=false;
-
-        if(object instanceof MT)
-        {
-            mt =(MT)object;
-            if ((((mt.movieName == null) && (movieName == null)) || ((mt.movieName != null) && (mt.movieName.equals(movieName))))
-                    && (((mt.theaterName == null)  && (theaterName == null))  || ((mt.theaterName != null)  && (mt.theaterName.equals(theaterName))))
-                    &&(((mt.showtime == null)  && (showtime == null))  || ((mt.showtime != null)  && (mt.showtime.equals(showtime)))))
-            {
-                result = true;
-            }
-        }
-        return result;
-    }
 
     @Override
     public String toString() {

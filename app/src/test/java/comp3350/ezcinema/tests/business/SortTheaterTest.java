@@ -21,9 +21,9 @@ public class SortTheaterTest extends TestCase{
 
     @Before
     public void setUp() throws Exception {
-        theater1 = new Theater("1", "C Theater", "123 Fake Street");
-        theater2 = new Theater("2", "B Theater", "234 Other Street");
-        theater3 = new Theater("3", "A Theater", "345 Last Street");
+        theater1 = new Theater( "C Theater", "123 Fake Street");
+        theater2 = new Theater( "B Theater", "234 Other Street");
+        theater3 = new Theater( "A Theater", "345 Last Street");
 
         theater = new ArrayList<Theater>();
         sortedTheater = new SortTheater();

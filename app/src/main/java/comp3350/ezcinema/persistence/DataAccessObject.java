@@ -1,8 +1,6 @@
 package comp3350.ezcinema.persistence;
 
-/**
- * Created by Dehou on 3/8/2018.
- */
+
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;

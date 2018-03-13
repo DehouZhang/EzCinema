@@ -19,9 +19,9 @@ public class SortMovieTest extends TestCase{
 
     @Before
     public void setUp() throws Exception {
-        movie1 = new Movie("1", "C Movie", "your basic run of the mill decent movie", "Horror", 4.4);
-        movie2 = new Movie("2", "B Movie", "your basic run of the mill okay movie", "Family", 3.6);
-        movie3 = new Movie("3", "A Movie", "your basic run of the mill bad movie", "Thriller", 2.8);
+        movie1 = new Movie("C Movie", "your basic run of the mill decent movie", "Horror", 4.4);
+        movie2 = new Movie("B Movie", "your basic run of the mill okay movie", "Family", 3.6);
+        movie3 = new Movie("A Movie", "your basic run of the mill bad movie", "Thriller", 2.8);
 
         movies = new ArrayList<Movie>();
         sortedMovie = new SortMovie();

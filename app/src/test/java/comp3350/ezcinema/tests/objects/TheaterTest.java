@@ -25,8 +25,8 @@ public class TheaterTest extends TestCase{
 
     @Before
     public void setUp() throws Exception{
-        theater1 = new Theater("1", "cineplex", "a road");
-        theater2 = new Theater("2", "IMAX", "a different road");
+        theater1 = new Theater("cineplex", "a road");
+        theater2 = new Theater( "IMAX", "a different road");
         theater3 = theater1;
         theaterNameComp = Theater.TheaterNameComparator;
         theaterAddressComp = Theater.TheaterAddressComparator;
