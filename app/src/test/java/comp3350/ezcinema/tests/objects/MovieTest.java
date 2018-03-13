@@ -19,16 +19,15 @@ public class MovieTest extends TestCase{
 
     @Before
     public void setUp() throws Exception {
-        movie1 = new Movie("1", "SuperBad", "3 teens try to have a party", "Comedy", 10.0);
+        movie1 = new Movie( "SuperBad", "3 teens try to have a party", "Comedy", 10.0);
         movie2 = movie1;
-        movie3 = new Movie("2", "Amovie", "Exciting things happen", "Action", 1.0);
+        movie3 = new Movie( "Amovie", "Exciting things happen", "Action", 1.0);
         movieNameComp = Movie.MovieNameComparator;
         movieRatingComp = Movie.MovieRatingComparator;
 
     }
     @Test
     public void testGetMethods() throws Exception {
-        assertEquals("1", movie1.getMovieID());
         assertEquals("SuperBad", movie1.getMovieName());
         assertEquals("3 teens try to have a party", movie1.getMovieDescription());
         assertEquals(10.0, movie1.getMovieRating(), 0);
