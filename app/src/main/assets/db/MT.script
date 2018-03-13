@@ -19,7 +19,7 @@ INSERT INTO MOVIES VALUES('Unforgettable','The mysterious disappearance of a you
 INSERT INTO MOVIES VALUES('Ferdinand','After Ferdinand, a bull with a big heart, is mistaken for a dangerous beast, he is captured and torn from his home. Determined to return to his family, he rallies a misfit team on the ultimate adventure.',6.7,'Family')
 
 
-INSERT INTO THEATERS VALUES('Scotiabank Theatre Winnipeg','817 St. James Street')
+INSERT INTO THEATERS VALUES('Scotiabank Theatre Winnipeg','817 St.James Street')
 INSERT INTO THEATERS VALUES('Famous Players Kildonan Place Cinemas','1555 Regent Avenue West')
 INSERT INTO THEATERS VALUES('Cinema City Northgate','1399 McPhillips Street')
 INSERT INTO THEATERS VALUES('SilverCity St.Vital Cinemas','160-1225 St.Mary''s Road, Winnipeg')

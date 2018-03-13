@@ -110,7 +110,7 @@ public class DataAccessTest extends TestCase
         //test the 4th theater
         theater=theaters.get(3);
         assertEquals("Scotiabank Theatre Winnipeg",theater.getTheaterName());
-        assertEquals("817 St. James Street",theater.getTheaterAddress());
+        assertEquals("817 St.James Street",theater.getTheaterAddress());
         //test the last theater
         theater=theaters.get(4);
         assertEquals("SilverCity St.Vital Cinemas",theater.getTheaterName());
@@ -251,6 +251,30 @@ public class DataAccessTest extends TestCase
          assertArrayEquals(expected.toArray(),showtimes.toArray());
      }
 
+     public void testGetTheaterAddress()
+     {
+         String address;
+
+         //test the address of Scotiabank Theatre Winnipeg
+         address=dataAccess.getTheaterAddress("Scotiabank Theatre Winnipeg");
+         assertEquals("817 St.James Street",address);
+
+         //test the address of Famous Players Kildonan Place Cinemas
+         address=dataAccess.getTheaterAddress("Famous Players Kildonan Place Cinemas");
+         assertEquals("1555 Regent Avenue West",address);
+
+         //test the address of Cinema City Northgate
+         address=dataAccess.getTheaterAddress("Cinema City Northgate");
+         assertEquals("1399 McPhillips Street",address);
+
+         //test the address of SilverCity St.Vital Cinemas
+         address=dataAccess.getTheaterAddress("SilverCity St.Vital Cinemas");
+         assertEquals("160-1225 St.Mary's Road, Winnipeg",address);
+
+         //test the address of Cineplex Odeon McGillivray Cinemas
+         address=dataAccess.getTheaterAddress("Cineplex Odeon McGillivray Cinemas");
+         assertEquals("2190 McGillivray Blvd",address);
+     }
 
 
 }

@@ -62,7 +62,7 @@ public class DataAccessStub implements DataAccess
         theaters.add(theater);
         theater = new Theater( "Famous Players Kildonan Place Cinemas","1555 Regent Avenue West");
         theaters.add(theater);
-        theater = new Theater("Scotiabank Theatre Winnipeg","817 St. James Street");
+        theater = new Theater("Scotiabank Theatre Winnipeg","817 St.James Street");
         theaters.add(theater);
         theater = new Theater("SilverCity St.Vital Cinemas","160-1225 St.Mary's Road, Winnipeg");
         theaters.add(theater);
@@ -395,7 +395,7 @@ public class DataAccessStub implements DataAccess
         {
             if (theaters.get(i).getTheaterName().equals(theaterName))
             {
-                return theaters.get(i).getTheaterName();
+                return theaters.get(i).getTheaterAddress();
             }
         }
         return null; //if cannot find the theater
