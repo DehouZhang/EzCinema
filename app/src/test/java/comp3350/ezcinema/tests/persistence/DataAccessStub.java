@@ -57,7 +57,7 @@ public class DataAccessStub implements DataAccess
         theaters = new ArrayList<Theater>();
         theater = new Theater("Scotiabank Theatre Winnipeg","817 St. James Street");
         theaters.add(theater);
-        theater = new Theater( "Famous Players Kildonan Place Cinemas","1555 Regent Avenue West,");
+        theater = new Theater( "Famous Players Kildonan Place Cinemas","1555 Regent Avenue West");
         theaters.add(theater);
         theater = new Theater( "Cinema City Northgate","1399 McPhillips Street");
         theaters.add(theater);

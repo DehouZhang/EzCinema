@@ -25,7 +25,7 @@ public class Theater implements Serializable
         return (theaterAddress);
     }
     
-    public String getTicketPrice()
+    public double getTicketPrice()
     {
         return (ticketPrice);
     }
