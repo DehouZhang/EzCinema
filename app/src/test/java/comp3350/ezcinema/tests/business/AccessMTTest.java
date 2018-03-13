@@ -2,12 +2,7 @@ package comp3350.ezcinema.tests.business;
 
 import junit.framework.TestCase;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import java.util.ArrayList;
-
-
 
 import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.business.AccessMT;
@@ -37,7 +32,6 @@ public class AccessMTTest extends TestCase {
 
 
 
-    @Before
     public void setUp() throws Exception {
         Main.startUp();
 
@@ -62,7 +56,6 @@ public class AccessMTTest extends TestCase {
 
      }
 
-    @Test
     public void testExisitence() throws Exception{
 
         System.out.println("Test That the lists aren't null or empty");
@@ -76,7 +69,7 @@ public class AccessMTTest extends TestCase {
 
 
 
-    @Test
+
     public void testFetchingMT() throws Exception {
 
         System.out.println("Test that the MT's are fetched properly");
@@ -105,7 +98,6 @@ public class AccessMTTest extends TestCase {
 
 
 
-    @Test
     public void testShowtimes() throws Exception {
 
 
