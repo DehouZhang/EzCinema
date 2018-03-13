@@ -118,5 +118,45 @@ Mar 7
 Mar 7
 	Group Meeting design and task creation (Group, 1h)
 	
+Mar 10:
+
+	Reworks on GUIs (Qin Yang, 3 hours)
+		MovieSelectTheaterActivity and layout created 
+		MovieDescActivity and layout removed
+		TheaterSelectMovieActivity and layout created
+		ConfirmationActivity and layout created
+
+	MovieSelectTheaterActivity implemented without database (Qin Yang, 4 hours)
+
+	TheaterSelectMovieActivity implemented without database (Qin Yang, 2 hour)
+
+	ConfirmationActivity implemented without database (Qin Yang, 3 hours)
+
+	Connect MovieActivity to MovieSelectTheaterActivity  (Qin Yang, 1 hour)
+
+	Connect TheaterActivity to TheaterSelectMovieActivity (Qin Yang, 1 hour)
+
+	Connect MovieSelectTheaterActivity to ConfirmationActivity (Qin Yang, 2 hour)
+
+	Connect TheaterSelectMovieActivity to ConfirmationActivity (Qin Yang, 2 hour)
+
+Mar 11:
+
+	Changes on business and persistence: (Qin Yang, 3 hours)
+		Added AccessMT into business directory and implemented getMT()
+		Implemented getShowtimeList() in DataAccessObject
+		Implemented getTheaterAddress() in DataAccessObject
+
+	Implemented MovieSelectTheaterActivity with database (Qin Yang, 4 hours)
+
+	Implemented TheaterSelectMovieActivity with database (Qin Yang, 2 hours)
+
+	Implemented ConfirmationActivity with database (Qin Yang, 2 hours)
+
+	
 March 12
 	updated database to contain real data(Dow Griffith, 0.5 hours)
+	
+	Connect ConfirmationActivity to CheckoutActivity (Qin Yang, 3 hours)
+
+	Fixed errors in MT.script (Qin Yang, 1 hour)
