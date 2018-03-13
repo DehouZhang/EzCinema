@@ -29,8 +29,7 @@ public class AccessMTTest extends TestCase {
     private MT mt;
     private Movie movie;
     private Theater theater;
-
-
+    
 
     public void setUp() throws Exception {
         Main.startUp();
