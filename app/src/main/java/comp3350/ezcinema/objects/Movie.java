@@ -70,8 +70,8 @@ public class Movie implements Serializable
         public int compare(Movie m1, Movie m2) {
 
             //For ascending order
-            if (m1.getMovieRating() < m2.getMovieRating()) return -1;
-            if (m1.getMovieRating() > m2.getMovieRating()) return 1;
+            if (m1.getMovieRating() > m2.getMovieRating()) return -1;
+            if (m1.getMovieRating() < m2.getMovieRating()) return 1;
             return 0;
 
         }};
