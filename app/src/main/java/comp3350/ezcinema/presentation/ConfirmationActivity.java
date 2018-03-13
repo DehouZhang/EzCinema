@@ -1,5 +1,6 @@
 package comp3350.ezcinema.presentation;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -85,7 +86,13 @@ public class ConfirmationActivity extends AppCompatActivity {
     private void passAmount(){
         if(!isValid(editTextAmount)) {
             amount = Integer.parseInt(editTextAmount.getText().toString());
-            Log.d("AMOUNT", "" + amount);   //todo delete later
+
+            Intent intent = new Intent(ConfirmationActivity.this, CheckoutActivity.class);
+            Bundle extras = new Bundle();
+            extras.putSerializable("MovieNamePassed",passedMT.getMovieName());
+            extras.putSerializable("AmountPassed",amount);
+            intent.putExtras(extras);
+            startActivity(intent);
         }
         else {
             Toast.makeText(this, "Please Enter the amount of ticket you want to order.(1 to 150)", Toast.LENGTH_SHORT).show();
