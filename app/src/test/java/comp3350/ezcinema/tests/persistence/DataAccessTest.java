@@ -159,7 +159,96 @@ public class DataAccessTest extends TestCase
          expected.add("21:30");
          assertArrayEquals(expected.toArray(),showtimes.toArray());
 
+         //Tomb Raider in Cineplex Odeon McGillivray Cinemas
+         showtimes.clear();
+         expected.clear();
+         movie=new Movie("Tomb Raider");
+         theater=new Theater("Cineplex Odeon McGillivray Cinemas");
+         showtimes=dataAccess.getShowtimeList(movie,theater);
+         expected.add("14:20");
+         expected.add("17:50");
+         expected.add("21:20");
+         assertArrayEquals(expected.toArray(),showtimes.toArray());
 
+         //Tomb Raider in Scotiabank Theatre Winnpipeg
+         showtimes.clear();
+         expected.clear();
+         movie=new Movie("Tomb Raider");
+         theater=new Theater("Scotiabank Theatre Winnpipeg");
+         showtimes=dataAccess.getShowtimeList(movie,theater);
+         expected.add("13:30");
+         expected.add("14:20");
+         expected.add("20:45");
+         assertArrayEquals(expected.toArray(),showtimes.toArray());
+
+         //Tomb Raider in Cinema City Northgate
+         showtimes.clear();
+         expected.clear();
+         movie=new Movie("Tomb Raider");
+         theater=new Theater("Cinema City Northgate");
+         showtimes=dataAccess.getShowtimeList(movie,theater);
+         expected.add("12:00");
+         expected.add("16:30");
+         expected.add("20:50");
+         assertArrayEquals(expected.toArray(),showtimes.toArray());
+
+         //Winchester in Cinema City Northgate
+         showtimes.clear();
+         expected.clear();
+         movie=new Movie("Winchester");
+         theater=new Theater("Famous Players Kildonan Place Cinemas");
+         showtimes=dataAccess.getShowtimeList(movie,theater);
+         expected.add("13:20");
+         expected.add("16:50");
+         expected.add("19:10");
+         expected.add("22:00");
+         assertArrayEquals(expected.toArray(),showtimes.toArray());
+
+         //Winchester in SilverCity St.Vital Cinemas
+         showtimes.clear();
+         expected.clear();
+         movie=new Movie("Winchester");
+         theater=new Theater("SilverCity St.Vital Cinemas");
+         showtimes=dataAccess.getShowtimeList(movie,theater);
+         expected.add("12:00");
+         expected.add("15:20");
+         expected.add("19:40");
+         assertArrayEquals(expected.toArray(),showtimes.toArray());
+
+         //Jumangi: Welcome to the Jungle in SilverCity St.Vital Cinemas
+         showtimes.clear();
+         expected.clear();
+         movie=new Movie("Jumangi: Welcome to the Jungle");
+         theater=new Theater("Cinema City Northgate");
+         showtimes=dataAccess.getShowtimeList(movie,theater);
+         expected.add("13:20");
+         expected.add("16:50");
+         expected.add("19:10");
+         expected.add("22:00");
+         assertArrayEquals(expected.toArray(),showtimes.toArray());
+
+         //Peter Rabbit in Cineplex Odeon McGillivray Cinemas
+         showtimes.clear();
+         expected.clear();
+         movie=new Movie("Peter Rabbit");
+         theater=new Theater("Cineplex Odeon McGillivray Cinemas");
+         showtimes=dataAccess.getShowtimeList(movie,theater);
+         expected.add("14:40");
+         expected.add("17:40");
+         expected.add("20:30");
+         expected.add("23:40");
+         assertArrayEquals(expected.toArray(),showtimes.toArray());
+
+         //Unforgettable in Scotiabank Theatre Winnpipeg
+         showtimes.clear();
+         expected.clear();
+         movie=new Movie("Unforgettable");
+         theater=new Theater("Scotiabank Theatre Winnpipeg");
+         showtimes=dataAccess.getShowtimeList(movie,theater);
+         expected.add("12:30");
+         expected.add("16:20");
+         expected.add("21:00");
+         assertArrayEquals(expected.toArray(),showtimes.toArray());
      }
 
 
