@@ -1,14 +1,18 @@
 package comp3350.ezcinema.presentation;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
 import comp3350.ezcinema.R;
+import comp3350.ezcinema.business.AccessMovie;
+import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.business.AccessTheater;
 import comp3350.ezcinema.business.SortTheater;
@@ -19,6 +23,11 @@ public class TheaterActivity extends AppCompatActivity
     //Data
     private ArrayList<Theater> theaterList;
     private ArrayList<Theater> sortedList;
+
+    //todo change later
+    private ArrayList<Movie> movieList;
+    private AccessMovie accessMovie;
+
     private AccessTheater accessTheater;
     private SortTheater sortedTheater;
     private ArrayAdapter<Theater> TheaterArrayAdapter;
@@ -26,7 +35,6 @@ public class TheaterActivity extends AppCompatActivity
     //views
     private ListView listView;
     private Button sortNameBtn;
-    private Button sortAddressBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,6 +44,7 @@ public class TheaterActivity extends AppCompatActivity
 
         initializeView();
         updateList();
+        listItemClicked();
     }
 
     private void initializeView()
@@ -46,10 +55,15 @@ public class TheaterActivity extends AppCompatActivity
         accessTheater.getTheaters(theaterList);      //transfer items in the db into theaterList
         sortedTheater = new SortTheater();
 
+        //todo change later
+        movieList = new ArrayList<Movie>();
+        accessMovie = new AccessMovie();
+        accessMovie.getMovies(movieList);
+        sortedList = theaterList;
+
         //initialize views
         listView = (ListView)findViewById(R.id.list_view);
         sortNameBtn = (Button)findViewById(R.id.sortNameBtn);
-        sortAddressBtn = (Button)findViewById(R.id.sortAddressBtn);
 
         //launch view of list
         TheaterArrayAdapter = new ArrayAdapter<Theater>(this,android.R.layout.simple_list_item_1,android.R.id.text1, theaterList);
@@ -66,21 +80,6 @@ public class TheaterActivity extends AppCompatActivity
                 sortByName();
             }
         });
-
-        sortAddressBtn.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
-                sortByAddress();
-            }
-        });
-    }
-
-    private void sortByAddress()
-    {
-        sortedList = (ArrayList<Theater>) sortedTheater.sortByAddress(theaterList);
-        TheaterArrayAdapter = new ArrayAdapter<Theater>(this,android.R.layout.simple_list_item_1,android.R.id.text1, sortedList);
-        listView.setAdapter(TheaterArrayAdapter);
     }
 
     private void sortByName()
@@ -88,6 +87,23 @@ public class TheaterActivity extends AppCompatActivity
         sortedList = (ArrayList<Theater>)sortedTheater.sortByName(theaterList);
         TheaterArrayAdapter = new ArrayAdapter<Theater>(this,android.R.layout.simple_list_item_1,android.R.id.text1, sortedList);
         listView.setAdapter(TheaterArrayAdapter);
+    }
+
+    private void listItemClicked() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //todo will be changed for this whole method, should pass a movie-theater realtion object to another activity
+                Intent intent = new Intent(TheaterActivity.this, TheaterSelectMovieActivity.class);
+                Bundle extras = new Bundle();
+
+                Theater theater = sortedList.get(i);
+                extras.putSerializable("TheaterPassed",theater);
+                extras.putSerializable("MovieList",movieList);
+                intent.putExtras(extras);
+                startActivity(intent);
+            }
+        });
     }
 
 }

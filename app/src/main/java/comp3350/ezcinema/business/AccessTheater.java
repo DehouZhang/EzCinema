@@ -5,12 +5,12 @@ import java.util.List;
 import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.application.Services;
 import comp3350.ezcinema.objects.Theater;
-import comp3350.ezcinema.persistence.DataAccessStub;
+import comp3350.ezcinema.persistence.DataAccess;
 
 
 public class AccessTheater {
 
-        private DataAccessStub dataAccess;
+        private DataAccess dataAccess;
 
         public AccessTheater()
         {
@@ -21,7 +21,12 @@ public class AccessTheater {
         public String getTheaters(List<Theater> theaters)
         {
             theaters.clear();
-            return dataAccess.getTheatersSequential(theaters);
+            return dataAccess.getTheaterSequential(theaters);
+        }
+
+        public String getTheaterAddr(String theaterName)
+        {
+            return dataAccess.getTheaterAddress(theaterName);
         }
 
 }

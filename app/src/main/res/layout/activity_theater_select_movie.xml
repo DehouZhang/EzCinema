@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="comp3350.ezcinema.presentation.MovieDescActivity">
+    tools:context="comp3350.ezcinema.presentation.TheaterSelectMovieActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <TextView
-            android:id="@+id/textViewTitle"
+            android:id="@+id/textViewTheaterInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -28,31 +30,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"/>
 
-        <TextView
-            android:id="@+id/textViewContent"
+        <ListView
+            android:id="@+id/listViewMovieList"
             android:layout_width="match_parent"
-            android:layout_height="395dp"
-            android:text="TextView"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"/>
-
-        <View
-            android:id="@+id/seperator2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:id="@+id/textViewRating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="TextView"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:layout_height="0dp"
+            android:layout_gravity="top"
+            android:layout_weight="1"
+            android:choiceMode="singleChoice" />
 
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>

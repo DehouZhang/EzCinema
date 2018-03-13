@@ -5,13 +5,11 @@ import java.util.Comparator;
 
 public class Theater implements Serializable
 {
-    private String theaterID;
     private String theaterName;
     private String theaterAddress;
 
-    public Theater(String newID, String newTheaterName, String newTheaterAddress)
+    public Theater(String newTheaterName, String newTheaterAddress)
     {
-        theaterID = newID;
         theaterName = newTheaterName;
         theaterAddress = newTheaterAddress;
     }
@@ -41,7 +39,7 @@ public class Theater implements Serializable
         if (object instanceof Theater)
         {
             t = (Theater) object;
-            if  (t.theaterID == theaterID)
+            if  (t.theaterName == theaterName)
             {
                 result = true;
             }

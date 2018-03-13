@@ -12,9 +12,6 @@ import comp3350.ezcinema.business.SortMovie;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by 74 on 2/12/2018.
- */
 public class SortMovieTest extends TestCase{
     private Movie movie1, movie2, movie3;
     private ArrayList<Movie> movies, sorted;
@@ -50,6 +47,13 @@ public class SortMovieTest extends TestCase{
         sorted = (ArrayList<Movie>) sortedMovie.sortByRating(movies);
 
         assertEquals(2.8, (sorted.get(0)).getMovieRating(),0.1);
+    }
+
+    @Test
+    public void testSortByGenre() throws Exception{
+
+        sorted = sortedMovie.sortByGenre(movies, "Family");
+        sortedMovie.toString();
     }
 
 }
