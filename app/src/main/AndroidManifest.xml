@@ -21,7 +21,8 @@
         <activity android:name=".presentation.MovieSelectTheaterActivity" />
         <activity android:name=".presentation.ConfirmationActivity" />
         <activity android:name=".presentation.TheaterSelectMovieActivity"/>
-        <activity android:name=".presentation.CheckoutActivity">
+        <activity android:name=".presentation.CheckoutActivity"/>
+        <activity android:name=".presentation.TicketActivity">
         </activity>
     </application>
 
