@@ -7,6 +7,7 @@ public class Theater implements Serializable
 {
     private String theaterName;
     private String theaterAddress;
+    private double ticketPrice = 10.00;
 
     public Theater(String newTheaterName, String newTheaterAddress)
     {
@@ -22,6 +23,11 @@ public class Theater implements Serializable
     public String getTheaterAddress()
     {
         return (theaterAddress);
+    }
+    
+    public String getTicketPrice()
+    {
+        return (ticketPrice);
     }
 
     public String toString()
