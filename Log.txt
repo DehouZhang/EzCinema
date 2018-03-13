@@ -1,4 +1,4 @@
-﻿Project log
+﻿﻿Project log
 Feb 2:
     set up project (Dow Griffith, 1.5 hour)
 	Set up Sample Project to get started.(1 hour)
@@ -115,8 +115,92 @@ Feb 13:
 Mar 7
 	Group Meeting design and task creation (Group, 1h)
 	
-Mar 7
-	Group Meeting design and task creation (Group, 1h)
+Mar 8  
+	set up hsqldb (Dehou Zhang, 1 hours)
+
+Mar 9
+	DataAccess and DataAccessObject created (Dehou Zhang 1 hours)
+	
+	
+Mar 10:
+
+	Reworks on GUIs (Qin Yang, 3 hours)
+		MovieSelectTheaterActivity and layout created 
+		MovieDescActivity and layout removed
+		TheaterSelectMovieActivity and layout created
+		ConfirmationActivity and layout created
+
+	MovieSelectTheaterActivity implemented without database (Qin Yang, 4 hours)
+
+	TheaterSelectMovieActivity implemented without database (Qin Yang, 2 hour)
+
+	ConfirmationActivity implemented without database (Qin Yang, 3 hours)
+
+	Connect MovieActivity to MovieSelectTheaterActivity  (Qin Yang, 1 hour)
+
+	Connect TheaterActivity to TheaterSelectMovieActivity (Qin Yang, 1 hour)
+
+	Connect MovieSelectTheaterActivity to ConfirmationActivity (Qin Yang, 2 hour)
+
+	Connect TheaterSelectMovieActivity to ConfirmationActivity (Qin Yang, 2 hour)
+	
+	finish:
+	
+	open(String string);       (Dehou Zhang, 1hours)
+	
+    	close();		   (Dehou Zhang, 0.5hour)
+	
+	String getMovieSequential(List<Movie> movieResult);	(Dehou Zhang, 2hours)
+	
+    	String getTheaterSequential(List<Theater> theaterResult); (Dehou Zhang, 2hours)
+	
+    	ArrayList<String>getShowtimeList(Movie movie, Theater theater); (Dehou Zhang, 2hours)
+	
+    	String getTheaterAddress(String theaterName); (Dehou Zhang, 1hours)
+	
+	tested without actural database			(Dehou Zhang, 2hours)
+
+	implement object MT (Dehou Zhang 0.5 hour)
+
+Mar 11:
+
+	Changes on business and persistence: (Qin Yang, 3 hours)
+		Added AccessMT into business directory and implemented getMT()
+		Implemented getShowtimeList() in DataAccessObject
+		Implemented getTheaterAddress() in DataAccessObject
+
+	Implemented MovieSelectTheaterActivity with database (Qin Yang, 4 hours)
+
+	Implemented TheaterSelectMovieActivity with database (Qin Yang, 2 hours)
+
+	Implemented ConfirmationActivity with database (Qin Yang, 2 hours)
+	
+	Fix bug about database not Connection (Dehou Zhang & Qin Yang, 5 hours)
+
 	
 March 12
+	Group meeting about testing, paymentGUI and database (2 hours)
+	
 	updated database to contain real data(Dow Griffith, 0.5 hours)
+	
+	Connect ConfirmationActivity to CheckoutActivity (Qin Yang, 3 hours)
+
+	Fixed errors in MT.script (Qin Yang, 1 hour)
+	
+	update database for DataAccessStub (Dehou Zhang, 3 hours)
+	
+March 13
+	change all datas in DatabaseAccessStub to alphabetical order (Dehou Zhang 0.5 hours)
+	
+	testing persistence:
+	
+	testGetMovieSequential()   (Dehou Zhang, 2 hours)
+	
+	testGetTheaterSequential()	 (Dehou Zhang, 2 hours)
+	
+	testGetShowtimeList()	 (Dehou Zhang, 2 hours)
+	
+	testGetTheaterAddress()	 (Dehou Zhang, 2 hours)
+	
+	fix bugs about dataAccessStyb (Dehou Zhang, 1hour)
+	
