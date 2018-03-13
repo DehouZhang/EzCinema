@@ -19,9 +19,6 @@ import comp3350.ezcinema.objects.Theater;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Randy on 13/03/2018.
- */
 public class AccessMTTest extends TestCase {
 
     private AccessMT accessorMT;

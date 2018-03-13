@@ -9,6 +9,12 @@ public class Theater implements Serializable
     private String theaterAddress;
     private double ticketPrice = 10.00;
 
+    public Theater(String newTheaterName)
+    {
+        theaterName=newTheaterName;
+        theaterAddress="";
+    }
+
     public Theater(String newTheaterName, String newTheaterAddress)
     {
         theaterName = newTheaterName;
@@ -25,7 +31,7 @@ public class Theater implements Serializable
         return (theaterAddress);
     }
     
-    public double getTicketPrice()
+    public Double getTicketPrice()
     {
         return (ticketPrice);
     }
