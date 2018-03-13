@@ -89,4 +89,12 @@ public class CheckoutActivity extends AppCompatActivity {
         }
     }
 
+
+    public void buttonTicketOnClick(View v)
+    {
+        Intent ticketIntent = new Intent(CheckoutActivity.this, TicketActivity.class);
+        ticketIntent.putExtra("DisplayMovie", movie);
+        CheckoutActivity.this.startActivity(ticketIntent);
+    }
+
 }
