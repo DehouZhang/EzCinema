@@ -22,7 +22,7 @@ INSERT INTO MOVIES VALUES('Ferdinand','After Ferdinand, a bull with a big heart,
 INSERT INTO THEATERS VALUES('Scotiabank Theatre Winnipeg','817 St. James Street')
 INSERT INTO THEATERS VALUES('Famous Players Kildonan Place Cinemas','1555 Regent Avenue West')
 INSERT INTO THEATERS VALUES('Cinema City Northgate','1399 McPhillips Street')
-INSERT INTO THEATERS VALUES('SilverCity St.Vital Cinemas','160-1225 St. Mary''s Road, Winnipeg')
+INSERT INTO THEATERS VALUES('SilverCity St.Vital Cinemas','160-1225 St.Mary''s Road, Winnipeg')
 INSERT INTO THEATERS VALUES('Cineplex Odeon McGillivray Cinemas','2190 McGillivray Blvd')
 
 INSERT INTO MOVIETHEATERS VALUES('Fifty Shades Freed', 'Scotiabank Theatre Winnpeg', '14:40')
