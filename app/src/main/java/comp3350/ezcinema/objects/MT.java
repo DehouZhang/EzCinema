@@ -9,9 +9,7 @@ import java.util.Comparator;
 import comp3350.ezcinema.presentation.MovieSelectTheaterActivity;
 import comp3350.ezcinema.presentation.TheaterSelectMovieActivity;
 
-/**
- * Created by Dehou on 3/10/2018.
- */
+
 
 public class MT implements Serializable{
     private String movieName;

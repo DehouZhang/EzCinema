@@ -1,8 +1,5 @@
 package comp3350.ezcinema.persistence;
 
-/**
- * Created by Dehou on 3/8/2018.
- */
 import java.util.ArrayList;
 import java.util.List;
 

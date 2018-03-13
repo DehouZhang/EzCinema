@@ -9,9 +9,7 @@ import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.persistence.DataAccess;
 
-/**
- * Created by 杨 on 2018/3/11.
- */
+
 
 public class AccessMT {
     private DataAccess dataAccess;
