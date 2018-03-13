@@ -7,9 +7,6 @@ import java.util.Comparator;
 import comp3350.ezcinema.objects.Movie;
 import static org.junit.Assert.*;
 
-/**
- * Created by Dow on 12/02/2018.
- */
 public class MovieTest extends TestCase{
 
 
@@ -263,8 +260,122 @@ public class MovieTest extends TestCase{
     }
 
     @Test
-    public void testEquals() throws  Exception{
+    public void testRatingCompares() throws Exception {
+        //test normal data compare to other cases
+        assertTrue(movieRatingComp.compare(movie_normal_data,movie_same_content) == 0);           //compare to same content
+        assertTrue(movieRatingComp.compare(movie_normal_data,movie_another_normal_data) < 0);     //compare to another normal data
+        assertTrue(movieRatingComp.compare(movie_normal_data,movie_empty_data) < 0);              //compare to empty data
+        assertTrue(movieRatingComp.compare(movie_normal_data,movie_missing_name) < 0);            //compare to missing name
+        assertTrue(movieRatingComp.compare(movie_normal_data,movie_missing_description) < 0);     //compare to missing description
+        assertTrue(movieRatingComp.compare(movie_normal_data,movie_missing_genre) < 0);           //compare to missing genre
+        assertTrue(movieRatingComp.compare(movie_normal_data,movie_invalid_rating) < 0);          //compare to invalid rating
+        assertTrue(movieRatingComp.compare(movie_normal_data,movie_name_case_sensitivity) == 0);   //compare to movie name case sensitivity
+        assertTrue(movieRatingComp.compare(movie_normal_data,movie_same_name_diff_rating) < 0);   //compare to same name different rating
+        assertTrue(movieRatingComp.compare(movie_normal_data,movie_same_rating_diff_name) == 0);   //compare to same rating different name
 
+        //test empty data compare to other cases
+        assertTrue(movieRatingComp.compare(movie_empty_data,movie_normal_data) > 0);                 //compare to normal data
+        assertTrue(movieRatingComp.compare(movie_empty_data,movie_another_normal_data) > 0);         //compare to another normal data
+        assertTrue(movieRatingComp.compare(movie_empty_data,movie_missing_name) == 0);             //compare to missing name
+        assertTrue(movieRatingComp.compare(movie_empty_data,movie_missing_description) == 0);     //compare to missing description
+        assertTrue(movieRatingComp.compare(movie_empty_data,movie_missing_genre) == 0);           //compare to missing genre
+        assertTrue(movieRatingComp.compare(movie_empty_data,movie_invalid_rating) == 0);          //compare to invalid rating
+        assertTrue(movieRatingComp.compare(movie_empty_data,movie_name_case_sensitivity) > 0);   //compare to movie name case sensitivity
+        assertTrue(movieRatingComp.compare(movie_empty_data,movie_same_name_diff_rating) > 0);   //compare to same name different rating
+        assertTrue(movieRatingComp.compare(movie_empty_data,movie_same_rating_diff_name) > 0);   //compare to same rating different name
+
+        //test missing name compare to other cases
+        assertTrue(movieRatingComp.compare(movie_missing_name,movie_normal_data) > 0);                 //compare to normal data
+        assertTrue(movieRatingComp.compare(movie_missing_name,movie_another_normal_data) > 0);         //compare to another normal data
+        assertTrue(movieRatingComp.compare(movie_missing_name,movie_empty_data) == 0);             //compare to empty data
+        assertTrue(movieRatingComp.compare(movie_missing_name,movie_missing_description) == 0);     //compare to missing description
+        assertTrue(movieRatingComp.compare(movie_missing_name,movie_missing_genre) == 0);           //compare to missing genre
+        assertTrue(movieRatingComp.compare(movie_missing_name,movie_invalid_rating) == 0);          //compare to invalid rating
+        assertTrue(movieRatingComp.compare(movie_missing_name,movie_name_case_sensitivity) > 0);   //compare to movie name case sensitivity
+        assertTrue(movieRatingComp.compare(movie_missing_name,movie_same_name_diff_rating) > 0);   //compare to same name different rating
+        assertTrue(movieRatingComp.compare(movie_missing_name,movie_same_rating_diff_name) > 0);   //compare to same rating different name
+
+        //test missing description compare to other cases
+        assertTrue(movieRatingComp.compare(movie_missing_description,movie_normal_data) > 0);                 //compare to normal data
+        assertTrue(movieRatingComp.compare(movie_missing_description,movie_another_normal_data) > 0);         //compare to another normal data
+        assertTrue(movieRatingComp.compare(movie_missing_description,movie_empty_data) == 0);             //compare to empty data
+        assertTrue(movieRatingComp.compare(movie_missing_description,movie_missing_name) == 0);           //compare to missing name
+        assertTrue(movieRatingComp.compare(movie_missing_description,movie_missing_genre) == 0);           //compare to missing genre
+        assertTrue(movieRatingComp.compare(movie_missing_description,movie_invalid_rating) == 0);          //compare to invalid rating
+        assertTrue(movieRatingComp.compare(movie_missing_description,movie_name_case_sensitivity) > 0);   //compare to movie name case sensitivity
+        assertTrue(movieRatingComp.compare(movie_missing_description,movie_same_name_diff_rating) > 0);   //compare to same name different rating
+        assertTrue(movieRatingComp.compare(movie_missing_description,movie_same_rating_diff_name) > 0);   //compare to same rating different name
+
+        //test missing genre compare to other cases
+        assertTrue(movieRatingComp.compare(movie_missing_genre,movie_normal_data) > 0);                 //compare to normal data
+        assertTrue(movieRatingComp.compare(movie_missing_genre,movie_another_normal_data) > 0);         //compare to another normal data
+        assertTrue(movieRatingComp.compare(movie_missing_genre,movie_empty_data) == 0);             //compare to empty data
+        assertTrue(movieRatingComp.compare(movie_missing_genre,movie_missing_name) == 0);           //compare to missing name
+        assertTrue(movieRatingComp.compare(movie_missing_genre,movie_missing_description) == 0);     //compare to missing description
+        assertTrue(movieRatingComp.compare(movie_missing_genre,movie_invalid_rating) == 0);          //compare to invalid rating
+        assertTrue(movieRatingComp.compare(movie_missing_genre,movie_name_case_sensitivity) > 0);   //compare to movie name case sensitivity
+        assertTrue(movieRatingComp.compare(movie_missing_genre,movie_same_name_diff_rating) > 0);   //compare to same name different rating
+        assertTrue(movieRatingComp.compare(movie_missing_genre,movie_same_rating_diff_name) > 0);   //compare to same rating different name
+
+        //test invalid rating compare to other cases
+        assertTrue(movieRatingComp.compare(movie_invalid_rating,movie_normal_data) > 0);                 //compare to normal data
+        assertTrue(movieRatingComp.compare(movie_invalid_rating,movie_another_normal_data) > 0);         //compare to another normal data
+        assertTrue(movieRatingComp.compare(movie_invalid_rating,movie_empty_data) == 0);             //compare to empty data
+        assertTrue(movieRatingComp.compare(movie_invalid_rating,movie_missing_name) == 0);           //compare to missing name
+        assertTrue(movieRatingComp.compare(movie_invalid_rating,movie_missing_description) == 0);     //compare to missing description
+        assertTrue(movieRatingComp.compare(movie_invalid_rating,movie_missing_genre) == 0);           //compare to missing genre
+        assertTrue(movieRatingComp.compare(movie_invalid_rating,movie_name_case_sensitivity) > 0);   //compare to movie name case sensitivity
+        assertTrue(movieRatingComp.compare(movie_invalid_rating,movie_same_name_diff_rating) > 0);   //compare to same name different rating
+        assertTrue(movieRatingComp.compare(movie_invalid_rating,movie_same_rating_diff_name) > 0);   //compare to same rating different name
+
+        //test movie name case sensitivity compare to other cases
+        assertTrue(movieRatingComp.compare(movie_name_case_sensitivity,movie_normal_data) == 0);                 //compare to normal data
+        assertTrue(movieRatingComp.compare(movie_name_case_sensitivity,movie_same_content) == 0);           //compare to same content
+        assertTrue(movieRatingComp.compare(movie_name_case_sensitivity,movie_another_normal_data) < 0);     //compare to another normal data
+        assertTrue(movieRatingComp.compare(movie_name_case_sensitivity,movie_empty_data) < 0);              //compare to empty data
+        assertTrue(movieRatingComp.compare(movie_name_case_sensitivity,movie_missing_name) < 0);            //compare to missing name
+        assertTrue(movieRatingComp.compare(movie_name_case_sensitivity,movie_missing_description) < 0);     //compare to missing description
+        assertTrue(movieRatingComp.compare(movie_name_case_sensitivity,movie_missing_genre) < 0);           //compare to missing genre
+        assertTrue(movieRatingComp.compare(movie_name_case_sensitivity,movie_invalid_rating) < 0);          //compare to invalid rating
+        assertTrue(movieRatingComp.compare(movie_name_case_sensitivity,movie_same_name_diff_rating) < 0);   //compare to same name different rating
+        assertTrue(movieRatingComp.compare(movie_name_case_sensitivity,movie_same_rating_diff_name) == 0);   //compare to same rating different name
+
+        //test same name different rating compare to other cases
+        assertTrue(movieRatingComp.compare(movie_same_name_diff_rating,movie_normal_data) > 0);                 //compare to normal data
+        assertTrue(movieRatingComp.compare(movie_same_name_diff_rating,movie_same_content) > 0);           //compare to same content
+        assertTrue(movieRatingComp.compare(movie_same_name_diff_rating,movie_another_normal_data) > 0);     //compare to another normal data
+        assertTrue(movieRatingComp.compare(movie_same_name_diff_rating,movie_empty_data) < 0);              //compare to empty data
+        assertTrue(movieRatingComp.compare(movie_same_name_diff_rating,movie_missing_name) < 0);            //compare to missing name
+        assertTrue(movieRatingComp.compare(movie_same_name_diff_rating,movie_missing_description) < 0);     //compare to missing description
+        assertTrue(movieRatingComp.compare(movie_same_name_diff_rating,movie_missing_genre) < 0);           //compare to missing genre
+        assertTrue(movieRatingComp.compare(movie_same_name_diff_rating,movie_invalid_rating) < 0);          //compare to invalid rating
+        assertTrue(movieRatingComp.compare(movie_same_name_diff_rating,movie_name_case_sensitivity) > 0);   //compare to movie name case sensitivity
+        assertTrue(movieRatingComp.compare(movie_same_name_diff_rating,movie_same_rating_diff_name) > 0);   //compare to same rating different name
+
+        //test same rating different name compare to other cases
+        assertTrue(movieRatingComp.compare(movie_same_rating_diff_name,movie_normal_data) == 0);                 //compare to normal data
+        assertTrue(movieRatingComp.compare(movie_same_rating_diff_name,movie_same_content) == 0);           //compare to same content
+        assertTrue(movieRatingComp.compare(movie_same_rating_diff_name,movie_another_normal_data) < 0);     //compare to another normal data
+        assertTrue(movieRatingComp.compare(movie_same_rating_diff_name,movie_empty_data) < 0);              //compare to empty data
+        assertTrue(movieRatingComp.compare(movie_same_rating_diff_name,movie_missing_name) < 0);            //compare to missing name
+        assertTrue(movieRatingComp.compare(movie_same_rating_diff_name,movie_missing_description) < 0);     //compare to missing description
+        assertTrue(movieRatingComp.compare(movie_same_rating_diff_name,movie_missing_genre) < 0);           //compare to missing genre
+        assertTrue(movieRatingComp.compare(movie_same_rating_diff_name,movie_invalid_rating) < 0);          //compare to invalid rating
+        assertTrue(movieRatingComp.compare(movie_same_rating_diff_name,movie_name_case_sensitivity) == 0);           //compare to movie name case sensitivity
+        assertTrue(movieRatingComp.compare(movie_same_rating_diff_name,movie_same_name_diff_rating) < 0);   //compare to same name different rating
+
+        //test same case comparison
+        assertTrue(movieRatingComp.compare(movie_normal_data,movie_normal_data) == 0);
+        assertTrue(movieRatingComp.compare(movie_same_content,movie_same_content) == 0);
+        assertTrue(movieRatingComp.compare(movie_another_normal_data,movie_another_normal_data) == 0);
+        assertTrue(movieRatingComp.compare(movie_empty_data,movie_empty_data) == 0);
+        assertTrue(movieRatingComp.compare(movie_missing_name,movie_missing_name) == 0);
+        assertTrue(movieRatingComp.compare(movie_missing_description,movie_missing_description) == 0);
+        assertTrue(movieRatingComp.compare(movie_missing_genre,movie_missing_genre) == 0);
+        assertTrue(movieRatingComp.compare(movie_invalid_rating,movie_invalid_rating) == 0);
+        assertTrue(movieRatingComp.compare(movie_name_case_sensitivity,movie_name_case_sensitivity) == 0);
+        assertTrue(movieRatingComp.compare(movie_same_name_diff_rating,movie_same_name_diff_rating) == 0);
+        assertTrue(movieRatingComp.compare(movie_same_rating_diff_name,movie_same_rating_diff_name) == 0);
     }
 
 }

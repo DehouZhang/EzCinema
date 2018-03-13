@@ -56,24 +56,6 @@ public class Movie implements Serializable
         }
     }
 
-    public boolean equals(Object object)
-    {
-        boolean result;
-        Movie c;
-
-        result = false;
-
-        if (object instanceof Movie)
-        {
-            c = (Movie) object;
-            if (((c.movieName == null) && (movieName == null)) || (c.movieName.equals(movieName)))
-            {
-                result = true;
-            }
-        }
-        return result;
-    }
-
     //used to compare the attributes of the Movie ArrayList items
     public static Comparator<Movie> MovieNameComparator = new Comparator<Movie>() {
 
