@@ -14,6 +14,7 @@ public class CheckoutActivity extends AppCompatActivity {
     //Data
     private String movieName = "test";
     private int amount;
+    //todo price for tickets is currently hard-coded
     private double price = 10.00;
 
     //views
