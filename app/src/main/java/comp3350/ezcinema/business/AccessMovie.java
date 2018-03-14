@@ -20,9 +20,13 @@ public class AccessMovie {
     //returns the list of movies from the database
     public String getMovies(List<Movie> movies)
     {
-        movies.clear();
-        return dataAccess.getMovieSequential(movies);
-    }
+        if(movies != null) {
+            movies.clear();
+            return dataAccess.getMovieSequential(movies);
+        }
+        else
+            return null;
+        }
 
 
 

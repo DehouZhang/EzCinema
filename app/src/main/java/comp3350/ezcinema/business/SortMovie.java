@@ -11,37 +11,52 @@ public class SortMovie {
 
     public static ArrayList<Movie> sortByName(ArrayList<Movie> databaseList){
 
-        ArrayList<Movie> sortedList;
-        sortedList = (ArrayList<Movie>)databaseList.clone();
+        if(databaseList != null) {
+            ArrayList<Movie> sortedList;
+            sortedList = (ArrayList<Movie>) databaseList.clone();
 
-        Collections.sort(sortedList, Movie.MovieNameComparator);
+            Collections.sort(sortedList, Movie.MovieNameComparator);
 
-        return sortedList;
+            return sortedList;
+        }
+        else
+            return null;
+
     }
 
 
     public static ArrayList<Movie> sortByRating (ArrayList<Movie> databaseList){
 
-        ArrayList<Movie> sortedList;
-        sortedList = (ArrayList<Movie>)databaseList.clone();
+        if(databaseList != null) {
 
-        Collections.sort(sortedList, Movie.MovieRatingComparator);
+            ArrayList<Movie> sortedList;
 
-        return sortedList;
+            sortedList = (ArrayList<Movie>)databaseList.clone();
+
+            Collections.sort(sortedList, Movie.MovieRatingComparator);
+
+            return sortedList;
+        }
+        else
+            return null;
     }
 
 
     public static ArrayList<Movie>  sortByGenre (ArrayList<Movie> databaseList, String givenGenre){
 
-        ArrayList<Movie> filteredList = new ArrayList<>();
+        if(databaseList != null && givenGenre != null) {
+            ArrayList<Movie> filteredList = new ArrayList<>();
 
-        for (Movie m: databaseList){
-            if(m.getGenre().equals(givenGenre)){
-                filteredList.add(m);
+            for (Movie m: databaseList){
+                if(m.getGenre().equals(givenGenre)){
+                    filteredList.add(m);
+                }
+
             }
-
+            return filteredList;
         }
-    return filteredList;
+        else
+            return null;
 
     }
 }

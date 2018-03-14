@@ -9,14 +9,20 @@ import comp3350.ezcinema.objects.Theater;
 
 public class SortTheater {
 
-    public ArrayList<Theater> sortByName(ArrayList<Theater> databaseList){
+    public static ArrayList<Theater> sortByName(ArrayList<Theater> databaseList) {
 
-        ArrayList<Theater> sortedList;
-        sortedList = (ArrayList<Theater>)databaseList.clone();
 
-        Collections.sort(sortedList, Theater.TheaterNameComparator);
+        if (databaseList != null){
+            ArrayList<Theater> sortedList;
+            sortedList = (ArrayList<Theater>) databaseList.clone();
 
-        return sortedList;
+            Collections.sort(sortedList, Theater.TheaterNameComparator);
+
+            return sortedList;
+        }
+        else
+            return null;
     }
+
 
 }

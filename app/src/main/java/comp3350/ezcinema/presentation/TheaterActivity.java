@@ -29,7 +29,6 @@ public class TheaterActivity extends AppCompatActivity
     private AccessMovie accessMovie;
 
     private AccessTheater accessTheater;
-    private SortTheater sortedTheater;
     private ArrayAdapter<Theater> TheaterArrayAdapter;
 
     //views
@@ -53,7 +52,6 @@ public class TheaterActivity extends AppCompatActivity
         theaterList = new ArrayList<Theater>();
         accessTheater = new AccessTheater();
         accessTheater.getTheaters(theaterList);      //transfer items in the db into theaterList
-        sortedTheater = new SortTheater();
 
         //todo change later
         movieList = new ArrayList<Movie>();
@@ -84,7 +82,7 @@ public class TheaterActivity extends AppCompatActivity
 
     private void sortByName()
     {
-        sortedList = (ArrayList<Theater>)sortedTheater.sortByName(theaterList);
+        sortedList = (ArrayList<Theater>)SortTheater.sortByName(theaterList);
         TheaterArrayAdapter = new ArrayAdapter<Theater>(this,android.R.layout.simple_list_item_1,android.R.id.text1, sortedList);
         listView.setAdapter(TheaterArrayAdapter);
     }

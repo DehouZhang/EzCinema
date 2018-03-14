@@ -1,42 +1,49 @@
 package comp3350.ezcinema.tests.business;
 
 import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import static org.junit.Assert.*;
 import java.util.ArrayList;
+
+import comp3350.ezcinema.application.Main;
+import comp3350.ezcinema.business.AccessTheater;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.business.SortTheater;
 
 
 public class SortTheaterTest extends TestCase{
-    private Theater theater1, theater2, theater3;
-    private ArrayList<Theater> theater, sorted;
-    private SortTheater sortedTheater;
+    private AccessTheater accessor;
+    private ArrayList theaters, sorted;
+    private String [] namesOrder;
+    private Theater theater;
 
-    @Before
     public void setUp() throws Exception {
-        theater1 = new Theater( "C Theater", "123 Fake Street");
-        theater2 = new Theater( "B Theater", "234 Other Street");
-        theater3 = new Theater( "A Theater", "345 Last Street");
+        Main.startUp();
+        accessor = new AccessTheater();
+        theaters = new ArrayList<Theater>();
+        sorted = new ArrayList<Theater>();
+        accessor.getTheaters(theaters);
 
-        theater = new ArrayList<Theater>();
-        sortedTheater = new SortTheater();
-
-        theater.add(theater1);
-        theater.add(theater2);
-        theater.add(theater3);
+        namesOrder = new String[]{"Cinema City Northgate", "Cineplex Odeon McGillivray Cinemas", "Famous Players Kildonan Place Cinemas", "Scotiabank Theatre Winnipeg", "SilverCity St.Vital Cinemas"};
     }
 
-    @Test
-    public void testsortByName() throws Exception {
 
-        sorted = (ArrayList<Theater>) sortedTheater.sortByName(theater);
+    public void testSortByName() throws Exception {
+
+        sorted = (ArrayList<Theater>) SortTheater.sortByName(null);
+
+        assertNull(sorted);
+
+        sorted = (ArrayList<Theater>) SortTheater.sortByName(theaters);
 
         assertNotNull(sorted);
-        assertEquals("A Theater", (sorted.get(0)).getTheaterName());
+
+        for(int n = 0; n < sorted.size(); n++){
+
+            theater = (Theater) sorted.get(n);
+
+            assertEquals(namesOrder[n], theater.getTheaterName());
+        }
+
     }
 
 
