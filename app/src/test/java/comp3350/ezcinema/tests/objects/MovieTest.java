@@ -7,10 +7,11 @@ import java.util.Comparator;
 import comp3350.ezcinema.objects.Movie;
 import static org.junit.Assert.*;
 
+
 public class MovieTest extends TestCase{
 
 
-    private Movie movie_normal_data, movie_same_content, movie_name_case_sensitivity,movie_missing_name,movie_invalid_rating,movie_same_name_diff_rating,movie_same_rating_diff_name,movie_empty_data,movie_another_normal_data,movie_missing_description,movie_missing_genre;
+    private Movie movie1, movie2, movie3;
     private Comparator<Movie> movieNameComp;
     private Comparator<Movie> movieRatingComp;
 
@@ -34,7 +35,6 @@ public class MovieTest extends TestCase{
         movieRatingComp = Movie.MovieRatingComparator;
 
     }
-
     @Test
     public void testGetMethods() throws Exception {
         //test normal data

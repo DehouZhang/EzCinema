@@ -11,9 +11,6 @@ import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.business.SortTheater;
 
 
-/**
- * Created by 74 on 2/12/2018.
- */
 public class SortTheaterTest extends TestCase{
     private Theater theater1, theater2, theater3;
     private ArrayList<Theater> theater, sorted;
@@ -42,12 +39,5 @@ public class SortTheaterTest extends TestCase{
         assertEquals("A Theater", (sorted.get(0)).getTheaterName());
     }
 
-    @Test
-    public void testsortByAddress() throws Exception {
-
-        sorted = (ArrayList<Theater>) sortedTheater.sortByAddress(theater);
-
-        assertEquals("123 Fake Street", (sorted.get(0)).getTheaterAddress());
-    }
 
 }

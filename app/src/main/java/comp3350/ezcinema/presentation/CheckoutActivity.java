@@ -1,5 +1,6 @@
 package comp3350.ezcinema.presentation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.RadioButton;
 
 import comp3350.ezcinema.R;
+import comp3350.ezcinema.objects.Movie;
 
 public class CheckoutActivity extends AppCompatActivity {
     //Data
@@ -83,6 +85,13 @@ public class CheckoutActivity extends AppCompatActivity {
                     break;
                 }
         }
+    }
+
+    public void buttonTicketOnClick(View v)
+    {
+        Intent ticketIntent = new Intent(CheckoutActivity.this, TicketActivity.class);
+        ticketIntent.putExtra("DisplayMovie", movieName);
+        CheckoutActivity.this.startActivity(ticketIntent);
     }
 
 }
