@@ -298,7 +298,7 @@ public class DataAccessStub implements DataAccess
         temp32.add("13:00");
         temp32.add("18:00");
         temp32.add("21:00");
-        mt= new MT("Unforgettable","Famous Player Kildonan Place Cinemas",temp32);
+        mt= new MT("Unforgettable","Famous Players Kildonan Place Cinemas",temp32);
         MTs.add(mt);
 
         ArrayList<String> temp33=new ArrayList<>();
@@ -333,7 +333,7 @@ public class DataAccessStub implements DataAccess
         temp37.add("15:30");
         temp37.add("19:20");
         temp37.add("22:50");
-        mt= new MT("Ferdinand","Famous Player Kildonan Place Cinemas",temp37);
+        mt= new MT("Ferdinand","Famous Players Kildonan Place Cinemas",temp37);
         MTs.add(mt);
 
         ArrayList<String> temp38=new ArrayList<>();
