@@ -194,6 +194,8 @@ March 12
 	
 	update database for DataAccessStub (Dehou Zhang, 3 hours)
 	
+	finished checkout and ticket pages layout and passed current info from activities(Shawn Cooper, 2 hours)
+	
 March 13
 	change all datas in DatabaseAccessStub to alphabetical order (Dehou Zhang 0.5 hours)
 	
@@ -214,3 +216,7 @@ March 13
 	Tested and bug fixed Movie Object (Qin Yang, 3 hours)
 	
 	Tested and bug fixed MT object(Qin Yang 3 hours)
+	
+	merged ticket branch to database branch (Shawn Cooper, .5 hours)
+	
+	passed remaining info needed for ticket (Shawn Cooper, 3 hours)
