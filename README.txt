@@ -12,25 +12,47 @@ https://github.com/DehouZhang/EzCinema
 
 Packages
 -comp3350.ezcinema.objects
+	-Iteration 1
 	-Movie.java
 	-Theater.java
+	Iteration2
+	-MT.java
 -comp3350.ezcinema.business
 	-AccessMovie.java
 	-AccessTheater.java
 	-SortMovie.java
 	-SortTheater.java
+	Iteration 2
+	-AccessMT.java
 -comp3350.ezcinema.application
+	Iteration 1
 	-Main.java
 	-Services.java
 -comp3350.ezcinema.persistence
+	Iteration 1
 	-DataAccessStub.java
--comp3350.ezcinema.persistence
+	Iteration 2
+	-DataAccess.java
+	-DataAccessObject.java
+-comp3350.ezcinema.presentation
 	-HomeActivity.java
 	-MovieActivity.java
 	-MoveDescActivity.java
 	-TheaterActivity.java
+	Iteration 2
+	-CheckoutActivity.java
+	-Confirmation.java
+	-FragmentCredit.java
+	-FragementScene.java
+	-FragementPalPal.java
+	-MovieSelectTheaterActivity.java
+	-MovieSelectTheaterAdapter.java
+	-TheaterSelectMovieActivity.java
+	-TheaterSelectMovieAdapter.java
+	-TicketActivity.java
 
 Features
+Iteration 1
 -List of Movies available
 	-Found under the movie button on the main screen
 	-Sorting methods for the movies that are active
@@ -46,7 +68,20 @@ Features
 		-Can be used by click the corresponding button
 		-Name
 		-Address 
+		
+Features
+Iteration 2
+-Buying a ticket for a movie
+	-Selecting a movie from the movie list will allow a user to choose a theater they want to see the movie at
+	-Selecting a theater will bring the user to a page to select a showtime and the amount of tickets to purchase
+	-Clicking confirm will bring the user to a payment option page
+	NOTE: the payment options do not have a back end yet and any input will allow a purchase
+	-after "purchasing" a ticket the user will be brought to a page that has ticket info on it and a QR code that could be scanned 		at a theater
  
+ 	-Alternately a user could select a theater from the theater list
+	-This will bring them to a list of movie playing at that theater
+	-After they select a movie they will be brought to the showtime and tickets amount selection page
+	
 
 Log is in the repository
 
