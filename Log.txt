@@ -120,6 +120,7 @@ Mar 8
 
 Mar 9
 	DataAccess and DataAccessObject created (Dehou Zhang 1 hours)
+	Created Checkout branch and checkout and ticket Activities with relative xml files(Shawn Cooper 2 hours)
 	
 	
 Mar 10:
