@@ -13,6 +13,7 @@ public class TicketActivity extends AppCompatActivity {
     //Data
     private String movieName;
     private String theaterName;
+    private String showTimeSelected;
     private int amount;
     //views
     TextView textViewMovieTitle;
@@ -35,6 +36,7 @@ public class TicketActivity extends AppCompatActivity {
         movieName = (String)getIntent().getSerializableExtra("MovieNamePassed");
         theaterName = (String)getIntent().getSerializableExtra("TheaterNamePassed");
         amount = (int)getIntent().getSerializableExtra("AmountPassed");
+        showTimeSelected = (String)getIntent().getSerializableExtra("ShowTimePassed");
 
         textViewMovieTitle = (TextView)findViewById(R.id.textViewMovieTitle);
         textViewTheaterTitle = (TextView)findViewById(R.id.textViewTheaterTitle);
@@ -50,6 +52,7 @@ public class TicketActivity extends AppCompatActivity {
         textViewMovieTitle.setText(movieName);
         textViewTheaterTitle.setText(theaterName);
         textViewTicketQty.setText("Number of Tickets: "+amount);
+        textViewShowTime.setText(showTimeSelected);
     }
 
     public void buttonHomeOnClick(View v)

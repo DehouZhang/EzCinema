@@ -18,6 +18,7 @@ public class CheckoutActivity extends AppCompatActivity {
     private String movieName = "test";
     private int amount;
     private String theaterName;
+    private String selectedShowTime;
     //todo price for tickets is currently hard-coded
     private double price = 10.00;
 
@@ -43,6 +44,7 @@ public class CheckoutActivity extends AppCompatActivity {
         movieName = (String)getIntent().getSerializableExtra("MovieNamePassed");
         theaterName = (String)getIntent().getSerializableExtra("TheaterNamePassed");
         amount = (int)getIntent().getSerializableExtra("AmountPassed");
+        selectedShowTime = (String)getIntent().getSerializableExtra("ShowTimePassed");
 
         textViewTitle = (TextView)findViewById(R.id.textViewTitle);
         textViewSubtotal = (TextView)findViewById(R.id.textViewSubtotal);
@@ -111,6 +113,7 @@ public class CheckoutActivity extends AppCompatActivity {
             Bundle extras = new Bundle();
             extras.putSerializable("MovieNamePassed", movieName);
             extras.putSerializable("TheaterNamePassed", theaterName);
+            extras.putSerializable("ShowTimePassed", selectedShowTime);
             extras.putSerializable("AmountPassed",amount);
             intent.putExtras(extras);
             startActivity(intent);
