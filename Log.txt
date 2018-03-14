@@ -181,7 +181,7 @@ Mar 11:
 March 12
 	Group meeting about testing, paymentGUI and database (2 hours)
 	
-	updated database to contain real data(Dow Griffith, 0.5 hours)
+	updated database to contain real data(Dow Griffith, 1 hours)
 	
 	Connect ConfirmationActivity to CheckoutActivity (Qin Yang, 3 hours)
 
@@ -203,4 +203,6 @@ March 13
 	testGetTheaterAddress()	 (Dehou Zhang, 2 hours)
 	
 	fix bugs about dataAccessStyb (Dehou Zhang, 1hour)
+	
+	Tested and bug fixed theater object (Dow Griffith, 3 hours)
 	
