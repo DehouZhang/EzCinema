@@ -21,7 +21,6 @@ public class CheckoutActivity extends AppCompatActivity
     private int amount;
     private String theaterName;
     private String selectedShowTime;
-    //todo price for tickets is currently hard-coded
     private double price = 10.00;
 
     //views

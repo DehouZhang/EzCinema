@@ -22,12 +22,10 @@ import java.util.ArrayList;
 
 public class MovieActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
-    //Data
-    //todo should have a moive-theater relation DB, currently using arraylist of moives and theaters
+
     private ArrayList<Movie> movieList;
     private ArrayList<Movie> sortedList;
 
-    //todo will be changed
     private ArrayList<Theater> theaterList;
     private AccessTheater accessTheater;
 
@@ -61,7 +59,6 @@ public class MovieActivity extends AppCompatActivity implements AdapterView.OnIt
     {
         genreList = new ArrayList<>();
 
-        //todo will be changed by DB
         genreList.add("All");   //default selection
 
         genreList.add("Family");

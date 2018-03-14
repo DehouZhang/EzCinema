@@ -83,7 +83,7 @@ public class ConfirmationActivity extends AppCompatActivity
 
     private void confirmClicked()
     {
-        //todo go to payment page (maybe update database for reservation) pass the amount of ticket customer choose
+
         buttonConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

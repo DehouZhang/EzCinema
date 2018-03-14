@@ -97,7 +97,7 @@ public class TheaterSelectMovieActivity extends AppCompatActivity
         listViewMovieList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //todo will be changed for this whole method, should pass a movie-theater realtion object to another activity
+
                 Intent intent = new Intent(TheaterSelectMovieActivity.this, ConfirmationActivity.class);
                 Bundle extras = new Bundle();
 

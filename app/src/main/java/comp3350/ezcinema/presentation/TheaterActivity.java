@@ -24,7 +24,7 @@ public class TheaterActivity extends AppCompatActivity
     private ArrayList<Theater> theaterList;
     private ArrayList<Theater> sortedList;
 
-    //todo change later
+
     private ArrayList<Movie> movieList;
     private AccessMovie accessMovie;
 
@@ -53,7 +53,7 @@ public class TheaterActivity extends AppCompatActivity
         accessTheater = new AccessTheater();
         accessTheater.getTheaters(theaterList);      //transfer items in the db into theaterList
 
-        //todo change later
+
         movieList = new ArrayList<Movie>();
         accessMovie = new AccessMovie();
         accessMovie.getMovies(movieList);
@@ -93,7 +93,6 @@ public class TheaterActivity extends AppCompatActivity
         {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //todo will be changed for this whole method, should pass a movie-theater realtion object to another activity
                 Intent intent = new Intent(TheaterActivity.this, TheaterSelectMovieActivity.class);
                 Bundle extras = new Bundle();
 

@@ -169,8 +169,6 @@ public class DataAccessObject implements DataAccess
 
     public String getTheaterAddress(String theaterName)
     {
-        //todo implement this
-
         String addr = "";
         try
         {

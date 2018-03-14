@@ -10,9 +10,7 @@ import android.view.ViewGroup;
 import comp3350.ezcinema.R;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class FragmentCredit extends Fragment
 {
 
