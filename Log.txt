@@ -120,7 +120,7 @@ Mar 8
 
 Mar 9
 	DataAccess and DataAccessObject created (Dehou Zhang 1 hours)
-	Created Checkout branch and checkout and ticket Activities with relative xml files(Shawn Cooper 2 hours)
+	Created Checkout branch and checkout and ticket Activities with relative xml files(Shawn Cooper, 2 hours)
 	
 	
 Mar 10:
@@ -162,6 +162,10 @@ Mar 10:
 	tested without actural database			(Dehou Zhang, 2hours)
 
 	implement object MT (Dehou Zhang 0.5 hour)
+	
+	add fragments to checkout page (Shawn Cooper, 4 hours)
+	
+	
 
 Mar 11:
 
