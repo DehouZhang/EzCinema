@@ -1,59 +1,110 @@
 package comp3350.ezcinema.tests.business;
 
 import junit.framework.TestCase;
-
-import org.junit.Test;
-
-import org.junit.Before;
 import java.util.ArrayList;
 
+import comp3350.ezcinema.application.Main;
+import comp3350.ezcinema.business.AccessMovie;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.business.SortMovie;
-
 import static org.junit.Assert.*;
 
 public class SortMovieTest extends TestCase{
-    private Movie movie1, movie2, movie3;
+    private Movie movie;
     private ArrayList<Movie> movies, sorted;
-    private SortMovie sortedMovie;
+    private AccessMovie accessorM;
+    private String [] nameOrder;
+    private double [] ratingOrder;
+    private String [] genres;
 
-    @Before
+
+
     public void setUp() throws Exception {
-        movie1 = new Movie("1", "C Movie", "your basic run of the mill decent movie", "Horror", 4.4);
-        movie2 = new Movie("2", "B Movie", "your basic run of the mill okay movie", "Family", 3.6);
-        movie3 = new Movie("3", "A Movie", "your basic run of the mill bad movie", "Thriller", 2.8);
-
+        Main.startUp();
+        accessorM = new AccessMovie();
         movies = new ArrayList<Movie>();
-        sortedMovie = new SortMovie();
+        sorted = new ArrayList<Movie>();
+        accessorM.getMovies(movies);
 
-        movies.add(movie1);
-        movies.add(movie2);
-        movies.add(movie3);
+        nameOrder = new String[]{"Ferdinand", "Fifty Shades Freed", "Jumangi: Welcome to the Jungle",  "Peter Rabbit", "Red Sparrow", "Tomb Raider", "Unforgettable", "Winchester"};
+        ratingOrder = new double[]{8.9, 6.7, 6.7, 6.4, 5.8, 5.6, 5.0, 2.8};
+        genres = new String[]{"Family","Thriller", "Horror"};
     }
 
-    @Test
+
+
+
+
+
+
+
     public void testSortByName() throws Exception {
 
-        sorted = (ArrayList<Movie>) sortedMovie.sortByName(movies);
+
+        sorted = (ArrayList<Movie>) SortMovie.sortByName(null);
+
+        assertNull(sorted);
+
+        sorted = (ArrayList<Movie>) SortMovie.sortByName(movies);
 
         assertNotNull(sorted);
-        assertEquals("A Movie", (sorted.get(0)).getMovieName());
+
+        //System.out.println(sorted.toString());
+
+        for(int n = 0; n < sorted.size(); n++){
+
+            movie = (Movie) sorted.get(n);
+
+            assertEquals(nameOrder[n], movie.getMovieName());
+        }
+
+
 
     }
 
-    @Test
+
     public void testSortByRating() throws Exception {
 
-        sorted = (ArrayList<Movie>) sortedMovie.sortByRating(movies);
 
-        assertEquals(2.8, (sorted.get(0)).getMovieRating(),0.1);
+        sorted = (ArrayList<Movie>) SortMovie.sortByRating(null);
+
+        assertNull(sorted);
+
+        sorted = (ArrayList<Movie>) SortMovie.sortByRating(movies);
+
+        assertNotNull(sorted);
+
+        //System.out.println(sorted.toString());
+
+        for(int n = 0; n < sorted.size(); n++){
+
+            movie = (Movie) sorted.get(n);
+
+            assertEquals(ratingOrder[n], movie.getMovieRating());
+        }
     }
 
-    @Test
+
     public void testSortByGenre() throws Exception{
 
-        sorted = sortedMovie.sortByGenre(movies, "Family");
-        sortedMovie.toString();
+
+        sorted = (ArrayList<Movie>) SortMovie.sortByGenre(null, null);
+
+        assertNull(sorted);
+
+        for(int i = 0; i < 3; i++) {
+            sorted = SortMovie.sortByGenre(movies, genres[i]);
+
+            assertNotNull(sorted);
+
+            //System.out.println(sorted.toString());
+
+            for (int n = 0; n < sorted.size(); n++) {
+
+                movie = (Movie) sorted.get(n);
+                assertEquals(genres[i], movie.getGenre());
+            }
+        }
     }
 
 }

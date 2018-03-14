@@ -12,16 +12,17 @@ SET SCHEMA PUBLIC
 INSERT INTO MOVIES VALUES('Fifty Shades Freed','Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship',6.4,'Family')
 INSERT INTO MOVIES VALUES('Peter Rabbit','Feature adaptation of Beatrix Potter''s classic tale of a rebellious rabbit trying to sneak into a farmer''s vegetable garden.',5.6,'Family')
 INSERT INTO MOVIES VALUES('Jumangi: Welcome to the Jungle','Four teenagers are sucked into a magical video game, and the only way they can escape is to work together to finish the game.',5.8,'Thriller')
+INSERT INTO MOVIES VALUES('Winchester', 'Ensconced in her sprawling California mansion, eccentric firearm heiress Sarah Winchester believes she is haunted by the souls of people killed by the Winchester repeating rifle.', 2.8,'Horror')
 INSERT INTO MOVIES VALUES('Tomb Raider','Lara Croft, the fiercely independent daughter of a missing adventurer, must push herself beyond her limits when she finds herself on the island where her father disappeared.',8.9,'Thriller')
 INSERT INTO MOVIES VALUES('Red Sparrow','Ballerina Dominika Egorova is recruited to Sparrow School, a Russian intelligence service where she is forced to use her body as a weapon. Her first mission, targeting a C.I.A. agent, threatens to unravel the security of both nations.',6.7,'Horror')
 INSERT INTO MOVIES VALUES('Unforgettable','The mysterious disappearance of a young woman leads her boyfriend on a journey for truth and perhaps his own unknown reality in this dark, hypnotic mystery that transcends the limitations of traditional narrative.',5.0,'Thriller')
 INSERT INTO MOVIES VALUES('Ferdinand','After Ferdinand, a bull with a big heart, is mistaken for a dangerous beast, he is captured and torn from his home. Determined to return to his family, he rallies a misfit team on the ultimate adventure.',6.7,'Family')
 
 
-INSERT INTO THEATERS VALUES('Scotiabank Theatre Winnipeg','817 St. James Street')
+INSERT INTO THEATERS VALUES('Scotiabank Theatre Winnipeg','817 St.James Street')
 INSERT INTO THEATERS VALUES('Famous Players Kildonan Place Cinemas','1555 Regent Avenue West')
 INSERT INTO THEATERS VALUES('Cinema City Northgate','1399 McPhillips Street')
-INSERT INTO THEATERS VALUES('SilverCity St.Vital Cinemas','160-1225 St. Mary''s Road, Winnipeg')
+INSERT INTO THEATERS VALUES('SilverCity St.Vital Cinemas','160-1225 St.Mary''s Road, Winnipeg')
 INSERT INTO THEATERS VALUES('Cineplex Odeon McGillivray Cinemas','2190 McGillivray Blvd')
 
 INSERT INTO MOVIETHEATERS VALUES('Fifty Shades Freed', 'Scotiabank Theatre Winnpeg', '14:40')
