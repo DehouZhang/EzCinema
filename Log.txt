@@ -232,3 +232,5 @@ March 13
 	        Error handling
 	        Bug fixes
 	        Clean up
+		
+	Clean up and bug fixing (Dow Griffith 5.5 hours)
