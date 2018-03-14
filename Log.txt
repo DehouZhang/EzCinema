@@ -181,6 +181,8 @@ Mar 11:
 	Implemented ConfirmationActivity with database (Qin Yang, 2 hours)
 	
 	Fix bug about database not Connection (Dehou Zhang & Qin Yang, 5 hours)
+	
+	Fix error with fragments crashing app(Shawn Cooper, 2 hours)
 
 	
 March 12
