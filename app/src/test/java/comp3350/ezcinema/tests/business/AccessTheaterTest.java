@@ -22,7 +22,7 @@ public class AccessTheaterTest extends TestCase{
         accessor.getTheaters(list);
 
         names = new String[]{"Cinema City Northgate", "Cineplex Odeon McGillivray Cinemas", "Famous Players Kildonan Place Cinemas", "Scotiabank Theatre Winnipeg", "SilverCity St.Vital Cinemas"};
-        addresses = new String[]{"1399 McPhillips Street", "2190 McGillivray Blvd", "1555 Regent Avenue West", "817 St. James Street", "160-1225 St. Mary's Road, Winnipeg"};
+        addresses = new String[]{"1399 McPhillips Street", "2190 McGillivray Blvd", "1555 Regent Avenue West", "817 St.James Street", "160-1225 St.Mary's Road, Winnipeg"};
     }
 
 
