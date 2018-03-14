@@ -90,10 +90,7 @@ public class AccessMTTest extends TestCase
                     assertEquals(mNames[i], mt.getMovieName());
 
                     assertEquals(tNames[k], mt.getTheaterName());
-
-                    //System.out.println(mt.getMovieName() +"  "+ mt.getTheaterName());
                 }
-
             }
         }
 
