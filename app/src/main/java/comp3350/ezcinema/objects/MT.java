@@ -18,9 +18,15 @@ public class MT implements Serializable{
 
     public MT(String movieName, String theaterName, ArrayList<String> showtime)
     {
-        this.movieName=movieName;
-        this.theaterName=theaterName;
-        this.showtime=showtime;
+        if (movieName.equals("") || theaterName.equals("") || showtime.size() == 0){
+            this.movieName=null;
+            this.theaterName=null;
+            this.showtime=new ArrayList<>();
+        } else{
+            this.movieName=movieName;
+            this.theaterName=theaterName;
+            this.showtime=showtime;
+        }
     }
 
     public String getMovieName() {
@@ -38,13 +44,20 @@ public class MT implements Serializable{
 
     @Override
     public String toString() {
-        return movieName + " in " + theaterName + "\nShow Times:\t" + showtimeToString();
+        if (movieName==null || theaterName==null || showtime.size() == 0){
+            return null;
+        }else {
+            return movieName + " in " + theaterName + "\nShow Times:\t" + showtimeToString();
+        }
     }
 
     public String showtimeToString(){
         String result = "";
         for (int i =0; i<showtime.size(); i++){
             result += showtime.get(i)+"\t";
+        }
+        if (result == ""){
+            return null;
         }
         return result;
     }
