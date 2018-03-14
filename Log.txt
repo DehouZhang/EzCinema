@@ -206,3 +206,6 @@ March 13
 	
 	Tested and bug fixed theater object (Dow Griffith, 3 hours)
 	
+	Tested and bug fixed Movie Object (Qin Yang, 3 hours)
+	
+	Tested and bug fixed MT object(Qin Yang 3 hours)
