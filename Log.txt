@@ -111,3 +111,12 @@ Feb 13:
         test the Alltests.java
 
     General clean up (All members)
+March 9:
+    added checkout branch and added checkout and ticket activities(Shawn Cooper, 3 hours)
+March 11:
+    added fragments to checkout page for different transactions(Shawn Cooper, 4 hours)
+March 12:
+    finished checkout and ticket activities
+March 13:
+    merged ticket activity and transfered needed info from previous activities to ticket(Shawn Cooper, 1 hour)
+    
