@@ -73,7 +73,7 @@ public class DataAccessStub implements DataAccess
         temp1.add("14:40");
         temp1.add("18:00");
         temp1.add("21:20");
-        mt = new MT("Fifty Shades Freed","Scotiabank Theatre Winnpeg",temp1);
+        mt = new MT("Fifty Shades Freed","Scotiabank Theatre Winnipeg",temp1);
         MTs.add(mt);
 
         ArrayList<String> temp2=new ArrayList<>();
@@ -111,7 +111,7 @@ public class DataAccessStub implements DataAccess
         temp6.add("16:50");
         temp6.add("19:10");
         temp6.add("22:00");
-        mt= new MT("Peter Rabbit","Scotiabank Theatre Winnpeg",temp6);
+        mt= new MT("Peter Rabbit","Scotiabank Theatre Winnipeg",temp6);
         MTs.add(mt);
 
         ArrayList<String> temp7=new ArrayList<>();
@@ -147,7 +147,7 @@ public class DataAccessStub implements DataAccess
         temp11.add("14:40");
         temp11.add("18:00");
         temp11.add("21:20");
-        mt= new MT("Jumangi: Welcome to the Jungle","Scotiabank Theatre Winnpeg",temp11);
+        mt= new MT("Jumangi: Welcome to the Jungle","Scotiabank Theatre Winnipeg",temp11);
         MTs.add(mt);
 
         ArrayList<String> temp12=new ArrayList<>();
@@ -184,7 +184,7 @@ public class DataAccessStub implements DataAccess
         temp16.add("13:30");
         temp16.add("17:40");
         temp16.add("20:25");
-        mt= new MT("Winchester","Scotiabank Theatre Winnpipeg",temp16);
+        mt= new MT("Winchester","Scotiabank Theatre Winnipeg",temp16);
         MTs.add(mt);
 
         ArrayList<String> temp17=new ArrayList<>();
@@ -221,7 +221,7 @@ public class DataAccessStub implements DataAccess
         temp21.add("13:30");
         temp21.add("14:20");
         temp21.add("20:45");
-        mt= new MT("Tomb Raider","Scotiabank Theatre Winnpipeg",temp21);
+        mt= new MT("Tomb Raider","Scotiabank Theatre Winnipeg",temp21);
         MTs.add(mt);
 
         ArrayList<String> temp22=new ArrayList<>();
@@ -256,7 +256,7 @@ public class DataAccessStub implements DataAccess
         temp26.add("15:00");
         temp26.add("18:10");
         temp26.add("21:50");
-        mt= new MT("Red Sparrow","Scotiabank Theatre Winnpipeg",temp26);
+        mt= new MT("Red Sparrow","Scotiabank Theatre Winnipeg",temp26);
         MTs.add(mt);
 
         ArrayList<String> temp27=new ArrayList<>();
@@ -291,7 +291,7 @@ public class DataAccessStub implements DataAccess
         temp31.add("12:30");
         temp31.add("16:20");
         temp31.add("21:00");
-        mt= new MT("Unforgettable","Scotiabank Theatre Winnpipeg",temp31);
+        mt= new MT("Unforgettable","Scotiabank Theatre Winnipeg",temp31);
         MTs.add(mt);
 
         ArrayList<String> temp32=new ArrayList<>();
@@ -326,7 +326,7 @@ public class DataAccessStub implements DataAccess
         temp36.add("13:00");
         temp36.add("16:40");
         temp36.add("21:30");
-        mt= new MT("Ferdinand","Scotiabank Theatre Winnpipeg",temp36);
+        mt= new MT("Ferdinand","Scotiabank Theatre Winnipeg",temp36);
         MTs.add(mt);
 
         ArrayList<String> temp37=new ArrayList<>();

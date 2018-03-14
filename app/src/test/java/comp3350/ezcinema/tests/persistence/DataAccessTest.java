@@ -25,11 +25,11 @@ public class DataAccessTest extends TestCase
     {
         System.out.println("\nStarting Persistence test DataAccess (using stub)");
         // Use the following statements to run with the stub database:
-        dataAccess = new DataAccessStub();
-        dataAccess.open("Stub");
+        //dataAccess = new DataAccessStub();
+        //dataAccess.open("Stub");
         // or switch to the real database:
-        //dataAccess = new DataAccessObject(Main.dbName);
-        //dataAccess.open(Main.getDBPathName());
+        dataAccess = new DataAccessObject(Main.dbName);
+        dataAccess.open(Main.getDBPathName());
     }
 
     public void tearDown()
@@ -170,11 +170,11 @@ public class DataAccessTest extends TestCase
          expected.add("21:20");
          assertArrayEquals(expected.toArray(),showtimes.toArray());
 
-         //Tomb Raider in Scotiabank Theatre Winnpipeg
+         //Tomb Raider in Scotiabank Theatre Winnippeg
          showtimes.clear();
          expected.clear();
          movie=new Movie("Tomb Raider");
-         theater=new Theater("Scotiabank Theatre Winnpipeg");
+         theater=new Theater("Scotiabank Theatre Winnipeg");
          showtimes=dataAccess.getShowtimeList(movie,theater);
          expected.add("13:30");
          expected.add("14:20");
@@ -243,7 +243,7 @@ public class DataAccessTest extends TestCase
          showtimes.clear();
          expected.clear();
          movie=new Movie("Unforgettable");
-         theater=new Theater("Scotiabank Theatre Winnpipeg");
+         theater=new Theater("Scotiabank Theatre Winnipeg");
          showtimes=dataAccess.getShowtimeList(movie,theater);
          expected.add("12:30");
          expected.add("16:20");
