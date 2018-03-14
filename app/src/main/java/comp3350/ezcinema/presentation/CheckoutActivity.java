@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.RadioButton;
 
@@ -106,8 +107,6 @@ public class CheckoutActivity extends AppCompatActivity {
     }
 
     private void passAmount(){
-        //if(!isValid(editTextAmount)) {
-            //amount = Integer.parseInt(editTextAmount.getText().toString());
 
             Intent intent = new Intent(CheckoutActivity.this, TicketActivity.class);
             Bundle extras = new Bundle();
@@ -117,17 +116,7 @@ public class CheckoutActivity extends AppCompatActivity {
             extras.putSerializable("AmountPassed",amount);
             intent.putExtras(extras);
             startActivity(intent);
-        //}
-        //else {
-            //Toast.makeText(this, "Please Enter the amount of ticket you want to order.(1 to 150)", Toast.LENGTH_SHORT).show();
-        //}
-    }
 
-    //public void buttonTicketOnClick(View v)
-    //{
-    //   Intent ticketIntent = new Intent(CheckoutActivity.this, TicketActivity.class);
-    //    ticketIntent.putExtra("DisplayMovie", movieName);
-    //    CheckoutActivity.this.startActivity(ticketIntent);
-    //}
+    }
 
 }
