@@ -9,7 +9,8 @@ import android.widget.TextView;
 import comp3350.ezcinema.R;
 import comp3350.ezcinema.objects.Movie;
 
-public class TicketActivity extends AppCompatActivity {
+public class TicketActivity extends AppCompatActivity
+{
     //Data
     private String movieName;
     private String theaterName;

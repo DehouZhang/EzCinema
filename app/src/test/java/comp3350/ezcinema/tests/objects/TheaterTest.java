@@ -10,7 +10,8 @@ import comp3350.ezcinema.objects.Theater;
 import static org.junit.Assert.*;
 
 
-public class TheaterTest extends TestCase{
+public class TheaterTest extends TestCase
+{
 
     private Theater theater_normal_data, theater_equivalent_data, theater_no_name, theater_no_address, theater_empty, theater_alt_data;
     private Comparator<Theater> theaterNameComp;
@@ -21,7 +22,8 @@ public class TheaterTest extends TestCase{
     }
 
     @Before
-    public void setUp() throws Exception{
+    public void setUp() throws Exception
+    {
 
         theater_normal_data = new Theater("Scotiabank Theatre Winnipeg","817 St.James Street");
         theater_equivalent_data = new Theater("Scotiabank Theatre Winnipeg","817 St.James Street");
@@ -32,7 +34,8 @@ public class TheaterTest extends TestCase{
         theaterNameComp = Theater.TheaterNameComparator;
     }
     @Test
-    public void testGetMethods() throws Exception {
+    public void testGetMethods() throws Exception
+    {
         //normal cases
         assertEquals(theater_normal_data.getTheaterName(), "Scotiabank Theatre Winnipeg");
         assertEquals(theater_normal_data.getTheaterAddress(), "817 St.James Street");
@@ -53,13 +56,10 @@ public class TheaterTest extends TestCase{
 
         assertNull(theater_empty.getTheaterName());
         assertNull(theater_empty.getTheaterAddress());
-
-
     }
-
-
     @Test
-    public void testToString() throws Exception{
+    public void testToString() throws Exception
+    {
         //test normal cases
         assertEquals(theater_normal_data.toString(), "Scotiabank Theatre Winnipeg\nAddress: 817 St.James Street");
         assertEquals(theater_alt_data.toString(), "Cineplex Odeon McGillivray Cinemas\nAddress: 2190 McGillivray Blvd");
@@ -71,7 +71,8 @@ public class TheaterTest extends TestCase{
 
     }
     @Test
-    public void testComparisons() throws Exception{
+    public void testComparisons() throws Exception
+    {
         //test equivalent and equal cases
         assertTrue(theaterNameComp.compare(theater_normal_data,theater_normal_data) == 0);
         assertTrue(theaterNameComp.compare(theater_normal_data,theater_equivalent_data) == 0);

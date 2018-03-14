@@ -57,19 +57,23 @@ public class Movie implements Serializable
     }
 
     //used to compare the attributes of the Movie ArrayList items
-    public static Comparator<Movie> MovieNameComparator = new Comparator<Movie>() {
+    public static Comparator<Movie> MovieNameComparator = new Comparator<Movie>()
+    {
 
         public int compare(Movie m1, Movie m2) {
             String MovieName1 = m1.getMovieName();
             String MovieName2 = m2.getMovieName();
 
-            if (MovieName1 == null && MovieName2 != null) {
+            if (MovieName1 == null && MovieName2 != null)
+            {
                 return -1;
             }
-            else if (MovieName2 == null && MovieName1 != null) {
+            else if (MovieName2 == null && MovieName1 != null)
+            {
                 return 1;
             }
-            else if (MovieName1 == null && MovieName2 == null) {
+            else if (MovieName1 == null && MovieName2 == null)
+            {
                 return 0;
             }
             else {

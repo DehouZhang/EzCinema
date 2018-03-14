@@ -87,8 +87,10 @@ public class TheaterActivity extends AppCompatActivity
         listView.setAdapter(TheaterArrayAdapter);
     }
 
-    private void listItemClicked() {
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    private void listItemClicked()
+    {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //todo will be changed for this whole method, should pass a movie-theater realtion object to another activity

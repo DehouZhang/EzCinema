@@ -14,7 +14,8 @@ import android.widget.RadioButton;
 import comp3350.ezcinema.R;
 import comp3350.ezcinema.objects.Movie;
 
-public class CheckoutActivity extends AppCompatActivity {
+public class CheckoutActivity extends AppCompatActivity
+{
     //Data
     private String movieName = "test";
     private int amount;
@@ -63,7 +64,8 @@ public class CheckoutActivity extends AppCompatActivity {
         textViewTotal.setText("Total: "+amount+"*"+price+"\n= $"+amount*price);//add total
     }
 
-    public void onRadioButtonClicked(View view) {
+    public void onRadioButtonClicked(View view)
+    {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
 
@@ -71,23 +73,27 @@ public class CheckoutActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         // Check which radio button was clicked
-        switch(view.getId()) {
+        switch(view.getId())
+        {
             case R.id.radio_credit:
-                if (checked) {
+                if (checked)
+                {
                     FragmentCredit creditFragment = new FragmentCredit();
                     fragmentTransaction.replace(R.id.fragment_container,creditFragment);
                     fragmentTransaction.commit();
                     break;
                 }
             case R.id.radio_paypal:
-                if (checked) {
+                if (checked)
+                {
                     FragmentPaypal paypalFragment = new FragmentPaypal();
                     fragmentTransaction.replace(R.id.fragment_container,paypalFragment);
                     fragmentTransaction.commit();
                     break;
                 }
             case R.id.radio_scene:
-                if (checked) {
+                if (checked)
+                {
                     FragmentScene sceneFragment = new FragmentScene();
                     fragmentTransaction.replace(R.id.fragment_container,sceneFragment);
                     fragmentTransaction.commit();
@@ -96,7 +102,8 @@ public class CheckoutActivity extends AppCompatActivity {
         }
     }
 
-    private void confirmClicked() {
+    private void confirmClicked()
+    {
 
         buttonPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +113,8 @@ public class CheckoutActivity extends AppCompatActivity {
         });
     }
 
-    private void passAmount(){
+    private void passAmount()
+    {
 
             Intent intent = new Intent(CheckoutActivity.this, TicketActivity.class);
             Bundle extras = new Bundle();

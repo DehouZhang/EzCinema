@@ -8,7 +8,8 @@ import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.persistence.DataAccess;
 
 
-public class AccessMovie {
+public class AccessMovie
+{
 
     private DataAccess dataAccess;
 
@@ -26,7 +27,7 @@ public class AccessMovie {
         }
         else
             return null;
-        }
+    }
 
 
 

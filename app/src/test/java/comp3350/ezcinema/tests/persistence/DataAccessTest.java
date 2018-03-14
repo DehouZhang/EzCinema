@@ -32,7 +32,8 @@ public class DataAccessTest extends TestCase
         //dataAccess.open(Main.getDBPathName());
     }
 
-    public void tearDown() {
+    public void tearDown()
+    {
         System.out.println("Finished Persistence test DataAccess (using stub)");
     }
 
@@ -80,7 +81,6 @@ public class DataAccessTest extends TestCase
         assertEquals(2.8,movie.getMovieRating());
 
         movies.clear();
-
     }
 
     public void testGetTheaterSequential()

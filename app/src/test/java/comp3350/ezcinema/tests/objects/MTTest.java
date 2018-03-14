@@ -9,12 +9,14 @@ import java.util.ArrayList;
 
 import comp3350.ezcinema.objects.MT;
 
-public class MTTest extends TestCase{
+public class MTTest extends TestCase
+{
     private MT mt1,mt2,mt3,mt4,mt5,mt6,mt7,mt8,mt9,mt10;
     private ArrayList<String> showtime1, showtime2,showtime3,showtime4, showtime5, emptyShowtime;
 
     @Test
-    public void setUp() throws Exception{
+    public void setUp() throws Exception
+    {
         showtime1 = new ArrayList<>();  //normal list
         showtime1.add("9:00");
         showtime1.add("10:00");
@@ -52,7 +54,8 @@ public class MTTest extends TestCase{
     }
 
     @Test
-    public  void testGetMethods() throws Exception{
+    public  void testGetMethods() throws Exception
+    {
         //test normal data
         assertEquals("aMovie",mt1.getMovieName());
         assertEquals("aTheater",mt1.getTheaterName());
@@ -91,7 +94,8 @@ public class MTTest extends TestCase{
     }
 
     @Test
-    public void testToString() throws Exception{
+    public void testToString() throws Exception
+    {
         //test normal data
         assertEquals(mt1.toString(),"aMovie in aTheater\nShow Times:\t9:00\t10:00\t");
 
@@ -115,7 +119,8 @@ public class MTTest extends TestCase{
     }
 
     @Test
-    public void testShowTimeToString() throws Exception{
+    public void testShowTimeToString() throws Exception
+    {
         //test normal list
         assertEquals(mt1.showtimeToString(),showtime1.get(0)+"\t"+showtime1.get(1)+"\t");
         //test another normal list
@@ -129,7 +134,4 @@ public class MTTest extends TestCase{
         //test empty list
         assertNull(mt3.showtimeToString());
     }
-
-
-
 }

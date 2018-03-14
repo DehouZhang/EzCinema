@@ -16,17 +16,20 @@ import comp3350.ezcinema.R;
 import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.objects.Theater;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         copyDatabaseToDevice();
         Main.startUp();
         setContentView(R.layout.activity_home);
     }
 
-    protected void onDestroy() {
+    protected void onDestroy()
+    {
         super.onDestroy();
 
         Main.shutDown();
@@ -43,7 +46,8 @@ public class HomeActivity extends AppCompatActivity {
         Intent theaterIntent = new Intent(HomeActivity.this, TheaterActivity.class);
         HomeActivity.this.startActivity(theaterIntent);
     }
-    private void copyDatabaseToDevice() {
+    private void copyDatabaseToDevice()
+    {
         final String DB_PATH = "db";
 
         String[] assetNames;
@@ -51,10 +55,12 @@ public class HomeActivity extends AppCompatActivity {
         File dataDirectory = context.getDir(DB_PATH, Context.MODE_PRIVATE);
         AssetManager assetManager = getAssets();
 
-        try {
+        try
+        {
 
             assetNames = assetManager.list(DB_PATH);
-            for (int i = 0; i < assetNames.length; i++) {
+            for (int i = 0; i < assetNames.length; i++)
+            {
                 assetNames[i] = DB_PATH + "/" + assetNames[i];
             }
 
@@ -62,15 +68,18 @@ public class HomeActivity extends AppCompatActivity {
 
             Main.setDBPathName(dataDirectory.toString() + "/" + Main.dbName);
 
-        } catch (IOException ioe) {
+        } catch (IOException ioe)
+        {
             //Messages.warning(this, "Unable to access application data: " + ioe.getMessage());
         }
     }
 
-    public void copyAssetsToDirectory(String[] assets, File directory) throws IOException {
+    public void copyAssetsToDirectory(String[] assets, File directory) throws IOException
+    {
         AssetManager assetManager = getAssets();
 
-        for (String asset : assets) {
+        for (String asset : assets)
+        {
             String[] components = asset.split("/");
             String copyPath = directory.toString() + "/" + components[components.length - 1];
             char[] buffer = new char[1024];
@@ -78,12 +87,14 @@ public class HomeActivity extends AppCompatActivity {
 
             File outFile = new File(copyPath);
 
-            if (!outFile.exists()) {
+            if (!outFile.exists())
+            {
                 InputStreamReader in = new InputStreamReader(assetManager.open(asset));
                 FileWriter out = new FileWriter(outFile);
 
                 count = in.read(buffer);
-                while (count != -1) {
+                while (count != -1)
+                {
                     out.write(buffer, 0, count);
                     count = in.read(buffer);
                 }

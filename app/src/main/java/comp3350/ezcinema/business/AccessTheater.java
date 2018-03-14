@@ -8,7 +8,8 @@ import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.persistence.DataAccess;
 
 
-public class AccessTheater {
+public class AccessTheater
+{
 
         private DataAccess dataAccess;
 
@@ -20,7 +21,8 @@ public class AccessTheater {
         //returns the list of movies from the database
         public String getTheaters(List<Theater> theaters)
         {
-            if(theaters != null) {
+            if(theaters != null)
+            {
                 theaters.clear();
                 return dataAccess.getTheaterSequential(theaters);
 

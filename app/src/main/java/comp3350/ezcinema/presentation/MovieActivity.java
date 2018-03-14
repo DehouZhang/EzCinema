@@ -57,7 +57,8 @@ public class MovieActivity extends AppCompatActivity implements AdapterView.OnIt
         listItemClicked();
     }
 
-    private void initializeGenreList() {
+    private void initializeGenreList()
+    {
         genreList = new ArrayList<>();
 
         //todo will be changed by DB

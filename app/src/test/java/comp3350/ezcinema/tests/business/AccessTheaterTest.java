@@ -8,14 +8,16 @@ import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.business.AccessTheater;
 
 
-public class AccessTheaterTest extends TestCase{
+public class AccessTheaterTest extends TestCase
+{
     private AccessTheater accessor;
     private ArrayList list;
     private String [] names;
     private String [] addresses;
 
 
-    public void setUp() throws Exception {
+    public void setUp() throws Exception
+    {
         Main.startUp();
         accessor = new AccessTheater();
         list = new ArrayList<Theater>();
@@ -26,7 +28,8 @@ public class AccessTheaterTest extends TestCase{
     }
 
 
-    public void testExisitence() throws Exception{
+    public void testExisitence() throws Exception
+    {
 
         System.out.print("Whether the list is/isn't null and is not returned empty");
         assertNull(accessor.getTheaters((null)));
@@ -36,7 +39,8 @@ public class AccessTheaterTest extends TestCase{
     }
 
 
-    public void testContent() throws Exception{
+    public void testContent() throws Exception
+    {
 
         System.out.print("Test that the contents of the list are correct, alphabetical order" );
         Theater testTheater;
@@ -45,7 +49,8 @@ public class AccessTheaterTest extends TestCase{
         assertEquals(names.length,list.size());
 
         int n = 0;
-        while(n < list.size()){
+        while(n < list.size())
+        {
 
             testTheater = (Theater) list.get(n);
 

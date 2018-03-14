@@ -17,7 +17,8 @@ import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
 
-public class TheaterSelectMovieActivity extends AppCompatActivity {
+public class TheaterSelectMovieActivity extends AppCompatActivity
+{
 
     //data
     private Theater theater;
@@ -31,7 +32,8 @@ public class TheaterSelectMovieActivity extends AppCompatActivity {
     ListView listViewMovieList;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_theater_select_movie);
 
@@ -40,7 +42,8 @@ public class TheaterSelectMovieActivity extends AppCompatActivity {
         listItemClick();
     }
 
-    private void initializeData() {
+    private void initializeData()
+    {
         //get MovieList from
         theater = (Theater) getIntent().getExtras().getSerializable("TheaterPassed");
         movieList = (ArrayList<Movie>)getIntent().getExtras().getSerializable("MovieList");
@@ -52,7 +55,8 @@ public class TheaterSelectMovieActivity extends AppCompatActivity {
         MTList = getMTList(theater,movieList);
     }
 
-    private ArrayList<MT> getMTList(Theater theater, ArrayList<Movie> movieList) {
+    private ArrayList<MT> getMTList(Theater theater, ArrayList<Movie> movieList)
+    {
         ArrayList<MT> list = new ArrayList<>();
         MT newMT;
         Movie movie;
@@ -68,7 +72,8 @@ public class TheaterSelectMovieActivity extends AppCompatActivity {
         return list;
     }
 
-    private void initializeView() {
+    private void initializeView()
+    {
         textViewTheaterInfo = (TextView)findViewById(R.id.textViewTheaterInfo);
         listViewMovieList = (ListView)findViewById(R.id.listViewMovieList);
 
@@ -76,16 +81,19 @@ public class TheaterSelectMovieActivity extends AppCompatActivity {
         setListView();
     }
 
-    private void setText() {
+    private void setText()
+    {
         textViewTheaterInfo.setText(theater.getTheaterName()+"\n"+theater.getTheaterAddress());
     }
 
-    private void setListView() {
+    private void setListView()
+    {
         MTListArrayAdapter = new TheaterSelectMovieAdapter(this, MTList);
         listViewMovieList.setAdapter(MTListArrayAdapter);
     }
 
-    private void listItemClick() {
+    private void listItemClick()
+    {
         listViewMovieList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

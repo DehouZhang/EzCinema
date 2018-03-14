@@ -14,23 +14,23 @@ import java.util.ArrayList;
 import comp3350.ezcinema.R;
 import comp3350.ezcinema.objects.MT;
 
-/**
- * Created by 杨 on 2018/3/11.
- */
+public class MovieSelectTheaterAdapter extends ArrayAdapter<MT>
+{
 
-public class MovieSelectTheaterAdapter extends ArrayAdapter<MT>{
-
-    public MovieSelectTheaterAdapter(@NonNull Context context, ArrayList<MT> list) {
+    public MovieSelectTheaterAdapter(@NonNull Context context, ArrayList<MT> list)
+    {
         super(context,0,list);
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
+    {
         MT mMT = getItem(position);
 
 
-        if (convertView == null){
+        if (convertView == null)
+        {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.layout_movie_select_theater_adapter_form,parent,false);
         }
 

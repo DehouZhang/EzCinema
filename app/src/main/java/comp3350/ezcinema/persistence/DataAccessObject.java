@@ -167,7 +167,8 @@ public class DataAccessObject implements DataAccess
         return showtimes;
     }
 
-    public String getTheaterAddress(String theaterName) {
+    public String getTheaterAddress(String theaterName)
+    {
         //todo implement this
 
         String addr = "";
@@ -199,6 +200,4 @@ public class DataAccessObject implements DataAccess
 
         return result;
     }
-
-
 }

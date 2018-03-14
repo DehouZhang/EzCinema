@@ -18,7 +18,8 @@ import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
 
-public class MovieSelectTheaterActivity extends AppCompatActivity {
+public class MovieSelectTheaterActivity extends AppCompatActivity
+{
 
     //Data
     private Movie movie;
@@ -33,7 +34,8 @@ public class MovieSelectTheaterActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_select_theater);
 
@@ -44,7 +46,8 @@ public class MovieSelectTheaterActivity extends AppCompatActivity {
         clickOnTheaters();
     }
 
-    private void initializeData() {
+    private void initializeData()
+    {
         //get passed movie and theaterList
         movie = (Movie)getIntent().getExtras().getSerializable("MoviePassed");
         theaterList = (ArrayList<Theater>)getIntent().getExtras().getSerializable("TheaterList");
@@ -56,12 +59,14 @@ public class MovieSelectTheaterActivity extends AppCompatActivity {
         MTList = getMTList(movie,theaterList);
     }
 
-    private ArrayList<MT> getMTList(Movie movie, ArrayList<Theater> theaterList) {
+    private ArrayList<MT> getMTList(Movie movie, ArrayList<Theater> theaterList)
+    {
         ArrayList<MT> list = new ArrayList<>();
         MT newMT;
         Theater theater;
 
-        for (int i =0; i< theaterList.size(); i++){
+        for (int i =0; i< theaterList.size(); i++)
+        {
             theater = theaterList.get(i);
             newMT = accessMT.getMT(movie,theater);
 
@@ -72,12 +77,14 @@ public class MovieSelectTheaterActivity extends AppCompatActivity {
         return list;
     }
 
-    private void initializeViews() {
+    private void initializeViews()
+    {
         textViewMovieInfo = (TextView)findViewById(R.id.textViewMovieInfo);
         listViewTheaterList = (ListView)findViewById(R.id.listViewTheaterList);
     }
 
-    private void showMovieDesc() {
+    private void showMovieDesc()
+    {
         //setup textViews
         setTextView();
     }
@@ -87,12 +94,14 @@ public class MovieSelectTheaterActivity extends AppCompatActivity {
         textViewMovieInfo.setText(movie.getMovieName()+ "\nGenere: "+movie.getGenre()+"\nDescription:  "+movie.getMovieDescription()+"\nRating: "+movie.getMovieRating());
     }
 
-    private void showTheaterOptions() {
+    private void showTheaterOptions()
+    {
         MTListArrayAdapter = new MovieSelectTheaterAdapter(this,MTList);
         listViewTheaterList.setAdapter(MTListArrayAdapter);
     }
 
-    private void clickOnTheaters() {
+    private void clickOnTheaters()
+    {
 
         listViewTheaterList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

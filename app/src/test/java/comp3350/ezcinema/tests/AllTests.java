@@ -11,11 +11,9 @@ import comp3350.ezcinema.tests.business.SortTheaterTest;
 import comp3350.ezcinema.tests.objects.MovieTest;
 import comp3350.ezcinema.tests.objects.TheaterTest;
 
-/**
- * Created by Dehou on 2/13/2018.
- */
 
-public class AllTests {
+public class AllTests
+{
     public static TestSuite suite;
 
     public static Test suite()

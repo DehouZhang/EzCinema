@@ -10,13 +10,15 @@ import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.business.SortTheater;
 
 
-public class SortTheaterTest extends TestCase{
+public class SortTheaterTest extends TestCase
+{
     private AccessTheater accessor;
     private ArrayList theaters, sorted;
     private String [] namesOrder;
     private Theater theater;
 
-    public void setUp() throws Exception {
+    public void setUp() throws Exception
+    {
         Main.startUp();
         accessor = new AccessTheater();
         theaters = new ArrayList<Theater>();
@@ -27,7 +29,8 @@ public class SortTheaterTest extends TestCase{
     }
 
 
-    public void testSortByName() throws Exception {
+    public void testSortByName() throws Exception
+    {
 
         sorted = (ArrayList<Theater>) SortTheater.sortByName(null);
 
@@ -37,14 +40,12 @@ public class SortTheaterTest extends TestCase{
 
         assertNotNull(sorted);
 
-        for(int n = 0; n < sorted.size(); n++){
+        for(int n = 0; n < sorted.size(); n++)
+        {
 
             theater = (Theater) sorted.get(n);
 
             assertEquals(namesOrder[n], theater.getTheaterName());
         }
-
     }
-
-
 }

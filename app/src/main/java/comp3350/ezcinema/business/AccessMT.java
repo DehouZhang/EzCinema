@@ -9,9 +9,8 @@ import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.persistence.DataAccess;
 
-
-
-public class AccessMT {
+public class AccessMT
+{
     private DataAccess dataAccess;
 
     public AccessMT()
@@ -24,10 +23,12 @@ public class AccessMT {
     {
         MT newMT = null;
 
-        if(movie != null && theater != null) {
+        if(movie != null && theater != null)
+        {
             ArrayList<String> showtimes;
             showtimes = dataAccess.getShowtimeList(movie, theater);
-            if (showtimes.size() > 0) {
+            if (showtimes.size() > 0)
+            {
                 newMT = new MT(movie.getMovieName(), theater.getTheaterName(), showtimes);
             }
         }

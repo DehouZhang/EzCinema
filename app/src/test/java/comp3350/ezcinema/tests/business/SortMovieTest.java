@@ -9,7 +9,8 @@ import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.business.SortMovie;
 import static org.junit.Assert.*;
 
-public class SortMovieTest extends TestCase{
+public class SortMovieTest extends TestCase
+{
     private Movie movie;
     private ArrayList<Movie> movies, sorted;
     private AccessMovie accessorM;
@@ -19,7 +20,8 @@ public class SortMovieTest extends TestCase{
 
 
 
-    public void setUp() throws Exception {
+    public void setUp() throws Exception
+    {
         Main.startUp();
         accessorM = new AccessMovie();
         movies = new ArrayList<Movie>();

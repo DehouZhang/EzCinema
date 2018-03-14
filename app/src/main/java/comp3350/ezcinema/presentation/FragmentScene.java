@@ -13,17 +13,20 @@ import comp3350.ezcinema.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentScene extends Fragment {
+public class FragmentScene extends Fragment
+{
 
 
-    public FragmentScene() {
+    public FragmentScene()
+    {
         // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_scene, container, false);
     }

@@ -8,7 +8,8 @@ import comp3350.ezcinema.objects.Movie;
 import static org.junit.Assert.*;
 
 
-public class MovieTest extends TestCase{
+public class MovieTest extends TestCase
+{
 
 
     private Movie movie_normal_data,movie_same_content,movie_another_normal_data,movie_empty_data,movie_invalid_rating,movie_missing_name,movie_missing_description,movie_missing_genre,movie_name_case_sensitivity,movie_same_name_diff_rating,movie_same_rating_diff_name;
@@ -16,7 +17,8 @@ public class MovieTest extends TestCase{
     private Comparator<Movie> movieRatingComp;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() throws Exception
+    {
         movie_normal_data = new Movie( "SuperBad", "3 teens try to have a party", "Comedy", 10.0);              //normal data
         movie_same_content = new Movie( "SuperBad", "3 teens try to have a party", "Comedy", 10.0);             //same content
         movie_another_normal_data = new Movie( "Another", "Another description", "Horror", 6.5);                //another normal data
@@ -36,7 +38,8 @@ public class MovieTest extends TestCase{
 
     }
     @Test
-    public void testGetMethods() throws Exception {
+    public void testGetMethods() throws Exception
+    {
         //test normal data
         assertEquals("SuperBad", movie_normal_data.getMovieName());
         assertEquals("3 teens try to have a party", movie_normal_data.getMovieDescription());
@@ -104,7 +107,8 @@ public class MovieTest extends TestCase{
     }
 
     @Test
-    public void testToString() throws Exception{
+    public void testToString() throws Exception
+    {
         //test normal data
         assertEquals("SuperBad\nDescription:\n3 teens try to have a party\nRating:  10.0",movie_normal_data.toString());
 
@@ -141,7 +145,8 @@ public class MovieTest extends TestCase{
     }
 
     @Test
-    public void testNameCompares() throws Exception{
+    public void testNameCompares() throws Exception
+    {
         //test normal data compare to other cases
         assertTrue(movieNameComp.compare(movie_normal_data,movie_same_content) == 0);           //compare to same content
         assertTrue(movieNameComp.compare(movie_normal_data,movie_another_normal_data) > 0);     //compare to another normal data
@@ -260,7 +265,8 @@ public class MovieTest extends TestCase{
     }
 
     @Test
-    public void testRatingCompares() throws Exception {
+    public void testRatingCompares() throws Exception
+    {
         //test normal data compare to other cases
         assertTrue(movieRatingComp.compare(movie_normal_data,movie_same_content) == 0);           //compare to same content
         assertTrue(movieRatingComp.compare(movie_normal_data,movie_another_normal_data) < 0);     //compare to another normal data
@@ -377,5 +383,4 @@ public class MovieTest extends TestCase{
         assertTrue(movieRatingComp.compare(movie_same_name_diff_rating,movie_same_name_diff_rating) == 0);
         assertTrue(movieRatingComp.compare(movie_same_rating_diff_name,movie_same_rating_diff_name) == 0);
     }
-
 }

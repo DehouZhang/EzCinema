@@ -11,7 +11,8 @@ import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
 import static org.junit.Assert.*;
 
-public class AccessMTTest extends TestCase {
+public class AccessMTTest extends TestCase
+{
 
     private AccessMT accessorMT;
     private AccessMovie accessorM;
@@ -28,7 +29,8 @@ public class AccessMTTest extends TestCase {
     private Theater theater;
 
 
-    public void setUp() throws Exception {
+    public void setUp() throws Exception
+    {
         Main.startUp();
 
         accessorM = new AccessMovie();
@@ -52,7 +54,8 @@ public class AccessMTTest extends TestCase {
 
      }
 
-    public void testExisitence() throws Exception{
+    public void testExisitence() throws Exception
+    {
 
         System.out.println("Test That the lists aren't null or empty");
         assertNotNull(mlist);
@@ -63,10 +66,8 @@ public class AccessMTTest extends TestCase {
 
     }
 
-
-
-
-    public void testFetchingMT() throws Exception {
+    public void testFetchingMT() throws Exception
+    {
 
         System.out.println("Test that the MT's are fetched properly");
 
@@ -75,14 +76,17 @@ public class AccessMTTest extends TestCase {
         mt =  accessorMT.getMT(null,null);
         assertNull(mt);
 
-        for (int i = 0; i < mNames.length; i++) {
-            for (int k = 0; k < tNames.length; k++) {
+        for (int i = 0; i < mNames.length; i++)
+        {
+            for (int k = 0; k < tNames.length; k++)
+            {
                 movie = (Movie) mlist.get(i);
                 theater = (Theater) tlist.get(k);
                 mt = accessorMT.getMT(movie,theater);
 
                 //only if the movie-theater pair exists
-                if(mt != null) {
+                if(mt != null)
+                {
                     assertEquals(mNames[i], mt.getMovieName());
 
                     assertEquals(tNames[k], mt.getTheaterName());

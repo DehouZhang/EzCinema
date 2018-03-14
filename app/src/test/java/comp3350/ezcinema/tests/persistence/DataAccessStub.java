@@ -378,7 +378,8 @@ public class DataAccessStub implements DataAccess
     }
 
     @Override
-    public ArrayList<String> getShowtimeList(Movie movie, Theater theater) {
+    public ArrayList<String> getShowtimeList(Movie movie, Theater theater)
+    {
         for(int i=0;i<MTs.size();i++)
         {
             if(movie.getMovieName().equals(MTs.get(i).getMovieName()) && theater.getTheaterName().equals(MTs.get(i).getTheaterName()))
@@ -390,7 +391,8 @@ public class DataAccessStub implements DataAccess
     }
 
     @Override
-    public String getTheaterAddress(String theaterName) {
+    public String getTheaterAddress(String theaterName)
+    {
         for(int i=0;i<theaters.size();i++)
         {
             if (theaters.get(i).getTheaterName().equals(theaterName))

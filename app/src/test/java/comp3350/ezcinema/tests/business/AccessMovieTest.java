@@ -8,7 +8,8 @@ import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.business.AccessMovie;
 
 
-public class AccessMovieTest extends TestCase {
+public class AccessMovieTest extends TestCase
+{
 
     private AccessMovie accessor;
     private ArrayList list;
@@ -19,7 +20,8 @@ public class AccessMovieTest extends TestCase {
 
 
 
-    public void setUp() throws Exception {
+    public void setUp() throws Exception
+    {
         Main.startUp();
         accessor = new AccessMovie();
         list = new ArrayList<Movie>();
@@ -31,7 +33,8 @@ public class AccessMovieTest extends TestCase {
     }
 
 
-    public void testExisitence() throws Exception{
+    public void testExisitence() throws Exception
+    {
 
         System.out.print("Whether the list is/isn't null and is not returned empty");
 
@@ -41,7 +44,8 @@ public class AccessMovieTest extends TestCase {
     }
 
 
-    public void testContent() throws Exception{
+    public void testContent() throws Exception
+    {
 
 
         System.out.print("Test that the contents of the list are correct, alphabetical order" );
@@ -51,7 +55,8 @@ public class AccessMovieTest extends TestCase {
         assertEquals(names.length,list.size());
 
         int n = 0;
-        while(n < list.size()){
+        while(n < list.size())
+        {
 
             testMovie = (Movie) list.get(n);
 

@@ -13,17 +13,20 @@ import comp3350.ezcinema.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentPaypal extends Fragment {
+public class FragmentPaypal extends Fragment
+{
 
 
-    public FragmentPaypal() {
+    public FragmentPaypal()
+    {
         // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_paypal, container, false);
     }

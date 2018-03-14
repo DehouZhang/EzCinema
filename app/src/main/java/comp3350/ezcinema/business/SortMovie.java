@@ -7,11 +7,13 @@ import java.util.Collections;
 import comp3350.ezcinema.objects.Movie;
 
 
-public class SortMovie {
+public class SortMovie
+{
 
     public static ArrayList<Movie> sortByName(ArrayList<Movie> databaseList){
 
-        if(databaseList != null) {
+        if(databaseList != null)
+        {
             ArrayList<Movie> sortedList;
             sortedList = (ArrayList<Movie>) databaseList.clone();
 
@@ -27,7 +29,8 @@ public class SortMovie {
 
     public static ArrayList<Movie> sortByRating (ArrayList<Movie> databaseList){
 
-        if(databaseList != null) {
+        if(databaseList != null)
+        {
 
             ArrayList<Movie> sortedList;
 

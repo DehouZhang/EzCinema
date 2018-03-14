@@ -21,7 +21,8 @@ import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
 
-public class ConfirmationActivity extends AppCompatActivity {
+public class ConfirmationActivity extends AppCompatActivity
+{
 
     //data
     private MT passedMT;
@@ -38,7 +39,8 @@ public class ConfirmationActivity extends AppCompatActivity {
     EditText editTextAmount;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
 
@@ -48,14 +50,16 @@ public class ConfirmationActivity extends AppCompatActivity {
     }
 
 
-    private void initializeData() {
+    private void initializeData()
+    {
         passedMT  = (MT)getIntent().getExtras().getSerializable("MTSelected");
         showtimes = passedMT.getShowtime();
 
         accessTheater = new AccessTheater();
     }
 
-    private void initializeViews() {
+    private void initializeViews()
+    {
         textViewInfo = (TextView)findViewById(R.id.textViewInfo);
         spinnerShowTime = (Spinner)findViewById(R.id.spinnerShowTime);
         buttonConfirm = (Button)findViewById(R.id.buttonConfirm);
@@ -65,17 +69,20 @@ public class ConfirmationActivity extends AppCompatActivity {
         setSpinner();
     }
 
-    private void setTextInfo() {
+    private void setTextInfo()
+    {
         textViewInfo.setText("\n\n"+passedMT.getMovieName()+"\n\nAt: \n"+passedMT.getTheaterName()+"\n"+accessTheater.getTheaterAddr(passedMT.getTheaterName()));
     }
 
-    private void setSpinner() {
+    private void setSpinner()
+    {
         showtimeAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,android.R.id.text1, showtimes);
         spinnerShowTime.setAdapter(showtimeAdapter);
         selectedShowTime = spinnerShowTime.getSelectedItem().toString();
     }
 
-    private void confirmClicked() {
+    private void confirmClicked()
+    {
         //todo go to payment page (maybe update database for reservation) pass the amount of ticket customer choose
         buttonConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,8 +92,10 @@ public class ConfirmationActivity extends AppCompatActivity {
         });
     }
 
-    private void passAmount(){
-        if(!isValid(editTextAmount)) {
+    private void passAmount()
+    {
+        if(!isValid(editTextAmount))
+        {
             amount = Integer.parseInt(editTextAmount.getText().toString());
 
             Intent intent = new Intent(ConfirmationActivity.this, CheckoutActivity.class);
@@ -103,7 +112,8 @@ public class ConfirmationActivity extends AppCompatActivity {
         }
     }
 
-    private boolean isValid(EditText editText) {
+    private boolean isValid(EditText editText)
+    {
         boolean result = true;
         String text = editText.getText().toString().trim();
         if (text.length() >0 && Integer.parseInt(text) <= 150)
