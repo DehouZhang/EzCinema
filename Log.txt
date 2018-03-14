@@ -112,7 +112,7 @@ Feb 13:
 
     General clean up (All members)
 March 9:
-    added checkout branch and added checkout and ticket activities(Shawn Cooper, 3 hours)
+    added checkout branch and added checkout and ticket activities and there relative xml files(Shawn Cooper, 3 hours)
 March 11:
     added fragments to checkout page for different transactions(Shawn Cooper, 4 hours)
 March 12:
