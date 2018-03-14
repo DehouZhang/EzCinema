@@ -14,35 +14,35 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/textViewTicketQty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView13"
+            android:layout_below="@+id/textViewShowTime"
             android:text="Type of Ticket and Quantity"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="35dp" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/textViewShowTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textViewTitle"
+            android:layout_below="@+id/textViewMovieTitle"
             android:text="Day and ShowTime"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="16dp" />
 
         <TextView
-            android:id="@+id/textViewTitle"
+            android:id="@+id/textViewMovieTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView15"
+            android:layout_below="@+id/textViewTheaterTitle"
             android:text="Movie Name" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/textViewTheaterTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Theater Name" />
@@ -51,7 +51,7 @@
             android:id="@+id/qr"
             android:layout_width="365dp"
             android:layout_height="380dp"
-            android:layout_below="@+id/textView14"
+            android:layout_below="@+id/textViewTicketQty"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
             android:layout_marginTop="12dp"

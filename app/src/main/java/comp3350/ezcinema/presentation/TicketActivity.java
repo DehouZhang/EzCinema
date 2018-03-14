@@ -11,9 +11,14 @@ import comp3350.ezcinema.objects.Movie;
 
 public class TicketActivity extends AppCompatActivity {
     //Data
-    private Movie movieName;
+    private String movieName;
+    private String theaterName;
+    private int amount;
     //views
-    TextView textViewTitle;
+    TextView textViewMovieTitle;
+    TextView textViewTheaterTitle;
+    TextView textViewShowTime;
+    TextView textViewTicketQty;
 
 
     @Override
@@ -27,9 +32,14 @@ public class TicketActivity extends AppCompatActivity {
 
     private void initializeView()
     {
-        //movieName = (String)getIntent().getSerializableExtra("MovieNamePassed");
+        movieName = (String)getIntent().getSerializableExtra("MovieNamePassed");
+        theaterName = (String)getIntent().getSerializableExtra("TheaterNamePassed");
+        amount = (int)getIntent().getSerializableExtra("AmountPassed");
 
-        textViewTitle = (TextView)findViewById(R.id.textViewTitle);
+        textViewMovieTitle = (TextView)findViewById(R.id.textViewMovieTitle);
+        textViewTheaterTitle = (TextView)findViewById(R.id.textViewTheaterTitle);
+        textViewShowTime = (TextView)findViewById(R.id.textViewShowTime);
+        textViewTicketQty = (TextView)findViewById(R.id.textViewTicketQty);
 
         setTextView();
 
@@ -37,7 +47,9 @@ public class TicketActivity extends AppCompatActivity {
 
     private void setTextView()
     {
-        //textViewTitle.setText(movie.getMovieName());
+        textViewMovieTitle.setText(movieName);
+        textViewTheaterTitle.setText(theaterName);
+        textViewTicketQty.setText("Number of Tickets: "+amount);
     }
 
     public void buttonHomeOnClick(View v)

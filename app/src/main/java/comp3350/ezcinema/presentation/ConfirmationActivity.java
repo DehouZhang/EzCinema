@@ -90,6 +90,8 @@ public class ConfirmationActivity extends AppCompatActivity {
             Intent intent = new Intent(ConfirmationActivity.this, CheckoutActivity.class);
             Bundle extras = new Bundle();
             extras.putSerializable("MovieNamePassed",passedMT.getMovieName());
+            extras.putSerializable("TheaterNamePassed",passedMT.getTheaterName());
+            //extras.putSerializable("")
             extras.putSerializable("AmountPassed",amount);
             intent.putExtras(extras);
             startActivity(intent);
