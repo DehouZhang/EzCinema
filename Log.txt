@@ -219,4 +219,4 @@ March 13
 	
 	merged ticket branch to database branch (Shawn Cooper, .5 hours)
 	
-	passed remaining info needed for ticket (Shawn Cooper, 3 hours)
+	passed remaining info needed for ticket (Shawn Cooper, 2 hours)
