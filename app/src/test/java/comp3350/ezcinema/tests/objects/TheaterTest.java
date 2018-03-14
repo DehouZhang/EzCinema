@@ -9,14 +9,11 @@ import comp3350.ezcinema.objects.Theater;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Dow on 12/02/2018.
- */
+
 public class TheaterTest extends TestCase{
 
-    private Theater theater1, theater2, theater3;
+    private Theater theater_normal_data, theater_equivalent_data, theater_no_name, theater_no_address, theater_empty, theater_alt_data;
     private Comparator<Theater> theaterNameComp;
-    private Comparator<Theater> theaterAddressComp;
 
     public TheaterTest(String arg0)
     {
@@ -25,28 +22,74 @@ public class TheaterTest extends TestCase{
 
     @Before
     public void setUp() throws Exception{
-        theater1 = new Theater("1", "cineplex", "a road");
-        theater2 = new Theater("2", "IMAX", "a different road");
-        theater3 = theater1;
+
+        theater_normal_data = new Theater("Scotiabank Theatre Winnipeg","817 St.James Street");
+        theater_equivalent_data = new Theater("Scotiabank Theatre Winnipeg","817 St.James Street");
+        theater_no_name = new Theater("","1555 Regent Avenue West");
+        theater_no_address = new Theater("Cinema City Northgate","");
+        theater_empty = new Theater("","");
+        theater_alt_data = new Theater("Cineplex Odeon McGillivray Cinemas","2190 McGillivray Blvd");
         theaterNameComp = Theater.TheaterNameComparator;
-        theaterAddressComp = Theater.TheaterAddressComparator;
     }
     @Test
     public void testGetMethods() throws Exception {
-        assertEquals("cineplex", theater1.getTheaterName());
-        assertEquals("a road", theater1.getTheaterAddress());
+        //normal cases
+        assertEquals(theater_normal_data.getTheaterName(), "Scotiabank Theatre Winnipeg");
+        assertEquals(theater_normal_data.getTheaterAddress(), "817 St.James Street");
+
+        assertEquals(theater_alt_data.getTheaterName(), "Cineplex Odeon McGillivray Cinemas");
+        assertEquals(theater_alt_data.getTheaterAddress(), "2190 McGillivray Blvd");
+
+        //test equivalent cases
+        assertEquals(theater_normal_data.getTheaterName(), theater_equivalent_data.getTheaterName());
+        assertEquals(theater_normal_data.getTheaterAddress(), theater_equivalent_data.getTheaterAddress());
+
+        //test empty data field cases
+        assertNull(theater_no_name.getTheaterName());
+        assertNull(theater_no_name.getTheaterAddress());
+
+        assertNull(theater_no_address.getTheaterAddress());
+        assertNull(theater_no_address.getTheaterName());
+
+        assertNull(theater_empty.getTheaterName());
+        assertNull(theater_empty.getTheaterAddress());
+
+
     }
+
 
     @Test
-    public void testCompares() throws Exception{
+    public void testToString() throws Exception{
+        //test normal cases
+        assertEquals(theater_normal_data.toString(), "Scotiabank Theatre Winnipeg\nAddress: 817 St.James Street");
+        assertEquals(theater_alt_data.toString(), "Cineplex Odeon McGillivray Cinemas\nAddress: 2190 McGillivray Blvd");
 
-        assertTrue( theaterNameComp.compare(theater1, theater2) < 0);
-        assertTrue( theaterNameComp.compare(theater1, theater3) == 0);
-        assertTrue( theaterNameComp.compare(theater2, theater1) > 0);
+        //test empty cases
+        assertNull(theater_empty.toString());
+        assertNull(theater_no_address.toString());
+        assertNull(theater_no_name.toString());
 
-        assertTrue( theaterAddressComp.compare(theater1, theater2) > 0);
-        assertTrue( theaterAddressComp.compare(theater1, theater3) == 0);
-        assertTrue( theaterAddressComp.compare(theater2, theater1) < 0);
     }
+    @Test
+    public void testComparisons() throws Exception{
+        //test equivalent and equal cases
+        assertTrue(theaterNameComp.compare(theater_normal_data,theater_normal_data) == 0);
+        assertTrue(theaterNameComp.compare(theater_normal_data,theater_equivalent_data) == 0);
+        assertTrue(theaterNameComp.compare(theater_alt_data, theater_alt_data) == 0);
 
+        //test normal comparisons
+        assertTrue(theaterNameComp.compare(theater_normal_data, theater_alt_data) > 0);
+        assertTrue(theaterNameComp.compare(theater_alt_data, theater_normal_data) < 0);
+
+        //test empty data fields
+        assertTrue(theaterNameComp.compare(theater_normal_data, theater_empty) > 0); //compare normal vs empty
+        assertTrue(theaterNameComp.compare(theater_alt_data, theater_empty) > 0);    //compare alt data vs empty
+        assertTrue(theaterNameComp.compare(theater_empty, theater_normal_data) < 0); //compare empty vs normal
+        assertTrue(theaterNameComp.compare(theater_empty, theater_empty) == 0);      //compare empty vs empty
+        assertTrue(theaterNameComp.compare(theater_normal_data, theater_no_name) > 0); //compare normal vs no name
+        assertTrue(theaterNameComp.compare(theater_alt_data, theater_no_name) > 0); //compare alt vs no name
+        assertTrue(theaterNameComp.compare(theater_normal_data, theater_no_address) > 0); //compare normal vs no address
+        assertTrue(theaterNameComp.compare(theater_alt_data, theater_no_address) > 0); //compare alt vs no address
+        assertTrue(theaterNameComp.compare(theater_no_name, theater_no_address) == 0); //compare no name vs no address
+    }
 }

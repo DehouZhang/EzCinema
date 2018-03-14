@@ -19,16 +19,4 @@ public class SortTheater {
         return sortedList;
     }
 
-
-
-    public ArrayList<Theater> sortByAddress(ArrayList<Theater> databaseList){
-
-        ArrayList<Theater> sortedList;
-        sortedList = (ArrayList<Theater>)databaseList.clone();
-
-        Collections.sort(sortedList, Theater.TheaterAddressComparator);
-
-        return sortedList;
-    }
-
 }
