@@ -31,7 +31,6 @@ public class SortMovie
 
         if(databaseList != null)
         {
-
             ArrayList<Movie> sortedList;
 
             sortedList = (ArrayList<Movie>)databaseList.clone();

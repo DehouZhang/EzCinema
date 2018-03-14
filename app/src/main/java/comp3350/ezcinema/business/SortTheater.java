@@ -11,8 +11,6 @@ public class SortTheater {
 
     public static ArrayList<Theater> sortByName(ArrayList<Theater> databaseList)
     {
-
-
         if (databaseList != null)
         {
             ArrayList<Theater> sortedList;
