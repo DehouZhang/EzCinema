@@ -58,8 +58,6 @@ public class AccessTheaterTest extends TestCase
 
             assertEquals(addresses[n], testTheater.getTheaterAddress());
 
-           // assertEquals(prices[n], testTheater.getTicketPrice());
-
             n++;
         }
 

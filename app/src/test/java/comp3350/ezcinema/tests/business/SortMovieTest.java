@@ -51,8 +51,6 @@ public class SortMovieTest extends TestCase
 
         assertNotNull(sorted);
 
-        //System.out.println(sorted.toString());
-
         for(int n = 0; n < sorted.size(); n++){
 
             movie = (Movie) sorted.get(n);
@@ -76,8 +74,6 @@ public class SortMovieTest extends TestCase
 
         assertNotNull(sorted);
 
-        //System.out.println(sorted.toString());
-
         for(int n = 0; n < sorted.size(); n++){
 
             movie = (Movie) sorted.get(n);
@@ -98,8 +94,6 @@ public class SortMovieTest extends TestCase
             sorted = SortMovie.sortByGenre(movies, genres[i]);
 
             assertNotNull(sorted);
-
-            //System.out.println(sorted.toString());
 
             for (int n = 0; n < sorted.size(); n++) {
 
