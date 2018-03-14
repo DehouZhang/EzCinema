@@ -15,11 +15,15 @@
             android:layout_alignBaseline="@+id/editText2"
             android:layout_alignBottom="@+id/editText2"
             android:layout_marginStart="36dp"
+            android:layout_marginLeft="10dp"
             android:layout_toEndOf="@+id/editText2"
             android:ems="10"
             android:inputType="number"
             android:maxLength="3"
-            android:id="@+id/editText3" />
+            android:id="@+id/editText3"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:typeface="normal"/>
 
         <EditText
             android:id="@+id/editText2"
@@ -29,7 +33,10 @@
             android:layout_below="@+id/editText"
             android:layout_marginTop="30dp"
             android:ems="10"
-            android:maxLength="4" />
+            android:maxLength="4"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:typeface="normal"/>
 
         <EditText
             android:id="@+id/editText"
@@ -43,7 +50,10 @@
             android:maxLength="9"
             android:selectAllOnFocus="false"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="10dp" />
+            tools:layout_editor_absoluteY="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:typeface="normal"/>
 
         <TextView
             android:id="@+id/textView5"
@@ -51,7 +61,10 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/editText3"
             android:layout_alignParentStart="true"
-            android:text="Expiry MM/YY" />
+            android:text="Expiry MM/YY"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:typeface="normal"/>
 
         <TextView
             android:id="@+id/textView3"
@@ -60,7 +73,10 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="13dp"
-            android:text="Card No" />
+            android:text="Card No"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:typeface="normal"/>
 
         <TextView
             android:id="@+id/textView7"
@@ -68,7 +84,11 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/editText3"
             android:layout_alignTop="@+id/textView5"
-            android:text="CVV" />
+            android:text="CVV"
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:typeface="normal"/>
 
     </RelativeLayout>
 
