@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 public class MovieTest extends TestCase{
 
 
-    private Movie movie1, movie2, movie3;
+    private Movie movie_normal_data,movie_same_content,movie_another_normal_data,movie_empty_data,movie_invalid_rating,movie_missing_name,movie_missing_description,movie_missing_genre,movie_name_case_sensitivity,movie_same_name_diff_rating,movie_same_rating_diff_name;
     private Comparator<Movie> movieNameComp;
     private Comparator<Movie> movieRatingComp;
 
