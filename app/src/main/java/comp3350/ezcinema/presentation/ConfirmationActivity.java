@@ -29,6 +29,7 @@ public class ConfirmationActivity extends AppCompatActivity {
     private ArrayAdapter<String> showtimeAdapter;
     private AccessTheater accessTheater;
     private int amount;
+    private  String selectedShowTime;
 
     //views
     TextView textViewInfo;
@@ -71,6 +72,7 @@ public class ConfirmationActivity extends AppCompatActivity {
     private void setSpinner() {
         showtimeAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,android.R.id.text1, showtimes);
         spinnerShowTime.setAdapter(showtimeAdapter);
+        selectedShowTime = spinnerShowTime.getSelectedItem().toString();
     }
 
     private void confirmClicked() {
@@ -90,6 +92,8 @@ public class ConfirmationActivity extends AppCompatActivity {
             Intent intent = new Intent(ConfirmationActivity.this, CheckoutActivity.class);
             Bundle extras = new Bundle();
             extras.putSerializable("MovieNamePassed",passedMT.getMovieName());
+            extras.putSerializable("TheaterNamePassed",passedMT.getTheaterName());
+            extras.putSerializable("ShowTimePassed",selectedShowTime);
             extras.putSerializable("AmountPassed",amount);
             intent.putExtras(extras);
             startActivity(intent);

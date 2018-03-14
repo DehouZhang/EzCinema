@@ -29,7 +29,6 @@
             android:layout_below="@+id/editText"
             android:layout_marginTop="30dp"
             android:ems="10"
-            android:inputType="number"
             android:maxLength="4" />
 
         <EditText
