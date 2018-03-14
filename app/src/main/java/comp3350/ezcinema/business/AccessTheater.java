@@ -20,8 +20,14 @@ public class AccessTheater {
         //returns the list of movies from the database
         public String getTheaters(List<Theater> theaters)
         {
-            theaters.clear();
-            return dataAccess.getTheaterSequential(theaters);
+            if(theaters != null) {
+                theaters.clear();
+                return dataAccess.getTheaterSequential(theaters);
+
+            }
+            else
+                return null;
+
         }
 
         public String getTheaterAddr(String theaterName)

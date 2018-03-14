@@ -1,15 +1,9 @@
 package comp3350.ezcinema.tests.business;
 
 import junit.framework.TestCase;
-
-import org.junit.Test;
-
-import org.junit.Before;
 import java.util.ArrayList;
-
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.business.SortMovie;
-
 import static org.junit.Assert.*;
 
 public class SortMovieTest extends TestCase{
@@ -17,7 +11,7 @@ public class SortMovieTest extends TestCase{
     private ArrayList<Movie> movies, sorted;
     private SortMovie sortedMovie;
 
-    @Before
+
     public void setUp() throws Exception {
         movie1 = new Movie("C Movie", "your basic run of the mill decent movie", "Horror", 4.4);
         movie2 = new Movie("B Movie", "your basic run of the mill okay movie", "Family", 3.6);
@@ -31,7 +25,7 @@ public class SortMovieTest extends TestCase{
         movies.add(movie3);
     }
 
-    @Test
+
     public void testSortByName() throws Exception {
 
         sorted = (ArrayList<Movie>) sortedMovie.sortByName(movies);
@@ -41,7 +35,7 @@ public class SortMovieTest extends TestCase{
 
     }
 
-    @Test
+
     public void testSortByRating() throws Exception {
 
         sorted = (ArrayList<Movie>) sortedMovie.sortByRating(movies);
@@ -49,7 +43,7 @@ public class SortMovieTest extends TestCase{
         assertEquals(2.8, (sorted.get(0)).getMovieRating(),0.1);
     }
 
-    @Test
+
     public void testSortByGenre() throws Exception{
 
         sorted = sortedMovie.sortByGenre(movies, "Family");

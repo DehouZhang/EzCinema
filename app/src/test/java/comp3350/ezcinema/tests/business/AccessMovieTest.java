@@ -1,12 +1,8 @@
 package comp3350.ezcinema.tests.business;
 
 import junit.framework.TestCase;
-
-
 import java.util.ArrayList;
-
 import static org.junit.Assert.*;
-
 import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.business.AccessMovie;
@@ -38,6 +34,8 @@ public class AccessMovieTest extends TestCase {
     public void testExisitence() throws Exception{
 
         System.out.print("Test That the list isn't null or empty");
+
+        assertNull(accessor.getMovies((null)));
         assertNotNull(list);
         assertNotEquals(0,list.size());
     }

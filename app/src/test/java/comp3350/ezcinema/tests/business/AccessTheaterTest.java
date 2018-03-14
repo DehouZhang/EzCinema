@@ -1,11 +1,8 @@
 package comp3350.ezcinema.tests.business;
 
 import junit.framework.TestCase;
-
-
 import static org.junit.Assert.*;
 import java.util.ArrayList;
-
 import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.business.AccessTheater;
@@ -32,6 +29,7 @@ public class AccessTheaterTest extends TestCase{
     public void testExisitence() throws Exception{
 
         System.out.print("Test That the list isn't null or empty");
+        assertNull(accessor.getTheaters((null)));
         assertNotNull(list);
         assertNotEquals(0,list.size());
 
@@ -39,9 +37,7 @@ public class AccessTheaterTest extends TestCase{
 
 
     public void testContent() throws Exception{
-
-
-
+        
         System.out.print("Test that the contents of the list are correct, alphabetical order" );
         Theater testTheater;
 

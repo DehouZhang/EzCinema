@@ -25,10 +25,13 @@ public class AccessMT {
     public MT getMT(Movie movie, Theater theater)
     {
         MT newMT = null;
-        ArrayList<String> showtimes;
-        showtimes = dataAccess.getShowtimeList(movie,theater);
-        if (showtimes.size() >0){
-            newMT = new MT(movie.getMovieName(),theater.getTheaterName(),showtimes);
+
+        if(movie != null && theater != null) {
+            ArrayList<String> showtimes;
+            showtimes = dataAccess.getShowtimeList(movie, theater);
+            if (showtimes.size() > 0) {
+                newMT = new MT(movie.getMovieName(), theater.getTheaterName(), showtimes);
+            }
         }
         return newMT;
     }

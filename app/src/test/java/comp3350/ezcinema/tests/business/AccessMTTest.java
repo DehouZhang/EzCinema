@@ -1,9 +1,7 @@
 package comp3350.ezcinema.tests.business;
 
 import junit.framework.TestCase;
-
 import java.util.ArrayList;
-
 import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.business.AccessMT;
 import comp3350.ezcinema.business.AccessMovie;
@@ -11,7 +9,6 @@ import comp3350.ezcinema.business.AccessTheater;
 import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
-
 import static org.junit.Assert.*;
 
 public class AccessMTTest extends TestCase {
@@ -29,7 +26,7 @@ public class AccessMTTest extends TestCase {
     private MT mt;
     private Movie movie;
     private Theater theater;
-    
+
 
     public void setUp() throws Exception {
         Main.startUp();
@@ -74,6 +71,10 @@ public class AccessMTTest extends TestCase {
         System.out.println("Test that the MT's are fetched properly");
 
         //nested for loop to cycle though theaters and movies to fetch MT objects
+
+        mt =  accessorMT.getMT(null,null);
+        assertNull(mt);
+
         for (int i = 0; i < mNames.length; i++) {
             for (int k = 0; k < tNames.length; k++) {
                 movie = (Movie) mlist.get(i);
