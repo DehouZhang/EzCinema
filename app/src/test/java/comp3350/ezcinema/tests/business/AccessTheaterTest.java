@@ -28,7 +28,7 @@ public class AccessTheaterTest extends TestCase{
 
     public void testExisitence() throws Exception{
 
-        System.out.print("Test That the list isn't null or empty");
+        System.out.print("Whether the list is/isn't null and is not returned empty");
         assertNull(accessor.getTheaters((null)));
         assertNotNull(list);
         assertNotEquals(0,list.size());
@@ -37,7 +37,7 @@ public class AccessTheaterTest extends TestCase{
 
 
     public void testContent() throws Exception{
-        
+
         System.out.print("Test that the contents of the list are correct, alphabetical order" );
         Theater testTheater;
 

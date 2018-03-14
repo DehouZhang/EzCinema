@@ -33,7 +33,7 @@ public class AccessMovieTest extends TestCase {
 
     public void testExisitence() throws Exception{
 
-        System.out.print("Test That the list isn't null or empty");
+        System.out.print("Whether the list is/isn't null and is not returned empty");
 
         assertNull(accessor.getMovies((null)));
         assertNotNull(list);
