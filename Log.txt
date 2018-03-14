@@ -222,3 +222,5 @@ March 13
 	merged ticket branch to database branch (Shawn Cooper, .5 hours)
 	
 	passed remaining info needed for ticket (Shawn Cooper, 2 hours)
+	
+	Improved GUIs illustration for Ticket and Checkout pages(Qin Yang, 1 hour)
