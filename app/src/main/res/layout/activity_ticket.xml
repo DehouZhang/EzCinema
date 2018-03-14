@@ -55,7 +55,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
             android:layout_marginTop="12dp"
-            android:src="@drawable/qr"
+            android:src="@drawable/qr2"
             tools:layout_editor_absoluteX="10dp"
             tools:layout_editor_absoluteY="77dp" />
 
