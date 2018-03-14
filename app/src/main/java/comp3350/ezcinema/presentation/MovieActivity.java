@@ -5,27 +5,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import comp3350.ezcinema.R;
+import comp3350.ezcinema.business.AccessTheater;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.business.AccessMovie;
 import comp3350.ezcinema.business.SortMovie;
+import comp3350.ezcinema.objects.Theater;
+
 import java.util.ArrayList;
 
 public class MovieActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
     //Data
+    //todo should have a moive-theater relation DB, currently using arraylist of moives and theaters
     private ArrayList<Movie> movieList;
     private ArrayList<Movie> sortedList;
+
+    //todo will be changed
+    private ArrayList<Theater> theaterList;
+    private AccessTheater accessTheater;
+
     private AccessMovie accessMovie;
     private SortMovie sortedMovie;
     private ArrayAdapter<String> genreArrayAdapter;
@@ -52,9 +57,11 @@ public class MovieActivity extends AppCompatActivity implements AdapterView.OnIt
         listItemClicked();
     }
 
-    private void initializeGenreList() {
+    private void initializeGenreList()
+    {
         genreList = new ArrayList<>();
 
+        //todo will be changed by DB
         genreList.add("All");   //default selection
 
         genreList.add("Family");
@@ -68,10 +75,13 @@ public class MovieActivity extends AppCompatActivity implements AdapterView.OnIt
         //initialize data
         movieList = new ArrayList<Movie>();
         accessMovie = new AccessMovie();
-
         accessMovie.getMovies(movieList);      //transfer items in the db into movieList
-        sortedMovie = new SortMovie();
 
+        theaterList = new ArrayList<Theater>();
+        accessTheater = new AccessTheater();
+        accessTheater.getTheaters(theaterList);      //transfer items in the db into theaterList
+
+        sortedMovie = new SortMovie();
 
         //initialize views
         listView = (ListView)findViewById(R.id.list_view);
@@ -115,13 +125,14 @@ public class MovieActivity extends AppCompatActivity implements AdapterView.OnIt
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent movieDescIntent = new Intent(MovieActivity.this, MovieDescActivity.class);
+                Intent intent = new Intent(MovieActivity.this, MovieSelectTheaterActivity.class);
+                Bundle extras = new Bundle();
 
                 Movie displayMovie = sortedList.get(i);
-                movieDescIntent.putExtra("DisplayMovie",displayMovie);    //pass displayMovie into MovieDescActivity
-
-                startActivity(movieDescIntent);
-
+                extras.putSerializable("MoviePassed",displayMovie);
+                extras.putSerializable("TheaterList",theaterList);
+                intent.putExtras(extras);
+                startActivity(intent);
             }
         });
     }

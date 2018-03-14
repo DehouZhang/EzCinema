@@ -5,23 +5,28 @@ import java.util.List;
 import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.application.Services;
 import comp3350.ezcinema.objects.Movie;
-import comp3350.ezcinema.persistence.DataAccessStub;
+import comp3350.ezcinema.persistence.DataAccess;
 
 
-public class AccessMovie {
+public class AccessMovie
+{
 
-    private DataAccessStub dataAccess;
+    private DataAccess dataAccess;
 
     public AccessMovie()
     {
-        dataAccess =(DataAccessStub) Services.getDataAccess(Main.dbName);
+        dataAccess =Services.getDataAccess(Main.dbName);
     }
 
     //returns the list of movies from the database
     public String getMovies(List<Movie> movies)
     {
-        movies.clear();
-       return dataAccess.getMoviesSequential(movies);
+        if(movies != null) {
+            movies.clear();
+            return dataAccess.getMovieSequential(movies);
+        }
+        else
+            return null;
     }
 
 

@@ -1,0 +1,67 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="comp3350.ezcinema.presentation.FragmentPaypal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView9"
+            android:ems="10"
+            android:inputType="number"
+            android:maxLength="9"
+            android:selectAllOnFocus="false"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="56dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:typeface="normal"/>
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editText"
+            android:layout_marginTop="11dp"
+            android:text="Password"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:typeface="normal"/>
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView8"
+            android:ems="10"
+            android:selectAllOnFocus="false"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:typeface="normal"/>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="27dp"
+            android:text="Email"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:typeface="normal"/>
+
+    </RelativeLayout>
+
+</FrameLayout>
