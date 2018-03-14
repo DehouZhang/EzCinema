@@ -11,13 +11,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:typeface="normal"
             android:text="Checkout" />
 
         <View
@@ -31,19 +36,28 @@
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="match_parent"
-            android:layout_height="23dp"
-            android:text="TextView" />
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:typeface="normal" />
 
         <TextView
             android:id="@+id/textViewSubtotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:typeface="normal"
             android:text="Subtotal:" />
 
         <TextView
             android:id="@+id/textViewTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:typeface="normal"
             android:text="Total:" />
 
         <View
@@ -58,7 +72,10 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Payment Method:" />
+            android:text="Payment Method:"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:typeface="normal"/>
 
         <RadioGroup
             android:layout_width="wrap_content"
@@ -70,7 +87,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onRadioButtonClicked"
-                android:text="Credit Card" />
+                android:text="Credit Card"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:typeface="normal"/>
 
             <RadioButton
                 android:id="@+id/radio_paypal"
@@ -78,7 +98,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onRadioButtonClicked"
-                android:text="PayPal" />
+                android:text="PayPal"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:typeface="normal"/>
 
             <RadioButton
                 android:id="@+id/radio_scene"
@@ -86,14 +109,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onRadioButtonClicked"
-                android:text="Scene Points" />
+                android:text="Scene Points"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:typeface="normal"/>
 
         </RadioGroup>
 
         <RelativeLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="178dp">
+            android:layout_height="255dp">
 
         </RelativeLayout>
 
@@ -113,7 +139,10 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:enabled="true"
-            android:text="Purchase" />
+            android:text="Purchase"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:typeface="normal"/>
 
 
     </LinearLayout>
