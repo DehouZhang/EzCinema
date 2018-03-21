@@ -11,12 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import comp3350.ezcinema.objects.Movie;
+import comp3350.ezcinema.objects.Seat;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.objects.MT;
 
 public class DataAccessObject implements DataAccess
 {
-    private Statement st1,st2,st3,st4;
+    private Statement st1,st2,st3,st4,st5;
     private Connection c1;
     private ResultSet rs2,rs3,rs4,rs5;
 
@@ -191,6 +192,27 @@ public class DataAccessObject implements DataAccess
         return addr;
     }
 
+    public String updateStatus(Seat seat, int row, int col)
+    {
+        String values;
+        String where;
+
+        result=null;
+        try
+        {
+            values="Status="+1;
+            where="where MovieName='"+seat.getMovie()+"' and TheaterName='"+seat.getTheater()+"' and Showtime='"+seat.getShowtime()+"' and Row="+row+" and Col="+col;
+            cmdString= "Update MovieTheaters "+" Set "+values+" "+where;
+            updateCount = st5.executeUpdate(cmdString);
+            result = checkWarning(st5, updateCount);
+        }
+        catch (Exception e)
+        {
+            result=processSQLError(e);
+        }
+        return result;
+    }
+
     public String processSQLError(Exception e)
     {
         String result = "*** SQL Error: " + e.getMessage();
@@ -198,6 +220,30 @@ public class DataAccessObject implements DataAccess
         // Remember, this will NOT be seen by the user!
         e.printStackTrace();
 
+        return result;
+    }
+
+    public String checkWarning(Statement st, int updateCount)
+    {
+        String result;
+
+        result = null;
+        try
+        {
+            SQLWarning warning = st.getWarnings();
+            if (warning != null)
+            {
+                result = warning.getMessage();
+            }
+        }
+        catch (Exception e)
+        {
+            result = processSQLError(e);
+        }
+        if (updateCount != 1)
+        {
+            result = "Tuple not inserted correctly.";
+        }
         return result;
     }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import comp3350.ezcinema.objects.Movie;
+import comp3350.ezcinema.objects.Seat;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.objects.MT;
 
@@ -20,4 +21,6 @@ public interface DataAccess
     ArrayList<String>getShowtimeList(Movie movie, Theater theater);
 
     String getTheaterAddress(String theaterName);
+
+    String updateSeat(Seat seat, int row, int col);
 }
