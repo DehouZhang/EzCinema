@@ -6,20 +6,18 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.DriverManager;
 import java.sql.SQLWarning;
-import java.sql.DatabaseMetaData;
 import java.util.ArrayList;
 import java.util.List;
 
-import comp3350.ezcinema.objects.Movie;
-import comp3350.ezcinema.objects.Seat;
-import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.objects.MT;
+import comp3350.ezcinema.objects.Movie;
+import comp3350.ezcinema.objects.Theater;
 
 public class DataAccessObject implements DataAccess
 {
     private Statement st1,st2,st3,st4,st5;
     private Connection c1;
-    private ResultSet rs2,rs3,rs4,rs5;
+    private ResultSet rs2,rs3,rs4,rs5,rs6;
 
     private String dbName;
     private String dbType;
@@ -192,7 +190,7 @@ public class DataAccessObject implements DataAccess
         return addr;
     }
 
-    public String updateStatus(Seat seat, int row, int col)
+    public String updateStatus(MT seat, int row, int col)
     {
         String values;
         String where;
@@ -201,7 +199,7 @@ public class DataAccessObject implements DataAccess
         try
         {
             values="Status="+1;
-            where="where MovieName='"+seat.getMovie()+"' and TheaterName='"+seat.getTheater()+"' and Showtime='"+seat.getShowtime()+"' and Row="+row+" and Col="+col;
+            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+seat.getShowtime()+"' and Row="+row+" and Col="+col;
             cmdString= "Update MovieTheaters "+" Set "+values+" "+where;
             updateCount = st5.executeUpdate(cmdString);
             result = checkWarning(st5, updateCount);
@@ -210,6 +208,27 @@ public class DataAccessObject implements DataAccess
         {
             result=processSQLError(e);
         }
+        return result;
+    }
+
+    public int countRemain(MT seat)
+    {
+        int result=-1;
+        String where;
+
+        try
+        {
+            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+seat.getShowtime()+"' and Status=0";
+            cmdString="Select Count (*) from MovieTheaters"+where;
+            rs6=st5.executeQuery(cmdString);
+            rs6.next();
+            result=rs6.getInt(1);
+        }
+        catch (Exception e)
+        {
+            processSQLError(e);
+        }
+
         return result;
     }
 
