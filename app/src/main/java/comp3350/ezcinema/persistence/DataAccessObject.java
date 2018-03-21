@@ -151,7 +151,7 @@ public class DataAccessObject implements DataAccess
         showtimes=new ArrayList<String>();
         try
         {
-            cmdString="Select Showtime from MovieTheaters where MovieName='"+movie.getMovieName()+"' and TheaterName='"+theater.getTheaterName()+"'";
+            cmdString="Select Distinct Showtime from MovieTheaters where MovieName='"+movie.getMovieName()+"' and TheaterName='"+theater.getTheaterName()+"'";
             rs4=st3.executeQuery(cmdString);
             while (rs4.next())
             {
