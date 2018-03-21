@@ -21,7 +21,7 @@ public interface DataAccess
 
     String getTheaterAddress(String theaterName);
 
-    String updateStatus(MT seat, int row, int col);
+    String updateStatus(MT seat,String time, int row, int col);
 
-    int countRemain(MT seat);
+    int countRemain(MT seat,String time);
 }

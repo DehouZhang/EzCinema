@@ -15,8 +15,8 @@ public class UpdateSeat
         dataAccess = Services.getDataAccess(Main.dbName);
     }
 
-    public String updateSeatStatus(MT seat, int row, int col)
+    public String updateSeatStatus(MT seat, String time, int row, int col)
     {
-        return dataAccess.updateStatus(seat,row,col);
+        return dataAccess.updateStatus(seat,time,row,col);
     }
 }

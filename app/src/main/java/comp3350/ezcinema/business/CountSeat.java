@@ -16,9 +16,9 @@ public class CountSeat
         dataAccess = Services.getDataAccess(Main.dbName);
     }
 
-    public int countRemainingSeats(MT seat)
+    public int countRemainingSeats(MT seat,String time)
     {
-        return dataAccess.countRemain(seat);
+        return dataAccess.countRemain(seat,time);
     }
 
 }
