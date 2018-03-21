@@ -108,7 +108,7 @@ public class ConfirmationActivity extends AppCompatActivity
             startActivity(intent);
         }
         else {
-            Toast.makeText(this, "Please Enter the amount of ticket you want to order.(1 to 150)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please Enter the amount of ticket you want to order.(1 to 25)", Toast.LENGTH_SHORT).show();
         }
     }
 

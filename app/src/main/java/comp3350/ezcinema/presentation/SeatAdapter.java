@@ -44,7 +44,6 @@ public class SeatAdapter extends BaseAdapter{
             view = inflater.inflate(R.layout.layout_seat_select_adapter_form,viewGroup,false);
             TextView textViewSeat = (TextView)view.findViewById(R.id.textViewSeat);
 
-
             //read from table and set item
             if (table[i/5][i%5] == false){
                 //enable the item
