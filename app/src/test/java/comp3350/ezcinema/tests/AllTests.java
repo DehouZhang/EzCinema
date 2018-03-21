@@ -8,6 +8,7 @@ import comp3350.ezcinema.tests.business.AccessMovieTest;
 import comp3350.ezcinema.tests.business.AccessTheaterTest;
 import comp3350.ezcinema.tests.business.SortMovieTest;
 import comp3350.ezcinema.tests.business.SortTheaterTest;
+import comp3350.ezcinema.tests.objects.MTTest;
 import comp3350.ezcinema.tests.objects.MovieTest;
 import comp3350.ezcinema.tests.objects.TheaterTest;
 
@@ -28,6 +29,7 @@ public class AllTests
     {
         suite.addTestSuite(MovieTest.class);
         suite.addTestSuite(TheaterTest.class);
+        suite.addTestSuite(MTTest.class);
     }
 
     private static void testBusiness()
