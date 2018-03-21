@@ -24,4 +24,6 @@ public interface DataAccess
     String updateStatus(MT seat,String time, int row, int col);
 
     int countRemain(MT seat,String time);
+
+    int checkStatus(MT seat,String time,int row,int col);
 }

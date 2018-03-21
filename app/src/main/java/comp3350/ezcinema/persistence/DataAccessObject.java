@@ -17,7 +17,7 @@ public class DataAccessObject implements DataAccess
 {
     private Statement st1,st2,st3,st4,st5;
     private Connection c1;
-    private ResultSet rs2,rs3,rs4,rs5,rs6;
+    private ResultSet rs2,rs3,rs4,rs5,rs6,rs7;
 
     private String dbName;
     private String dbType;
@@ -229,6 +229,25 @@ public class DataAccessObject implements DataAccess
             processSQLError(e);
         }
 
+        return result;
+    }
+
+    public int checkStatus(MT seat, String time, int row, int col)
+    {
+        int result=-1;
+        String where;
+        try
+        {
+            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Row="+row+" and Col="+col;
+            cmdString="Select Status From MovieTheaters "+where;
+            rs7=st5.executeQuery(cmdString);
+            rs7.next();
+            result=rs7.getInt(1);
+        }
+        catch (Exception e)
+        {
+            processSQLError(e);
+        }
         return result;
     }
 
