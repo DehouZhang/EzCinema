@@ -98,7 +98,7 @@ public class ConfirmationActivity extends AppCompatActivity
         {
             amount = Integer.parseInt(editTextAmount.getText().toString());
 
-            Intent intent = new Intent(ConfirmationActivity.this, CheckoutActivity.class);
+            Intent intent = new Intent(ConfirmationActivity.this, SeatSelectActvity.class);
             Bundle extras = new Bundle();
             extras.putSerializable("MovieNamePassed",passedMT.getMovieName());
             extras.putSerializable("TheaterNamePassed",passedMT.getTheaterName());
@@ -116,7 +116,7 @@ public class ConfirmationActivity extends AppCompatActivity
     {
         boolean result = true;
         String text = editText.getText().toString().trim();
-        if (text.length() >0 && Integer.parseInt(text) <= 150)
+        if (text.length() >0 && Integer.parseInt(text) <= 25)
             result = false;
         return result;
     }
