@@ -15,7 +15,7 @@ import comp3350.ezcinema.objects.Theater;
 
 public class DataAccessObject implements DataAccess
 {
-    private Statement st1,st2,st3,st4,st5;
+    private Statement st1,st2,st3,st4,st5,st6;
     private Connection c1;
     private ResultSet rs2,rs3,rs4,rs5,rs6,rs7;
 
@@ -50,6 +50,8 @@ public class DataAccessObject implements DataAccess
             st2 = c1.createStatement();
             st3 = c1.createStatement();
             st4 = c1.createStatement();
+            st5 = c1.createStatement();
+            st6 = c1.createStatement();
         }
         catch (Exception e)
         {
@@ -237,10 +239,10 @@ public class DataAccessObject implements DataAccess
         try
         {
             where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Row="+row+" and Col="+col;
-            cmdString="Select Status From MovieTheaters "+where;
-            rs7=st5.executeQuery(cmdString);
+            cmdString="Select Status from MovieTheaters "+where;
+            rs7=st6.executeQuery(cmdString);
             rs7.next();
-            result=rs7.getInt(1);
+            result=rs7.getInt("Status");
         }
         catch (Exception e)
         {
