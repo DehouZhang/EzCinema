@@ -99,19 +99,25 @@ public class ConfirmationActivity extends AppCompatActivity
     {
         if(!isNotValid(editTextAmount))
         {
-            amount = Integer.parseInt(editTextAmount.getText().toString());
+            int remains = countSeat.countRemainingSeats(passedMT,selectedShowTime);
 
-            Intent intent = new Intent(ConfirmationActivity.this, SeatSelectActvity.class);
-            Bundle extras = new Bundle();
-            extras.putSerializable("MTPassed",passedMT);
-            extras.putSerializable("ShowTimePassed",selectedShowTime);
-            extras.putSerializable("AmountPassed",amount);
-            intent.putExtras(extras);
-            startActivity(intent);
-        }
-        else if(countSeat.countRemainingSeats(passedMT,selectedShowTime) == 0){
-            //todo logic may be wrong
-            Toast.makeText(this, "Seats for this movie are all reserved, please select another show time for this movie!", Toast.LENGTH_SHORT).show();
+            if(remains - amount > 0)
+            {
+                amount = Integer.parseInt(editTextAmount.getText().toString());
+
+                Intent intent = new Intent(ConfirmationActivity.this, SeatSelectActvity.class);
+                Bundle extras = new Bundle();
+                extras.putSerializable("MTPassed", passedMT);
+                extras.putSerializable("ShowTimePassed", selectedShowTime);
+                extras.putSerializable("AmountPassed", amount);
+                intent.putExtras(extras);
+                startActivity(intent);
+            }
+            else
+            {
+                //todo logic may be wrong
+                Toast.makeText(this, "Seats for this movie are all reserved, please select another show time for this movie!", Toast.LENGTH_SHORT).show();
+            }
         }else{
             Toast.makeText(this, "Please Enter the amount of ticket you want to order.(1 to 25)", Toast.LENGTH_SHORT).show();
         }
