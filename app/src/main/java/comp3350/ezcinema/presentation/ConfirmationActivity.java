@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 import comp3350.ezcinema.R;
 import comp3350.ezcinema.business.AccessTheater;
+import comp3350.ezcinema.business.CountSeat;
 import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
@@ -29,6 +30,7 @@ public class ConfirmationActivity extends AppCompatActivity
     private ArrayList<String> showtimes;
     private ArrayAdapter<String> showtimeAdapter;
     private AccessTheater accessTheater;
+    private CountSeat countSeat;
     private int amount;
     private  String selectedShowTime;
 
@@ -56,6 +58,7 @@ public class ConfirmationActivity extends AppCompatActivity
         showtimes = passedMT.getShowtime();
 
         accessTheater = new AccessTheater();
+        countSeat = new CountSeat();
     }
 
     private void initializeViews()
@@ -94,25 +97,27 @@ public class ConfirmationActivity extends AppCompatActivity
 
     private void passAmount()
     {
-        if(!isValid(editTextAmount))
+        if(!isNotValid(editTextAmount))
         {
             amount = Integer.parseInt(editTextAmount.getText().toString());
 
             Intent intent = new Intent(ConfirmationActivity.this, SeatSelectActvity.class);
             Bundle extras = new Bundle();
-            extras.putSerializable("MovieNamePassed",passedMT.getMovieName());
-            extras.putSerializable("TheaterNamePassed",passedMT.getTheaterName());
+            extras.putSerializable("MTPassed",passedMT);
             extras.putSerializable("ShowTimePassed",selectedShowTime);
             extras.putSerializable("AmountPassed",amount);
             intent.putExtras(extras);
             startActivity(intent);
         }
-        else {
+        else if(countSeat.countRemainingSeats(passedMT,selectedShowTime) == 0){
+            //todo logic may be wrong
+            Toast.makeText(this, "Seats for this movie are all reserved, please select another show time for this movie!", Toast.LENGTH_SHORT).show();
+        }else{
             Toast.makeText(this, "Please Enter the amount of ticket you want to order.(1 to 25)", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private boolean isValid(EditText editText)
+    private boolean isNotValid(EditText editText)
     {
         boolean result = true;
         String text = editText.getText().toString().trim();

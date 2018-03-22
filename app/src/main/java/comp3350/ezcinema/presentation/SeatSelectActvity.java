@@ -10,16 +10,20 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import comp3350.ezcinema.R;
+import comp3350.ezcinema.business.getSeatsTable;
+import comp3350.ezcinema.business.UpdateSeat;
+import comp3350.ezcinema.objects.MT;
 
 public class SeatSelectActvity extends AppCompatActivity {
 
     //data
-    boolean[][] seats;
+    int[][] seats;
     int numTicket;
     int count;
-    String movieName;
-    String theaterName;
+    MT mtPassed;
     String showtime;
+    getSeatsTable table;
+    UpdateSeat updates;
 
     //view
     GridView seatGridView;
@@ -36,21 +40,23 @@ public class SeatSelectActvity extends AppCompatActivity {
         confrimation();
     }
 
+    private void initializeData(){
+        table = new getSeatsTable();
+        updates = new UpdateSeat();
+
+        mtPassed = (MT) getIntent().getExtras().getSerializable("MTPassed");
+        showtime = (String) getIntent().getExtras().getSerializable("ShowTimePassed");
+        numTicket = (int)getIntent().getExtras().getSerializable("AmountPassed");
+
+        count = numTicket;
+        seats = table.getSeatTable(mtPassed,showtime);
+
+    }
+
     private void initializeView(){
         seatGridView = (GridView)findViewById(R.id.seatGridView);
         confrimButton = (Button)findViewById(R.id.confrimButton);
 
-    }
-
-    private void initializeData(){
-        seats = new boolean[5][5];
-
-        numTicket = (int)getIntent().getExtras().getSerializable("AmountPassed");
-        count = numTicket;
-
-        movieName = (String) getIntent().getExtras().getSerializable("MovieNamePassed");
-        theaterName = (String) getIntent().getExtras().getSerializable("TheaterNamePassed");
-        showtime = (String) getIntent().getExtras().getSerializable("ShowTimePassed");
     }
 
     private void setUpGridView(){
@@ -62,9 +68,11 @@ public class SeatSelectActvity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if(count > 0) {
-                    //pass data
-                    seats[i / 5][i % 5] = true;
-                    //disable this item
+                    //update seat table in activity
+                    seats[i / 5][i % 5] = 1;
+                    //update seat table in databse
+                    updates.updateSeatStatus(mtPassed,showtime,i/5,i%5);
+
                     SeatAdapter newAdapter = new SeatAdapter(getApplicationContext(), seats);
                     seatGridView.setAdapter(newAdapter);
                     count--;
@@ -88,8 +96,8 @@ public class SeatSelectActvity extends AppCompatActivity {
 
             Intent intent = new Intent(SeatSelectActvity.this, CheckoutActivity.class);
             Bundle extras = new Bundle();
-            extras.putSerializable("MovieNamePassed",movieName);
-            extras.putSerializable("TheaterNamePassed",theaterName);
+            extras.putSerializable("MovieNamePassed",mtPassed.getMovieName());
+            extras.putSerializable("TheaterNamePassed",mtPassed.getTheaterName());
             extras.putSerializable("ShowTimePassed",showtime);
             extras.putSerializable("AmountPassed",numTicket);
             extras.putSerializable("SeatsPassed",seats);

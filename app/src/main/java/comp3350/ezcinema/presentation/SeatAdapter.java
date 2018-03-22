@@ -15,9 +15,9 @@ public class SeatAdapter extends BaseAdapter{
 
     private Context context;
     private LayoutInflater inflater;
-    private boolean[][] table;
+    private int[][] table;
 
-    public SeatAdapter(Context c,boolean[][] t) {
+    public SeatAdapter(Context c,int[][] t) {
         context = c;
         inflater = LayoutInflater.from(c);
         table = t;
@@ -45,7 +45,7 @@ public class SeatAdapter extends BaseAdapter{
             TextView textViewSeat = (TextView)view.findViewById(R.id.textViewSeat);
 
             //read from table and set item
-            if (table[i/5][i%5] == false){
+            if (table[i/5][i%5] == 0){
                 //enable the item
                 textViewSeat.setBackgroundColor(Color.GREEN);
                 view.setClickable(false);
