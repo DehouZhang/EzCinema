@@ -100,11 +100,10 @@ public class ConfirmationActivity extends AppCompatActivity
         if(!isNotValid(editTextAmount))
         {
             int remains = countSeat.countRemainingSeats(passedMT,selectedShowTime);
+            amount = Integer.parseInt(editTextAmount.getText().toString());
 
-            if(remains - amount > 0)
+            if(remains - amount >= 0)
             {
-                amount = Integer.parseInt(editTextAmount.getText().toString());
-
                 Intent intent = new Intent(ConfirmationActivity.this, SeatSelectActvity.class);
                 Bundle extras = new Bundle();
                 extras.putSerializable("MTPassed", passedMT);
