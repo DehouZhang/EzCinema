@@ -213,16 +213,20 @@ public class DataAccessObject implements DataAccess
 
     public int countRemain(MT seat,String time)
     {
-        int result=-1;
+        int result=0;
         String where;
 
         try
         {
             where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Status=0";
-            cmdString="Select Count (*) from MovieTheaters"+where;
+            cmdString="Select Row from MovieTheaters "+where;
             rs6=st5.executeQuery(cmdString);
-            rs6.next();
-            result=rs6.getInt(1);
+
+            while(rs6.next())
+            {
+                result++;
+            }
+
         }
         catch (Exception e)
         {
