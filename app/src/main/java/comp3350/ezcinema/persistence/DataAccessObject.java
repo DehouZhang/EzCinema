@@ -189,6 +189,18 @@ public class DataAccessObject implements DataAccess
         return addr;
     }
 
+    public void insertTicket(String movieName, String theaterName, String showTime, String price)
+    {
+        try
+        {
+
+        }
+        catch(Exception e)
+        {
+
+        }
+    }
+
     public String processSQLError(Exception e)
     {
         String result = "*** SQL Error: " + e.getMessage();

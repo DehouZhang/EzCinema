@@ -7,10 +7,24 @@ public class Ticket
     private String movieName;
     private String theaterName;
     private String showTime;
-    public Ticket(MT movie)
+    private String ticketPrice;
+
+    public Ticket(String movieName, String theaterName, String showTime, String price)
     {
-        this.movieName = movie.getMovieName();
-        this.theaterName = movie.getTheaterName();
-        this.showTime = movie.showtimeToString();
+        this.movieName = movieName;
+        this.theaterName = theaterName;
+        this.showTime = showTime;
+        this.ticketPrice = price;
     }
+
+    public String getMovieName()
+    {
+        return movieName;
+    }
+    public String getTheaterName()
+    {
+        return theaterName;
+    }
+    public String getShowTime() { return showTime; }
+    public String getTicketPrice() { return ticketPrice; }
 }

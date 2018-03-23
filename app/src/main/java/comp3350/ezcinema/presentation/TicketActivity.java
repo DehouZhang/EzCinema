@@ -30,6 +30,7 @@ public class TicketActivity extends AppCompatActivity
         setContentView(R.layout.activity_ticket);
 
         initializeView();
+
     }
 
     private void initializeView()
