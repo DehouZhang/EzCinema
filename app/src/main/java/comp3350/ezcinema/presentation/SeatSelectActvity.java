@@ -33,7 +33,6 @@ public class SeatSelectActvity extends AppCompatActivity {
     //view
     GridView seatGridView;
     Button confrimButton;
-    Button clearButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +43,6 @@ public class SeatSelectActvity extends AppCompatActivity {
         initializeView();
         setUpGridView();
         confrimation();
-        clearSeats();
     }
 
     private void initializeData(){
@@ -65,7 +63,6 @@ public class SeatSelectActvity extends AppCompatActivity {
     private void initializeView(){
         seatGridView = (GridView)findViewById(R.id.seatGridView);
         confrimButton = (Button)findViewById(R.id.confrimButton);
-        clearButton = (Button)findViewById(R.id.clearButton);
 
     }
 
@@ -81,7 +78,8 @@ public class SeatSelectActvity extends AppCompatActivity {
                 if(count > 0) {
                     //update seat table in activity
                     seats[i / 5][i % 5] = 1;
-                    //store changed table for confirm
+
+                    //store temporary table for confirm to update database
                     rc = new int[2];
                     rc[0] = i/5;
                     rc[1] = i%5;
@@ -113,9 +111,7 @@ public class SeatSelectActvity extends AppCompatActivity {
                 col = temptable.get(index)[1];
                 updates.updateSeatStatus(mtPassed,showtime,row,col);
             }
-
             //pass data
-
             Intent intent = new Intent(SeatSelectActvity.this, CheckoutActivity.class);
             Bundle extras = new Bundle();
             extras.putSerializable("MovieNamePassed",mtPassed.getMovieName());
@@ -129,19 +125,6 @@ public class SeatSelectActvity extends AppCompatActivity {
         }else{
             Toast.makeText(this, "Please select "+count+" more Seat!", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    private void clearSeats(){
-        clearButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clear();
-            }
-        });
-    }
-
-    private void clear() {
-
     }
 
 }
