@@ -6,6 +6,7 @@ import java.util.List;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.objects.MT;
+import comp3350.ezcinema.objects.Ticket;
 
 public interface DataAccess
 {
@@ -20,4 +21,10 @@ public interface DataAccess
     ArrayList<String>getShowtimeList(Movie movie, Theater theater);
 
     String getTheaterAddress(String theaterName);
+
+    void insertTicket(String movieName, String theaterName, String showTime, String price);
+
+    String getTicketsSequential(ArrayList<Ticket> tickets);
+
+    void deleteTicket(String movieName, String theaterName, String showTime);
 }

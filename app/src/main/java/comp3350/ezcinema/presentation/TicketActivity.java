@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import comp3350.ezcinema.R;
+import comp3350.ezcinema.business.ManageTickets;
 import comp3350.ezcinema.objects.Movie;
 
 public class TicketActivity extends AppCompatActivity
@@ -29,17 +30,19 @@ public class TicketActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket);
 
-        initializeView();
-
-    }
-
-    private void initializeView()
-    {
         movieName = (String)getIntent().getSerializableExtra("MovieNamePassed");
         theaterName = (String)getIntent().getSerializableExtra("TheaterNamePassed");
         amount = (int)getIntent().getSerializableExtra("AmountPassed");
         showTimeSelected = (String)getIntent().getSerializableExtra("ShowTimePassed");
 
+        initializeView();
+
+        ManageTickets manager = new ManageTickets();
+        manager.createTicket(movieName, theaterName, showTimeSelected, String.valueOf(amount));
+    }
+
+    private void initializeView()
+    {
         textViewMovieTitle = (TextView)findViewById(R.id.textViewMovieTitle);
         textViewTheaterTitle = (TextView)findViewById(R.id.textViewTheaterTitle);
         textViewShowTime = (TextView)findViewById(R.id.textViewShowTime);

@@ -13,6 +13,7 @@ import java.util.List;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.objects.MT;
+import comp3350.ezcinema.objects.Ticket;
 
 public class DataAccessObject implements DataAccess
 {
@@ -191,15 +192,63 @@ public class DataAccessObject implements DataAccess
 
     public void insertTicket(String movieName, String theaterName, String showTime, String price)
     {
+        int result = 0;
+        Statement stmt;
         try
         {
-
+            stmt = c1.createStatement();
+            result = stmt.executeUpdate("INSERT INTO TICKETS VALUES ('"+movieName+"', '"+theaterName+"', '"+showTime+"', '"+price+"')");
+            if(result == 1)
+                c1.commit();
+            else
+                c1.rollback();
         }
         catch(Exception e)
         {
-
+            processSQLError(e);
         }
     }
+
+    public String getTicketsSequential(ArrayList<Ticket> tickets)
+    {
+        Statement stmt;
+        ResultSet results;
+        if(tickets != null)
+        {
+            try
+            {
+                stmt = c1.createStatement();
+                results = stmt.executeQuery("SELECT * from Tickets");
+            }
+            catch(Exception e)
+            {
+                processSQLError(e);
+            }
+            return "success";
+        }
+        else
+            return null;
+    }
+
+    public void deleteTicket(String movieName, String theaterName, String showTime)
+    {
+        int result = 0;
+        Statement stmt;
+
+        try{
+            stmt = c1.createStatement();
+            result = stmt.executeUpdate("DELETE FROM Tickets WHERE moviename = '"+movieName+"' AND theatername = '"+theaterName+"' AND showtime = '"+showTime+"'");
+            if(result == 1)
+                c1.commit();
+            else
+                c1.rollback();
+        }
+        catch(Exception e)
+        {
+            processSQLError(e);
+        }
+    }
+
 
     public String processSQLError(Exception e)
     {
