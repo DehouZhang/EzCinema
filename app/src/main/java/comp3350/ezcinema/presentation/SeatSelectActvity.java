@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import comp3350.ezcinema.R;
 import comp3350.ezcinema.business.getSeatsTable;
 import comp3350.ezcinema.business.UpdateSeat;
@@ -20,6 +22,9 @@ public class SeatSelectActvity extends AppCompatActivity {
     int[][] seats;
     int numTicket;
     int count;
+    int[] rc;
+    ArrayList<int[]> temptable;
+
     MT mtPassed;
     String showtime;
     getSeatsTable table;
@@ -28,6 +33,7 @@ public class SeatSelectActvity extends AppCompatActivity {
     //view
     GridView seatGridView;
     Button confrimButton;
+    Button clearButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +44,14 @@ public class SeatSelectActvity extends AppCompatActivity {
         initializeView();
         setUpGridView();
         confrimation();
+        clearSeats();
     }
 
     private void initializeData(){
         table = new getSeatsTable();
         updates = new UpdateSeat();
+
+        temptable = new ArrayList<>();
 
         mtPassed = (MT) getIntent().getExtras().getSerializable("MTPassed");
         showtime = (String) getIntent().getExtras().getSerializable("ShowTimePassed");
@@ -56,10 +65,12 @@ public class SeatSelectActvity extends AppCompatActivity {
     private void initializeView(){
         seatGridView = (GridView)findViewById(R.id.seatGridView);
         confrimButton = (Button)findViewById(R.id.confrimButton);
+        clearButton = (Button)findViewById(R.id.clearButton);
 
     }
 
     private void setUpGridView(){
+
         //setup adapter
         SeatAdapter seatAdapter = new SeatAdapter(getApplicationContext(),seats);
         seatGridView.setAdapter(seatAdapter);
@@ -70,8 +81,11 @@ public class SeatSelectActvity extends AppCompatActivity {
                 if(count > 0) {
                     //update seat table in activity
                     seats[i / 5][i % 5] = 1;
-                    //update seat table in databse
-                    updates.updateSeatStatus(mtPassed,showtime,i/5,i%5);
+                    //store changed table for confirm
+                    rc = new int[2];
+                    rc[0] = i/5;
+                    rc[1] = i%5;
+                    temptable.add(rc);
 
                     SeatAdapter newAdapter = new SeatAdapter(getApplicationContext(), seats);
                     seatGridView.setAdapter(newAdapter);
@@ -92,6 +106,14 @@ public class SeatSelectActvity extends AppCompatActivity {
 
     private void selection() {
         if(count == 0) {
+            //update database
+            int row,col,index;
+            for (index = 0; index <temptable.size();index++){
+                row = temptable.get(index)[0];
+                col = temptable.get(index)[1];
+                updates.updateSeatStatus(mtPassed,showtime,row,col);
+            }
+
             //pass data
 
             Intent intent = new Intent(SeatSelectActvity.this, CheckoutActivity.class);
@@ -107,6 +129,19 @@ public class SeatSelectActvity extends AppCompatActivity {
         }else{
             Toast.makeText(this, "Please select "+count+" more Seat!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void clearSeats(){
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clear();
+            }
+        });
+    }
+
+    private void clear() {
+
     }
 
 }
