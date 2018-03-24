@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -81,7 +82,18 @@ public class ConfirmationActivity extends AppCompatActivity
     {
         showtimeAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,android.R.id.text1, showtimes);
         spinnerShowTime.setAdapter(showtimeAdapter);
-        selectedShowTime = spinnerShowTime.getSelectedItem().toString();
+
+        spinnerShowTime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedShowTime = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                //do nothing, always have 1 item selected
+            }
+        });
     }
 
     private void confirmClicked()

@@ -28,7 +28,6 @@ public class SeatSelectActvity extends AppCompatActivity {
     MT mtPassed;
     String showtime;
     getSeatsTable table;
-    UpdateSeat updates;
 
     //view
     GridView seatGridView;
@@ -47,7 +46,6 @@ public class SeatSelectActvity extends AppCompatActivity {
 
     private void initializeData(){
         table = new getSeatsTable();
-        updates = new UpdateSeat();
 
         temptable = new ArrayList<>();
 
@@ -104,21 +102,14 @@ public class SeatSelectActvity extends AppCompatActivity {
 
     private void selection() {
         if(count == 0) {
-            //update database
-            int row,col,index;
-            for (index = 0; index <temptable.size();index++){
-                row = temptable.get(index)[0];
-                col = temptable.get(index)[1];
-                updates.updateSeatStatus(mtPassed,showtime,row,col);
-            }
+
             //pass data
             Intent intent = new Intent(SeatSelectActvity.this, CheckoutActivity.class);
             Bundle extras = new Bundle();
-            extras.putSerializable("MovieNamePassed",mtPassed.getMovieName());
-            extras.putSerializable("TheaterNamePassed",mtPassed.getTheaterName());
+            extras.putSerializable("MTPassed",mtPassed);
             extras.putSerializable("ShowTimePassed",showtime);
             extras.putSerializable("AmountPassed",numTicket);
-            extras.putSerializable("SeatsPassed",seats);
+            extras.putSerializable("TempTablePassed",temptable);
             intent.putExtras(extras);
             startActivity(intent);
 
@@ -126,5 +117,8 @@ public class SeatSelectActvity extends AppCompatActivity {
             Toast.makeText(this, "Please select "+count+" more Seat!", Toast.LENGTH_SHORT).show();
         }
     }
+
+
+
 
 }
