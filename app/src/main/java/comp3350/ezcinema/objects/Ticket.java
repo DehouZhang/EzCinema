@@ -35,6 +35,6 @@ public class Ticket
     }
     public String toString()
     {
-        return movieName + "\t" + showTime + "\n" + theaterName + "\nSeat:" + seatRow + ", " + seatCol;
+        return movieName + "\t" + showTime + "\n" + theaterName + "\nSeat:" + (seatRow + 1) + ", " + (seatCol + 1);
     }
 }

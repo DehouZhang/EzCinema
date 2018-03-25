@@ -259,15 +259,22 @@ public class DataAccessObject implements DataAccess
     public void insertTicket(String movieName, String theaterName, String showTime, int row, int col)
     {
         int result = 0;
-        Statement stmt;
+        Statement stmt1, stmt2;
         try
         {
-            stmt = c1.createStatement();
-            result = stmt.executeUpdate("INSERT INTO TICKETS VALUES ('"+movieName+"', '"+theaterName+"', '"+showTime+"', '"+row+"', '"+col+"')");
-            if(result == 1)
-                c1.commit();
-            else
-                c1.rollback();
+            stmt1 = c1.createStatement();
+            ResultSet test = stmt1.executeQuery("SELECT * FROM Tickets " +
+                    "WHERE moviename = '"+movieName+"' AND theatername = '"+theaterName+"' AND showtime = '"+showTime+"' AND row = '"+row+"' AND column = '"+col+"'");
+
+            if(!test.next())
+            {
+                stmt2 = c1.createStatement();
+                result = stmt2.executeUpdate("INSERT INTO TICKETS VALUES ('" + movieName + "', '" + theaterName + "', '" + showTime + "', '" + row + "', '" + col + "')");
+                if (result == 1)
+                    c1.commit();
+                else
+                    c1.rollback();
+            }
         }
         catch(Exception e)
         {
