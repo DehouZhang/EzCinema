@@ -22,8 +22,9 @@
         <activity android:name=".presentation.ConfirmationActivity" />
         <activity android:name=".presentation.TheaterSelectMovieActivity" />
         <activity android:name=".presentation.CheckoutActivity" />
-        <activity android:name=".presentation.TicketActivity"></activity>
-        <activity android:name=".presentation.SeatSelectActvity"></activity>
+        <activity android:name=".presentation.TicketActivity" />
+        <activity android:name=".presentation.SeatSelectActvity"/>
+        <activity android:name=".presentation.TicketsBoughtActivity"/>
     </application>
 
 </manifest>

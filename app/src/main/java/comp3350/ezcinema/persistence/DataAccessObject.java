@@ -12,6 +12,7 @@ import java.util.List;
 import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
+import comp3350.ezcinema.objects.Ticket;
 
 public class DataAccessObject implements DataAccess
 {
@@ -255,6 +256,77 @@ public class DataAccessObject implements DataAccess
         return result;
     }
 
+    public void insertTicket(String movieName, String theaterName, String showTime, int row, int col)
+    {
+        int result = 0;
+        Statement stmt;
+        try
+        {
+            stmt = c1.createStatement();
+            result = stmt.executeUpdate("INSERT INTO TICKETS VALUES ('"+movieName+"', '"+theaterName+"', '"+showTime+"', '"+row+"', '"+col+"')");
+            if(result == 1)
+                c1.commit();
+            else
+                c1.rollback();
+        }
+        catch(Exception e)
+        {
+            processSQLError(e);
+        }
+    }
+
+    public void getTicketsSequential(ArrayList<Ticket> tickets)
+    {
+        Ticket ticket;
+        String mName;
+        String tName;
+        String showTime;
+        int row;
+        int col;
+        Statement stmt;
+        ResultSet results;
+
+            try
+            {
+                stmt = c1.createStatement();
+                results = stmt.executeQuery("SELECT * from Tickets");
+
+                while(results.next())
+                {
+                    mName = results.getString("Moviename");
+                    tName = results.getString("Theatername");
+                    showTime = results.getString("Showtime");
+                    row = results.getInt("Row");
+                    col = results.getInt("Column");
+                    ticket  = new Ticket(mName, tName, showTime, row, col);
+                    tickets.add(ticket);
+                }
+            }
+            catch(Exception e)
+            {
+                processSQLError(e);
+            }
+    }
+
+    public void deleteTicket(String movieName, String theaterName, String showTime)
+    {
+        int result = 0;
+        Statement stmt;
+
+        try{
+            stmt = c1.createStatement();
+            result = stmt.executeUpdate("DELETE FROM Tickets WHERE moviename = '"+movieName+"' AND theatername = '"+theaterName+"' AND showtime = '"+showTime+"'");
+            if(result == 1)
+                c1.commit();
+            else
+                c1.rollback();
+        }
+        catch(Exception e)
+        {
+            processSQLError(e);
+        }
+    }
+
     public String processSQLError(Exception e)
     {
         String result = "*** SQL Error: " + e.getMessage();
@@ -288,4 +360,6 @@ public class DataAccessObject implements DataAccess
         }
         return result;
     }
+
+
 }

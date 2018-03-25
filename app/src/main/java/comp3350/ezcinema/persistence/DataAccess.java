@@ -6,6 +6,7 @@ import java.util.List;
 import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
+import comp3350.ezcinema.objects.Ticket;
 
 public interface DataAccess
 {
@@ -26,4 +27,10 @@ public interface DataAccess
     int countRemain(MT seat,String time);
 
     int checkStatus(MT seat,String time,int row,int col);
+
+    void insertTicket(String movieName, String theaterName, String showTime, int row, int col);
+
+    void getTicketsSequential(ArrayList<Ticket> tickets);
+
+    void deleteTicket(String movieName, String theaterName, String showTime);
 }
