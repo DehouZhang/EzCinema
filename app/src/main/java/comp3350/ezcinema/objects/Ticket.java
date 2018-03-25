@@ -33,4 +33,8 @@ public class Ticket
         int[] seatLocation = {seatRow, seatCol};
         return seatLocation;
     }
+    public String toString()
+    {
+        return movieName + "\t" + showTime + "\n" + theaterName + "\nSeat:" + seatRow + ", " + seatCol;
+    }
 }
