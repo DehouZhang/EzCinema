@@ -1,8 +1,10 @@
 package comp3350.ezcinema.presentation;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -19,6 +21,8 @@ public class TicketsBoughtActivity extends AppCompatActivity {
 
     private ManageTickets ticketManager;
     ArrayList<Ticket> tickets;
+    ListView ticketList;
+    TextView noTickets;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +30,19 @@ public class TicketsBoughtActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tickets_bought);
 
         ticketManager = new ManageTickets();
+        ticketList = (ListView)findViewById(R.id.ticketList);
+        noTickets = (TextView)findViewById(R.id.noTicketsTag);
+        tickets = new ArrayList<>();
+
         initializeView();
+        ticketListClicked();
     }
 
     private void initializeView()
     {
         ArrayAdapter<Ticket> ticketArrayAdapter;
-        ListView ticketList = (ListView)findViewById(R.id.ticketList);
-        TextView noTickets = (TextView)findViewById(R.id.noTicketsTag);
-        tickets = new ArrayList<>();
+
+
 
         ticketManager.getTicketsSequential(tickets);
 
@@ -50,5 +58,31 @@ public class TicketsBoughtActivity extends AppCompatActivity {
             ticketList.setVisibility(View.INVISIBLE);
             noTickets.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void ticketListClicked()
+    {
+        ticketList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                int amountOfTickets = 1;
+                Ticket clickedTicket = tickets.get(i);
+                ArrayList<int[]> seatLocn = new ArrayList<int[]>();
+                seatLocn.add(clickedTicket.getSeatLocation());
+
+                Intent intent = new Intent(TicketsBoughtActivity.this, TicketActivity.class);
+                Bundle extras = new Bundle();
+
+
+                extras.putSerializable("MovieNamePassed",clickedTicket.getMovieName());
+                extras.putSerializable("TheaterNamePassed", clickedTicket.getTheaterName());
+                extras.putSerializable("ShowTimePassed", clickedTicket.getShowTime());
+                extras.putSerializable("AmountPassed", amountOfTickets);
+                extras.putSerializable("TempTablePassed", seatLocn);
+                intent.putExtras(extras);
+                startActivity(intent);
+            }
+        });
     }
 }
