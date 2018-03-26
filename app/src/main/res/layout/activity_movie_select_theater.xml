@@ -4,29 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:background="@drawable/background"
     tools:context="comp3350.ezcinema.presentation.MovieSelectTheaterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:background="@color/whiteTransparent">
+
+        <TextView
+            android:id="@+id/textViewMovieTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@android:color/black"
+            android:textSize="40sp"
+            android:typeface="normal" />
 
         <TextView
             android:id="@+id/textViewMovieInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:textColor="@android:color/black"
-            android:textSize="30sp"
-            android:typeface="normal" />
+            android:textSize="25sp"
+            android:text="TextView" />
 
         <View
             android:id="@+id/seperator"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
+            android:background="@android:color/black"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"/>
 

@@ -3,35 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:focusable="false"
-    android:focusableInTouchMode="true"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    android:background="@drawable/background"
-    tools:context="comp3350.ezcinema.presentation.CheckoutActivity">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/whiteTransparent">
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        tools:context="comp3350.ezcinema.presentation.MovieActivity">
+
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView16"
             android:layout_width="match_parent"
-            android:layout_height="45sp"
+            android:layout_height="32dp"
             android:text="Checkout"
             android:textColor="@android:color/black"
-            android:textSize="40sp"
+            android:textSize="22sp"
             android:typeface="normal"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="8dp" />
 
         <View
-            android:id="@+id/separator4"
+            android:id="@+id/separator10"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
@@ -40,34 +37,34 @@
             tools:layout_editor_absoluteX="0dp" />
 
         <TextView
-            android:id="@+id/textViewTitle"
+            android:id="@+id/textViewTitle2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
+            android:textSize="22sp"
             android:typeface="normal" />
 
         <TextView
-            android:id="@+id/textViewSubtotal"
+            android:id="@+id/textViewSubtotal2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Subtotal:"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
+            android:textSize="22sp"
             android:typeface="normal" />
 
         <TextView
-            android:id="@+id/textViewTotal"
+            android:id="@+id/textViewTotal2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Total:"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
+            android:textSize="22sp"
             android:typeface="normal" />
 
         <View
-            android:id="@+id/separator3"
+            android:id="@+id/separator11"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="10dp"
@@ -75,17 +72,17 @@
             android:background="#000000" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Payment Method:"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
+            android:textSize="22sp"
             android:typeface="normal" />
 
         <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="109dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <RadioButton
                 android:id="@+id/radio_credit"
@@ -125,24 +122,37 @@
         <RelativeLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="250sp"
+            android:layout_height="match_parent"
             android:layout_marginBottom="8dp"
             android:layout_weight="1"
+            app:layout_constraintBottom_toTopOf="@+id/separator7"
             tools:layout_editor_absoluteX="0dp">
 
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/buttonPurchase"
+        <View
+            android:id="@+id/separator"
             android:layout_width="match_parent"
-            android:layout_height="225sp"
-            android:layout_weight="1"
-            android:background="@color/whiteTransparent"
-            android:text="Purchase"
-            android:textAlignment="center"
-            android:textSize="40sp"
-            tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="632dp" />
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#000000" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/sortRatingBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:enabled="true"
+                android:text="Purchase" />
+        </RelativeLayout>
 
     </LinearLayout>
 

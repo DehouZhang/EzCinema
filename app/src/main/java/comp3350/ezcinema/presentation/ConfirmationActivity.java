@@ -71,7 +71,7 @@ public class ConfirmationActivity extends AppCompatActivity
 
     private void setTextInfo()
     {
-        textViewInfo.setText("\n\n"+passedMT.getMovieName()+"\n\nAt: \n"+passedMT.getTheaterName()+"\n"+accessTheater.getTheaterAddr(passedMT.getTheaterName()));
+        textViewInfo.setText(passedMT.getMovieName()+"\n\nLocation: \n"+passedMT.getTheaterName()+"\n"+accessTheater.getTheaterAddr(passedMT.getTheaterName()));
     }
 
     private void setSpinner()
@@ -108,7 +108,7 @@ public class ConfirmationActivity extends AppCompatActivity
             startActivity(intent);
         }
         else {
-            Toast.makeText(this, "Please Enter the amount of ticket you want to order.(1 to 150)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Enter the number of ticket you want to purchase.(1 to 150)", Toast.LENGTH_SHORT).show();
         }
     }
 

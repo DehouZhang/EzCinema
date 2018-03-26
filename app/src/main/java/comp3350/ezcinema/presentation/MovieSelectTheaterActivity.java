@@ -29,6 +29,7 @@ public class MovieSelectTheaterActivity extends AppCompatActivity
     private ArrayAdapter<MT> MTListArrayAdapter;
 
     //Views
+    TextView textViewMovieTitle;
     TextView textViewMovieInfo;
     ListView listViewTheaterList;
 
@@ -79,6 +80,7 @@ public class MovieSelectTheaterActivity extends AppCompatActivity
 
     private void initializeViews()
     {
+        textViewMovieTitle = (TextView)findViewById(R.id.textViewMovieTitle);
         textViewMovieInfo = (TextView)findViewById(R.id.textViewMovieInfo);
         listViewTheaterList = (ListView)findViewById(R.id.listViewTheaterList);
     }
@@ -91,7 +93,8 @@ public class MovieSelectTheaterActivity extends AppCompatActivity
 
     private void setTextView()
     {
-        textViewMovieInfo.setText(movie.getMovieName()+ "\nGenere: "+movie.getGenre()+"\nDescription:  "+movie.getMovieDescription()+"\nRating: "+movie.getMovieRating());
+        textViewMovieTitle.setText(movie.getMovieName());
+        textViewMovieInfo.setText("Genre: "+movie.getGenre()+"\nDescription:  "+movie.getMovieDescription()+"\nRating: "+movie.getMovieRating());
     }
 
     private void showTheaterOptions()

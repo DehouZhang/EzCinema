@@ -2,24 +2,29 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="comp3350.ezcinema.presentation.ConfirmationActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        >
 
         <TextView
             android:id="@+id/textViewInfo"
             android:layout_width="match_parent"
             android:layout_height="395dp"
+            android:background="@color/whiteTransparent"
             android:text="TextView"
             android:textColor="@android:color/black"
-            android:textSize="22sp"
+            android:textSize="40sp"
             android:typeface="normal"
             />
 
@@ -34,7 +39,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="125dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@color/whiteTransparent">
 
             <TextView
                 android:id="@+id/textViewShowTime"
@@ -43,13 +49,14 @@
                 android:layout_weight="1"
                 android:text="ShowTime: "
                 android:textColor="@android:color/black"
-                android:textSize="18sp"
+                android:textSize="25sp"
                 android:typeface="normal" />
 
             <Spinner
                 android:id="@+id/spinnerShowTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="25sp"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -58,14 +65,14 @@
             android:id="@+id/seperator2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="125dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@color/whiteTransparent">
 
             <TextView
                 android:id="@+id/textViewAmount"
@@ -73,13 +80,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Amount of Tickets: "
+                android:textSize="25sp"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"
                 android:typeface="normal" />
 
             <EditText
                 android:id="@+id/editTextAmount"
-                android:layout_width="match_parent"
+                android:layout_width="467dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -99,10 +106,12 @@
         <Button
             android:id="@+id/buttonConfirm"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="225sp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
+            android:textSize="40sp"
+            android:background="@color/whiteTransparent"
             android:text="Confirm"
             android:textAlignment="center" />
 

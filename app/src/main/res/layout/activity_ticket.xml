@@ -6,88 +6,99 @@
     android:layout_height="match_parent"
     android:focusable="false"
     android:focusableInTouchMode="true"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:background="@drawable/background"
     tools:context="comp3350.ezcinema.presentation.TicketActivity">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:background="@color/whiteTransparent">
 
-        <TextView
-            android:id="@+id/textViewTicketQty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textViewShowTime"
-            android:text="Type of Ticket and Quantity"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="35dp"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:typeface="normal"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textViewShowTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textViewMovieTitle"
-            android:text="Day and ShowTime"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="16dp"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:typeface="normal"/>
+            <TextView
+                android:id="@+id/textViewTheaterTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Theater Name"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:typeface="normal" />
 
-        <TextView
-            android:id="@+id/textViewMovieTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textViewTheaterTitle"
-            android:text="Movie Name"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:typeface="normal"/>
+            <TextView
+                android:id="@+id/textViewMovieTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textViewTheaterTitle"
+                android:text="Movie Name"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:typeface="normal" />
 
-        <TextView
-            android:id="@+id/textViewTheaterTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Theater Name"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:typeface="normal"/>
+            <TextView
+                android:id="@+id/textViewTicketQty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textViewShowTime"
+                android:text="Type of Ticket and Quantity"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:typeface="normal"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="35dp" />
 
-        <ImageView
-            android:id="@+id/qr"
-            android:layout_width="365dp"
-            android:layout_height="380dp"
-            android:layout_below="@+id/textViewTicketQty"
-            android:layout_centerHorizontal="true"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="12dp"
-            android:src="@drawable/qr2"
-            tools:layout_editor_absoluteX="10dp"
-            tools:layout_editor_absoluteY="77dp" />
+            <TextView
+                android:id="@+id/textViewShowTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textViewMovieTitle"
+                android:text="Day and ShowTime"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:typeface="normal"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <ImageView
+                android:id="@+id/qr"
+                android:layout_width="match_parent"
+                android:layout_height="380dp"
+                android:layout_below="@+id/textViewTicketQty"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/qr2"
+                tools:layout_editor_absoluteX="10dp"
+                tools:layout_editor_absoluteY="77dp" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/buttonHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/qr"
+            android:layout_width="match_parent"
+            android:layout_height="225sp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="17dp"
+            android:layout_alignParentEnd="true"
             android:onClick="buttonHomeOnClick"
             android:text="Home"
-            tools:layout_editor_absoluteX="296dp"
-            tools:layout_editor_absoluteY="447dp"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:typeface="normal"/>
+            android:background="@color/whiteTransparent"
+            android:textSize="40sp"
+            android:typeface="normal"
+            tools:layout_editor_absoluteX="296dp"
+            tools:layout_editor_absoluteY="447dp" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
