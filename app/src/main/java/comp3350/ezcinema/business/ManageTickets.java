@@ -24,11 +24,4 @@ public class ManageTickets
     {
         dataAccess.getTicketsSequential(tickets);
     }
-
-    public void deleteTicket(String movieName, String theaterName, String showTime)
-    {
-        dataAccess.deleteTicket(movieName, theaterName, showTime);
-    }
-
-
 }

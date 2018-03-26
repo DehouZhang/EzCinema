@@ -315,25 +315,6 @@ public class DataAccessObject implements DataAccess
             }
     }
 
-    public void deleteTicket(String movieName, String theaterName, String showTime)
-    {
-        int result = 0;
-        Statement stmt;
-
-        try{
-            stmt = c1.createStatement();
-            result = stmt.executeUpdate("DELETE FROM Tickets WHERE moviename = '"+movieName+"' AND theatername = '"+theaterName+"' AND showtime = '"+showTime+"'");
-            if(result == 1)
-                c1.commit();
-            else
-                c1.rollback();
-        }
-        catch(Exception e)
-        {
-            processSQLError(e);
-        }
-    }
-
     public String processSQLError(Exception e)
     {
         String result = "*** SQL Error: " + e.getMessage();

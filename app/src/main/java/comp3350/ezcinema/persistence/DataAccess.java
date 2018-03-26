@@ -31,6 +31,4 @@ public interface DataAccess
     void insertTicket(String movieName, String theaterName, String showTime, int row, int col);
 
     void getTicketsSequential(ArrayList<Ticket> tickets);
-
-    void deleteTicket(String movieName, String theaterName, String showTime);
 }
