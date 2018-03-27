@@ -7,6 +7,7 @@ import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.objects.MT;
+import comp3350.ezcinema.objects.Ticket;
 import comp3350.ezcinema.persistence.DataAccess;
 
 public class DataAccessStub implements DataAccess
@@ -417,4 +418,20 @@ public class DataAccessStub implements DataAccess
         }
         return null; //if cannot find the theater
     }
+
+    @Override
+    public void getTicketsSequential(ArrayList<Ticket> tickets){}
+
+
+    @Override
+    public int insertTicket(String movieName, String theaterName, String showTime, int row, int col){ return 0;}
+
+
+
+
+
+
+
+
+
 }

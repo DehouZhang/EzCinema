@@ -28,7 +28,7 @@ public interface DataAccess
 
     int checkStatus(MT seat,String time,int row,int col);
 
-    void insertTicket(String movieName, String theaterName, String showTime, int row, int col);
+    int insertTicket(String movieName, String theaterName, String showTime, int row, int col);
 
     void getTicketsSequential(ArrayList<Ticket> tickets);
 }

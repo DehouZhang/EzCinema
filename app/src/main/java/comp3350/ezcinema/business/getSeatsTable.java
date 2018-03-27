@@ -17,14 +17,26 @@ public class getSeatsTable
 
     public int[][] getSeatTable(MT seat, String showtime)
     {
-        int [][] table = new int [5][5];
-        for(int row=0;row<5;row++)
-        {
-            for(int col=0;col<5;col++)
-            {
-                table[row][col]=dataAccess.checkStatus(seat,showtime,row,col);
+
+        if(seat != null && showtime != null) {
+
+            int[][] table = new int[5][5];
+            for (int row = 0; row < 5; row++) {
+                for (int col = 0; col < 5; col++) {
+
+                    if(dataAccess.checkStatus(seat, showtime, row, col) != -1) {
+                        table[row][col] = dataAccess.checkStatus(seat, showtime, row, col);
+                    }
+                    else
+                        return null;
+
+                }
             }
+            return table;
+
         }
-        return table;
-    }
+        else
+            return null;
+
+        }
 }

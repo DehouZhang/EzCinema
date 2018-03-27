@@ -16,9 +16,9 @@ public class ManageTickets
         dataAccess = Services.getDataAccess(Main.dbName);
     }
 
-    public void createTicket(String movieName, String theaterName, String showTime, int row, int col)
+    public int createTicket(String movieName, String theaterName, String showTime, int row, int col)
     {
-        dataAccess.insertTicket(movieName, theaterName, showTime, row, col);
+        return dataAccess.insertTicket(movieName, theaterName, showTime, row, col);
     }
     public void getTicketsSequential(ArrayList<Ticket> tickets)
     {

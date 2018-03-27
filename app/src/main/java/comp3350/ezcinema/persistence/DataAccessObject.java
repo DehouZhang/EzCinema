@@ -197,18 +197,27 @@ public class DataAccessObject implements DataAccess
         String where;
 
         result=null;
-        try
-        {
-            values="Status="+1;
-            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Row="+row+" and Col="+col;
-            cmdString= "Update MovieTheaters "+" Set "+values+" "+where;
-            updateCount = st5.executeUpdate(cmdString);
-            result = checkWarning(st5, updateCount);
+
+        if(checkStatus( seat, time, row, col) == 0) {
+            try {
+                values = "Status=" + 1;
+                where = "where MovieName='" + seat.getMovieName() + "' and TheaterName='" + seat.getTheaterName() + "' and Showtime='" + time + "' and Row=" + row + " and Col=" + col;
+                cmdString = "Update MovieTheaters " + " Set " + values + " " + where;
+                updateCount = st5.executeUpdate(cmdString);
+                result = checkWarning(st5, updateCount);
+            } catch (Exception e) {
+                result = processSQLError(e);
+            }
         }
-        catch (Exception e)
-        {
-            result=processSQLError(e);
+        else{
+            if(checkStatus( seat, time, row, col) == 1)
+                result = "Seat already claimed";
+            else {
+                result = "Error: Doesn't exist";
+            }
         }
+
+
         return result;
     }
 
@@ -217,23 +226,24 @@ public class DataAccessObject implements DataAccess
         int result=0;
         String where;
 
-        try
-        {
-            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Status=0";
-            cmdString="Select Row from MovieTheaters "+where;
-            rs6=st5.executeQuery(cmdString);
+        if(seat != null && time != null ) {
+            try {
+                where = "where MovieName='" + seat.getMovieName() + "' and TheaterName='" + seat.getTheaterName() + "' and Showtime='" + time + "' and Status=0";
+                cmdString = "Select Row from MovieTheaters " + where;
+                rs6 = st5.executeQuery(cmdString);
 
-            while(rs6.next())
-            {
-                result++;
+                while (rs6.next()) {
+                    result++;
+                }
+
+            } catch (Exception e) {
+                processSQLError(e);
             }
-
         }
-        catch (Exception e)
+        else
         {
-            processSQLError(e);
+            result = -1;
         }
-
         return result;
     }
 
@@ -256,31 +266,37 @@ public class DataAccessObject implements DataAccess
         return result;
     }
 
-    public void insertTicket(String movieName, String theaterName, String showTime, int row, int col)
+    public int insertTicket(String movieName, String theaterName, String showTime, int row, int col)
     {
         int result = 0;
         Statement stmt1, stmt2;
-        try
-        {
-            stmt1 = c1.createStatement();
-            ResultSet test = stmt1.executeQuery("SELECT * FROM Tickets " +
-                    "WHERE moviename = '"+movieName+"' AND theatername = '"+theaterName+"' AND showtime = '"+showTime+"' AND row = '"+row+"' AND column = '"+col+"'");
 
-            if(!test.next())
-            {
-                stmt2 = c1.createStatement();
-                result = stmt2.executeUpdate("INSERT INTO TICKETS VALUES ('" + movieName + "', '" + theaterName + "', '" + showTime + "', '" + row + "', '" + col + "')");
-                if (result == 1)
-                    c1.commit();
-                else
-                    c1.rollback();
+        if(movieName != null && theaterName != null && showTime != null && row > -1 && row < 5 &&
+                col > -1 && col < 5) {
+            try {
+                stmt1 = c1.createStatement();
+                ResultSet test = stmt1.executeQuery("SELECT * FROM Tickets " +
+                        "WHERE moviename = '" + movieName + "' AND theatername = '" + theaterName + "' AND showtime = '" + showTime + "' AND row = '" + row + "' AND column = '" + col + "'");
+
+                ResultSet test2 = stmt1.executeQuery("SELECT * FROM MOVIETHEATERS " +
+                        "WHERE moviename = '" + movieName + "' AND theatername = '" + theaterName + "' AND showtime = '"+ showTime + "'");
+
+
+                if (!test.next() && test2.next()) {
+                    stmt2 = c1.createStatement();
+                    result = stmt2.executeUpdate("INSERT INTO TICKETS VALUES ('" + movieName + "', '" + theaterName + "', '" + showTime + "', '" + row + "', '" + col + "')");
+                    if (result == 1)
+                        c1.commit();
+                    else
+                        c1.rollback();
+                }
+            } catch (Exception e) {
+                processSQLError(e);
             }
         }
-        catch(Exception e)
-        {
-            processSQLError(e);
+
+        return result;
         }
-    }
 
     public void getTicketsSequential(ArrayList<Ticket> tickets)
     {
