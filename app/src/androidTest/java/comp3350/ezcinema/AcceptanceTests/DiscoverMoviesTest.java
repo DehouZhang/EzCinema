@@ -2,12 +2,10 @@ package comp3350.ezcinema.AcceptanceTests;
 
 import com.robotium.solo.Solo;
 import junit.framework.Assert;
-
-import comp3350.ezcinema.presentation.HomeActivity;
-import comp3350.ezcinema.presentation.MovieActivity;
-
 import android.test.ActivityInstrumentationTestCase2;
-import android.widget.TextView;
+import comp3350.ezcinema.presentation.HomeActivity;
+
+
 
 
 public class DiscoverMoviesTest extends ActivityInstrumentationTestCase2<HomeActivity>
@@ -18,6 +16,7 @@ public class DiscoverMoviesTest extends ActivityInstrumentationTestCase2<HomeAct
 
     public void setUp() throws Exception
     {
+        super.setUp();
         solo = new Solo(getInstrumentation(), getActivity());
     }
 
@@ -25,32 +24,21 @@ public class DiscoverMoviesTest extends ActivityInstrumentationTestCase2<HomeAct
     public void tearDown() throws Exception
     {
         solo.finishOpenedActivities();
+        super.tearDown();
     }
 
-    public void testSelectMovies
-    {
-        TextView onScreenText;
-        String testString;
 
+    public void testUsingMoviesPage()
+    {
         solo.waitForActivity("HomeActivity");
+
         solo.clickOnButton("Movie");
         solo.assertCurrentActivity("Expected activity: MovieActivity", "MovieActivity");
 
-        solo.clickOnText("Jumanji");
+        solo.clickInList(1);
         solo.assertCurrentActivity("Expected activity: MovieSelectTheaterActivity", "MovieSelectTheaterActivity");
 
-        assertTrue(solo.searchText("Jumanji"));
-        assertTrue(solo.searchText("Description: Four teenagers"));
-        assertTrue(solo.searchText("Genre: Thriller"));
-        assertTrue(solo.searchText("Rating: 5.8"));
-
-        solo.goBack();
-
-        solo.waitForActivity("MovieActivity");
-        solo.assertCurrentActivity("Expected activity: MovieActivity", "MovieActivity");
-
-        solo.clickOnText("Ferdinand");
-        solo.assertCurrentActivity("Expected activity: MovieSelectTheaterActivity", "MovieSelectTheaterActivity");
+        solo.waitForActivity("MovieSelectTheaterActivity");
 
         assertTrue(solo.searchText("Ferdinand"));
         assertTrue(solo.searchText("Description: After Ferdinand"));
@@ -58,10 +46,28 @@ public class DiscoverMoviesTest extends ActivityInstrumentationTestCase2<HomeAct
         assertTrue(solo.searchText("Rating: 6.7"));
 
         solo.goBack();
+
+        solo.waitForActivity("MovieActivity");
+        solo.assertCurrentActivity("Expected activity: MovieActivity", "MovieActivity");
+
+        solo.clickInList(3);
+        solo.assertCurrentActivity("Expected activity: MovieSelectTheaterActivity", "MovieSelectTheaterActivity");
+        solo.waitForActivity("MovieSelectTheaterActivity");
+
+        assertTrue(solo.searchText("Jumangi: Welcome to the Jungle"));
+        assertTrue(solo.searchText("Description: Four teenagers"));
+        assertTrue(solo.searchText("Genre: Thriller"));
+        assertTrue(solo.searchText("Rating: 5.8"));
+
         solo.goBack();
+        solo.goBack();
+    }
+
+    public void testUsingTheaterPage()
+    {
         solo.waitForActivity("HomeActivity");
 
-        solo.clickOnButton("Theaters");
+        solo.clickOnButton("Theater");
         solo.waitForActivity("TheaterActivity");
 
         solo.clickOnText("Cinema City Northgate");

@@ -13,10 +13,9 @@ import java.util.ArrayList;
 
 import comp3350.ezcinema.R;
 import comp3350.ezcinema.business.getSeatsTable;
-import comp3350.ezcinema.business.UpdateSeat;
 import comp3350.ezcinema.objects.MT;
 
-public class SeatSelectActvity extends AppCompatActivity {
+public class SeatSelectActivity extends AppCompatActivity {
 
     //data
     int[][] seats;
@@ -104,7 +103,7 @@ public class SeatSelectActvity extends AppCompatActivity {
         if(count == 0) {
 
             //pass data
-            Intent intent = new Intent(SeatSelectActvity.this, CheckoutActivity.class);
+            Intent intent = new Intent(SeatSelectActivity.this, CheckoutActivity.class);
             Bundle extras = new Bundle();
             extras.putSerializable("MTPassed",mtPassed);
             extras.putSerializable("ShowTimePassed",showtime);
