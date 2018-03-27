@@ -46,6 +46,13 @@ public class HomeActivity extends AppCompatActivity
         Intent theaterIntent = new Intent(HomeActivity.this, TheaterActivity.class);
         HomeActivity.this.startActivity(theaterIntent);
     }
+
+    public void buttonTicketsOnClick(View v)
+    {
+        Intent ticketIntent = new Intent(HomeActivity.this, TicketsBoughtActivity.class);
+        HomeActivity.this.startActivity(ticketIntent);
+    }
+
     private void copyDatabaseToDevice()
     {
         final String DB_PATH = "db";

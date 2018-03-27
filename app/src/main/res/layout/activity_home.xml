@@ -68,7 +68,7 @@
                 />
 
             <Button
-                android:id="@+id/buttonMyTickets"
+                android:id="@+id/ticketButton"
                 android:layout_width="match_parent"
                 android:layout_height="225sp"
                 android:text="My Tickets"
@@ -77,6 +77,7 @@
                 android:background="@color/whiteTransparent"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
+                android:onClick="buttonTicketsOnClick"
                 android:drawableLeft="@drawable/ticket"
                 android:drawablePadding="5dp"
                 android:paddingStart="10dp"

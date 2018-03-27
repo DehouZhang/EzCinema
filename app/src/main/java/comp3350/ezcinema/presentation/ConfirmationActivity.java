@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 
 import comp3350.ezcinema.R;
 import comp3350.ezcinema.business.AccessTheater;
+import comp3350.ezcinema.business.CountSeat;
 import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
@@ -29,6 +31,7 @@ public class ConfirmationActivity extends AppCompatActivity
     private ArrayList<String> showtimes;
     private ArrayAdapter<String> showtimeAdapter;
     private AccessTheater accessTheater;
+    private CountSeat countSeat;
     private int amount;
     private  String selectedShowTime;
 
@@ -56,6 +59,7 @@ public class ConfirmationActivity extends AppCompatActivity
         showtimes = passedMT.getShowtime();
 
         accessTheater = new AccessTheater();
+        countSeat = new CountSeat();
     }
 
     private void initializeViews()
@@ -78,7 +82,18 @@ public class ConfirmationActivity extends AppCompatActivity
     {
         showtimeAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,android.R.id.text1, showtimes);
         spinnerShowTime.setAdapter(showtimeAdapter);
-        selectedShowTime = spinnerShowTime.getSelectedItem().toString();
+
+        spinnerShowTime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedShowTime = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                //do nothing, always have 1 item selected
+            }
+        });
     }
 
     private void confirmClicked()
@@ -94,29 +109,36 @@ public class ConfirmationActivity extends AppCompatActivity
 
     private void passAmount()
     {
-        if(!isValid(editTextAmount))
+        if(!isNotValid(editTextAmount))
         {
+            int remains = countSeat.countRemainingSeats(passedMT,selectedShowTime);
             amount = Integer.parseInt(editTextAmount.getText().toString());
 
-            Intent intent = new Intent(ConfirmationActivity.this, CheckoutActivity.class);
-            Bundle extras = new Bundle();
-            extras.putSerializable("MovieNamePassed",passedMT.getMovieName());
-            extras.putSerializable("TheaterNamePassed",passedMT.getTheaterName());
-            extras.putSerializable("ShowTimePassed",selectedShowTime);
-            extras.putSerializable("AmountPassed",amount);
-            intent.putExtras(extras);
-            startActivity(intent);
-        }
-        else {
-            Toast.makeText(this, "Enter the number of ticket you want to purchase.(1 to 150)", Toast.LENGTH_SHORT).show();
+            if(remains - amount >= 0)
+            {
+                Intent intent = new Intent(ConfirmationActivity.this, SeatSelectActvity.class);
+                Bundle extras = new Bundle();
+                extras.putSerializable("MTPassed", passedMT);
+                extras.putSerializable("ShowTimePassed", selectedShowTime);
+                extras.putSerializable("AmountPassed", amount);
+                intent.putExtras(extras);
+                startActivity(intent);
+            }
+            else
+            {
+                //todo logic may be wrong
+                Toast.makeText(this, "Seats for this movie are all reserved, please select another show time for this movie!", Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(this, "Please Enter the amount of ticket you want to order.(1 to 25)", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private boolean isValid(EditText editText)
+    private boolean isNotValid(EditText editText)
     {
         boolean result = true;
         String text = editText.getText().toString().trim();
-        if (text.length() >0 && Integer.parseInt(text) <= 150)
+        if (text.length() >0 && Integer.parseInt(text) <= 25)
             result = false;
         return result;
     }

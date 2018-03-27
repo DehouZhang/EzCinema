@@ -10,23 +10,31 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.RadioButton;
+
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import comp3350.ezcinema.R;
 import comp3350.ezcinema.business.CalculateTax;
+import comp3350.ezcinema.business.UpdateSeat;
+import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
 
 public class CheckoutActivity extends AppCompatActivity
 {
     //Data
-    private String movieName = "test";
+    private String movieName;
     private int amount;
     private String theaterName;
-    private String selectedShowTime;
+    private String showtime;
+    private ArrayList<int[]>  temptable;
     private double price = 10.00;
     DecimalFormat money = new DecimalFormat("$0.00");
     private CalculateTax tax;
     private double afterTax;
+
+    private MT mtPassed;
+    UpdateSeat updates;
 
     //views
     TextView textViewTitle;
@@ -47,11 +55,14 @@ public class CheckoutActivity extends AppCompatActivity
 
     private void initializeView()
     {
-        movieName = (String)getIntent().getSerializableExtra("MovieNamePassed");
-        theaterName = (String)getIntent().getSerializableExtra("TheaterNamePassed");
+        mtPassed = (MT)getIntent().getSerializableExtra("MTPassed");
         amount = (int)getIntent().getSerializableExtra("AmountPassed");
-        selectedShowTime = (String)getIntent().getSerializableExtra("ShowTimePassed");
+        showtime = (String)getIntent().getSerializableExtra("ShowTimePassed");
+        temptable = (ArrayList<int[]>)getIntent().getSerializableExtra("TempTablePassed");
 
+        movieName = mtPassed.getMovieName();
+        theaterName = mtPassed.getTheaterName();
+        updates = new UpdateSeat();
         tax = new CalculateTax();
         price = amount*price;
         afterTax = tax.calcTax((price));
@@ -123,16 +134,27 @@ public class CheckoutActivity extends AppCompatActivity
 
     private void passAmount()
     {
-
+            updateDB(temptable,updates);
             Intent intent = new Intent(CheckoutActivity.this, TicketActivity.class);
             Bundle extras = new Bundle();
             extras.putSerializable("MovieNamePassed", movieName);
             extras.putSerializable("TheaterNamePassed", theaterName);
-            extras.putSerializable("ShowTimePassed", selectedShowTime);
+            extras.putSerializable("ShowTimePassed", showtime);
             extras.putSerializable("AmountPassed",amount);
+            extras.putSerializable("TempTablePassed",temptable);
             intent.putExtras(extras);
             startActivity(intent);
 
+    }
+
+    private void updateDB(ArrayList<int[]> list, UpdateSeat update){
+        //update database
+        int row,col,index;
+        for (index = 0; index <list.size();index++){
+            row = list.get(index)[0];
+            col = list.get(index)[1];
+            update.updateSeatStatus(mtPassed,showtime,row,col);
+        }
     }
 
 }

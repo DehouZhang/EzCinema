@@ -33,13 +33,6 @@ public class SortMovieTest extends TestCase
         genres = new String[]{"Family","Thriller", "Horror"};
     }
 
-
-
-
-
-
-
-
     public void testSortByName() throws Exception {
 
 
@@ -58,13 +51,10 @@ public class SortMovieTest extends TestCase
             assertEquals(nameOrder[n], movie.getMovieName());
         }
 
-
-
     }
 
 
     public void testSortByRating() throws Exception {
-
 
         sorted = (ArrayList<Movie>) SortMovie.sortByRating(null);
 

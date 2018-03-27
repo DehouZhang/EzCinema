@@ -14,8 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textViewInfo"
@@ -65,6 +64,7 @@
             android:id="@+id/seperator2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"/>
 
@@ -80,8 +80,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Amount of Tickets: "
-                android:textSize="25sp"
                 android:textColor="@android:color/black"
+                android:textSize="25sp"
                 android:typeface="normal" />
 
             <EditText
