@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/EzCinema.iml" filepath="$PROJECT_DIR$/EzCinema.iml" />
       <module fileurl="file://D:\Downloads\EzCinema-Seat-Ticket\EzCinema.iml" filepath="D:\Downloads\EzCinema-Seat-Ticket\EzCinema.iml" />
-      <module fileurl="file://$PROJECT_DIR$/EzCinema-Seat-Ticket.iml" filepath="$PROJECT_DIR$/EzCinema-Seat-Ticket.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\Downloads\EzCinema-Seat-Ticket\app\app.iml" filepath="D:\Downloads\EzCinema-Seat-Ticket\app\app.iml" />
     </modules>
   </component>
 </project>
