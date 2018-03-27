@@ -91,7 +91,7 @@ public class MovieSelectTheaterActivity extends AppCompatActivity
 
     private void setTextView()
     {
-        textViewMovieInfo.setText(movie.getMovieName()+ "\nGenere: "+movie.getGenre()+"\nDescription:  "+movie.getMovieDescription()+"\nRating: "+movie.getMovieRating());
+        textViewMovieInfo.setText(movie.getMovieName()+ "\nGenere: "+movie.getGenre()+"\nDescription: "+movie.getMovieDescription()+"\nRating: "+movie.getMovieRating());
     }
 
     private void showTheaterOptions()
