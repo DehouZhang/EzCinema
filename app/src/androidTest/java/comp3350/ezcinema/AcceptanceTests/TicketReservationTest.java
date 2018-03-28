@@ -42,12 +42,12 @@ public class TicketReservationTest extends ActivityInstrumentationTestCase2<Home
         solo.waitForActivity("MovieSelectTheaterActivity");
         solo.assertCurrentActivity("Expected activity: MovieSelectTheaterActivity", "MovieSelectTheaterActivity");
 
-        solo.clickInList(1);
+        solo.clickInList(3);
         solo.assertCurrentActivity("Expected activity: ConfirmationActivity", "ConfirmationActivity");
         solo.waitForActivity("ConfirmationActivity");
 
         solo.pressSpinnerItem(0,0);
-        assertTrue(solo.isSpinnerTextSelected("10:40"));
+        assertTrue(solo.isSpinnerTextSelected("15:30"));
 
         solo.enterText(0, "2");
 
