@@ -237,8 +237,13 @@ March 13
 	
 March 19
 	Group Meeting (1 hour)
+	added calculateTax class (Shawn Cooper, .5hrs)
 
 March 21:
+	added background and foreground to all activities (Shawn Cooper, .25hrs)
+	altered home page added new buttons and altered layout added icons to buttons (Shawn Cooper, 3hrs)
+	fix typos and separate titles for resizing on activities (Shawn Cooper, .5hrs)
+	merge with seat selection-ticket (Shawn Cooper, .5hrs)
 	Implement GUIs for Seat Selecton by using fake data (Qin Yang, 5 hours)
 		create layout and activity for seat selection page
 		implement the activity and layout
@@ -293,6 +298,12 @@ March 27
 	Fix structure error for seat selection(Dehou Zhang, 2 hours)
 	Built database testing for both SQL and stub(Dehou Zhang, 4hours)
 	Fix bugs about database testing(Dehou Zhang, 2hours)
+
+	altered calculateTax and added calculateTaxTest (Shawn Cooper, .5hrs)
+	added validateInput class and altered checkout to use validateInput (Shawn Cooper, 4hrs)
+	fixed bug in validateInput class where isValid doesn't change from false (Shawn Cooper, .5hrs)
+	fixed bug in validateInput where month can be greater than 12 (Shawn Cooper, .5hrs)
+	added validateInputTest 
 
 
 

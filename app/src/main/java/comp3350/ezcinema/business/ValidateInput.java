@@ -69,9 +69,7 @@ public class ValidateInput {
         return valid;
     }
 
-    public boolean isValidScene(EditText sceneNo, EditText pin) {
-        String sceneNoText = sceneNo.getText().toString().trim();
-        String pinText = pin.getText().toString().trim();
+    public boolean isValidScene(String sceneNoText, String pinText) {
         valid = true;
 
         if(sceneNoText.length() != 9 || sceneNoText.contains("[a-zA-Z]+") == true)
