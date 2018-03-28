@@ -21,7 +21,6 @@ import static org.junit.Assert.*;
 public class UpdateSeatTest extends TestCase {
 
     private UpdateSeat accessorUD;
-    private ArrayList listoftickets;
     private AccessMT accessorMT;
     private ManageTickets accessorManage;
     private DataAccess dataAccess;
