@@ -13,17 +13,17 @@ import comp3350.ezcinema.persistence.DataAccess;
 public class DataAccessStub implements DataAccess
 {
     @Override
-    public String updateStatus(Seat seat, int row, int col) {
+    public String updateStatus(MT seat, String time, int row, int col) {
         return null;
     }
 
     @Override
-    public int countRemain(Seat seat) {
+    public int countRemain(MT seat, String time) {
         return 0;
     }
 
     @Override
-    public int checkStatus(Seat seat, int row, int col) {
+    public int checkStatus(MT seat, String time, int row, int col) {
         return 0;
     }
 
