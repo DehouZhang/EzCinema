@@ -6,19 +6,18 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.DriverManager;
 import java.sql.SQLWarning;
-import java.sql.DatabaseMetaData;
 import java.util.ArrayList;
 import java.util.List;
 
+import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
-import comp3350.ezcinema.objects.MT;
 
 public class DataAccessObject implements DataAccess
 {
-    private Statement st1,st2,st3,st4;
+    private Statement st1,st2,st3,st4,st5,st6;
     private Connection c1;
-    private ResultSet rs2,rs3,rs4,rs5;
+    private ResultSet rs2,rs3,rs4,rs5,rs6,rs7;
 
     private String dbName;
     private String dbType;
@@ -51,6 +50,8 @@ public class DataAccessObject implements DataAccess
             st2 = c1.createStatement();
             st3 = c1.createStatement();
             st4 = c1.createStatement();
+            st5 = c1.createStatement();
+            st6 = c1.createStatement();
         }
         catch (Exception e)
         {
@@ -151,7 +152,7 @@ public class DataAccessObject implements DataAccess
         showtimes=new ArrayList<String>();
         try
         {
-            cmdString="Select Showtime from MovieTheaters where MovieName='"+movie.getMovieName()+"' and TheaterName='"+theater.getTheaterName()+"'";
+            cmdString="Select Distinct Showtime from MovieTheaters where MovieName='"+movie.getMovieName()+"' and TheaterName='"+theater.getTheaterName()+"'";
             rs4=st3.executeQuery(cmdString);
             while (rs4.next())
             {
@@ -189,6 +190,70 @@ public class DataAccessObject implements DataAccess
         return addr;
     }
 
+    public String updateStatus(MT seat,String time, int row, int col)
+    {
+        String values;
+        String where;
+
+        result=null;
+        try
+        {
+            values="Status="+1;
+            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Row="+row+" and Col="+col;
+            cmdString= "Update Seats "+" Set "+values+" "+where;
+            updateCount = st5.executeUpdate(cmdString);
+            result = checkWarning(st5, updateCount);
+        }
+        catch (Exception e)
+        {
+            result=processSQLError(e);
+        }
+        return result;
+    }
+
+    public int countRemain(MT seat,String time)
+    {
+        int result=0;
+        String where;
+
+        try
+        {
+            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Status=0";
+            cmdString="Select Row from Seats "+where;
+            rs6=st5.executeQuery(cmdString);
+
+            while(rs6.next())
+            {
+                result++;
+            }
+        }
+        catch (Exception e)
+        {
+            processSQLError(e);
+        }
+
+        return result;
+    }
+
+    public int checkStatus(MT seat, String time, int row, int col)
+    {
+        int result=-1;
+        String where;
+        try
+        {
+            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Row="+row+" and Col="+col;
+            cmdString="Select Status from Seats "+where;
+            rs7=st6.executeQuery(cmdString);
+            rs7.next();
+            result=rs7.getInt("Status");
+        }
+        catch (Exception e)
+        {
+            processSQLError(e);
+        }
+        return result;
+    }
+
     public String processSQLError(Exception e)
     {
         String result = "*** SQL Error: " + e.getMessage();
@@ -196,6 +261,30 @@ public class DataAccessObject implements DataAccess
         // Remember, this will NOT be seen by the user!
         e.printStackTrace();
 
+        return result;
+    }
+
+    public String checkWarning(Statement st, int updateCount)
+    {
+        String result;
+
+        result = null;
+        try
+        {
+            SQLWarning warning = st.getWarnings();
+            if (warning != null)
+            {
+                result = warning.getMessage();
+            }
+        }
+        catch (Exception e)
+        {
+            result = processSQLError(e);
+        }
+        if (updateCount != 1)
+        {
+            result = "Tuple not inserted correctly.";
+        }
         return result;
     }
 }
