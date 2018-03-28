@@ -27,7 +27,7 @@ public class AccessMT
         {
             ArrayList<String> showtimes;
             showtimes = dataAccess.getShowtimeList(movie, theater);
-            if (showtimes.size() > 0)
+            if (showtimes != null && showtimes.size() > 0)
             {
                 newMT = new MT(movie.getMovieName(), theater.getTheaterName(), showtimes);
             }

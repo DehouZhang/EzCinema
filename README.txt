@@ -17,6 +17,9 @@ Packages
 	-Theater.java
 	Iteration2
 	-MT.java
+	Iteration3
+	-Seat.java
+	-Ticket.java
 -comp3350.ezcinema.business
 	-AccessMovie.java
 	-AccessTheater.java
@@ -24,6 +27,12 @@ Packages
 	-SortTheater.java
 	Iteration 2
 	-AccessMT.java
+	Iteration3
+	-AccessSeat
+	-CalculateTax
+	-Validateinput
+	-ManageTickets
+
 -comp3350.ezcinema.application
 	Iteration 1
 	-Main.java
@@ -50,6 +59,10 @@ Packages
 	-TheaterSelectMovieActivity.java
 	-TheaterSelectMovieAdapter.java
 	-TicketActivity.java
+	Iteration3
+	-SeatAdapter
+	-SearSelectActivity
+	-TicketBoughtActivity
 
 Features
 Iteration 1

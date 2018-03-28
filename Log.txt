@@ -256,9 +256,12 @@ March 25
 	
 March 26
 	Built acceptance test for payment/reservation system (Dow Griffith, 3 hours)
-	
+	Testing (Randall Romanow, 4 hours)
+	    - Business, object , persistence
+
 March 27
 	Built acceptance for seeing bought tickets (Dow Griffith, 1 hour)
 	Bug fixes and integration (Dow Griffith, 9 hours)
-	
+	Testing and fixes (Randall Romanow, 10 hours)
+	    - Business, object , persistence and Integration tests
 	

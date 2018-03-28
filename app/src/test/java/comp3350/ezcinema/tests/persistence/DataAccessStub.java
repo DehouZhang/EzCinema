@@ -323,7 +323,7 @@ public class DataAccessStub implements DataAccess {
         MTs.add(mt);
 
         ArrayList<String> temp36 = new ArrayList<>();
-        temp36.add("13:00");
+        temp36.add("13:30");
         temp36.add("16:40");
         temp36.add("21:30");
         mt = new MT("Ferdinand", "Scotiabank Theatre Winnipeg", temp36);
