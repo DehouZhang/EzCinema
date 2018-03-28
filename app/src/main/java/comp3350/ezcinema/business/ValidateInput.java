@@ -23,12 +23,9 @@ public class ValidateInput {
         String creditText = credit.getText().toString().trim();
         String dateText = date.getText().toString().trim();
         String cvvText = cvv.getText().toString().trim();
-        String message = creditText;
         valid = true;
 
-        //Log.i("tag", ""+creditText+":"+creditText.length());
-
-        if(creditText.length() != 9 || creditText.contains("[a-zA-Z]+") == true)
+        if(creditText.length() != 9 || creditText.contains("[a-zA-Z]+") == true || creditText.contains("[0-9]+") == false)
         {
             valid = false;
         }
@@ -69,11 +66,10 @@ public class ValidateInput {
         String pinText = pin.getText().toString().trim();
         valid = true;
 
-        Log.i("tag", ""+sceneNoText+":"+sceneNoText.length());
-        //if(sceneNoText.length() != 9)
-        //{
-        //    valid = false;
-        //}
+        if(sceneNoText.length() != 9)
+        {
+            valid = false;
+        }
 
         if(pinText.length() != 4)
         {
