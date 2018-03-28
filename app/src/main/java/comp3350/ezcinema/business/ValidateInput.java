@@ -51,9 +51,7 @@ public class ValidateInput {
         return valid;
     }
 
-    public boolean isValidPaypal(EditText email, EditText password){
-        String emailText = email.getText().toString().trim();
-        String passwordText = password.getText().toString().trim();
+    public boolean isValidPaypal(String emailText, String passwordText){
         valid = true;
 
         if(emailText.length() > 20 || emailText.length() < 3 || !emailText.contains("@"))

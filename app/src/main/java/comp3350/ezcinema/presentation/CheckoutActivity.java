@@ -201,7 +201,10 @@ public class CheckoutActivity extends AppCompatActivity
             editText1 = (EditText)findViewById(R.id.editTextEmail);
             editText2 = (EditText)findViewById(R.id.editTextPassword);
 
-            validated = isValid.isValidPaypal(editText1,editText2);
+            String emailText = editText1.getText().toString().trim();
+            String passwordText = editText2.getText().toString().trim();
+
+            validated = isValid.isValidPaypal(emailText,emailText);
 
             if(validated)
             {
