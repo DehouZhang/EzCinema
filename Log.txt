@@ -237,7 +237,18 @@ March 13
 	
 March 19
 	Group Meeting (1 hour)
+	
+March 21:
+	Implement GUIs for Seat Selecton by using fake data (Qin Yang, 5 hours)
+		create layout and activity for seat selection page
+		implement the activity and layout
 
+	Fixed bugs about the confirmation page (Qin Yang, 1 hour)
+
+	Implement GUIs for Seat Selecton by using real database data (Qin Yang, 2 hours)
+
+	Fixed bug on user input limitation (1-25) on the amount of ticket they want to buy (Qin Yang, 0.5 hours)
+	
 March 22
 	Built ticket object and data access methods for it (Dow Griffith, 2 hours)
 	
@@ -245,6 +256,13 @@ March 23
 	Added table in database for tickets (Dow Griffith, 0.5 hours)
 	Merged seat selection code with ticket code (Dow Griffith, 1 hour)
 	Fixed bugs in presentation caused by merge (Dow Griffith, 1 hour)
+	Add a clear button on seat selection page (Qin Yang, 0.5 hours)
+
+	Deleted the clear button because we do not need it (Qin Yang, 0.5 hours)
+
+	Fixed bug that database should not be updated until the user checks out (Qin Yang, 5 hours)
+
+	Fixed GUI implementation bug that the show time spinner always select its first item (Qin Yang, 2 hours)
 	
 March 24
 	Created new Ticket activity to display bought tickets (Dow Griffith, 1.5 hours)
@@ -260,5 +278,7 @@ March 26
 March 27
 	Built acceptance for seeing bought tickets (Dow Griffith, 1 hour)
 	Bug fixes and integration (Dow Griffith, 9 hours)
+	Group seats classes tests into one class test as countRemaining, getSeatTable, updateSeats are grouped into 
+	one AccessSeats class (Qin Yang, 1 hour)
 	
 	
