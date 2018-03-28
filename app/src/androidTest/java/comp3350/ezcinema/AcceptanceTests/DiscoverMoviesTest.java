@@ -5,9 +5,6 @@ import junit.framework.Assert;
 import android.test.ActivityInstrumentationTestCase2;
 import comp3350.ezcinema.presentation.HomeActivity;
 
-
-
-
 public class DiscoverMoviesTest extends ActivityInstrumentationTestCase2<HomeActivity>
 {
     private Solo solo;
