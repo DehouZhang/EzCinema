@@ -4,6 +4,11 @@ package comp3350.ezcinema.AcceptanceTests;
 import com.robotium.solo.Solo;
 import junit.framework.Assert;
 import android.test.ActivityInstrumentationTestCase2;
+
+import comp3350.ezcinema.application.Main;
+import comp3350.ezcinema.application.Services;
+import comp3350.ezcinema.persistence.DataAccess;
+import comp3350.ezcinema.persistence.DataAccessObject;
 import comp3350.ezcinema.presentation.HomeActivity;
 
 
