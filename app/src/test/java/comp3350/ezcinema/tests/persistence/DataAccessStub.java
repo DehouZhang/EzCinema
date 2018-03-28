@@ -20,6 +20,7 @@ public class DataAccessStub implements DataAccess
     private ArrayList<MT> MTs;
     private ArrayList<Seat> seats;
 
+
     public DataAccessStub(String dbName)
     {
         this.dbName = dbName;

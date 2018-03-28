@@ -36,6 +36,7 @@ public class DataAccessObject implements DataAccess
         this.dbName=dbName;
     }
 
+
     public void open(String dbPath)
     {
         String url;
@@ -199,8 +200,8 @@ public class DataAccessObject implements DataAccess
         try
         {
             values="Status="+1;
-            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Row="+row+" and Col="+col;
-            cmdString= "Update Seats "+" Set "+values+" "+where;
+            where = "where MovieName='" + seat.getMovieName() + "' and TheaterName='" + seat.getTheaterName() + "' and Showtime='" + time + "' and Row=" + row + " and Col=" + col;
+            cmdString = "Update Seats " + " Set " + values + " " + where;
             updateCount = st5.executeUpdate(cmdString);
             result = checkWarning(st5, updateCount);
         }

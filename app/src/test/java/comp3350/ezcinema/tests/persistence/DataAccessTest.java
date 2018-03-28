@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 
 import java.util.ArrayList;
 
+import comp3350.ezcinema.objects.Seat;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.MT;
@@ -25,11 +26,11 @@ public class DataAccessTest extends TestCase
     {
         System.out.println("\nStarting Persistence test DataAccess (using stub)");
         // Use the following statements to run with the stub database:
-        dataAccess = new DataAccessStub();
-        dataAccess.open("Stub");
+        //dataAccess = new DataAccessStub();
+        //dataAccess.open("Stub");
         //or switch to the real database:
-        //dataAccess = new DataAccessObject(Main.dbName);
-        //dataAccess.open(Main.getDBPathName());
+        dataAccess = new DataAccessObject(Main.dbName);
+        dataAccess.open(Main.getDBPathName());
     }
 
     public void tearDown()
@@ -277,4 +278,124 @@ public class DataAccessTest extends TestCase
      }
 
 
+    public void testCountRemain()
+    {
+        ArrayList<String> showtimes=new ArrayList<>();
+        MT mt;
+        showtimes.add("12:00");
+        showtimes.add("16:30");
+        showtimes.add("20:50");
+        mt = new MT("Tomb Raider","Cinema City Northgate",showtimes);
+        assertEquals(25,dataAccess.countRemain(mt,"12:00"));
+        dataAccess.updateStatus(mt,"12:00",0,0);
+        assertEquals(24,dataAccess.countRemain(mt,"12:00"));
+        dataAccess.updateStatus(mt,"12:00",0,1);
+        dataAccess.updateStatus(mt,"12:00",0,2);
+        dataAccess.updateStatus(mt,"12:00",0,3);
+        dataAccess.updateStatus(mt,"12:00",0,4);
+        dataAccess.updateStatus(mt,"12:00",1,0);
+        assertEquals(19,dataAccess.countRemain(mt,"12:00"));
+
+        showtimes.add("12:00");
+        showtimes.add("15:20");
+        showtimes.add("19:40");
+        mt= new MT("Winchester","SilverCity St.Vital Cinemas",showtimes);
+        assertEquals(25,dataAccess.countRemain(mt,"15:20"));
+        dataAccess.updateStatus(mt,"15:20",0,0);
+        assertEquals(24,dataAccess.countRemain(mt,"15:20"));
+        dataAccess.updateStatus(mt,"15:20",0,1);
+        assertEquals(23,dataAccess.countRemain(mt,"15:20"));
+        dataAccess.updateStatus(mt,"15:20",0,2);
+        dataAccess.updateStatus(mt,"15:20",0,3);
+        assertEquals(21,dataAccess.countRemain(mt,"15:20"));
+        dataAccess.updateStatus(mt,"15:20",0,4);
+        dataAccess.updateStatus(mt,"15:20",1,1);
+        dataAccess.updateStatus(mt,"15:20",1,2);
+        assertEquals(18,dataAccess.countRemain(mt,"15:20"));
+        dataAccess.updateStatus(mt,"15:20",1,3);
+        dataAccess.updateStatus(mt,"15:20",1,4);
+        assertEquals(16,dataAccess.countRemain(mt,"15:20"));
+
+    }
+
+    public void testCheckStatus()
+    {
+        ArrayList<String> showtimes=new ArrayList<>();
+        MT mt;
+
+        showtimes.add("13:00");
+        showtimes.add("18:00");
+        showtimes.add("21:00");
+        mt = new MT("Unforgettable","Famous Players Kildonan Place Cinemas",showtimes);
+        assertEquals(0,dataAccess.checkStatus(mt,"21:00",0,0));
+        assertEquals(0,dataAccess.checkStatus(mt,"21:00",3,1));
+        assertEquals(0,dataAccess.checkStatus(mt,"21:00",4,3));
+        dataAccess.updateStatus(mt,"21:00",0,0);
+        assertEquals(1,dataAccess.checkStatus(mt,"21:00",0,0));
+        dataAccess.updateStatus(mt,"21:00",3,1);
+        assertEquals(1,dataAccess.checkStatus(mt,"21:00",3,1));
+        dataAccess.updateStatus(mt,"21:00",4,3);
+        assertEquals(1,dataAccess.checkStatus(mt,"21:00",4,3));
+
+        assertEquals(0,dataAccess.checkStatus(mt,"13:00",0,0));
+        assertEquals(0,dataAccess.checkStatus(mt,"13:00",3,1));
+        assertEquals(0,dataAccess.checkStatus(mt,"13:00",4,3));
+        dataAccess.updateStatus(mt,"13:00",0,0);
+        assertEquals(1,dataAccess.checkStatus(mt,"13:00",0,0));
+        dataAccess.updateStatus(mt,"13:00",3,1);
+        assertEquals(1,dataAccess.checkStatus(mt,"13:00",3,1));
+        dataAccess.updateStatus(mt,"13:00",4,3);
+        assertEquals(1,dataAccess.checkStatus(mt,"13:00",4,3));
+    }
+    public void testUpdateStatus()
+    {
+        System.out.println("\nStarting testUpdateStatus()");
+        MT mt;
+        ArrayList<String> showtimes=new ArrayList<>();
+
+        showtimes.clear();
+        showtimes.add("10:40");
+        showtimes.add("14:20");
+        showtimes.add("19:50");
+        mt = new MT("Ferdinand","Cinema City Northgate",showtimes);
+        for(int i=0;i<showtimes.size();i++)
+        {
+            assertNull(dataAccess.updateStatus(mt, showtimes.get(i), 3, 2));
+            assertEquals(1, dataAccess.checkStatus(mt, showtimes.get(i), 3, 2));
+        }
+
+        showtimes.clear();;
+        showtimes.add("12:00");
+        showtimes.add("15:20");
+        showtimes.add("19:40");
+        mt=new MT("Fifty Shades Freed","Cineplex Odeon McGillivray Cinemas",showtimes);
+        for(int i=0;i<showtimes.size();i++)
+        {
+            assertNull(dataAccess.updateStatus(mt, showtimes.get(i), 0, 1));
+            assertEquals(1, dataAccess.checkStatus(mt, showtimes.get(i), 0, 1));
+        }
+
+        showtimes.clear();
+        showtimes.add("12:00");
+        showtimes.add("15:20");
+        showtimes.add("19:40");
+        mt=new MT("Jumangi: Welcome to the Jungle","SilverCity St.Vital Cinemas",showtimes);
+        for(int i=0;i<showtimes.size();i++)
+        {
+            assertNull(dataAccess.updateStatus(mt, showtimes.get(i), 0, 1));
+            assertEquals(1, dataAccess.checkStatus(mt, showtimes.get(i), 0, 1));
+        }
+
+        showtimes.clear();
+        showtimes.add("14:40");
+        showtimes.add("17:40");
+        showtimes.add("20:30");
+        showtimes.add("23:40");
+        mt=new MT("Peter Rabbit","Cineplex Odeon McGillivray Cinemas",showtimes);
+        for(int i=0;i<showtimes.size();i++)
+        {
+            assertNull(dataAccess.updateStatus(mt, showtimes.get(i), 2, 4));
+            assertEquals(1, dataAccess.checkStatus(mt, showtimes.get(i), 2, 4));
+        }
+    }
 }
