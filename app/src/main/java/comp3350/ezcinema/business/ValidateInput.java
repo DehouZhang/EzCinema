@@ -109,7 +109,7 @@ public class ValidateInput {
 
         if(convertYear == lastTwoNumYear)
         {
-            if(convertMonth > curMonth)
+            if(convertMonth > curMonth && convertMonth < 13)
             {
                 validDate = true;
             }
