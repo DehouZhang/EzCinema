@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 
 import java.util.ArrayList;
 
+import comp3350.ezcinema.business.AccessMT;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.MT;
@@ -15,6 +16,12 @@ import static org.junit.Assert.assertArrayEquals;
 public class DataAccessTest extends TestCase
 {
     private DataAccess dataAccess;
+    private AccessMT accessorMT;
+    // private ManageTickets accessorManage;
+    // private Ticket ticket,testTicket;
+    private ArrayList tickets,listoftickets;
+    private MT testMT,testMT2;
+
 
     public DataAccessTest(String arg0)
     {
@@ -23,13 +30,28 @@ public class DataAccessTest extends TestCase
 
     public void setUp()
     {
+        Main.startUp();
+
         System.out.println("\nStarting Persistence test DataAccess (using stub)");
         // Use the following statements to run with the stub database:
-        dataAccess = new DataAccessStub();
-        dataAccess.open("Stub");
+        //dataAccess = new DataAccessStub();
+        //dataAccess.open("Stub");
         //or switch to the real database:
-        //dataAccess = new DataAccessObject(Main.dbName);
-        //dataAccess.open(Main.getDBPathName());
+        dataAccess = new DataAccessObject(Main.dbName);
+        dataAccess.open(Main.getDBPathName());
+
+
+        accessorMT = new AccessMT();
+        //accessorManage = new ManageTickets();
+        //tickets = new ArrayList<Ticket>();
+        //listoftickets = new ArrayList<Ticket>();
+
+        testMT = accessorMT.getMT(new Movie("Peter Rabbit", "Feature adaptation of Beatrix Potter''s classic tale of a rebellious rabbit trying to sneak into a farmer''s vegetable garden.", "Family", 5.6)
+                ,new Theater( "Cinema City Northgate","1399 McPhillips Street"));
+
+        testMT2 = accessorMT.getMT(new Movie("Jumangi: Welcome to the Jungle", "Four teenagers are sucked into a magical video game, and the only way they can escape is to work together to finish the game.", "Thriller", 5.8)
+                ,new Theater( "Cinema City Northgate","1399 McPhillips Street"));
+
     }
 
     public void tearDown()
@@ -275,6 +297,159 @@ public class DataAccessTest extends TestCase
          address=dataAccess.getTheaterAddress("Cineplex Odeon McGillivray Cinemas");
          assertEquals("2190 McGillivray Blvd",address);
      }
+
+
+
+    public void testUpdateStatus(){
+
+        ///try with improper details
+        //bad showtime
+        assertEquals("Error: Doesn't exist",dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater( "Cinema City Northgate","1399 McPhillips Street")),"0",0,0));
+
+        //bad theater name
+        assertEquals("Error: Doesn't exist",dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater("bad","2190 McGillivray Blvd")),"12:00",0,0));
+
+        //bad movie name
+        assertEquals("Error: Doesn't exist",dataAccess.updateStatus(accessorMT.getMT(new Movie("bad", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater("Scotiabank Theatre Winnipeg","817 St.James Street")),"14:40",0,0));
+
+        //bad seat location
+        assertEquals("Error: Doesn't exist",dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater("SilverCity St.Vital Cinemas","160-1225 St.Mary's Road, Winnipeg")),"14:00",7,7));
+
+
+
+
+        //Update the avaliable seats
+        assertEquals(null,dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater( "Cinema City Northgate","1399 McPhillips Street")),"13:20",0,0));
+
+        assertEquals(null,dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater("Cineplex Odeon McGillivray Cinemas","2190 McGillivray Blvd")),"12:00",0,0));
+
+        assertEquals(null,dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater( "Famous Players Kildonan Place Cinemas","1555 Regent Avenue West")),"13:30",0,0));
+
+        assertEquals(null,dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater("Scotiabank Theatre Winnipeg","817 St.James Street")),"14:40",0,0));
+
+        assertEquals(null,dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater("SilverCity St.Vital Cinemas","160-1225 St.Mary's Road, Winnipeg")),"14:00",0,0));
+
+
+
+        //attempt to update them again
+        assertEquals("Seat already claimed",dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater( "Cinema City Northgate","1399 McPhillips Street")),"13:20",0,0));
+
+        assertEquals("Seat already claimed",dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater("Cineplex Odeon McGillivray Cinemas","2190 McGillivray Blvd")),"12:00",0,0));
+
+        assertEquals("Seat already claimed",dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater( "Famous Players Kildonan Place Cinemas","1555 Regent Avenue West")),"13:30",0,0));
+
+        assertEquals("Seat already claimed",dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater("Scotiabank Theatre Winnipeg","817 St.James Street")),"14:40",0,0));
+
+        assertEquals("Seat already claimed",dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater("SilverCity St.Vital Cinemas","160-1225 St.Mary's Road, Winnipeg")),"14:00",0,0));
+
+
+    }
+
+
+
+    public void testCountRemain(){
+
+
+        //check with null info
+        assertEquals(-1,dataAccess.countRemain(null,"19:10"));
+        assertEquals(-1,dataAccess.countRemain(testMT2,null));
+        assertEquals(-1,dataAccess.countRemain(null,null));
+
+
+        //if the  information is Wrong  (improve the error handling of he sql in the method)
+        assertEquals(0,dataAccess.countRemain(testMT2,"wrong"));
+
+
+        //count the current seats, all empty
+        assertEquals(25,dataAccess.countRemain(testMT2,"19:10"));
+
+
+        //update 2 seats separately and check
+        dataAccess.updateStatus(testMT2,"19:10",0,0);
+        assertEquals(24,dataAccess.countRemain(testMT2,"19:10"));
+
+        dataAccess.updateStatus(testMT2,"19:10",4,4);
+        assertEquals(23,dataAccess.countRemain(testMT2,"19:10"));
+
+
+        //update all of them, making no seats avaliable
+        for(int row=0;row<5;row++)
+        {
+            for(int col=0;col<5;col++)
+            {
+                dataAccess.updateStatus(testMT2,"19:10",row,col);
+            }
+        }
+
+        assertEquals(0,dataAccess.countRemain(testMT2,"19:10"));
+    }
+
+
+
+    public void testCheckStatus(){
+
+        // -1 = Error/doesn't exist
+        //  0 = Open
+        //  1 = Closed/Full
+
+        //check the status of a seat that isn't there
+        assertEquals(-1,dataAccess.checkStatus(testMT, null,0,0));
+        assertEquals(-1,dataAccess.checkStatus(null, "13:20",0,0));
+        assertEquals(-1,dataAccess.checkStatus(testMT, "13:20",5,5));
+
+        //check that all the seats are empty
+        for(int row=0;row<5;row++)
+        {
+            for(int col=0;col<5;col++)
+            {
+                assertEquals(0,dataAccess.checkStatus(testMT, "14:40",row,col));
+            }
+        }
+
+        //fill the seats and check while being filled
+        for(int row=0;row<5;row++)
+        {
+            for(int col=0;col<5;col++)
+            {
+                assertEquals(0,dataAccess.checkStatus(testMT, "14:40",row,col));
+                dataAccess.updateStatus(testMT,"14:40",row,col);
+                assertEquals(1,dataAccess.checkStatus(testMT, "14:40",row,col));
+            }
+        }
+
+        //check after being filled
+        for(int row=0;row<5;row++)
+        {
+            for(int col=0;col<5;col++)
+            {
+                assertEquals(1,dataAccess.checkStatus(testMT, "14:40",row,col));
+            }
+        }
+
+
+
+
+
+    }
+
+
+
+
+
 
 
 }

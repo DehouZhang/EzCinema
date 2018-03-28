@@ -196,18 +196,27 @@ public class DataAccessObject implements DataAccess
         String where;
 
         result=null;
-        try
-        {
-            values="Status="+1;
-            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Row="+row+" and Col="+col;
-            cmdString= "Update Seats "+" Set "+values+" "+where;
-            updateCount = st5.executeUpdate(cmdString);
-            result = checkWarning(st5, updateCount);
+
+        if(checkStatus( seat, time, row, col) == 0) {
+            try {
+                values = "Status=" + 1;
+                where = "where MovieName='" + seat.getMovieName() + "' and TheaterName='" + seat.getTheaterName() + "' and Showtime='" + time + "' and Row=" + row + " and Col=" + col;
+                cmdString = "Update Seats " + " Set " + values + " " + where;
+                updateCount = st5.executeUpdate(cmdString);
+                result = checkWarning(st5, updateCount);
+            } catch (Exception e) {
+                result = processSQLError(e);
+            }
         }
-        catch (Exception e)
-        {
-            result=processSQLError(e);
+        else{
+            if(checkStatus( seat, time, row, col) == 1)
+                result = "Seat already claimed";
+            else {
+                result = "Error: Doesn't exist";
+            }
         }
+
+
         return result;
     }
 
@@ -216,22 +225,24 @@ public class DataAccessObject implements DataAccess
         int result=0;
         String where;
 
-        try
-        {
-            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Status=0";
-            cmdString="Select Row from Seats "+where;
-            rs6=st5.executeQuery(cmdString);
+        if(seat != null && time != null ) {
+            try {
+                where = "where MovieName='" + seat.getMovieName() + "' and TheaterName='" + seat.getTheaterName() + "' and Showtime='" + time + "' and Status=0";
+                cmdString = "Select Row from SEATS " + where;
+                rs6 = st5.executeQuery(cmdString);
 
-            while(rs6.next())
-            {
-                result++;
+                while (rs6.next()) {
+                    result++;
+                }
+
+            } catch (Exception e) {
+                processSQLError(e);
             }
         }
-        catch (Exception e)
+        else
         {
-            processSQLError(e);
+            result = -1;
         }
-
         return result;
     }
 

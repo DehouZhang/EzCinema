@@ -793,11 +793,20 @@ public class DataAccessStub implements DataAccess
     public String updateStatus(MT seat, String time, int row, int col)
     {
         String result=null;
-        for(int i=0; i<seats.size(); i++)
+        if(checkStatus( seat, time, row, col) == 0)
         {
-            if(seat.getMovieName()==seats.get(i).getMovieName() && seat.getTheaterName()==seats.get(i).getTheaterName() && time==seats.get(i).getShowtime())
+            for(int i=0; i<seats.size(); i++)
             {
-                seats.get(i).getTable()[row][col]=1;
+                if(seat.getMovieName()==seats.get(i).getMovieName() && seat.getTheaterName()==seats.get(i).getTheaterName() && time==seats.get(i).getShowtime()) {
+                    seats.get(i).getTable()[row][col] = 1;
+                }
+            }
+
+        }else {
+            if (checkStatus(seat, time, row, col) == 1)
+                result = "Seat already claimed";
+            else {
+                result = "Error: Doesn't exist";
             }
         }
         return result;
@@ -809,23 +818,26 @@ public class DataAccessStub implements DataAccess
     {
         int result=0;
         int[][] table;
-        for(int i=0; i<seats.size(); i++)
-        {
-            if(seat.getMovieName()==seats.get(i).getMovieName() && seat.getTheaterName()==seats.get(i).getTheaterName() && time==seats.get(i).getShowtime())
-            {
-                table=seats.get(i).getTable();
-                for(int m=0;m<table.length;m++)
-                {
-                    for(int n=0;n<table[m].length;n++)
-                    {
-                        if(table[m][n]==0)
-                        {
-                            result++;
+
+        if(seat != null && time != null ) {
+            for (int i = 0; i < seats.size(); i++) {
+                if (seat.getMovieName() == seats.get(i).getMovieName() && seat.getTheaterName() == seats.get(i).getTheaterName() && time == seats.get(i).getShowtime()) {
+                    table = seats.get(i).getTable();
+                    for (int m = 0; m < table.length; m++) {
+                        for (int n = 0; n < table[m].length; n++) {
+                            if (table[m][n] == 0) {
+                                result++;
+                            }
                         }
                     }
                 }
             }
         }
+        else
+        {
+            result = -1;
+        }
+
         return result;
     }
 
@@ -833,14 +845,14 @@ public class DataAccessStub implements DataAccess
     public int checkStatus(MT seat, String time, int row, int col)
     {
         int result=-1;
-        for(int i=0; i<seats.size(); i++)
-        {
-            if(seat.getMovieName()==seats.get(i).getMovieName() && seat.getTheaterName()==seats.get(i).getTheaterName() && time==seats.get(i).getShowtime())
-            {
-                if(seats.get(i).getTable()[row][col]==0)
-                    result=0;
-                else
-                    result=1;
+        if(seat != null && time != null && row >= 0 && row < 5 && col >= 0 && col < 5) {
+            for (int i = 0; i < seats.size(); i++) {
+                if (seat.getMovieName() == seats.get(i).getMovieName() && seat.getTheaterName() == seats.get(i).getTheaterName() && time == seats.get(i).getShowtime()) {
+                    if (seats.get(i).getTable()[row][col] == 0)
+                        result = 0;
+                    else
+                        result = 1;
+                }
             }
         }
         return result;
