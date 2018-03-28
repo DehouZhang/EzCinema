@@ -12,8 +12,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import comp3350.ezcinema.R;
-import comp3350.ezcinema.business.getSeatsTable;
-import comp3350.ezcinema.business.UpdateSeat;
 import comp3350.ezcinema.objects.MT;
 
 public class SeatSelectActvity extends AppCompatActivity {

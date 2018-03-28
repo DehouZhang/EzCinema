@@ -1,18 +1,24 @@
 package comp3350.ezcinema.business;
 
+import java.util.List;
 
 import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.application.Services;
 import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.persistence.DataAccess;
 
-public class getSeatsTable
-{
+public class AccessSeat {
+
     private DataAccess dataAccess;
 
-    public getSeatsTable()
+    public AccessSeat()
     {
-        dataAccess = Services.getDataAccess(Main.dbName);
+        dataAccess =Services.getDataAccess(Main.dbName);
+    }
+
+    public int countRemainingSeats(MT seat,String time)
+    {
+        return dataAccess.countRemain(seat,time);
     }
 
     public int[][] getSeatTable(MT seat, String showtime)
@@ -26,5 +32,10 @@ public class getSeatsTable
             }
         }
         return table;
+    }
+
+    public String updateSeatStatus(MT seat, String time, int row, int col)
+    {
+        return dataAccess.updateStatus(seat,time,row,col);
     }
 }

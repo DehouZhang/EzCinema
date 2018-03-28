@@ -7,16 +7,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.RadioButton;
 
 import java.util.ArrayList;
 
 import comp3350.ezcinema.R;
-import comp3350.ezcinema.business.UpdateSeat;
 import comp3350.ezcinema.objects.MT;
-import comp3350.ezcinema.objects.Movie;
 
 public class CheckoutActivity extends AppCompatActivity
 {

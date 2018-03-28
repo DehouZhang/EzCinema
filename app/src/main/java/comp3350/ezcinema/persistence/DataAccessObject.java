@@ -200,7 +200,7 @@ public class DataAccessObject implements DataAccess
         {
             values="Status="+1;
             where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Row="+row+" and Col="+col;
-            cmdString= "Update MovieTheaters "+" Set "+values+" "+where;
+            cmdString= "Update Seats "+" Set "+values+" "+where;
             updateCount = st5.executeUpdate(cmdString);
             result = checkWarning(st5, updateCount);
         }
@@ -219,7 +219,7 @@ public class DataAccessObject implements DataAccess
         try
         {
             where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Status=0";
-            cmdString="Select Row from MovieTheaters "+where;
+            cmdString="Select Row from Seats "+where;
             rs6=st5.executeQuery(cmdString);
 
             while(rs6.next())
@@ -243,7 +243,7 @@ public class DataAccessObject implements DataAccess
         try
         {
             where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Row="+row+" and Col="+col;
-            cmdString="Select Status from MovieTheaters "+where;
+            cmdString="Select Status from Seats "+where;
             rs7=st6.executeQuery(cmdString);
             rs7.next();
             result=rs7.getInt("Status");
