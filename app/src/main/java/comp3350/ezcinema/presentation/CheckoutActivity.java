@@ -10,12 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import comp3350.ezcinema.R;
 import comp3350.ezcinema.business.CalculateTax;
+import comp3350.ezcinema.business.ValidateInput;
 import comp3350.ezcinema.business.UpdateSeat;
 import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
@@ -32,6 +34,10 @@ public class CheckoutActivity extends AppCompatActivity
     DecimalFormat money = new DecimalFormat("$0.00");
     private CalculateTax tax;
     private double afterTax;
+    private ValidateInput isValid;
+    private boolean creditCheck;
+    private boolean paypalCheck;
+    private boolean sceneCheck;
 
     private MT mtPassed;
     UpdateSeat updates;
@@ -41,7 +47,6 @@ public class CheckoutActivity extends AppCompatActivity
     TextView textViewSubtotal;
     TextView textViewTotal;
     Button buttonPurchase;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -64,8 +69,14 @@ public class CheckoutActivity extends AppCompatActivity
         theaterName = mtPassed.getTheaterName();
         updates = new UpdateSeat();
         tax = new CalculateTax();
+        isValid = new ValidateInput();
+
         price = amount*price;
-        afterTax = tax.calcTax((price));
+        afterTax = tax.priceWithTax((price));
+
+        creditCheck = false;
+        paypalCheck = false;
+        sceneCheck = false;
 
         textViewTitle = (TextView)findViewById(R.id.textViewTitle);
         textViewSubtotal = (TextView)findViewById(R.id.textViewSubtotal);
@@ -100,6 +111,9 @@ public class CheckoutActivity extends AppCompatActivity
                     FragmentCredit creditFragment = new FragmentCredit();
                     fragmentTransaction.replace(R.id.fragment_container,creditFragment);
                     fragmentTransaction.commit();
+                    creditCheck = true;
+                    paypalCheck = false;
+                    sceneCheck = false;
                     break;
                 }
             case R.id.radio_paypal:
@@ -108,6 +122,9 @@ public class CheckoutActivity extends AppCompatActivity
                     FragmentPaypal paypalFragment = new FragmentPaypal();
                     fragmentTransaction.replace(R.id.fragment_container,paypalFragment);
                     fragmentTransaction.commit();
+                    creditCheck = false;
+                    paypalCheck = true;
+                    sceneCheck = false;
                     break;
                 }
             case R.id.radio_scene:
@@ -116,6 +133,9 @@ public class CheckoutActivity extends AppCompatActivity
                     FragmentScene sceneFragment = new FragmentScene();
                     fragmentTransaction.replace(R.id.fragment_container,sceneFragment);
                     fragmentTransaction.commit();
+                    creditCheck = false;
+                    paypalCheck = false;
+                    sceneCheck = true;
                     break;
                 }
         }
@@ -127,23 +147,89 @@ public class CheckoutActivity extends AppCompatActivity
         buttonPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                passAmount();
+                checkInput();
             }
         });
     }
 
+    private void checkInput()
+    {
+        boolean validated;
+        EditText editText1;
+        EditText editText2;
+        EditText editText3;
+
+        validated = false;
+
+
+        if(creditCheck)
+        {
+            editText1 = (EditText)findViewById(R.id.editTextCredit);
+            editText2 = (EditText)findViewById(R.id.editTextExpiry);
+            editText3 = (EditText)findViewById(R.id.editTextCvv);
+
+            validated = isValid.isValidCredit(editText1,editText2,editText3);
+
+            if(validated)
+            {
+                passAmount();
+            }
+            else
+            {
+                Toast.makeText(this, "Invalid Credit Info", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else if(paypalCheck)
+        {
+            editText1 = (EditText)findViewById(R.id.editTextEmail);
+            editText2 = (EditText)findViewById(R.id.editTextPassword);
+
+            validated = isValid.isValidPaypal(editText1,editText2);
+
+            if(validated)
+            {
+                passAmount();
+            }
+            else
+            {
+                Toast.makeText(this, "Invalid Paypal Info", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else if(sceneCheck)
+        {
+            editText1 = (EditText)findViewById(R.id.editTextScene);
+            editText2 = (EditText)findViewById(R.id.editTextPin);
+
+            validated = isValid.isValidScene(editText1,editText2);
+
+            if(validated)
+            {
+                passAmount();
+            }
+            else
+            {
+                Toast.makeText(this, "Invalid Scene Info", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else
+        {
+            Toast.makeText(this, "Payment Method Not Selected", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void passAmount()
     {
-            updateDB(temptable,updates);
-            Intent intent = new Intent(CheckoutActivity.this, TicketActivity.class);
-            Bundle extras = new Bundle();
-            extras.putSerializable("MovieNamePassed", movieName);
-            extras.putSerializable("TheaterNamePassed", theaterName);
-            extras.putSerializable("ShowTimePassed", showtime);
-            extras.putSerializable("AmountPassed",amount);
-            extras.putSerializable("TempTablePassed",temptable);
-            intent.putExtras(extras);
-            startActivity(intent);
+
+        updateDB(temptable,updates);
+        Intent intent = new Intent(CheckoutActivity.this, TicketActivity.class);
+        Bundle extras = new Bundle();
+        extras.putSerializable("MovieNamePassed", movieName);
+        extras.putSerializable("TheaterNamePassed", theaterName);
+        extras.putSerializable("ShowTimePassed", showtime);
+        extras.putSerializable("AmountPassed",amount);
+        extras.putSerializable("TempTablePassed",temptable);
+        intent.putExtras(extras);
+        startActivity(intent);
 
     }
 

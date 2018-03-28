@@ -2,15 +2,32 @@ package comp3350.ezcinema.business;
 
 public class CalculateTax {
 
-    public static double calcTax(double value){
+    private double gst;
+    private double pst;
+    private double total;
 
-        double total;
-        double gst = 0.05;
-        double pst = 0.08;
+    public CalculateTax() {
+        gst = 0.05;
+        pst = 0.08;
+        total = 0;
+    }
 
-        total = value+((value*gst)+(value*pst));
+
+    public double priceWithTax(double value){
+        
+        this.total = value+((value*this.gst)+(value*this.pst));
 
         return total;
+    }
+
+    public double getGst()
+    {
+        return this.gst;
+    }
+
+    public double getPst()
+    {
+        return this.pst;
     }
 
 }
