@@ -12,6 +12,7 @@ import java.util.List;
 import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.Theater;
+import comp3350.ezcinema.objects.Ticket;
 
 public class DataAccessObject implements DataAccess
 {
@@ -265,6 +266,74 @@ public class DataAccessObject implements DataAccess
         }
         return result;
     }
+
+    //where is the status updated
+    public int insertTicket(String movieName, String theaterName, String showTime, int row, int col)
+    {
+        int result = 0;
+        Statement stmt1, stmt2;
+
+        if(movieName != null && theaterName != null && showTime != null && row > -1 && row < 5 &&
+                col > -1 && col < 5) {
+            try {
+                stmt1 = c1.createStatement();
+                ResultSet test = stmt1.executeQuery("SELECT * FROM Tickets " +
+                        "WHERE moviename = '" + movieName + "' AND theatername = '" + theaterName + "' AND showtime = '" + showTime + "' AND row = '" + row + "' AND column = '" + col + "'");
+
+                ResultSet test2 = stmt1.executeQuery("SELECT * FROM MOVIETHEATERS " +
+                        "WHERE moviename = '" + movieName + "' AND theatername = '" + theaterName + "' AND showtime = '"+ showTime + "'");
+
+                //where is the status updated
+                if (!test.next() && test2.next()) {
+                    stmt2 = c1.createStatement();
+                    result = stmt2.executeUpdate("INSERT INTO TICKETS VALUES ('" + movieName + "', '" + theaterName + "', '" + showTime + "', '" + row + "', '" + col + "')");
+                    if (result == 1)
+                        c1.commit();
+                    else
+                        c1.rollback();
+                }
+            } catch (Exception e) {
+                processSQLError(e);
+            }
+        }
+
+        return result;
+    }
+
+    public void getTicketsSequential(ArrayList<Ticket> tickets)
+    {
+        Ticket ticket;
+        String mName;
+        String tName;
+        String showTime;
+        int row;
+        int col;
+        Statement stmt;
+        ResultSet results;
+
+        try
+        {
+            stmt = c1.createStatement();
+            results = stmt.executeQuery("SELECT * from Tickets");
+
+            while(results.next())
+            {
+                mName = results.getString("Moviename");
+                tName = results.getString("Theatername");
+                showTime = results.getString("Showtime");
+                row = results.getInt("Row");
+                col = results.getInt("Column");
+                ticket  = new Ticket(mName, tName, showTime, row, col);
+                tickets.add(ticket);
+            }
+        }
+        catch(Exception e)
+        {
+            processSQLError(e);
+        }
+    }
+
+
 
     public String processSQLError(Exception e)
     {

@@ -4,26 +4,19 @@ import junit.framework.TestCase;
 
 import java.util.ArrayList;
 
-import comp3350.ezcinema.business.AccessMT;
-import comp3350.ezcinema.objects.Seat;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.MT;
+import comp3350.ezcinema.objects.Ticket;
 import comp3350.ezcinema.persistence.DataAccess;
-import comp3350.ezcinema.persistence.DataAccessObject;
-import comp3350.ezcinema.tests.persistence.DataAccessStub;
-import comp3350.ezcinema.application.Main;
+
 import static org.junit.Assert.assertArrayEquals;
 public class DataAccessTest extends TestCase
 {
     private DataAccess dataAccess;
 
   /* randall's tests
-    private AccessMT accessorMT;
-    // private ManageTickets accessorManage;
-    // private Ticket ticket,testTicket;
-    private ArrayList tickets,listoftickets;
-    private MT testMT,testMT2;
+     private MT testMT,testMT2;
 */
 
     public DataAccessTest(String arg0)
@@ -45,18 +38,12 @@ public class DataAccessTest extends TestCase
 
 
     /*
-        accessorMT = new AccessMT();
-        //accessorManage = new ManageTickets();
-        //tickets = new ArrayList<Ticket>();
-        //listoftickets = new ArrayList<Ticket>();
-
         testMT = accessorMT.getMT(new Movie("Peter Rabbit", "Feature adaptation of Beatrix Potter''s classic tale of a rebellious rabbit trying to sneak into a farmer''s vegetable garden.", "Family", 5.6)
                 ,new Theater( "Cinema City Northgate","1399 McPhillips Street"));
 
         testMT2 = accessorMT.getMT(new Movie("Jumangi: Welcome to the Jungle", "Four teenagers are sucked into a magical video game, and the only way they can escape is to work together to finish the game.", "Thriller", 5.8)
                 ,new Theater( "Cinema City Northgate","1399 McPhillips Street"));
-
-      */
+     */
 
 
     }
@@ -427,6 +414,127 @@ public class DataAccessTest extends TestCase
             assertEquals(1, dataAccess.checkStatus(mt, showtimes.get(i), 2, 4));
         }
     }
+
+
+    public void testInsertTicket(){
+
+        //test empty ticket
+        assertEquals(0,dataAccess.insertTicket(null, null, null, 0, 0));
+
+        //test tickets missing info
+        assertEquals(0,dataAccess.insertTicket(null,"Cinema City Northgate","10:40",0,0));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand",null,"10:40",0,0));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Cinema City Northgate",null,0,0));
+        assertEquals(0,dataAccess.insertTicket(null,null,"10:40",0,0));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand",null,null,0,0));
+        assertEquals(0,dataAccess.insertTicket(null,"Cinema City Northgate",null,0,0));
+
+
+
+        //test incorrect info
+        //movie name
+        assertEquals(0,dataAccess.insertTicket("Fifty Shades Freed","Cinema City Northgate","10:40",0,0));
+        assertEquals(0,dataAccess.insertTicket("Fifty Shades Freed","Cineplex Odeon McGillivray Cinemas","11:25",0,0));
+        assertEquals(0,dataAccess.insertTicket("Fifty Shades Freed","Famous Players Kildonan Place Cinemas","15:30",0,0));
+        assertEquals(0,dataAccess.insertTicket("Fifty Shades Freed","Scotiabank Theatre Winnipeg","13:30",0,0));
+        assertEquals(0,dataAccess.insertTicket("Fifty Shades Freed","SilverCity St.Vital Cinemas","14:50",0,0));
+
+
+        //Theater name
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Cineplex Odeon McGillivray Cinemas","10:40",0,0));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Famous Players Kildonan Place Cinemas","11:25",0,0));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Scotiabank Theatre Winnipeg","15:30",0,0));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","SilverCity St.Vital Cinemas","13:30",0,0));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Cinema City Northgate","14:50",0,0));
+
+        //showtime
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Cinema City Northgate","11:40",0,0));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Cineplex Odeon McGillivray Cinemas","12:25",0,0));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Famous Players Kildonan Place Cinemas","17:30",0,0));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Scotiabank Theatre Winnipeg","14:30",0,0));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","SilverCity St.Vital Cinemas","12:50",0,0));
+
+        //row & col
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Cinema City Northgate","10:40",5,5));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Cineplex Odeon McGillivray Cinemas","11:25",6,6));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Famous Players Kildonan Place Cinemas","15:30",4,7));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Scotiabank Theatre Winnipeg","13:30",7,4));
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","SilverCity St.Vital Cinemas","14:50",-1,-1));
+
+
+        //test normal tickets, create 5 then grab them
+        assertEquals(1,dataAccess.insertTicket("Ferdinand","Cinema City Northgate","10:40",0,0));
+        assertEquals(1,dataAccess.insertTicket("Ferdinand","Cineplex Odeon McGillivray Cinemas","11:25",0,0));
+        assertEquals(1,dataAccess.insertTicket("Ferdinand","Famous Players Kildonan Place Cinemas","15:30",0,0));
+        assertEquals(1,dataAccess.insertTicket("Ferdinand","Scotiabank Theatre Winnipeg","13:30",0,0));
+        assertEquals(1,dataAccess.insertTicket("Ferdinand","SilverCity St.Vital Cinemas","14:50",0,0));
+
+
+        //creating a ticket that's already there
+        assertEquals(0,dataAccess.insertTicket("Ferdinand","Cinema City Northgate","10:40",0,0));
+
+    }
+
+
+
+    public void testGetTicketsSequential()
+    {
+
+        Ticket ticket,testTicket;
+        ArrayList tickets,listoftickets;
+
+        tickets = new ArrayList<Ticket>();
+        listoftickets = new ArrayList<Ticket>();
+
+        dataAccess.getTicketsSequential(tickets);
+
+        if(tickets.isEmpty()) {
+            assertEquals(1, dataAccess.insertTicket("Fifty Shades Freed", "Cinema City Northgate", "13:20", 0, 0));
+            assertEquals(1, dataAccess.insertTicket("Fifty Shades Freed", "Cineplex Odeon McGillivray Cinemas", "12:00", 0, 0));
+            assertEquals(1, dataAccess.insertTicket("Fifty Shades Freed", "Famous Players Kildonan Place Cinemas", "13:30", 0, 0));
+            assertEquals(1, dataAccess.insertTicket("Fifty Shades Freed", "Scotiabank Theatre Winnipeg", "14:40", 0, 0));
+            assertEquals(1, dataAccess.insertTicket("Fifty Shades Freed", "SilverCity St.Vital Cinemas", "14:00", 0, 0));
+
+            listoftickets.add(new Ticket("Fifty Shades Freed","Cinema City Northgate","13:20",0,0));
+            listoftickets.add(new Ticket("Fifty Shades Freed","Cineplex Odeon McGillivray Cinemas","12:00",0,0));
+            listoftickets.add(new Ticket("Fifty Shades Freed","Famous Players Kildonan Place Cinemas","13:30",0,0));
+            listoftickets.add(new Ticket("Fifty Shades Freed","Scotiabank Theatre Winnipeg","14:40",0,0));
+            listoftickets.add(new Ticket("Fifty Shades Freed","SilverCity St.Vital Cinemas","14:00",0,0));
+
+            dataAccess.getTicketsSequential(tickets);
+        }
+        else
+        {
+            listoftickets.add(new Ticket("Ferdinand", "Cinema City Northgate", "10:40", 0, 0));
+            listoftickets.add(new Ticket("Ferdinand", "Cineplex Odeon McGillivray Cinemas", "11:25", 0, 0));
+            listoftickets.add(new Ticket("Ferdinand", "Famous Players Kildonan Place Cinemas", "15:30", 0, 0));
+            listoftickets.add(new Ticket("Ferdinand", "Scotiabank Theatre Winnipeg", "13:30", 0, 0));
+            listoftickets.add(new Ticket("Ferdinand", "SilverCity St.Vital Cinemas", "14:50", 0, 0));
+        }
+
+        //then retrieve and check them
+        dataAccess.getTicketsSequential(tickets);
+
+        int [] testTicketLocation ;
+        int [] ticketLocation;
+        for (int i = 0; i < listoftickets.size(); i++)
+        {
+            ticket = (Ticket)tickets.get(i);
+            testTicket = (Ticket)listoftickets.get(i);
+
+            assertEquals(testTicket.getMovieName(), ticket.getMovieName());
+            assertEquals(testTicket.getTheaterName(), ticket.getTheaterName());
+            assertEquals(testTicket.getShowTime(), ticket.getShowTime());
+
+            testTicketLocation = testTicket.getSeatLocation();
+            ticketLocation = ticket.getSeatLocation();
+
+            assertEquals(testTicketLocation[0], ticketLocation[0]);
+            assertEquals(testTicketLocation[1], ticketLocation[1]);
+        }
+    }
+
+
 }
 
 
