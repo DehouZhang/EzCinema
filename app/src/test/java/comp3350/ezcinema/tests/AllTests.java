@@ -74,5 +74,4 @@ public class AllTests
     {
         suite.addTestSuite(DataAccessTest.class);
     }
-
 }

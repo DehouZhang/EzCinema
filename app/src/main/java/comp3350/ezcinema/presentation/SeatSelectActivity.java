@@ -24,10 +24,9 @@ public class SeatSelectActivity extends AppCompatActivity {
     int[] rc;
     ArrayList<int[]> temptable;
 
-    AccessSeat accessSeat;
-
     MT mtPassed;
     String showtime;
+    AccessSeat accessSeat;
 
     //view
     GridView seatGridView;
@@ -46,7 +45,6 @@ public class SeatSelectActivity extends AppCompatActivity {
 
     private void initializeData(){
         accessSeat = new AccessSeat();
-
         temptable = new ArrayList<>();
 
         mtPassed = (MT) getIntent().getExtras().getSerializable("MTPassed");
@@ -102,7 +100,6 @@ public class SeatSelectActivity extends AppCompatActivity {
 
     private void selection() {
         if(count == 0) {
-
             //pass data
             Intent intent = new Intent(SeatSelectActivity.this, CheckoutActivity.class);
             Bundle extras = new Bundle();
@@ -117,8 +114,5 @@ public class SeatSelectActivity extends AppCompatActivity {
             Toast.makeText(this, "Please select "+count+" more Seat!", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
 
 }
