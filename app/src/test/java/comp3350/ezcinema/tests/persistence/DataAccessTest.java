@@ -18,7 +18,8 @@ public class DataAccessTest extends TestCase
 {
     private DataAccess dataAccess;
 
-  /*  private AccessMT accessorMT;
+  /* randall's tests
+    private AccessMT accessorMT;
     // private ManageTickets accessorManage;
     // private Ticket ticket,testTicket;
     private ArrayList tickets,listoftickets;
@@ -428,6 +429,8 @@ public class DataAccessTest extends TestCase
     }
 }
 
+
+//randall's tests
 /*   public void testUpdateStatus(){
 
         ///try with improper details
@@ -568,12 +571,6 @@ public class DataAccessTest extends TestCase
             }
         }
 
-
-
-
-
     }
-
-
 
 */
