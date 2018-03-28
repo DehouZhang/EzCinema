@@ -11,9 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.RadioButton;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import comp3350.ezcinema.R;
+import comp3350.ezcinema.business.CalculateTax;
 import comp3350.ezcinema.business.UpdateSeat;
 import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
@@ -27,6 +29,9 @@ public class CheckoutActivity extends AppCompatActivity
     private String showtime;
     private ArrayList<int[]>  temptable;
     private double price = 10.00;
+    DecimalFormat money = new DecimalFormat("$0.00");
+    private CalculateTax tax;
+    private double afterTax;
 
     private MT mtPassed;
     UpdateSeat updates;
@@ -58,6 +63,9 @@ public class CheckoutActivity extends AppCompatActivity
         movieName = mtPassed.getMovieName();
         theaterName = mtPassed.getTheaterName();
         updates = new UpdateSeat();
+        tax = new CalculateTax();
+        price = amount*price;
+        afterTax = tax.calcTax((price));
 
         textViewTitle = (TextView)findViewById(R.id.textViewTitle);
         textViewSubtotal = (TextView)findViewById(R.id.textViewSubtotal);
@@ -70,9 +78,9 @@ public class CheckoutActivity extends AppCompatActivity
 
     private void setTextView()
     {
-        textViewTitle.setText(movieName+" # of Tickets\n");
-        textViewSubtotal.setText("Subtotal: "+price+" per ticket");//add subtotal
-        textViewTotal.setText("Total: "+amount+"*"+price+"\n= $"+amount*price);//add total
+        textViewTitle.setText(movieName+", # of Tickets: "+amount);
+        textViewSubtotal.setText("Subtotal: "+money.format(price));
+        textViewTotal.setText("Total: "+money.format(afterTax));
     }
 
     public void onRadioButtonClicked(View view)

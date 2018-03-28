@@ -3,7 +3,9 @@ package comp3350.ezcinema.presentation;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,6 +20,8 @@ import comp3350.ezcinema.R;
 import comp3350.ezcinema.business.AccessTheater;
 import comp3350.ezcinema.business.CountSeat;
 import comp3350.ezcinema.objects.MT;
+import comp3350.ezcinema.objects.Movie;
+import comp3350.ezcinema.objects.Theater;
 
 public class ConfirmationActivity extends AppCompatActivity
 {
@@ -71,7 +75,7 @@ public class ConfirmationActivity extends AppCompatActivity
 
     private void setTextInfo()
     {
-        textViewInfo.setText("\n\n"+passedMT.getMovieName()+"\n\nAt: \n"+passedMT.getTheaterName()+"\n"+accessTheater.getTheaterAddr(passedMT.getTheaterName()));
+        textViewInfo.setText(passedMT.getMovieName()+"\n\nLocation: \n"+passedMT.getTheaterName()+"\n"+accessTheater.getTheaterAddr(passedMT.getTheaterName()));
     }
 
     private void setSpinner()
@@ -112,7 +116,7 @@ public class ConfirmationActivity extends AppCompatActivity
 
             if(remains - amount >= 0)
             {
-                Intent intent = new Intent(ConfirmationActivity.this, SeatSelectActivity.class);
+                Intent intent = new Intent(ConfirmationActivity.this, SeatSelectActvity.class);
                 Bundle extras = new Bundle();
                 extras.putSerializable("MTPassed", passedMT);
                 extras.putSerializable("ShowTimePassed", selectedShowTime);
