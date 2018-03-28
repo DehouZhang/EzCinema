@@ -11,6 +11,7 @@ import java.util.List;
 
 import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
+import comp3350.ezcinema.objects.Seat;
 import comp3350.ezcinema.objects.Theater;
 
 public class DataAccessObject implements DataAccess
@@ -190,7 +191,7 @@ public class DataAccessObject implements DataAccess
         return addr;
     }
 
-    public String updateStatus(MT seat,String time, int row, int col)
+    public String updateStatus(Seat seat, int row, int col)
     {
         String values;
         String where;
@@ -199,8 +200,8 @@ public class DataAccessObject implements DataAccess
         try
         {
             values="Status="+1;
-            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Row="+row+" and Col="+col;
-            cmdString= "Update MovieTheaters "+" Set "+values+" "+where;
+            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+seat.getShowtime()+"' and Row="+row+" and Col="+col;
+            cmdString= "Update SEATS "+" Set "+values+" "+where;
             updateCount = st5.executeUpdate(cmdString);
             result = checkWarning(st5, updateCount);
         }
@@ -211,22 +212,21 @@ public class DataAccessObject implements DataAccess
         return result;
     }
 
-    public int countRemain(MT seat,String time)
+    public int countRemain(Seat seat)
     {
         int result=0;
         String where;
 
         try
         {
-            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Status=0";
-            cmdString="Select Row from MovieTheaters "+where;
+            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+seat.getShowtime()+"' and Status=0";
+            cmdString="Select Row from SEATS "+where;
             rs6=st5.executeQuery(cmdString);
 
             while(rs6.next())
             {
                 result++;
             }
-
         }
         catch (Exception e)
         {
@@ -236,14 +236,14 @@ public class DataAccessObject implements DataAccess
         return result;
     }
 
-    public int checkStatus(MT seat, String time, int row, int col)
+    public int checkStatus(Seat seat, int row, int col)
     {
         int result=-1;
         String where;
         try
         {
-            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+time+"' and Row="+row+" and Col="+col;
-            cmdString="Select Status from MovieTheaters "+where;
+            where="where MovieName='"+seat.getMovieName()+"' and TheaterName='"+seat.getTheaterName()+"' and Showtime='"+seat.getShowtime()+"' and Row="+row+" and Col="+col;
+            cmdString="Select Status from SEATS "+where;
             rs7=st6.executeQuery(cmdString);
             rs7.next();
             result=rs7.getInt("Status");

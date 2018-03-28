@@ -5,6 +5,7 @@ import java.util.List;
 
 import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.objects.Movie;
+import comp3350.ezcinema.objects.Seat;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.persistence.DataAccess;
@@ -12,17 +13,17 @@ import comp3350.ezcinema.persistence.DataAccess;
 public class DataAccessStub implements DataAccess
 {
     @Override
-    public String updateStatus(MT seat, String time, int row, int col) {
+    public String updateStatus(Seat seat, int row, int col) {
         return null;
     }
 
     @Override
-    public int countRemain(MT seat, String time) {
+    public int countRemain(Seat seat) {
         return 0;
     }
 
     @Override
-    public int checkStatus(MT seat, String time, int row, int col) {
+    public int checkStatus(Seat seat, int row, int col) {
         return 0;
     }
 
@@ -417,4 +418,6 @@ public class DataAccessStub implements DataAccess
         }
         return null; //if cannot find the theater
     }
+
+
 }

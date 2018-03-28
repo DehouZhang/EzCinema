@@ -3,9 +3,7 @@ package comp3350.ezcinema.presentation;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,10 +15,7 @@ import java.util.ArrayList;
 
 import comp3350.ezcinema.R;
 import comp3350.ezcinema.business.AccessTheater;
-import comp3350.ezcinema.business.CountSeat;
 import comp3350.ezcinema.objects.MT;
-import comp3350.ezcinema.objects.Movie;
-import comp3350.ezcinema.objects.Theater;
 
 public class ConfirmationActivity extends AppCompatActivity
 {
