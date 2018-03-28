@@ -18,6 +18,7 @@ public class CalculateTaxTest extends TestCase
         total = 0.0;
         tax = 0.0;
         price = 0.0;
+        CalcTax = new CalculateTax();
         pst = CalcTax.getPst();
         gst = CalcTax.getGst();
     }

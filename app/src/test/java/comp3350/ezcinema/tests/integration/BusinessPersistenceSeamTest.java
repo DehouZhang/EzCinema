@@ -278,7 +278,7 @@ public class BusinessPersistenceSeamTest extends TestCase {
                     ,new Theater( "Cinema City Northgate","1399 McPhillips Street"));
 
             //check with null info
-            assertEquals(-1, dataAccess.countRemain(null, "13:20"));
+            assertEquals(-1, dataAccess.countRemain(null, "19:10"));
             assertEquals(-1, dataAccess.countRemain(testMT, null));
             assertEquals(-1, dataAccess.countRemain(null, null));
 
@@ -288,31 +288,31 @@ public class BusinessPersistenceSeamTest extends TestCase {
 
 
             //count the current seats, all empty
-            assertEquals(25, dataAccess.countRemain(testMT, "13:20"));
+            assertEquals(25, dataAccess.countRemain(testMT, "19:10"));
 
 
             //update 2 seats separately and check
-            dataAccess.updateStatus(testMT, "13:20", 0, 0);
-            assertEquals(24, dataAccess.countRemain(testMT, "13:20"));
+            dataAccess.updateStatus(testMT, "19:10", 0, 0);
+            assertEquals(24, dataAccess.countRemain(testMT, "19:10"));
 
-            dataAccess.updateStatus(testMT, "13:20", 4, 4);
-            assertEquals(23, dataAccess.countRemain(testMT, "13:20"));
+            dataAccess.updateStatus(testMT, "19:10", 4, 4);
+            assertEquals(23, dataAccess.countRemain(testMT, "19:10"));
 
 
             //update all of them, making no seats avaliable
             for (int row = 0; row < 5; row++) {
                 for (int col = 0; col < 5; col++) {
-                    dataAccess.updateStatus(testMT, "13:20", row, col);
+                    dataAccess.updateStatus(testMT, "19:10", row, col);
                 }
             }
 
-            assertEquals(0, dataAccess.countRemain(testMT, "13:20"));
+            assertEquals(0, dataAccess.countRemain(testMT, "19:10"));
 
 
             ///FIX SQL ERRORS*********************************************************************
 
             //if either of the fields is null
-            assertEquals(null, accessorST.getSeatTable(null, "13:20"));
+            assertEquals(null, accessorST.getSeatTable(null, "22:00"));
             assertEquals(null, accessorST.getSeatTable(testMT2, null));
 
             //if the table doesn't exist, in the case of a wrong show time
@@ -322,7 +322,7 @@ public class BusinessPersistenceSeamTest extends TestCase {
 
 
             //check the entries as they are, 0
-            int[][] testTable = accessorST.getSeatTable(testMT2, "13:20");
+            int[][] testTable = accessorST.getSeatTable(testMT2, "22:00");
 
             for (int row = 0; row < 5; row++) {
                 for (int col = 0; col < 5; col++) {
@@ -334,10 +334,10 @@ public class BusinessPersistenceSeamTest extends TestCase {
             //update all the entries, then check again
             for (int row = 0; row < 5; row++) {
                 for (int col = 0; col < 5; col++) {
-                    dataAccess.updateStatus(testMT2, "13:20", row, col);
+                    dataAccess.updateStatus(testMT2, "22:00", row, col);
                 }
             }
-            testTable = accessorST.getSeatTable(testMT2, "13:20");
+            testTable = accessorST.getSeatTable(testMT2, "22:00");
 
             for (int row = 0; row < 5; row++) {
                 for (int col = 0; col < 5; col++) {

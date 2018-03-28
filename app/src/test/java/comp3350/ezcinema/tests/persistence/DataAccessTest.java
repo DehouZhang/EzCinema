@@ -4,11 +4,13 @@ import junit.framework.TestCase;
 
 import java.util.ArrayList;
 
+import comp3350.ezcinema.application.Main;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Ticket;
 import comp3350.ezcinema.persistence.DataAccess;
+import comp3350.ezcinema.persistence.DataAccessObject;
 
 import static org.junit.Assert.assertArrayEquals;
 public class DataAccessTest extends TestCase
@@ -25,11 +27,11 @@ public class DataAccessTest extends TestCase
     {
         System.out.println("\nStarting Persistence test DataAccess (using stub)");
         // Use the following statements to run with the stub database:
-        dataAccess = new DataAccessStub();
-        dataAccess.open("Stub");
+        //dataAccess = new DataAccessStub();
+        //dataAccess.open("Stub");
         //or switch to the real database:
-        //dataAccess = new DataAccessObject(Main.dbName);
-        //dataAccess.open(Main.getDBPathName());
+        dataAccess = new DataAccessObject(Main.dbName);
+        dataAccess.open(Main.getDBPathName());
 
 
     }

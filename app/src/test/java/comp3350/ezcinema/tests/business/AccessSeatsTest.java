@@ -16,7 +16,7 @@ public class AccessSeatsTest extends TestCase {
     private AccessMT accessorMT;
     private AccessSeat accessorST;
     private DataAccess dataAccess;
-    private MT testMT;
+    private MT testMT,testMT2;
     //private ManageTickets accessorManage;
 
     public void setUp() throws Exception {
@@ -28,6 +28,9 @@ public class AccessSeatsTest extends TestCase {
         dataAccess = Services.getDataAccess(Main.dbName);
 
         testMT = accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
+                ,new Theater( "Cinema City Northgate","1399 McPhillips Street"));
+
+        testMT2 = accessorMT.getMT(new Movie("Jumangi: Welcome to the Jungle", "Four teenagers are sucked into a magical video game, and the only way they can escape is to work together to finish the game.", "Thriller", 5.8)
                 ,new Theater( "Cinema City Northgate","1399 McPhillips Street"));
 
     }
@@ -79,13 +82,13 @@ public class AccessSeatsTest extends TestCase {
         assertEquals(null, accessorST.getSeatTable(testMT, null));
 
         //if the table doesn't exist, in the case of a wrong show time
-        assertEquals(null, accessorST.getSeatTable(testMT, "Wrong"));
-        assertEquals(null, accessorST.getSeatTable(testMT, "13:21"));
-        assertEquals(null, accessorST.getSeatTable(testMT, "#%@#@%"));
+        assertEquals(null, accessorST.getSeatTable(testMT2, "Wrong"));
+        assertEquals(null, accessorST.getSeatTable(testMT2, "13:21"));
+        assertEquals(null, accessorST.getSeatTable(testMT2, "#%@#@%"));
 
 
         //check the entries as they are, 0
-        int[][] testTable = accessorST.getSeatTable(testMT, "13:20");
+        int[][] testTable = accessorST.getSeatTable(testMT2, "13:20");
 
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 5; col++) {
@@ -97,10 +100,10 @@ public class AccessSeatsTest extends TestCase {
         //update all the entries, then check again
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 5; col++) {
-                dataAccess.updateStatus(testMT, "13:20", row, col);
+                dataAccess.updateStatus(testMT2, "13:20", row, col);
             }
         }
-        testTable = accessorST.getSeatTable(testMT, "13:20");
+        testTable = accessorST.getSeatTable(testMT2, "13:20");
 
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 5; col++) {
@@ -134,7 +137,7 @@ public class AccessSeatsTest extends TestCase {
 
         //Update the avaliable seats
         assertEquals(null,dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
-                ,new Theater( "Cinema City Northgate","1399 McPhillips Street")),"13:20",0,0));
+                ,new Theater( "Cinema City Northgate","1399 McPhillips Street")),"16:50",0,0));
 
         assertEquals(null,dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
                 ,new Theater("Cineplex Odeon McGillivray Cinemas","2190 McGillivray Blvd")),"12:00",0,0));
@@ -152,7 +155,7 @@ public class AccessSeatsTest extends TestCase {
 
         //attempt to update them again
         assertEquals("Seat already claimed",dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
-                ,new Theater( "Cinema City Northgate","1399 McPhillips Street")),"13:20",0,0));
+                ,new Theater( "Cinema City Northgate","1399 McPhillips Street")),"16:50",0,0));
 
         assertEquals("Seat already claimed",dataAccess.updateStatus(accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
                 ,new Theater("Cineplex Odeon McGillivray Cinemas","2190 McGillivray Blvd")),"12:00",0,0));
