@@ -112,7 +112,7 @@ public class ConfirmationActivity extends AppCompatActivity
 
             if(remains - amount >= 0)
             {
-                Intent intent = new Intent(ConfirmationActivity.this, SeatSelectActvity.class);
+                Intent intent = new Intent(ConfirmationActivity.this, SeatSelectActivity.class);
                 Bundle extras = new Bundle();
                 extras.putSerializable("MTPassed", passedMT);
                 extras.putSerializable("ShowTimePassed", selectedShowTime);
