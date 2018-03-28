@@ -69,19 +69,26 @@ Iteration 1
 		-Name
 		-Address 
 		
-Features
+
 Iteration 2
 -Buying a ticket for a movie
 	-Selecting a movie from the movie list will allow a user to choose a theater they want to see the movie at
 	-Selecting a theater will bring the user to a page to select a showtime and the amount of tickets to purchase
 	-Clicking confirm will bring the user to a payment option page
-	NOTE: the payment options do not have a back end yet and any input will allow a purchase
 	-after "purchasing" a ticket the user will be brought to a page that has ticket info on it and a QR code that could be scanned 		at a theater
  
  	-Alternately a user could select a theater from the theater list
 	-This will bring them to a list of movie playing at that theater
 	-After they select a movie they will be brought to the showtime and tickets amount selection page
-	
+
+Iteration 3
+	-App now stores tickets purchased and allows for viewing all tickets purchased
+		-Page can be found from the my tickets page
+		-clicking on tickets in this page brings you to the ticket display page
+	-Integrated seat selection into ticket purchasing process
+		-To select a seat touch a green box with numbers in it
+		-Once a ticket is purchased that seat is reserved
+	-Updated GUI to look presentable
 
 Log is in the repository
 
