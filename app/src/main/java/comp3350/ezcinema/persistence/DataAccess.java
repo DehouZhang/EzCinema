@@ -5,7 +5,6 @@ import java.util.List;
 
 import comp3350.ezcinema.objects.MT;
 import comp3350.ezcinema.objects.Movie;
-import comp3350.ezcinema.objects.Seat;
 import comp3350.ezcinema.objects.Theater;
 
 public interface DataAccess
@@ -22,9 +21,9 @@ public interface DataAccess
 
     String getTheaterAddress(String theaterName);
 
-    String updateStatus(Seat seat, int row, int col);
+    String updateStatus(MT seat,String time, int row, int col);
 
-    int countRemain(Seat seat);
+    int countRemain(MT seat,String time);
 
-    int checkStatus(Seat seat, int row,int col);
+    int checkStatus(MT seat,String time,int row,int col);
 }

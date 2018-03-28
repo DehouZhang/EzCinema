@@ -24,7 +24,4 @@ public class Seat implements Serializable{
         return theaterName;
     }
 
-    public String getShowtime() {
-        return showtime;
-    }
 }
