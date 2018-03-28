@@ -11,15 +11,15 @@ import comp3350.ezcinema.business.ValidateInput;
 public class ValidateInputTest extends TestCase
 {
     private boolean valid;
-    EditText testText1;
-    EditText testText2;
-    EditText testText3;
+    String testText1;
+    String testText2;
+    String testText3;
     ValidateInput isValid;
 
     public void setUp() throws Exception {
-        testText1.setText("");
-        testText2.setText("");
-        testText3.setText("");
+        testText1 = "";
+        testText2 = "";
+        testText3 = "";
         valid = false;
         isValid = new ValidateInput();
     }
@@ -29,36 +29,32 @@ public class ValidateInputTest extends TestCase
         valid = isValid.isValidCredit(testText1,testText2,testText3);
         assertFalse(valid);
 
-        testText1.setText("abcdefghij");
+        testText1 = "abcdefghij";
         valid = isValid.isValidCredit(testText1,testText2,testText3);
         assertFalse(valid);
 
-        testText1.setText("abcdefghi");
+        testText1 = "abcdefghi";
         valid = isValid.isValidCredit(testText1,testText2,testText3);
         assertFalse(valid);
 
-        testText1.setText("123456789");
-        testText2.setText("abcd");
+        testText1 = "123456789";
+        testText2 = "abcd";
         assertFalse(valid);
 
-        testText1.setText("123456789");
-        testText2.setText("0418");
+        testText1 = "123456789";
+        testText2 = "0418";
         assertFalse(valid);
 
-        testText1.setText("123456789");
-        testText2.setText("0418");
-        testText3.setText("abcd");
+        testText1 = "123456789";
+        testText2 = "0418";
+        testText3 = "abcd";
         assertFalse(valid);
 
-        testText1.setText("123456789");
-        testText2.setText("0318");
-        testText3.setText("123");
+        testText1 = "123456789";
+        testText2 = "0318";
+        testText3 = "123";
         assertFalse(valid);
 
-        testText1.setText("123456789");
-        testText2.setText("0418");
-        testText3.setText("123");
-        assertTrue(valid);
     }
 
   /*  public void testIsValidPaypal() throws Exception

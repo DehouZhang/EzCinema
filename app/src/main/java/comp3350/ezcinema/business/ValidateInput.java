@@ -19,10 +19,7 @@ public class ValidateInput {
         curYear = now.get(Calendar.YEAR);
     }
 
-    public boolean isValidCredit(EditText credit, EditText date, EditText cvv){
-        String creditText = credit.getText().toString().trim();
-        String dateText = date.getText().toString().trim();
-        String cvvText = cvv.getText().toString().trim();
+    public boolean isValidCredit(String creditText, String dateText, String cvvText){
         boolean validDate = false;
         valid = true;
 
