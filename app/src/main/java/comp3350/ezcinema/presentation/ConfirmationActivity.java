@@ -114,7 +114,7 @@ public class ConfirmationActivity extends AppCompatActivity
             int remains = countSeat.countRemainingSeats(passedMT,selectedShowTime);
             amount = Integer.parseInt(editTextAmount.getText().toString());
 
-            if(remains - amount >= 0)
+            if(remains - amount > 0)
             {
                 Intent intent = new Intent(ConfirmationActivity.this, SeatSelectActvity.class);
                 Bundle extras = new Bundle();

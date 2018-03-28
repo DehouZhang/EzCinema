@@ -3,15 +3,19 @@ package comp3350.ezcinema.tests;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
+
 import comp3350.ezcinema.tests.business.AccessMTTest;
 import comp3350.ezcinema.tests.business.AccessMovieTest;
 import comp3350.ezcinema.tests.business.AccessTheaterTest;
+import comp3350.ezcinema.tests.business.CountSeatTest;
+import comp3350.ezcinema.tests.business.ManageTicketsTest;
 import comp3350.ezcinema.tests.business.SortMovieTest;
 import comp3350.ezcinema.tests.business.SortTheaterTest;
+import comp3350.ezcinema.tests.business.UpdateSeatTest;
+import comp3350.ezcinema.tests.business.getSeatsTableTest;
 import comp3350.ezcinema.tests.objects.MTTest;
 import comp3350.ezcinema.tests.objects.MovieTest;
 import comp3350.ezcinema.tests.objects.TheaterTest;
-import comp3350.ezcinema.tests.objects.MTTest;
 import comp3350.ezcinema.tests.persistence.DataAccessTest;
 
 
@@ -43,6 +47,10 @@ public class AllTests
         suite.addTestSuite(AccessMTTest.class);
         suite.addTestSuite(SortTheaterTest.class);
         suite.addTestSuite(SortMovieTest.class);
+        suite.addTestSuite(ManageTicketsTest.class);
+        suite.addTestSuite(UpdateSeatTest.class);
+        suite.addTestSuite(CountSeatTest.class);
+        suite.addTestSuite(getSeatsTableTest.class);
 
     }
 
