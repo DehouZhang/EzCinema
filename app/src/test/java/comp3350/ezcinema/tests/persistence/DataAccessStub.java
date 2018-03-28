@@ -12,27 +12,13 @@ import comp3350.ezcinema.persistence.DataAccess;
 
 public class DataAccessStub implements DataAccess
 {
-    @Override
-    public String updateStatus(MT seat, String time, int row, int col) {
-        return null;
-    }
-
-    @Override
-    public int countRemain(MT seat, String time) {
-        return 0;
-    }
-
-    @Override
-    public int checkStatus(MT seat, String time, int row, int col) {
-        return 0;
-    }
-
     private String dbName;
     private String dbType = "stub";
 
     private ArrayList<Movie> movies;
     private ArrayList<Theater> theaters;
     private ArrayList<MT> MTs;
+    private ArrayList<Seat> seats;
 
     public DataAccessStub(String dbName)
     {
@@ -50,6 +36,7 @@ public class DataAccessStub implements DataAccess
         Movie movie;
         Theater theater;
         MT mt;
+        Seat seat;
 
         movies = new ArrayList<Movie>();
         movie = new Movie("Ferdinand","After Ferdinand, a bull with a big heart, is mistaken for a dangerous beast, he is captured and torn from his home. Determined to return to his family, he rallies a misfit team on the ultimate adventure.","Family" ,6.7);
@@ -68,8 +55,6 @@ public class DataAccessStub implements DataAccess
         movies.add(movie);
         movie = new Movie( "Winchester", "Ensconced in her sprawling California mansion, eccentric firearm heiress Sarah Winchester believes she is haunted by the souls of people killed by the Winchester repeating rifle.", "Horror", 2.8 );
         movies.add(movie);
-
-
 
         theaters = new ArrayList<Theater>();
         theater = new Theater( "Cinema City Northgate","1399 McPhillips Street");
@@ -373,6 +358,391 @@ public class DataAccessStub implements DataAccess
         mt= new MT("Ferdinand","Cineplex Odeon McGillivray Cinemas",temp40);
         MTs.add(mt);
 
+        seats= new ArrayList<Seat>();
+        seat=new Seat("Ferdinand","Cinema City Northgate","10:40");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","Cinema City Northgate","14:20");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","Cinema City Northgate","19:50");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","Cineplex Odeon McGillivray Cinemas","11:25");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","Cineplex Odeon McGillivray Cinemas","15:40");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","Cineplex Odeon McGillivray Cinemas","19:35");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","Famous Players Kildonan Place Cinemas","15:30");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","Famous Players Kildonan Place Cinemas","19:20");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","Famous Players Kildonan Place Cinemas","22:50");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","Scotiabank Theatre Winnipeg","13:30");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","Scotiabank Theatre Winnipeg","16:40");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","Scotiabank Theatre Winnipeg","21:30");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","SilverCity St.Vital Cinemas","14:50");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","SilverCity St.Vital Cinemas","18:30");
+        seats.add(seat);
+
+        seat=new Seat("Ferdinand","SilverCity St.Vital Cinemas","21:50");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","Cinema City Northgate","13:20");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","Cinema City Northgate","16:50");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","Cinema City Northgate","19:10");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","Cinema City Northgate","22:00");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","Cineplex Odeon McGillivray Cinemas","12:00");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","Cineplex Odeon McGillivray Cinemas","15:20");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","Cineplex Odeon McGillivray Cinemas","19:40");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","Famous Players Kildonan Place Cinemas","13:30");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","Famous Players Kildonan Place Cinemas","17:40");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","Famous Players Kildonan Place Cinemas","20:25");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","Scotiabank Theatre Winnipeg","14:40");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","Scotiabank Theatre Winnipeg","18:00");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","Scotiabank Theatre Winnipeg","21:20");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","SilverCity St.Vital Cinemas","14:00");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","SilverCity St.Vital Cinemas","17:40");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","SilverCity St.Vital Cinemas","20:30");
+        seats.add(seat);
+
+        seat=new Seat("Fifty Shades Freed","SilverCity St.Vital Cinemas","23:40");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Cinema City Northgate","13:20");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Cinema City Northgate","16:50");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Cinema City Northgate","19:10");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Cinema City Northgate","22:00");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Cineplex Odeon McGillivray Cinemas","13:30");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Cineplex Odeon McGillivray Cinemas","17:40");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Cineplex Odeon McGillivray Cinemas","20:25");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Famous Players Kildonan Place Cinemas","14:00");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Famous Players Kildonan Place Cinemas","17:40");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Famous Players Kildonan Place Cinemas","20:30");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Famous Players Kildonan Place Cinemas","23:40");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Scotiabank Theatre Winnipeg","14:40");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Scotiabank Theatre Winnipeg","18:00");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","Scotiabank Theatre Winnipeg","21:20");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","SilverCity St.Vital Cinemas","12:00");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","SilverCity St.Vital Cinemas","15:20");
+        seats.add(seat);
+
+        seat=new Seat("Jumangi: Welcome to the Jungle","SilverCity St.Vital Cinemas","19:40");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Cinema City Northgate","14:40");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Cinema City Northgate","18:00");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Cinema City Northgate","21:20");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Cineplex Odeon McGillivray Cinemas","14:40");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Cineplex Odeon McGillivray Cinemas","17:40");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Cineplex Odeon McGillivray Cinemas","20:30");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Cineplex Odeon McGillivray Cinemas","23:40");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Famous Players Kildonan Place Cinemas","12:00");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Famous Players Kildonan Place Cinemas","15:20");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Famous Players Kildonan Place Cinemas","19:40");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Scotiabank Theatre Winnipeg","13:20");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Scotiabank Theatre Winnipeg","16:50");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Scotiabank Theatre Winnipeg","19:10");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","Scotiabank Theatre Winnipeg","22:00");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","SilverCity St.Vital Cinemas","13:30");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","SilverCity St.Vital Cinemas","17:40");
+        seats.add(seat);
+
+        seat=new Seat("Peter Rabbit","SilverCity St.Vital Cinemas","20:25");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","Cinema City Northgate","14:10");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","Cinema City Northgate","19:50");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","Cinema City Northgate","22:30");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","Cineplex Odeon McGillivray Cinemas","15:30");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","Cineplex Odeon McGillivray Cinemas","19:50");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","Cineplex Odeon McGillivray Cinemas","21:30");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","Famous Players Kildonan Place Cinemas","13:40");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","Famous Players Kildonan Place Cinemas","17:00");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","Famous Players Kildonan Place Cinemas","23:10");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","Scotiabank Theatre Winnipeg","15:00");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","Scotiabank Theatre Winnipeg","18:10");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","Scotiabank Theatre Winnipeg","21:50");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","SilverCity St.Vital Cinemas","11:10");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","SilverCity St.Vital Cinemas","14:20");
+        seats.add(seat);
+
+        seat=new Seat("Red Sparrow","SilverCity St.Vital Cinemas","20:30");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","Cinema City Northgate","12:00");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","Cinema City Northgate","16:30");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","Cinema City Northgate","20:50");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","Cineplex Odeon McGillivray Cinemas","14:20");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","Cineplex Odeon McGillivray Cinemas","17:50");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","Cineplex Odeon McGillivray Cinemas","21:20");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","Famous Players Kildonan Place Cinemas","14:40");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","Famous Players Kildonan Place Cinemas","19:20");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","Famous Players Kildonan Place Cinemas","23:30");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","Scotiabank Theatre Winnipeg","13:30");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","Scotiabank Theatre Winnipeg","14:20");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","Scotiabank Theatre Winnipeg","20:45");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","SilverCity St.Vital Cinemas","15:45");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","SilverCity St.Vital Cinemas","18:30");
+        seats.add(seat);
+
+        seat=new Seat("Tomb Raider","SilverCity St.Vital Cinemas","21:40");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","Cinema City Northgate","12:20");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","Cinema City Northgate","15:30");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","Cinema City Northgate","18:10");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","Cineplex Odeon McGillivray Cinemas","13:00");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","Cineplex Odeon McGillivray Cinemas","17:30");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","Cineplex Odeon McGillivray Cinemas","21:20");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","Famous Players Kildonan Place Cinemas","13:00");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","Famous Players Kildonan Place Cinemas","18:00");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","Famous Players Kildonan Place Cinemas","21:00");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","Scotiabank Theatre Winnipeg","12:30");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","Scotiabank Theatre Winnipeg","16:20");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","Scotiabank Theatre Winnipeg","21:00");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","SilverCity St.Vital Cinemas","14:50");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","SilverCity St.Vital Cinemas","18:40");
+        seats.add(seat);
+
+        seat=new Seat("Unforgettable","SilverCity St.Vital Cinemas","21:50");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Cinema City Northgate","14:00");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Cinema City Northgate","17:40");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Cinema City Northgate","20:30");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Cinema City Northgate","23:40");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Cineplex Odeon McGillivray Cinemas","14;40");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Cineplex Odeon McGillivray Cinemas","18:00");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Cineplex Odeon McGillivray Cinemas","21:20");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Famous Players Kildonan Place Cinemas","13:20");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Famous Players Kildonan Place Cinemas","16:50");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Famous Players Kildonan Place Cinemas","19:10");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Famous Players Kildonan Place Cinemas","22:00");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Scotiabank Theatre Winnipeg","13:30");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Scotiabank Theatre Winnipeg","17:40");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","Scotiabank Theatre Winnipeg","20:25");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","SilverCity St.Vital Cinemas","12:00");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","SilverCity St.Vital Cinemas","15:20");
+        seats.add(seat);
+
+        seat=new Seat("Winchester","SilverCity St.Vital Cinemas","19:40");
+        seats.add(seat);
+
         System.out.println("Opened " +dbType +" database " +dbName);
     }
 
@@ -419,5 +789,60 @@ public class DataAccessStub implements DataAccess
         return null; //if cannot find the theater
     }
 
+    @Override
+    public String updateStatus(MT seat, String time, int row, int col)
+    {
+        String result=null;
+        for(int i=0; i<seats.size(); i++)
+        {
+            if(seat.getMovieName()==seats.get(i).getMovieName() && seat.getTheaterName()==seats.get(i).getTheaterName() && time==seats.get(i).getShowtime())
+            {
+                seats.get(i).getTable()[row][col]=1;
+            }
+        }
+        return result;
+    }
 
+
+    @Override
+    public int countRemain(MT seat, String time)
+    {
+        int result=0;
+        int[][] table;
+        for(int i=0; i<seats.size(); i++)
+        {
+            if(seat.getMovieName()==seats.get(i).getMovieName() && seat.getTheaterName()==seats.get(i).getTheaterName() && time==seats.get(i).getShowtime())
+            {
+                table=seats.get(i).getTable();
+                for(int m=0;m<table.length;m++)
+                {
+                    for(int n=0;n<table[m].length;n++)
+                    {
+                        if(table[m][n]==0)
+                        {
+                            result++;
+                        }
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public int checkStatus(MT seat, String time, int row, int col)
+    {
+        int result=-1;
+        for(int i=0; i<seats.size(); i++)
+        {
+            if(seat.getMovieName()==seats.get(i).getMovieName() && seat.getTheaterName()==seats.get(i).getTheaterName() && time==seats.get(i).getShowtime())
+            {
+                if(seats.get(i).getTable()[row][col]==0)
+                    result=0;
+                else
+                    result=1;
+            }
+        }
+        return result;
+    }
 }
