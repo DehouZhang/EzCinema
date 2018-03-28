@@ -245,7 +245,6 @@ public class BusinessPersistenceSeamTest extends TestCase {
         }
     }
 
-
     public void testAccessSeats() {
 
         AccessMT accessorMT;
@@ -396,7 +395,7 @@ public class BusinessPersistenceSeamTest extends TestCase {
         }
     }
 
-    public void testManageTicketsTest() {
+    public void testManageTickets() {
 
 
         ManageTickets accessorMT;
