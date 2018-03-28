@@ -264,6 +264,10 @@ March 23
 
 	Fixed GUI implementation bug that the show time spinner always select its first item (Qin Yang, 2 hours)
 	
+	Added data to script to store seats information (Dehou Zhang, 3hours)
+	Added 3 methods to handle seat selection(Dehou Zhang, 2hours)
+	Fixed bugs in script.(Dehou Zhang, 1hour)
+	
 March 24
 	Created new Ticket activity to display bought tickets (Dow Griffith, 1.5 hours)
 	Started acceptance test for discover movies (Dow Griffith, 1 hour)
@@ -280,5 +284,10 @@ March 27
 	Bug fixes and integration (Dow Griffith, 9 hours)
 	Group seats classes tests into one class test as countRemaining, getSeatTable, updateSeats are grouped into 
 	one AccessSeats class (Qin Yang, 1 hour)
+	Add real data to stub and methods(Dehou Zhang 2hours)
+	Fix structure error for seat selection(Dehou Zhang, 2 hours)
+	Built database testing for both SQL and stub(Dehou Zhang, 4hours)
+	Fix bugs about database testing(Dehou Zhang, 2hours)
+	
 	
 	
