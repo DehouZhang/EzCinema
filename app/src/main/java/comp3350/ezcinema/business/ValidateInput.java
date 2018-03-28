@@ -25,7 +25,7 @@ public class ValidateInput {
         String cvvText = cvv.getText().toString().trim();
         valid = true;
 
-        if(creditText.length() != 9 || creditText.contains("[a-zA-Z]+") == true || creditText.contains("[0-9]+") == false)
+        if(creditText.length() != 9 || creditText.contains("[a-zA-Z]+") == true)
         {
             valid = false;
         }

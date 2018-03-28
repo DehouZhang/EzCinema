@@ -200,7 +200,7 @@ public class CheckoutActivity extends AppCompatActivity
         {
             editText1 = (EditText)findViewById(R.id.editTextScene);
             editText2 = (EditText)findViewById(R.id.editTextPin);
-            
+
             validated = isValid.isValidScene(editText1,editText2);
 
             if(validated)
