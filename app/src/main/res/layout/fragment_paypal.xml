@@ -15,7 +15,6 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView9"
             android:ems="10"
-            android:inputType="number"
             android:maxLength="9"
             android:selectAllOnFocus="false"
             tools:layout_editor_absoluteX="0dp"
