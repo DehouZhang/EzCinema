@@ -2,15 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/whiteTransparent"
         android:text="Please Select Your Seat"
         android:textColor="@android:color/black"
-        android:textSize="32sp"
+        android:textSize="40sp"
         android:typeface="normal" />
     <View
         android:id="@+id/seperator1"
@@ -23,12 +29,9 @@
     <GridView
         android:id="@+id/seatGridView"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="400sp"
+        android:background="@color/whiteTransparent"
         android:numColumns="5"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
         android:verticalSpacing="20dp"
         android:horizontalSpacing="20dp">
 
@@ -45,9 +48,12 @@
     <Button
         android:id="@+id/confrimButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="225sp"
         android:layout_weight="1"
-        android:text="Confirm" />
+        android:background="@color/whiteTransparent"
+        android:text="Confirm"
+        android:textColor="@android:color/black"
+        android:textSize="40sp" />
 
 
 </LinearLayout>
