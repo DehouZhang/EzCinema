@@ -12,6 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import comp3350.ezcinema.R;
+import comp3350.ezcinema.business.AccessSeat;
 import comp3350.ezcinema.objects.MT;
 
 public class SeatSelectActvity extends AppCompatActivity {
@@ -25,8 +26,7 @@ public class SeatSelectActvity extends AppCompatActivity {
 
     MT mtPassed;
     String showtime;
-    getSeatsTable table;
-    UpdateSeat updates;
+    AccessSeat accessSeat;
 
     //view
     GridView seatGridView;
@@ -44,9 +44,7 @@ public class SeatSelectActvity extends AppCompatActivity {
     }
 
     private void initializeData(){
-        table = new getSeatsTable();
-        updates = new UpdateSeat();
-
+        accessSeat = new AccessSeat();
         temptable = new ArrayList<>();
 
         mtPassed = (MT) getIntent().getExtras().getSerializable("MTPassed");
@@ -54,7 +52,7 @@ public class SeatSelectActvity extends AppCompatActivity {
         numTicket = (int)getIntent().getExtras().getSerializable("AmountPassed");
 
         count = numTicket;
-        seats = table.getSeatTable(mtPassed,showtime);
+        seats = accessSeat.getSeatTable(mtPassed,showtime);
 
     }
 
@@ -102,21 +100,13 @@ public class SeatSelectActvity extends AppCompatActivity {
 
     private void selection() {
         if(count == 0) {
-            //update database
-            int row,col,index;
-            for (index = 0; index <temptable.size();index++){
-                row = temptable.get(index)[0];
-                col = temptable.get(index)[1];
-                updates.updateSeatStatus(mtPassed,showtime,row,col);
-            }
             //pass data
             Intent intent = new Intent(SeatSelectActvity.this, CheckoutActivity.class);
             Bundle extras = new Bundle();
-            extras.putSerializable("MovieNamePassed",mtPassed.getMovieName());
-            extras.putSerializable("TheaterNamePassed",mtPassed.getTheaterName());
+            extras.putSerializable("MTPassed",mtPassed);
             extras.putSerializable("ShowTimePassed",showtime);
             extras.putSerializable("AmountPassed",numTicket);
-            extras.putSerializable("SeatsPassed",seats);
+            extras.putSerializable("TempTablePassed",temptable);
             intent.putExtras(extras);
             startActivity(intent);
 

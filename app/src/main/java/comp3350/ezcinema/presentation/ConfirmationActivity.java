@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import comp3350.ezcinema.R;
+import comp3350.ezcinema.business.AccessSeat;
 import comp3350.ezcinema.business.AccessTheater;
 import comp3350.ezcinema.objects.MT;
 
@@ -25,7 +27,7 @@ public class ConfirmationActivity extends AppCompatActivity
     private ArrayList<String> showtimes;
     private ArrayAdapter<String> showtimeAdapter;
     private AccessTheater accessTheater;
-    private CountSeat countSeat;
+    private AccessSeat countSeat;
     private int amount;
     private  String selectedShowTime;
 
@@ -53,7 +55,7 @@ public class ConfirmationActivity extends AppCompatActivity
         showtimes = passedMT.getShowtime();
 
         accessTheater = new AccessTheater();
-        countSeat = new CountSeat();
+        countSeat = new AccessSeat();
     }
 
     private void initializeViews()
@@ -76,7 +78,18 @@ public class ConfirmationActivity extends AppCompatActivity
     {
         showtimeAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,android.R.id.text1, showtimes);
         spinnerShowTime.setAdapter(showtimeAdapter);
-        selectedShowTime = spinnerShowTime.getSelectedItem().toString();
+
+        spinnerShowTime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedShowTime = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                //do nothing, always have 1 item selected
+            }
+        });
     }
 
     private void confirmClicked()
