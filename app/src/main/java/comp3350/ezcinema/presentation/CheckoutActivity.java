@@ -180,7 +180,11 @@ public class CheckoutActivity extends AppCompatActivity
             editText2 = (EditText)findViewById(R.id.editTextExpiry);
             editText3 = (EditText)findViewById(R.id.editTextCvv);
 
-            validated = isValid.isValidCredit(editText1,editText2,editText3);
+            String creditText = editText1.getText().toString().trim();
+            String dateText = editText2.getText().toString().trim();
+            String cvvText = editText3.getText().toString().trim();
+
+            validated = isValid.isValidCredit(creditText,dateText,cvvText);
 
             if(validated)
             {
@@ -197,7 +201,10 @@ public class CheckoutActivity extends AppCompatActivity
             editText1 = (EditText)findViewById(R.id.editTextEmail);
             editText2 = (EditText)findViewById(R.id.editTextPassword);
 
-            validated = isValid.isValidPaypal(editText1,editText2);
+            String emailText = editText1.getText().toString().trim();
+            String passwordText = editText2.getText().toString().trim();
+
+            validated = isValid.isValidPaypal(emailText,emailText);
 
             if(validated)
             {

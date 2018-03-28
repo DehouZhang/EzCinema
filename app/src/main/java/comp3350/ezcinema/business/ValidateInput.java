@@ -19,10 +19,7 @@ public class ValidateInput {
         curYear = now.get(Calendar.YEAR);
     }
 
-    public boolean isValidCredit(EditText credit, EditText date, EditText cvv){
-        String creditText = credit.getText().toString().trim();
-        String dateText = date.getText().toString().trim();
-        String cvvText = cvv.getText().toString().trim();
+    public boolean isValidCredit(String creditText, String dateText, String cvvText){
         boolean validDate = false;
         valid = true;
 
@@ -54,9 +51,7 @@ public class ValidateInput {
         return valid;
     }
 
-    public boolean isValidPaypal(EditText email, EditText password){
-        String emailText = email.getText().toString().trim();
-        String passwordText = password.getText().toString().trim();
+    public boolean isValidPaypal(String emailText, String passwordText){
         valid = true;
 
         if(emailText.length() > 20 || emailText.length() < 3 || !emailText.contains("@"))
@@ -109,7 +104,7 @@ public class ValidateInput {
 
         if(convertYear == lastTwoNumYear)
         {
-            if(convertMonth > curMonth)
+            if(convertMonth > curMonth && convertMonth < 13)
             {
                 validDate = true;
             }
