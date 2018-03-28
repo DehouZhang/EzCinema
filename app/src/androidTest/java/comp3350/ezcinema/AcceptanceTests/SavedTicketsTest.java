@@ -35,7 +35,7 @@ public class SavedTicketsTest extends ActivityInstrumentationTestCase2<HomeActiv
         solo.clickOnRadioButton(0);
         solo.waitForFragmentByTag("FragmentCredit");
         solo.enterText(2, "1582 3654 2478 6987");
-        solo.enterText(1, "10/21");
+        solo.enterText(1, "1021");
         solo.enterText(0,"222");
         solo.clickOnButton("Purchase");
         solo.waitForActivity("TicketActivity");
@@ -57,7 +57,7 @@ public class SavedTicketsTest extends ActivityInstrumentationTestCase2<HomeActiv
         solo.clickOnRadioButton(0);
         solo.waitForFragmentByTag("FragmentCredit");
         solo.enterText(2, "1582 3654 2478 6987");
-        solo.enterText(1, "10/21");
+        solo.enterText(1, "1021");
         solo.enterText(0,"222");
         solo.clickOnButton("Purchase");
         solo.waitForActivity("TicketActivity");

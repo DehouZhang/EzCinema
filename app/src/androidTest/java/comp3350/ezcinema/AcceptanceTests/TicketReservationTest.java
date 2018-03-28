@@ -65,7 +65,7 @@ public class TicketReservationTest extends ActivityInstrumentationTestCase2<Home
         assertTrue(solo.searchText("CVV"));
 
         solo.enterText(2, "1582 3654 2478 6987");
-        solo.enterText(1, "10/21");
+        solo.enterText(1, "1021");
         solo.enterText(0,"222");
 
         solo.clickOnButton("Purchase");
@@ -176,8 +176,10 @@ public class TicketReservationTest extends ActivityInstrumentationTestCase2<Home
 
 
         solo.enterText(2, "1582 3654 2478 6980");
-        solo.enterText(1, "10/21");
+        solo.enterText(1, "1021");
         solo.enterText(0,"222");
+
+        solo.clickOnButton("Purchase");
 
         solo.waitForActivity("TicketActivity");
         solo.assertCurrentActivity("Expected activity: TicketActivity", "TicketActivity");
@@ -199,8 +201,8 @@ public class TicketReservationTest extends ActivityInstrumentationTestCase2<Home
         solo.assertCurrentActivity("Expected activity: ConfirmationActivity", "ConfirmationActivity");
         solo.waitForActivity("ConfirmationActivity");
 
-        solo.pressSpinnerItem(0,2);
-        assertTrue(solo.isSpinnerTextSelected("20:25"));
+        solo.pressSpinnerItem(0,0);
+        assertTrue(solo.isSpinnerTextSelected("15:30"));
 
         solo.enterText(0, "1");
 
@@ -257,16 +259,13 @@ public class TicketReservationTest extends ActivityInstrumentationTestCase2<Home
         solo.assertCurrentActivity("Expected activity: ConfirmationActivity", "ConfirmationActivity");
         solo.waitForActivity("ConfirmationActivity");
 
-        solo.pressSpinnerItem(0,2);
-        assertTrue(solo.isSpinnerTextSelected("20:25"));
-
         solo.enterText(0, "1");
 
         solo.clickOnText("Confirm");
         solo.waitForActivity("SeatSelectActivity");
         solo.assertCurrentActivity("Exepected activity: SeatSelectActivity", "SeatSelectActivity");
 
-        solo.clickOnText("2,4");
+        solo.clickOnText("2,1");
         solo.clickOnText("Confirm");
 
         solo.waitForActivity("CheckoutActivity");
