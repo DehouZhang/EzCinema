@@ -5,6 +5,7 @@ import junit.framework.TestCase;
 import java.util.ArrayList;
 
 import comp3350.ezcinema.business.AccessMT;
+import comp3350.ezcinema.objects.Seat;
 import comp3350.ezcinema.objects.Theater;
 import comp3350.ezcinema.objects.Movie;
 import comp3350.ezcinema.objects.MT;
@@ -16,12 +17,13 @@ import static org.junit.Assert.assertArrayEquals;
 public class DataAccessTest extends TestCase
 {
     private DataAccess dataAccess;
-    private AccessMT accessorMT;
+
+  /*  private AccessMT accessorMT;
     // private ManageTickets accessorManage;
     // private Ticket ticket,testTicket;
     private ArrayList tickets,listoftickets;
     private MT testMT,testMT2;
-
+*/
 
     public DataAccessTest(String arg0)
     {
@@ -30,17 +32,18 @@ public class DataAccessTest extends TestCase
 
     public void setUp()
     {
-        Main.startUp();
+        //Main.startUp();
 
         System.out.println("\nStarting Persistence test DataAccess (using stub)");
         // Use the following statements to run with the stub database:
-        //dataAccess = new DataAccessStub();
-        //dataAccess.open("Stub");
+        dataAccess = new DataAccessStub();
+        dataAccess.open("Stub");
         //or switch to the real database:
-        dataAccess = new DataAccessObject(Main.dbName);
-        dataAccess.open(Main.getDBPathName());
+        //dataAccess = new DataAccessObject(Main.dbName);
+        //dataAccess.open(Main.getDBPathName());
 
 
+    /*
         accessorMT = new AccessMT();
         //accessorManage = new ManageTickets();
         //tickets = new ArrayList<Ticket>();
@@ -51,6 +54,9 @@ public class DataAccessTest extends TestCase
 
         testMT2 = accessorMT.getMT(new Movie("Jumangi: Welcome to the Jungle", "Four teenagers are sucked into a magical video game, and the only way they can escape is to work together to finish the game.", "Thriller", 5.8)
                 ,new Theater( "Cinema City Northgate","1399 McPhillips Street"));
+
+      */
+
 
     }
 
@@ -299,8 +305,130 @@ public class DataAccessTest extends TestCase
      }
 
 
+    public void testCountRemain()
+    {
+        ArrayList<String> showtimes=new ArrayList<>();
+        MT mt;
+        showtimes.clear();
+        showtimes.add("14:40");
+        showtimes.add("19:20");
+        showtimes.add("23:30");
+        mt = new MT("Tomb Raider","Famous Players Kildonan Place Cinemas",showtimes);
+        assertEquals(25,dataAccess.countRemain(mt,"14:40"));
+        dataAccess.updateStatus(mt,"14:40",0,0);
+        assertEquals(24,dataAccess.countRemain(mt,"14:40"));
+        dataAccess.updateStatus(mt,"14:40",0,1);
+        dataAccess.updateStatus(mt,"14:40",0,2);
+        dataAccess.updateStatus(mt,"14:40",0,3);
+        dataAccess.updateStatus(mt,"14:40",0,4);
+        dataAccess.updateStatus(mt,"14:40",1,0);
+        assertEquals(19,dataAccess.countRemain(mt,"14:40"));
 
-    public void testUpdateStatus(){
+        showtimes.clear();
+        showtimes.add("12:00");
+        showtimes.add("15:20");
+        showtimes.add("19:40");
+        mt= new MT("Winchester","SilverCity St.Vital Cinemas",showtimes);
+        assertEquals(25,dataAccess.countRemain(mt,"12:00"));
+        dataAccess.updateStatus(mt,"12:00",0,0);
+        assertEquals(24,dataAccess.countRemain(mt,"12:00"));
+        dataAccess.updateStatus(mt,"12:00",0,1);
+        assertEquals(23,dataAccess.countRemain(mt,"12:00"));
+        dataAccess.updateStatus(mt,"12:00",0,2);
+        dataAccess.updateStatus(mt,"12:00",0,3);
+        assertEquals(21,dataAccess.countRemain(mt,"12:00"));
+        dataAccess.updateStatus(mt,"12:00",0,4);
+        dataAccess.updateStatus(mt,"12:00",1,1);
+        dataAccess.updateStatus(mt,"12:00",1,2);
+        assertEquals(18,dataAccess.countRemain(mt,"12:00"));
+        dataAccess.updateStatus(mt,"12:00",1,3);
+        dataAccess.updateStatus(mt,"12:00",1,4);
+        assertEquals(16,dataAccess.countRemain(mt,"12:00"));
+
+    }
+
+    public void testCheckStatus()
+    {
+        ArrayList<String> showtimes=new ArrayList<>();
+        MT mt;
+        showtimes.add("14:40");
+        showtimes.add("18:00");
+        showtimes.add("21:20");
+        mt = new MT("Peter Rabbit","Cinema City Northgate",showtimes);
+        assertEquals(0,dataAccess.checkStatus(mt,"14:40",0,0));
+        assertEquals(0,dataAccess.checkStatus(mt,"14:40",3,1));
+        assertEquals(0,dataAccess.checkStatus(mt,"14:40",4,3));
+        dataAccess.updateStatus(mt,"14:40",0,0);
+        assertEquals(1,dataAccess.checkStatus(mt,"14:40",0,0));
+        dataAccess.updateStatus(mt,"14:40",3,1);
+        assertEquals(1,dataAccess.checkStatus(mt,"14:40",3,1));
+        dataAccess.updateStatus(mt,"14:40",4,3);
+        assertEquals(1,dataAccess.checkStatus(mt,"14:40",4,3));
+
+        assertEquals(0,dataAccess.checkStatus(mt,"18:00",0,0));
+        assertEquals(0,dataAccess.checkStatus(mt,"18:00",3,1));
+        assertEquals(0,dataAccess.checkStatus(mt,"18:00",4,3));
+        dataAccess.updateStatus(mt,"18:00",0,0);
+        assertEquals(1,dataAccess.checkStatus(mt,"18:00",0,0));
+        dataAccess.updateStatus(mt,"18:00",3,1);
+        assertEquals(1,dataAccess.checkStatus(mt,"18:00",3,1));
+        dataAccess.updateStatus(mt,"18:00",4,3);
+        assertEquals(1,dataAccess.checkStatus(mt,"18:00",4,3));
+    }
+    public void testUpdateStatus()
+    {
+        System.out.println("\nStarting testUpdateStatus()");
+        MT mt;
+        ArrayList<String> showtimes=new ArrayList<>();
+
+        showtimes.clear();
+        showtimes.add("10:40");
+        showtimes.add("14:20");
+        showtimes.add("19:50");
+        mt = new MT("Ferdinand","Cinema City Northgate",showtimes);
+        for(int i=0;i<showtimes.size();i++)
+        {
+            assertNull(dataAccess.updateStatus(mt, showtimes.get(i), 3, 2));
+            assertEquals(1, dataAccess.checkStatus(mt, showtimes.get(i), 3, 2));
+        }
+
+        showtimes.clear();;
+        showtimes.add("12:00");
+        showtimes.add("15:20");
+        showtimes.add("19:40");
+        mt=new MT("Fifty Shades Freed","Cineplex Odeon McGillivray Cinemas",showtimes);
+        for(int i=0;i<showtimes.size();i++)
+        {
+            assertNull(dataAccess.updateStatus(mt, showtimes.get(i), 0, 1));
+            assertEquals(1, dataAccess.checkStatus(mt, showtimes.get(i), 0, 1));
+        }
+
+        showtimes.clear();
+        showtimes.add("12:00");
+        showtimes.add("15:20");
+        showtimes.add("19:40");
+        mt=new MT("Jumangi: Welcome to the Jungle","SilverCity St.Vital Cinemas",showtimes);
+        for(int i=0;i<showtimes.size();i++)
+        {
+            assertNull(dataAccess.updateStatus(mt, showtimes.get(i), 0, 1));
+            assertEquals(1, dataAccess.checkStatus(mt, showtimes.get(i), 0, 1));
+        }
+
+        showtimes.clear();
+        showtimes.add("14:40");
+        showtimes.add("17:40");
+        showtimes.add("20:30");
+        showtimes.add("23:40");
+        mt=new MT("Peter Rabbit","Cineplex Odeon McGillivray Cinemas",showtimes);
+        for(int i=0;i<showtimes.size();i++)
+        {
+            assertNull(dataAccess.updateStatus(mt, showtimes.get(i), 2, 4));
+            assertEquals(1, dataAccess.checkStatus(mt, showtimes.get(i), 2, 4));
+        }
+    }
+}
+
+/*   public void testUpdateStatus(){
 
         ///try with improper details
         //bad showtime
@@ -448,8 +576,4 @@ public class DataAccessTest extends TestCase
 
 
 
-
-
-
-
-}
+*/
