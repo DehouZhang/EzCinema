@@ -209,6 +209,7 @@ public class CheckoutActivity extends AppCompatActivity
             else
             {
                 Toast.makeText(this, "Invalid Scene Info", Toast.LENGTH_SHORT).show();
+
             }
         }
         else
