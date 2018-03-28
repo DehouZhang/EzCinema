@@ -13,8 +13,10 @@ import comp3350.ezcinema.tests.business.ManageTicketsTest;
 import comp3350.ezcinema.tests.business.SortMovieTest;
 import comp3350.ezcinema.tests.business.SortTheaterTest;
 import comp3350.ezcinema.tests.integration.BusinessPersistenceSeamTest;
+import comp3350.ezcinema.tests.integration.DataAccessHSQLDBTest;
 import comp3350.ezcinema.tests.objects.MTTest;
 import comp3350.ezcinema.tests.objects.MovieTest;
+import comp3350.ezcinema.tests.objects.SeatTest;
 import comp3350.ezcinema.tests.objects.TheaterTest;
 import comp3350.ezcinema.tests.objects.MTTest;
 import comp3350.ezcinema.tests.objects.TicketTest;
@@ -41,9 +43,8 @@ public class AllTests
         suite.addTestSuite(MTTest.class);
         suite.addTestSuite(TheaterTest.class);
         suite.addTestSuite(TicketTest.class);
+        suite.addTestSuite(SeatTest.class);
 
-
-        //write seat test
     }
 
     private static void testBusiness()
@@ -63,6 +64,8 @@ public class AllTests
     private static void testIntegration()
     {
         suite.addTestSuite(BusinessPersistenceSeamTest.class);
+        suite.addTestSuite(DataAccessHSQLDBTest.class);
+
     }
 
 
