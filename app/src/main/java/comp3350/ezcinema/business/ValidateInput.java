@@ -28,17 +28,17 @@ public class ValidateInput {
 
         //Log.i("tag", ""+creditText+":"+creditText.length());
 
-        if(creditText.length() != 9)
+        if(creditText.length() != 9 || creditText.contains("[a-zA-Z]+") == true)
         {
             valid = false;
         }
 
-        if(dateText.length() != 4)
+        if(dateText.length() != 4 || creditText.contains("[a-zA-Z]+") == true)
         {
             valid = false;
         }
 
-        if(cvvText.length() != 3)
+        if(cvvText.length() != 3 || creditText.contains("[a-zA-Z]+") == true)
         {
             valid = false;
         }
@@ -51,6 +51,15 @@ public class ValidateInput {
         String passwordText = password.getText().toString().trim();
         valid = true;
 
+        if(emailText.length() > 20 || emailText.length() < 3)
+        {
+            valid = false;
+        }
+
+        if(passwordText.length() < 5 || passwordText.length() > 20)
+        {
+            valid = false;
+        }
 
         return valid;
     }
@@ -59,6 +68,17 @@ public class ValidateInput {
         String sceneNoText = sceneNo.getText().toString().trim();
         String pinText = pin.getText().toString().trim();
         valid = true;
+
+        Log.i("tag", ""+sceneNoText+":"+sceneNoText.length());
+        //if(sceneNoText.length() != 9)
+        //{
+        //    valid = false;
+        //}
+
+        if(pinText.length() != 4)
+        {
+            valid = false;
+        }
 
         return valid;
     }
