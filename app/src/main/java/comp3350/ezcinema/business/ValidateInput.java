@@ -10,6 +10,7 @@ public class ValidateInput {
     private Calendar now;
     private int curMonth;
     private int curYear;
+    private String message;
 
     public ValidateInput() {
         valid = true;
@@ -35,16 +36,19 @@ public class ValidateInput {
         if(creditText.length() != 9 || creditText.contains("[a-zA-Z]+") == true)
         {
             valid = false;
+            message = "credit card number must be 9 digits";
         }
 
         if(dateText.length() != 4 || creditText.contains("[a-zA-Z]+") == true || !validDate)
         {
             valid = false;
+            message = "credit card expired or date invalid";
         }
 
         if(cvvText.length() != 3 || creditText.contains("[a-zA-Z]+") == true)
         {
             valid = false;
+            message = "cvv must be 3 digits";
         }
 
         return valid;
@@ -55,14 +59,16 @@ public class ValidateInput {
         String passwordText = password.getText().toString().trim();
         valid = true;
 
-        if(emailText.length() > 20 || emailText.length() < 3)
+        if(emailText.length() > 20 || emailText.length() < 3 || !emailText.contains("@"))
         {
             valid = false;
+            message = "email must be valid and at least 3 and no longer than 20 characters";
         }
 
         if(passwordText.length() < 5 || passwordText.length() > 20)
         {
             valid = false;
+            message = "password must be at least 5 and no longer than 20 characters";
         }
 
         return valid;
@@ -73,14 +79,16 @@ public class ValidateInput {
         String pinText = pin.getText().toString().trim();
         valid = true;
 
-        if(sceneNoText.length() != 9)
+        if(sceneNoText.length() != 9 || sceneNoText.contains("[a-zA-Z]+") == true)
         {
             valid = false;
+            message = "Scene Card number must be 9 Digits";
         }
 
-        if(pinText.length() != 4)
+        if(pinText.length() != 4 || sceneNoText.contains("[a-zA-Z]+") == true)
         {
             valid = false;
+            message = "Pin must be 4 Digits";
         }
 
         return valid;
@@ -94,16 +102,27 @@ public class ValidateInput {
         int convertMonth = Integer.parseInt(month);
         int convertYear = Integer.parseInt(year);
 
-        if(convertYear >= lastTwoNumYear)
+        if(convertYear > lastTwoNumYear)
         {
-            if(convertMonth >= curMonth)
+            validDate = true;
+        }
+
+        if(convertYear == lastTwoNumYear)
+        {
+            if(convertMonth > curMonth)
             {
                 validDate = true;
             }
         }
 
         return validDate;
-
     }
+
+    public String specificMessage()
+    {
+        return message;
+    }
+
+
 
 }

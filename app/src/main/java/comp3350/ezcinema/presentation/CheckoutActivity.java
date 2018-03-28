@@ -165,10 +165,12 @@ public class CheckoutActivity extends AppCompatActivity
     private void checkInput()
     {
         boolean validated;
+        String message;
         EditText editText1;
         EditText editText2;
         EditText editText3;
 
+        message = "";
         validated = false;
 
 
@@ -186,7 +188,8 @@ public class CheckoutActivity extends AppCompatActivity
             }
             else
             {
-                Toast.makeText(this, "Invalid Credit Info", Toast.LENGTH_SHORT).show();
+                message = isValid.specificMessage();
+                Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
             }
         }
         else if(paypalCheck)
@@ -202,7 +205,8 @@ public class CheckoutActivity extends AppCompatActivity
             }
             else
             {
-                Toast.makeText(this, "Invalid Paypal Info", Toast.LENGTH_SHORT).show();
+                message = isValid.specificMessage();
+                Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();;
             }
         }
         else if(sceneCheck)
@@ -218,8 +222,8 @@ public class CheckoutActivity extends AppCompatActivity
             }
             else
             {
-                Toast.makeText(this, "Invalid Scene Info", Toast.LENGTH_SHORT).show();
-
+                message = isValid.specificMessage();
+                Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
             }
         }
         else
