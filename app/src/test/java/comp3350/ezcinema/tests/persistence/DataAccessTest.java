@@ -282,39 +282,41 @@ public class DataAccessTest extends TestCase
     {
         ArrayList<String> showtimes=new ArrayList<>();
         MT mt;
-        showtimes.add("12:00");
-        showtimes.add("16:30");
-        showtimes.add("20:50");
-        mt = new MT("Tomb Raider","Cinema City Northgate",showtimes);
-        assertEquals(25,dataAccess.countRemain(mt,"12:00"));
-        dataAccess.updateStatus(mt,"12:00",0,0);
-        assertEquals(24,dataAccess.countRemain(mt,"12:00"));
-        dataAccess.updateStatus(mt,"12:00",0,1);
-        dataAccess.updateStatus(mt,"12:00",0,2);
-        dataAccess.updateStatus(mt,"12:00",0,3);
-        dataAccess.updateStatus(mt,"12:00",0,4);
-        dataAccess.updateStatus(mt,"12:00",1,0);
-        assertEquals(19,dataAccess.countRemain(mt,"12:00"));
+        showtimes.clear();
+        showtimes.add("14:40");
+        showtimes.add("19:20");
+        showtimes.add("23:30");
+        mt = new MT("Tomb Raider","Famous Players Kildonan Place Cinemas",showtimes);
+        assertEquals(25,dataAccess.countRemain(mt,"14:40"));
+        dataAccess.updateStatus(mt,"14:40",0,0);
+        assertEquals(24,dataAccess.countRemain(mt,"14:40"));
+        dataAccess.updateStatus(mt,"14:40",0,1);
+        dataAccess.updateStatus(mt,"14:40",0,2);
+        dataAccess.updateStatus(mt,"14:40",0,3);
+        dataAccess.updateStatus(mt,"14:40",0,4);
+        dataAccess.updateStatus(mt,"14:40",1,0);
+        assertEquals(19,dataAccess.countRemain(mt,"14:40"));
 
+        showtimes.clear();
         showtimes.add("12:00");
         showtimes.add("15:20");
         showtimes.add("19:40");
         mt= new MT("Winchester","SilverCity St.Vital Cinemas",showtimes);
-        assertEquals(25,dataAccess.countRemain(mt,"15:20"));
-        dataAccess.updateStatus(mt,"15:20",0,0);
-        assertEquals(24,dataAccess.countRemain(mt,"15:20"));
-        dataAccess.updateStatus(mt,"15:20",0,1);
-        assertEquals(23,dataAccess.countRemain(mt,"15:20"));
-        dataAccess.updateStatus(mt,"15:20",0,2);
-        dataAccess.updateStatus(mt,"15:20",0,3);
-        assertEquals(21,dataAccess.countRemain(mt,"15:20"));
-        dataAccess.updateStatus(mt,"15:20",0,4);
-        dataAccess.updateStatus(mt,"15:20",1,1);
-        dataAccess.updateStatus(mt,"15:20",1,2);
-        assertEquals(18,dataAccess.countRemain(mt,"15:20"));
-        dataAccess.updateStatus(mt,"15:20",1,3);
-        dataAccess.updateStatus(mt,"15:20",1,4);
-        assertEquals(16,dataAccess.countRemain(mt,"15:20"));
+        assertEquals(25,dataAccess.countRemain(mt,"12:00"));
+        dataAccess.updateStatus(mt,"12:00",0,0);
+        assertEquals(24,dataAccess.countRemain(mt,"12:00"));
+        dataAccess.updateStatus(mt,"12:00",0,1);
+        assertEquals(23,dataAccess.countRemain(mt,"12:00"));
+        dataAccess.updateStatus(mt,"12:00",0,2);
+        dataAccess.updateStatus(mt,"12:00",0,3);
+        assertEquals(21,dataAccess.countRemain(mt,"12:00"));
+        dataAccess.updateStatus(mt,"12:00",0,4);
+        dataAccess.updateStatus(mt,"12:00",1,1);
+        dataAccess.updateStatus(mt,"12:00",1,2);
+        assertEquals(18,dataAccess.countRemain(mt,"12:00"));
+        dataAccess.updateStatus(mt,"12:00",1,3);
+        dataAccess.updateStatus(mt,"12:00",1,4);
+        assertEquals(16,dataAccess.countRemain(mt,"12:00"));
 
     }
 
@@ -322,30 +324,29 @@ public class DataAccessTest extends TestCase
     {
         ArrayList<String> showtimes=new ArrayList<>();
         MT mt;
-
-        showtimes.add("13:00");
+        showtimes.add("14:40");
         showtimes.add("18:00");
-        showtimes.add("21:00");
-        mt = new MT("Unforgettable","Famous Players Kildonan Place Cinemas",showtimes);
-        assertEquals(0,dataAccess.checkStatus(mt,"21:00",0,0));
-        assertEquals(0,dataAccess.checkStatus(mt,"21:00",3,1));
-        assertEquals(0,dataAccess.checkStatus(mt,"21:00",4,3));
-        dataAccess.updateStatus(mt,"21:00",0,0);
-        assertEquals(1,dataAccess.checkStatus(mt,"21:00",0,0));
-        dataAccess.updateStatus(mt,"21:00",3,1);
-        assertEquals(1,dataAccess.checkStatus(mt,"21:00",3,1));
-        dataAccess.updateStatus(mt,"21:00",4,3);
-        assertEquals(1,dataAccess.checkStatus(mt,"21:00",4,3));
+        showtimes.add("21:20");
+        mt = new MT("Peter Rabbit","Cinema City Northgate",showtimes);
+        assertEquals(0,dataAccess.checkStatus(mt,"14:40",0,0));
+        assertEquals(0,dataAccess.checkStatus(mt,"14:40",3,1));
+        assertEquals(0,dataAccess.checkStatus(mt,"14:40",4,3));
+        dataAccess.updateStatus(mt,"14:40",0,0);
+        assertEquals(1,dataAccess.checkStatus(mt,"14:40",0,0));
+        dataAccess.updateStatus(mt,"14:40",3,1);
+        assertEquals(1,dataAccess.checkStatus(mt,"14:40",3,1));
+        dataAccess.updateStatus(mt,"14:40",4,3);
+        assertEquals(1,dataAccess.checkStatus(mt,"14:40",4,3));
 
-        assertEquals(0,dataAccess.checkStatus(mt,"13:00",0,0));
-        assertEquals(0,dataAccess.checkStatus(mt,"13:00",3,1));
-        assertEquals(0,dataAccess.checkStatus(mt,"13:00",4,3));
-        dataAccess.updateStatus(mt,"13:00",0,0);
-        assertEquals(1,dataAccess.checkStatus(mt,"13:00",0,0));
-        dataAccess.updateStatus(mt,"13:00",3,1);
-        assertEquals(1,dataAccess.checkStatus(mt,"13:00",3,1));
-        dataAccess.updateStatus(mt,"13:00",4,3);
-        assertEquals(1,dataAccess.checkStatus(mt,"13:00",4,3));
+        assertEquals(0,dataAccess.checkStatus(mt,"18:00",0,0));
+        assertEquals(0,dataAccess.checkStatus(mt,"18:00",3,1));
+        assertEquals(0,dataAccess.checkStatus(mt,"18:00",4,3));
+        dataAccess.updateStatus(mt,"18:00",0,0);
+        assertEquals(1,dataAccess.checkStatus(mt,"18:00",0,0));
+        dataAccess.updateStatus(mt,"18:00",3,1);
+        assertEquals(1,dataAccess.checkStatus(mt,"18:00",3,1));
+        dataAccess.updateStatus(mt,"18:00",4,3);
+        assertEquals(1,dataAccess.checkStatus(mt,"18:00",4,3));
     }
     public void testUpdateStatus()
     {

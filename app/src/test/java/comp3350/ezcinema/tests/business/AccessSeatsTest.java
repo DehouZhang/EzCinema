@@ -17,14 +17,14 @@ public class AccessSeatsTest extends TestCase {
     private AccessSeat accessorST;
     private DataAccess dataAccess;
     private MT testMT;
-    private ManageTickets accessorManage;
+ //   private ManageTickets accessorManage;
 
     public void setUp() throws Exception {
         Main.startUp();
 
         accessorMT = new AccessMT();
         accessorST = new AccessSeat();
-        accessorManage = new ManageTickets();
+   //     accessorManage = new ManageTickets();
         dataAccess = Services.getDataAccess(Main.dbName);
 
         testMT = accessorMT.getMT(new Movie("Fifty Shades Freed", "Anastasia and Christian get married, but Jack Hyde continues to threaten their relationship", "Family", 6.4)
