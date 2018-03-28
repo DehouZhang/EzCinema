@@ -16,6 +16,7 @@ import comp3350.ezcinema.tests.business.getSeatsTableTest;
 import comp3350.ezcinema.tests.objects.MTTest;
 import comp3350.ezcinema.tests.objects.MovieTest;
 import comp3350.ezcinema.tests.objects.TheaterTest;
+import comp3350.ezcinema.tests.objects.TicketTest;
 import comp3350.ezcinema.tests.persistence.DataAccessTest;
 
 
@@ -37,7 +38,7 @@ public class AllTests
         suite.addTestSuite(MovieTest.class);
         suite.addTestSuite(MTTest.class);
         suite.addTestSuite(TheaterTest.class);
-        suite.addTestSuite(MTTest.class);
+        suite.addTestSuite(TicketTest.class);
     }
 
     private static void testBusiness()
