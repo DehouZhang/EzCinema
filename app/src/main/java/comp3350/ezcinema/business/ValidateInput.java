@@ -6,7 +6,6 @@ import java.util.Calendar;
 
 public class ValidateInput {
 
-    private String input;
     private boolean valid;
     private Calendar now;
     private int curMonth;
@@ -23,14 +22,22 @@ public class ValidateInput {
         String creditText = credit.getText().toString().trim();
         String dateText = date.getText().toString().trim();
         String cvvText = cvv.getText().toString().trim();
+        boolean validDate = false;
         valid = true;
+
+        if(dateText.length() == 4) {
+            String month = dateText.charAt(0) + "" + dateText.charAt(1);
+            String year = dateText.charAt(2) + "" + dateText.charAt(3);
+
+            validDate = isValidDate(month, year);
+        }
 
         if(creditText.length() != 9 || creditText.contains("[a-zA-Z]+") == true)
         {
             valid = false;
         }
 
-        if(dateText.length() != 4 || creditText.contains("[a-zA-Z]+") == true)
+        if(dateText.length() != 4 || creditText.contains("[a-zA-Z]+") == true || !validDate)
         {
             valid = false;
         }
@@ -77,6 +84,26 @@ public class ValidateInput {
         }
 
         return valid;
+    }
+
+    public boolean isValidDate(String month, String year) {
+
+        boolean validDate = false;
+
+        int lastTwoNumYear = (curYear % 100);
+        int convertMonth = Integer.parseInt(month);
+        int convertYear = Integer.parseInt(year);
+
+        if(convertYear >= lastTwoNumYear)
+        {
+            if(convertMonth >= curMonth)
+            {
+                validDate = true;
+            }
+        }
+
+        return validDate;
+
     }
 
 }
