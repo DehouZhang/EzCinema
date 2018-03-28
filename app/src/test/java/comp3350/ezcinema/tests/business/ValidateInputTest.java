@@ -40,10 +40,6 @@ public class ValidateInputTest extends TestCase
         assertFalse(valid);
 
         testText1.setText("123456789");
-        testText2.setText("0318");
-        assertFalse(valid);
-
-        testText1.setText("123456789");
         testText2.setText("0418");
         assertFalse(valid);
 
@@ -63,6 +59,6 @@ public class ValidateInputTest extends TestCase
         assertTrue(valid);
 
     }
-    
+
 
 }
